@@ -1,0 +1,11 @@
+{
+ "taxcalc": "6.9.0",
+ "year": 2025,
+ "policy": "current law; exact_calculations=True; eitc/actc claim_prob_scale 9e99 and claim_prob_min 1.0",
+ "input_map": "keycheck/map_taxcalc.py",
+ "input_map_version": "2026-11-10.1",
+ "unit_version": "2026-11-10.1",
+ "shared": "results/shared/board100_salt_from_pe2.60.0_2025.csv",
+ "numpy": "2.5.4",
+ "pandas": "3.1.1"
+}

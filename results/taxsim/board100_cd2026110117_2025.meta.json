@@ -1,0 +1,11 @@
+{
+ "taxsim_build": "cd2026110117",
+ "binary": "taxsimtest-osx.exe",
+ "year": 2025,
+ "dependents_path": "ages (age1..)",
+ "input_map": "keycheck/map_taxsim.py",
+ "input_map_version": "2026-11-10.1",
+ "unit_version": "2026-11-10.1",
+ "shared": "results/shared/board100_salt_from_pe2.60.0_2025.csv",
+ "rejected_records": 0
+}
