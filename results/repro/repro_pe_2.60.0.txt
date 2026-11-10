@@ -1,0 +1,42 @@
+policyengine-us 2.60.0, tax year 2026
+
+== credit for other dependents with no gross income test
+   ctc: [500.0]
+   non_refundable_ctc: [500.0]
+   income_tax_before_refundable_credits: [4740.0]
+   law: 26 U.S.C. 152(d)(1)(B): a qualifying relative's gross income must be under the exemption amount ($5,300 for 2026, Rev. Proc. 2025-32); a 27-year-old with $45,000 of wages is not a dependent, so no $500 credit (26 U.S.C. 24(h)(4)).
+
+== surviving spouse: child tax credit phase-out threshold
+   filing_status: ['SURVIVING_SPOUSE']
+   ctc: [2200.0]
+   ctc_phase_out: [0.0]
+   law: 26 U.S.C. 24(h)(3): $400,000 in the case of a joint return, $200,000 in any other case. At MAGI 300,000 one child's $2,200 credit is reduced by $50 x 100 = $5,000, to zero.
+
+== surviving spouse: vehicle loan interest phase-out start
+   filing_status: ['SURVIVING_SPOUSE']
+   auto_loan_interest_deduction: [5000.0]
+   law: 26 U.S.C. 163(h)(4)(C)(ii): reduced by $200 per $1,000 of MAGI over $100,000 ($200,000 for a joint return). At MAGI 150,000, $5,000 of interest is reduced by $10,000, to zero.
+
+== overtime deduction phase-out: continuous, where the form steps
+   adjusted_gross_income: [160500.0]
+   overtime_income_deduction: [11450.0]
+   law: 26 U.S.C. 225(b)(2): reduced by $100 for each $1,000 by which MAGI exceeds $150,000; Schedule 1-A drops a fraction of $1,000. At MAGI 160,500 the reduction is $1,000 and the deduction $11,500.
+
+== saver's credit: a spouse's distribution does not reduce the other spouse's contributions
+   adjusted_gross_income: [41000.0]
+   savers_credit: [880.0]
+   law: 26 U.S.C. 25B(d)(2)(D): on a joint return a distribution to either spouse reduces both spouses' contributions. Here $2,000 of contributions less $3,000 of distributions leaves nothing, so no credit.
+
+== rental income counts as qualified business income by default
+   qualified_business_income_deduction: [2000.0]
+   taxable_income: [41900.0]
+   law: 26 U.S.C. 199A(d)(1): a qualified trade or business. Rental real estate qualifies only if it rises to a trade or business (or meets Rev. Proc. 2019-38); the household states no such fact.
+
+== alimony paid is deductible when no divorce year is given
+   alimony_expense_ald: [5000.0]
+   adjusted_gross_income: [75000.0]
+   law: Pub. L. 115-97 sec. 11051: alimony under an instrument executed after 2018 is not deductible and not income. The engine's default divorce year is 2010.
+
+== the $400 minimum qualified business income deduction with no active-business test
+   qualified_business_income_deduction: [400.0]
+   law: 26 U.S.C. 199A(i): the minimum applies to a taxpayer with at least $1,000 of qualified business income from active trades or businesses in which the taxpayer materially participates.
