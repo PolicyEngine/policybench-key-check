@@ -112,7 +112,9 @@
      "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_118",
@@ -185,7 +187,9 @@
      "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -518,10 +522,8 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 0.0,
    "unexpressed": [
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)"
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -553,10 +555,8 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 0.0,
    "unexpressed": [
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)"
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -577,11 +577,8 @@
    "q_fed_employee_payroll_tax": 0.0,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: TAXSIM has no input for blindness (additional standard deduction, 26 U.S.C. 63(f)(2))",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
+    "income_tax: TAXSIM has no input for blindness (additional standard deduction, 26 U.S.C. 63(f)(2))"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
@@ -605,11 +602,8 @@
    "q_fed_employee_payroll_tax": 0.0,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: TAXSIM has no input for blindness (additional standard deduction, 26 U.S.C. 63(f)(2))",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
+    "income_tax: TAXSIM has no input for blindness (additional standard deduction, 26 U.S.C. 63(f)(2))"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

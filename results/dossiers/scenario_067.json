@@ -105,16 +105,17 @@
     "overtime_premium": 0.0,
     "tips": 0.0
    },
-   "dependents": [],
-   "left_out": [
+   "dependents": [
     {
      "name": "dependent1",
      "age": 23,
      "gross_income": 10800.0,
      "disabled": true,
-     "unmarried_partner": false
+     "unmarried_partner": false,
+     "kind": "qualifying_child"
     }
    ],
+   "left_out": [],
    "amounts": {
     "taxable_interest": 0.0,
     "tax_exempt_interest": 0.0,
@@ -157,18 +158,36 @@
    "notes": [
     [
      "income_tax",
-     "dependent1 (age 23, gross income 10,800) meets neither dependency test of 26 U.S.C. 152 on the stated facts and is not claimed"
+     "reading: dependent1 (age 23) is a qualifying child under this reading, left out without it. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it."
     ],
     [
      "income_tax",
-     "dependent1 has disability_benefits of their own, which is not income of the head's return"
+     "dependent1 has income of their own (disability_benefits), which is not income of the head's return"
     ],
     [
      "income_tax",
      "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ]
+   ],
+   "disabled_reading": [
+    {
+     "name": "dependent1",
+     "age": 23,
+     "gross_income": 10800.0,
+     "with_reading": "qualifying_child",
+     "without_reading": "left_out",
+     "income_readings_without": [
+      "disability_benefits"
+     ]
+    }
+   ]
   },
   "2025": {
    "case_id": "scenario_067",
@@ -211,16 +230,17 @@
     "overtime_premium": 0.0,
     "tips": 0.0
    },
-   "dependents": [],
-   "left_out": [
+   "dependents": [
     {
      "name": "dependent1",
      "age": 23,
      "gross_income": 10800.0,
      "disabled": true,
-     "unmarried_partner": false
+     "unmarried_partner": false,
+     "kind": "qualifying_child"
     }
    ],
+   "left_out": [],
    "amounts": {
     "taxable_interest": 0.0,
     "tax_exempt_interest": 0.0,
@@ -263,18 +283,36 @@
    "notes": [
     [
      "income_tax",
-     "dependent1 (age 23, gross income 10,800) meets neither dependency test of 26 U.S.C. 152 on the stated facts and is not claimed"
+     "reading: dependent1 (age 23) is a qualifying child under this reading, left out without it. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it."
     ],
     [
      "income_tax",
-     "dependent1 has disability_benefits of their own, which is not income of the head's return"
+     "dependent1 has income of their own (disability_benefits), which is not income of the head's return"
     ],
     [
      "income_tax",
      "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ]
+   ],
+   "disabled_reading": [
+    {
+     "name": "dependent1",
+     "age": 23,
+     "gross_income": 10800.0,
+     "with_reading": "qualifying_child",
+     "without_reading": "left_out",
+     "income_readings_without": [
+      "disability_benefits"
+     ]
+    }
+   ]
   }
  },
  "committed_key": {
@@ -330,11 +368,11 @@
   "2026, against the committed key": {
    "federal_income_tax_before_refundable_credits": {
     "key_run": "pb-reference-2.60.0",
-    "class": "two_agree:policyengine",
+    "class": "all_agree",
     "board_scores_it": "yes",
     "policyengine": 5616.24,
-    "taxcalc": 6116.24,
-    "taxsim": 6116.24
+    "taxcalc": 5616.24,
+    "taxsim": 5616.24
    },
    "federal_refundable_credits": {
     "key_run": "pb-reference-2.60.0",
@@ -364,11 +402,11 @@
   "2026, against the engine rerun": {
    "federal_income_tax_before_refundable_credits": {
     "key_run": "pe-2.60.0-board-2026",
-    "class": "two_agree:policyengine",
+    "class": "all_agree",
     "board_scores_it": "yes",
     "policyengine": 5616.24,
-    "taxcalc": 6116.24,
-    "taxsim": 6116.24
+    "taxcalc": 5616.24,
+    "taxsim": 5616.24
    },
    "federal_refundable_credits": {
     "key_run": "pe-2.60.0-board-2026",
@@ -398,11 +436,11 @@
   "2025 law": {
    "federal_income_tax_before_refundable_credits": {
     "key_run": "pe-2.60.0-board-2025",
-    "class": "two_agree:policyengine",
+    "class": "all_agree",
     "board_scores_it": "yes",
     "policyengine": 5719.24,
-    "taxcalc": 6219.24,
-    "taxsim": 6219.24
+    "taxcalc": 5719.24,
+    "taxsim": 5719.24
    },
    "federal_refundable_credits": {
     "key_run": "pe-2.60.0-board-2025",
@@ -940,7 +978,8 @@
   "taxcalc-6.9.0-2026": {
    "case_id": "scenario_067",
    "in_MARS": 2.0,
-   "in_XTOT": 2.0,
+   "in_XTOT": 3.0,
+   "in_EIC": 1.0,
    "in_age_head": 60.0,
    "in_age_spouse": 58.0,
    "in_e00200p": 82360.0,
@@ -951,21 +990,25 @@
    "in_e18400": 3894.74,
    "in_RECID": 53.0,
    "in_FLPDYR": 2026.0,
-   "out_aftertax_income": 74885.22,
+   "out_aftertax_income": 75385.22,
    "out_c00100": 87302.0,
    "out_c04800": 55102.0,
    "out_c05200": 6116.24,
    "out_c05800": 6116.24,
-   "out_c09200": 6116.24,
+   "out_c07100": 500.0,
+   "out_c09200": 5616.24,
    "out_c62100": 87302.0,
-   "out_combined": 18717.32,
+   "out_combined": 18217.32,
    "out_credit_claim_urn": 0.18,
+   "out_ctc_nonrefundable": 500.0,
+   "out_ctc_total": 500.0,
    "out_earned": 82360.0,
    "out_earned_p": 82360.0,
    "out_exact": 1.0,
    "out_expanded_income": 93602.54,
-   "out_iitax": 6116.24,
+   "out_iitax": 5616.24,
    "out_num": 2.0,
+   "out_odc": 500.0,
    "out_payrolltax": 12601.08,
    "out_ptax_er_p": 6300.54,
    "out_ptax_oasdi": 10212.64,
@@ -974,22 +1017,21 @@
    "out_taxbc": 6116.24,
    "out_ymod": 87302.0,
    "out_ymod1": 87302.0,
-   "q_fed_tax_before_refundable": 6116.24,
+   "q_fed_tax_before_refundable": 5616.24,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 6300.54,
    "unexpressed": [
-    "income_tax: dependent1 (age 23, gross income 10,800) meets neither dependency test of 26 U.S.C. 152 on the stated facts and is not claimed",
-    "income_tax: dependent1 has disability_benefits of their own, which is not income of the head's return",
-    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: dependent1 (age 23) is a qualifying child under this reading, left out without it. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it.",
+    "income_tax: dependent1 has income of their own (disability_benefits), which is not income of the head's return",
+    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
    ]
   },
   "taxcalc-6.9.0-2025": {
    "case_id": "scenario_067",
    "in_MARS": 2.0,
-   "in_XTOT": 2.0,
+   "in_XTOT": 3.0,
+   "in_EIC": 1.0,
    "in_age_head": 60.0,
    "in_age_spouse": 58.0,
    "in_e00200p": 82360.0,
@@ -1000,21 +1042,25 @@
    "in_e18400": 3937.89,
    "in_RECID": 53.0,
    "in_FLPDYR": 2025.0,
-   "out_aftertax_income": 74782.22,
+   "out_aftertax_income": 75282.22,
    "out_c00100": 87302.0,
    "out_c04800": 55802.0,
    "out_c05200": 6219.24,
    "out_c05800": 6219.24,
-   "out_c09200": 6219.24,
+   "out_c07100": 500.0,
+   "out_c09200": 5719.24,
    "out_c62100": 87302.0,
-   "out_combined": 18820.32,
+   "out_combined": 18320.32,
    "out_credit_claim_urn": 0.18,
+   "out_ctc_nonrefundable": 500.0,
+   "out_ctc_total": 500.0,
    "out_earned": 82360.0,
    "out_earned_p": 82360.0,
    "out_exact": 1.0,
    "out_expanded_income": 93602.54,
-   "out_iitax": 6219.24,
+   "out_iitax": 5719.24,
    "out_num": 2.0,
+   "out_odc": 500.0,
    "out_payrolltax": 12601.08,
    "out_ptax_er_p": 6300.54,
    "out_ptax_oasdi": 10212.64,
@@ -1023,16 +1069,14 @@
    "out_taxbc": 6219.24,
    "out_ymod": 87302.0,
    "out_ymod1": 87302.0,
-   "q_fed_tax_before_refundable": 6219.24,
+   "q_fed_tax_before_refundable": 5719.24,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 6300.54,
    "unexpressed": [
-    "income_tax: dependent1 (age 23, gross income 10,800) meets neither dependency test of 26 U.S.C. 152 on the stated facts and is not claimed",
-    "income_tax: dependent1 has disability_benefits of their own, which is not income of the head's return",
-    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: dependent1 (age 23) is a qualifying child under this reading, left out without it. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it.",
+    "income_tax: dependent1 has income of their own (disability_benefits), which is not income of the head's return",
+    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -1045,36 +1089,39 @@
    "in_pensions": 4942.0,
    "in_proptax": 3894.74,
    "in_mortgage": 12712.35,
+   "in_depx": 1.0,
    "out_taxsimid": 53.0,
    "out_year": 2026.0,
-   "out_fiitax": 6116.24,
+   "out_fiitax": 5616.24,
    "out_fica": 12601.08,
    "out_tfica": 6300.54,
    "out_v10": 87302.0,
    "out_v13": 32200.0,
    "out_v18": 55102.0,
    "out_v19": 6116.24,
+   "out_v22": 500.0,
    "out_v26": 87302.0,
    "out_v28": 6116.24,
    "out_v29": 12601.08,
    "out_v30": 87302.0,
-   "out_tfica_gross_wages": 6300.54,
    "out_tfica_no_self_employment": 6300.54,
-   "q_fed_tax_before_refundable": 6116.24,
+   "q_fed_tax_before_refundable": 5616.24,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 6300.54,
    "status": "ok",
    "unexpressed": [
-    "income_tax: dependent1 (age 23, gross income 10,800) meets neither dependency test of 26 U.S.C. 152 on the stated facts and is not claimed",
-    "income_tax: dependent1 has disability_benefits of their own, which is not income of the head's return",
-    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: dependent1 (age 23) is a qualifying child under this reading, left out without it. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it.",
+    "income_tax: dependent1 has income of their own (disability_benefits), which is not income of the head's return",
+    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
    ],
    "map_computed": [
+    "income_tax: the EITC comes from a second TAXSIM record with `dep18` = the EITC children (at most three); the tax before refundable credits and the refundable child credit come from the first, with `dep18` = the children under 17 (this build gives the $2,200 credit to every `dep18` child)",
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
-   ]
+   ],
+   "in_b_dep18": 1.0,
+   "out_b_fiitax": 3916.24,
+   "out_b_v22": 2200.0
   },
   "taxsim-cd2026110117-2025": {
    "case_id": "scenario_067",
@@ -1086,36 +1133,36 @@
    "in_pensions": 4942.0,
    "in_proptax": 3937.89,
    "in_mortgage": 12712.35,
+   "in_depx": 1.0,
    "out_taxsimid": 53.0,
    "out_year": 2025.0,
-   "out_fiitax": 6219.24,
+   "out_fiitax": 5719.24,
    "out_fica": 12601.08,
    "out_tfica": 6300.54,
    "out_v10": 87302.0,
    "out_v13": 31500.0,
    "out_v18": 55802.0,
    "out_v19": 6219.24,
+   "out_v22": 500.0,
    "out_v26": 87302.0,
    "out_v28": 6219.24,
    "out_v29": 12601.08,
    "out_v30": 87302.0,
-   "out_tfica_gross_wages": 6300.54,
    "out_tfica_no_self_employment": 6300.54,
-   "q_fed_tax_before_refundable": 6219.24,
+   "q_fed_tax_before_refundable": 5719.24,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 6300.54,
    "status": "ok",
    "unexpressed": [
-    "income_tax: dependent1 (age 23, gross income 10,800) meets neither dependency test of 26 U.S.C. 152 on the stated facts and is not claimed",
-    "income_tax: dependent1 has disability_benefits of their own, which is not income of the head's return",
-    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: dependent1 (age 23) is a qualifying child under this reading, left out without it. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it.",
+    "income_tax: dependent1 has income of their own (disability_benefits), which is not income of the head's return",
+    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
-   ]
+   ],
+   "in_age1": 18.0
   }
  }
 }

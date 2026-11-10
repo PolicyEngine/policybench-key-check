@@ -103,8 +103,24 @@
     "reit_ptp": 0.0,
     "survivor_benefits": 0.0
    },
-   "notes": [],
-   "members_with_own_payroll": []
+   "notes": [
+    [
+     "income_tax",
+     "reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition."
+    ],
+    [
+     "income_tax",
+     "reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_030",
@@ -171,8 +187,24 @@
     "reit_ptp": 0.0,
     "survivor_benefits": 0.0
    },
-   "notes": [],
-   "members_with_own_payroll": []
+   "notes": [
+    [
+     "income_tax",
+     "reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition."
+    ],
+    [
+     "income_tax",
+     "reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -595,8 +627,8 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 994.5,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition.",
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -632,8 +664,8 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 994.5,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition.",
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -653,7 +685,6 @@
    "out_v26": 13000.0,
    "out_v29": 1989.0,
    "out_v30": 13000.0,
-   "out_tfica_gross_wages": 994.5,
    "out_tfica_no_self_employment": 994.5,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 0.0,
@@ -661,8 +692,8 @@
    "q_fed_employee_payroll_tax": 994.5,
    "status": "ok",
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition.",
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
@@ -685,7 +716,6 @@
    "out_v26": 13000.0,
    "out_v29": 1989.0,
    "out_v30": 13000.0,
-   "out_tfica_gross_wages": 994.5,
    "out_tfica_no_self_employment": 994.5,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 0.0,
@@ -693,8 +723,8 @@
    "q_fed_employee_payroll_tax": 994.5,
    "status": "ok",
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition.",
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

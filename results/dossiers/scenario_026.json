@@ -210,9 +210,28 @@
     [
      "income_tax",
      "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
+    ],
+    [
+     "income_tax",
+     "reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_026",
@@ -325,9 +344,28 @@
     [
      "income_tax",
      "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
+    ],
+    [
+     "income_tax",
+     "reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -1355,11 +1393,11 @@
    "q_fed_employee_payroll_tax": 6518.47,
    "unexpressed": [
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
    ]
   },
@@ -1421,11 +1459,11 @@
    "q_fed_employee_payroll_tax": 6518.47,
    "unexpressed": [
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
    ]
   },
@@ -1435,8 +1473,8 @@
    "in_mstat": 2.0,
    "in_page": 48.0,
    "in_sage": 45.0,
-   "in_swages": 82430.34,
-   "in_nonprop": -129.83,
+   "in_swages": 85208.82,
+   "in_nonprop": -2908.31,
    "in_proptax": 2775.07,
    "in_depx": 3.0,
    "in_dep13": 3.0,
@@ -1445,8 +1483,8 @@
    "out_taxsimid": 21.0,
    "out_year": 2026.0,
    "out_fiitax": -1083.94,
-   "out_fica": 12611.84,
-   "out_tfica": 6305.92,
+   "out_fica": 13036.95,
+   "out_tfica": 6518.47,
    "out_v10": 82300.51,
    "out_v13": 32200.0,
    "out_v18": 50100.51,
@@ -1455,10 +1493,9 @@
    "out_v23": 1083.94,
    "out_v26": 82300.51,
    "out_v28": 5516.06,
-   "out_v29": 12611.84,
-   "out_v30": 82430.34,
+   "out_v29": 13036.95,
+   "out_v30": 85208.82,
    "out_actc": 1083.94,
-   "out_tfica_gross_wages": 6518.47,
    "out_tfica_no_self_employment": 6518.47,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 1083.94,
@@ -1467,14 +1504,13 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
     "income_tax: TAXSIM has no input for qualified overtime compensation (26 U.S.C. 225)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
-    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
    ]
@@ -1485,15 +1521,15 @@
    "in_mstat": 2.0,
    "in_page": 48.0,
    "in_sage": 45.0,
-   "in_swages": 82430.34,
-   "in_nonprop": -129.83,
+   "in_swages": 85208.82,
+   "in_nonprop": -2908.31,
    "in_proptax": 2955.9,
    "in_depx": 3.0,
    "out_taxsimid": 21.0,
    "out_year": 2025.0,
    "out_fiitax": -980.94,
-   "out_fica": 12611.84,
-   "out_tfica": 6305.92,
+   "out_fica": 13036.95,
+   "out_tfica": 6518.47,
    "out_v10": 82300.51,
    "out_v13": 31500.0,
    "out_v18": 50800.51,
@@ -1502,10 +1538,9 @@
    "out_v23": 980.94,
    "out_v26": 82300.51,
    "out_v28": 5619.06,
-   "out_v29": 12611.84,
-   "out_v30": 82430.34,
+   "out_v29": 13036.95,
+   "out_v30": 85208.82,
    "out_actc": 980.94,
-   "out_tfica_gross_wages": 6518.47,
    "out_tfica_no_self_employment": 6518.47,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 980.94,
@@ -1514,14 +1549,13 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
     "income_tax: TAXSIM has no input for qualified overtime compensation (26 U.S.C. 225)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
-    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
    ],

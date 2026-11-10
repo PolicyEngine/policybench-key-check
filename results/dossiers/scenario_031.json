@@ -108,7 +108,14 @@
      "reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_031",
@@ -181,7 +188,14 @@
      "reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -474,11 +488,8 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 0.0,
    "unexpressed": [
-    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible)",
-    "PolicyEngine's default divorce year makes it pre-2019.",
-    "income_tax: Tax-Calculator gives alimony no effect in 2025 or 2026 (every instrument treated as post-2018)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
+    "income_tax: Tax-Calculator gives alimony no effect in 2025 or 2026 (every instrument treated as post-2018)"
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -512,11 +523,8 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 0.0,
    "unexpressed": [
-    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible)",
-    "PolicyEngine's default divorce year makes it pre-2019.",
-    "income_tax: Tax-Calculator gives alimony no effect in 2025 or 2026 (every instrument treated as post-2018)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
+    "income_tax: Tax-Calculator gives alimony no effect in 2025 or 2026 (every instrument treated as post-2018)"
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -539,11 +547,8 @@
    "q_fed_employee_payroll_tax": 0.0,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible)",
-    "PolicyEngine's default divorce year makes it pre-2019.",
-    "income_tax: alimony is left out (treated as a post-2018 instrument)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
+    "income_tax: alimony is left out (treated as a post-2018 instrument)"
    ]
   },
   "taxsim-cd2026110117-2025": {
@@ -566,11 +571,8 @@
    "q_fed_employee_payroll_tax": 0.0,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible)",
-    "PolicyEngine's default divorce year makes it pre-2019.",
-    "income_tax: alimony is left out (treated as a post-2018 instrument)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
+    "income_tax: alimony is left out (treated as a post-2018 instrument)"
    ]
   }
  }

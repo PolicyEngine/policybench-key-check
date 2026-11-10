@@ -145,7 +145,14 @@
      "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_002",
@@ -239,7 +246,14 @@
      "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -625,10 +639,7 @@
    "unexpressed": [
     "income_tax: reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage.",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: no Tax-Calculator input for taxable disability benefits",
-    "entered through e01200, which enters AGI only",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: no Tax-Calculator input for taxable disability benefits; entered through e01200, which enters AGI only"
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -673,10 +684,7 @@
    "unexpressed": [
     "income_tax: reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage.",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: no Tax-Calculator input for taxable disability benefits",
-    "entered through e01200, which enters AGI only",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: no Tax-Calculator input for taxable disability benefits; entered through e01200, which enters AGI only"
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -708,9 +716,7 @@
    "unexpressed": [
     "income_tax: reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage.",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income"
    ]
   },
   "taxsim-cd2026110117-2025": {
@@ -742,9 +748,7 @@
    "unexpressed": [
     "income_tax: reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage.",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income"
    ]
   }
  }

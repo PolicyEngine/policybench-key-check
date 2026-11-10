@@ -9,9 +9,12 @@ loan interest; pass 3 gives AGI for the saver's credit; pass 4 is the answer.
 
 What each input must hold was read from Tax-Calculator 6.9.0's code (records_variables.json,
 calcfunctions.py, records.py); the reading is recorded in the run folder
-understand-inputs, unit taxcalc. Where Tax-Calculator has no input for a stated fact the
-fact is listed in the row's `unexpressed` notes; where this map computes an amount the
-model takes as given it is listed in `map_computed`.
+understand-inputs, unit taxcalc. Where Tax-Calculator has no input for a stated fact that
+bears on the four lines, or zeroes one the map sends, the fact is listed in the row's
+`unexpressed` notes, with the readings of unstated facts the row rests on (keycheck.unit);
+where this map computes an amount the model takes as given it is listed in `map_computed`.
+Notes that bear only on itemized deductions (`itemizer_notes`) are added by the runner
+only for units Tax-Calculator itemizes in the final pass.
 """
 
 from __future__ import annotations
@@ -19,9 +22,23 @@ from __future__ import annotations
 from . import statute as S
 from . import unit as U
 
-VERSION = "2026-11-10.1"
+VERSION = "2026-11-10.2"
 
 MARS = {S.SINGLE: 1, S.JOINT: 2, S.SEPARATE: 3, S.HEAD_OF_HOUSEHOLD: 4, S.SURVIVING_SPOUSE: 5}
+
+SHARED_SALT_NOTE = (
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; "
+    "the amount PolicyEngine's key uses is passed as e18400"
+)
+
+
+def itemizer_notes(unit: U.Unit, shared: dict | None = None) -> list[str]:
+    """Notes that can move Tax-Calculator's answer only when it itemizes (final out_c04470
+    > 0: taxcalc/calculator.py zeroes c04470 for a unit that takes the standard deduction)."""
+    notes = [f"{group}: {text}" for group, text in unit.itemized_notes]
+    if shared and "salt_income_or_sales_tax" in shared:
+        notes.append(SHARED_SALT_NOTE)
+    return notes
 
 
 def row(household: dict, year: int, shared: dict | None = None):
@@ -44,7 +61,7 @@ def row(household: dict, year: int, shared: dict | None = None):
     sched_f_p, sched_f_s = per_filer(lambda f: f.schedule_f)
     k1_p, k1_s = per_filer(lambda f: f.partnership_se)
     if head.deferral or (spouse and spouse.deferral):
-        computed.append("income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages")
+        computed.append("income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages")
 
     dividends = a["qualified_dividends"] + a["non_qualified_dividends"]
     taxable_pensions = a["taxable_pensions"]
@@ -78,10 +95,21 @@ def row(household: dict, year: int, shared: dict | None = None):
         unexpressed.append("income_tax: Tax-Calculator gives alimony no effect in 2025 or 2026 (every instrument treated as post-2018)")
     if a["domestic_production"]:
         unexpressed.append("income_tax: Tax-Calculator zeroes the domestic production activities deduction (repealed for years after 2017)")
-    if "salt_income_or_sales_tax" in shared:
-        unexpressed.append("income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400")
-    elif a["real_estate_taxes"] or a["mortgage_interest"] or a["charity_cash"] or a["medical"]:
+    # The shared state and local tax note is added by the runner where Tax-Calculator
+    # itemizes (itemizer_notes).
+    if "salt_income_or_sales_tax" not in shared and (
+        a["real_estate_taxes"] or a["mortgage_interest"] or a["charity_cash"] or a["medical"]
+    ):
         unexpressed.append("income_tax: state and local income or sales tax paid is not stated; e18400 is 0")
+    if a["employee_expenses"]:
+        unexpressed.append("income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)")
+    # Capital gain distributions: e01100 holds distributions not reported on Schedule D;
+    # with any Schedule D item they go on Schedule D line 13 and net with its gains and
+    # losses (Schedule D instructions), so they join p23250.
+    schedule_d = bool(a["short_term_gains"] or a["long_term_gains"])
+    distributions_on_d = a["capital_gain_distributions"] if schedule_d else 0.0
+    if distributions_on_d:
+        computed.append("income_tax: capital gain distributions entered on Schedule D (p23250) with the unit's other gains and losses")
 
     children_ctc = unit.count(lambda d: d["kind"] == "qualifying_child" and d["age"] < 17)
     children_eitc = unit.count(lambda d: d["kind"] == "qualifying_child")
@@ -109,7 +137,7 @@ def row(household: dict, year: int, shared: dict | None = None):
         "e00700": a["salt_refund"],
         "e00800": a["alimony_received"],
         "e00900p": sched_c_p, "e00900s": sched_c_s, "e00900": sched_c_p + sched_c_s,
-        "e01100": a["capital_gain_distributions"],
+        "e01100": a["capital_gain_distributions"] - distributions_on_d,
         "e01200": other_income,
         "e01400": a["taxable_ira_distributions"],
         "e01500": taxable_pensions + a["tax_exempt_pensions"],
@@ -122,7 +150,7 @@ def row(household: dict, year: int, shared: dict | None = None):
         "e02300": a["unemployment"],
         "e02400": a["social_security"],
         "p22250": a["short_term_gains"],
-        "p23250": a["long_term_gains"],
+        "p23250": a["long_term_gains"] + distributions_on_d,
         "e03150": 0.0,
         "e03210": 0.0,
         "e03220": educator,
@@ -141,7 +169,8 @@ def row(household: dict, year: int, shared: dict | None = None):
         "PT_SSTB_income": int(sstb > 0 and sstb >= other_qbi),
         "PT_ubia_property": a["ubia"] + (a["sstb_ubia"] if sstb > 0 else 0.0),
         "overtime_income": sum(f.overtime_premium for f in unit.filers),
-        "tip_income": sum(f.tips for f in unit.filers),
+        # unit.READINGS["tips"]: stated tips are not qualified tips (occupation unstated).
+        "tip_income": 0.0,
         "auto_loan_interest": 0.0,
     }
     return out, unit, unexpressed, computed
@@ -212,7 +241,7 @@ def after_pass(pass_number: int, row: dict, unit: U.Unit, agi: float, computed: 
         credit = S.savers_credit(unit.year, unit.status, agi, saved, distributions)
         row["e07240"] = credit
         if credit:
-            computed.append("income_tax: saver's credit figured under 26 U.S.C. 25B before the limit to tax")
+            computed.append("income_tax: saver's credit figured under 26 U.S.C. 25B before the limit to tax (reading: " + U.READINGS["savers_credit"] + ")")
     return row
 
 

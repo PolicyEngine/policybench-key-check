@@ -211,9 +211,28 @@
     [
      "income_tax",
      "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
+    ],
+    [
+     "income_tax",
+     "reading: A stated educator expense is an eligible educator's (26 U.S.C. 62(d)(1)): hours worked in a school are not stated."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_099",
@@ -318,9 +337,28 @@
     [
      "income_tax",
      "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
+    ],
+    [
+     "income_tax",
+     "reading: A stated educator expense is an eligible educator's (26 U.S.C. 62(d)(1)): hours worked in a school are not stated."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -1290,11 +1328,12 @@
    "q_fed_employee_payroll_tax": 12622.5,
    "unexpressed": [
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A stated educator expense is an eligible educator's (26 U.S.C. 62(d)(1)): hours worked in a school are not stated.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)"
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
     "income_tax: educator expenses limited by 26 U.S.C. 62(a)(2)(D)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
    ]
@@ -1376,11 +1415,12 @@
    "q_fed_employee_payroll_tax": 12622.5,
    "unexpressed": [
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A stated educator expense is an eligible educator's (26 U.S.C. 62(d)(1)): hours worked in a school are not stated.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)"
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
     "income_tax: educator expenses limited by 26 U.S.C. 62(a)(2)(D)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
    ]
@@ -1391,13 +1431,13 @@
    "in_mstat": 2.0,
    "in_page": 42.0,
    "in_sage": 41.0,
-   "in_pwages": 83456.4,
-   "in_swages": 78456.4,
+   "in_pwages": 85000.0,
+   "in_swages": 80000.0,
    "in_dividends": 128.0,
    "in_intrec": 1026.0,
    "in_stcg": 540.0,
    "in_ltcg": -7018.0,
-   "in_nonprop": -337.5,
+   "in_nonprop": -3424.7,
    "in_proptax": 15358.83,
    "in_mortgage": 11822.35,
    "in_childcare": 12740.0,
@@ -1408,8 +1448,8 @@
    "out_taxsimid": 80.0,
    "out_year": 2026.0,
    "out_fiitax": 11871.49,
-   "out_fica": 24772.66,
-   "out_tfica": 12386.33,
+   "out_fica": 25245.0,
+   "out_tfica": 12622.5,
    "out_v10": 159729.3,
    "out_v13": 32200.0,
    "out_v18": 127529.3,
@@ -1418,9 +1458,8 @@
    "out_v24": 1200.0,
    "out_v26": 159729.3,
    "out_v28": 17471.49,
-   "out_v29": 24772.66,
-   "out_v30": 163066.8,
-   "out_tfica_gross_wages": 12622.5,
+   "out_v29": 25245.0,
+   "out_v30": 166154.0,
    "out_tfica_no_self_employment": 12622.5,
    "q_fed_tax_before_refundable": 11871.49,
    "q_refundable_credits": 0.0,
@@ -1429,20 +1468,18 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
+    "income_tax: reading: A stated educator expense is an eligible educator's (26 U.S.C. 62(d)(1)): hours worked in a school are not stated.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
     "income_tax: this build computes the 2026 child care credit at the pre-2026 rates (probe P5)",
     "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
     "income_tax: educator expenses limited by 26 U.S.C. 62(a)(2)(D)",
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
-    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied"
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
    ]
   },
   "taxsim-cd2026110117-2025": {
@@ -1451,13 +1488,13 @@
    "in_mstat": 2.0,
    "in_page": 42.0,
    "in_sage": 41.0,
-   "in_pwages": 83456.4,
-   "in_swages": 78456.4,
+   "in_pwages": 85000.0,
+   "in_swages": 80000.0,
    "in_dividends": 128.0,
    "in_intrec": 1026.0,
    "in_stcg": 540.0,
    "in_ltcg": -7018.0,
-   "in_nonprop": -300.0,
+   "in_nonprop": -3387.2,
    "in_proptax": 15361.83,
    "in_mortgage": 12621.0,
    "in_childcare": 12740.0,
@@ -1465,8 +1502,8 @@
    "out_taxsimid": 80.0,
    "out_year": 2025.0,
    "out_fiitax": 12437.74,
-   "out_fica": 24772.66,
-   "out_tfica": 12386.33,
+   "out_fica": 25245.0,
+   "out_tfica": 12622.5,
    "out_v10": 159766.8,
    "out_v13": 31500.0,
    "out_v18": 128266.8,
@@ -1475,9 +1512,8 @@
    "out_v24": 1200.0,
    "out_v26": 159766.8,
    "out_v28": 18037.74,
-   "out_v29": 24772.66,
-   "out_v30": 163066.8,
-   "out_tfica_gross_wages": 12622.5,
+   "out_v29": 25245.0,
+   "out_v30": 166154.0,
    "out_tfica_no_self_employment": 12622.5,
    "q_fed_tax_before_refundable": 12437.74,
    "q_refundable_credits": 0.0,
@@ -1486,18 +1522,16 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: reading: A stated educator expense is an eligible educator's (26 U.S.C. 62(d)(1)): hours worked in a school are not stated.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
     "income_tax: educator expenses limited by 26 U.S.C. 62(a)(2)(D)",
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
-    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied"
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
    ],
    "in_age1": 4.0,
    "in_age2": 9.0

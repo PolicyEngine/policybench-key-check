@@ -88,7 +88,7 @@ def main(argv=None) -> None:
                     value = number(text)
                     if key in ("unexpressed", "map_computed", "status", "error"):
                         if text:
-                            keep[key] = text.split("; ") if key in ("unexpressed", "map_computed") else text
+                            keep[key] = text.split(" || ") if key in ("unexpressed", "map_computed") else text
                     elif key.startswith("q_") or value not in (0, 0.0, ""):
                         keep[key] = value
                 wide[run][r["case_id"]] = keep

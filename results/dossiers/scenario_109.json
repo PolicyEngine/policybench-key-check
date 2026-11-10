@@ -178,7 +178,9 @@
     "survivor_benefits": 0.0
    },
    "notes": [],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_109",
@@ -288,7 +290,9 @@
     "survivor_benefits": 0.0
    },
    "notes": [],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -1167,11 +1171,7 @@
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 12038.09,
    "q_self_employment_tax": 4238.86,
-   "q_fed_employee_payroll_tax": 0.0,
-   "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
-   ]
+   "q_fed_employee_payroll_tax": 0.0
   },
   "taxcalc-6.9.0-2025": {
    "case_id": "scenario_109",
@@ -1222,11 +1222,7 @@
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 11853.09,
    "q_self_employment_tax": 4238.86,
-   "q_fed_employee_payroll_tax": 0.0,
-   "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
-   ]
+   "q_fed_employee_payroll_tax": 0.0
   },
   "taxsim-cd2026110117-2026": {
    "case_id": "scenario_109",
@@ -1253,15 +1249,12 @@
    "out_v29": 4238.86,
    "out_v30": 30000.0,
    "out_actc": 4238.86,
-   "out_tfica_gross_wages": 4238.86,
    "q_fed_tax_before_refundable": -0.0,
    "q_refundable_credits": 12469.86,
    "q_self_employment_tax": 4238.86,
    "q_fed_employee_payroll_tax": 0.0,
    "status": "ok",
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
     "income_tax: this build has no 2026 minimum qualified business income deduction (26 U.S.C. 199A(i))"
    ]
   },
@@ -1287,16 +1280,11 @@
    "out_v29": 4238.86,
    "out_v30": 30000.0,
    "out_actc": 4238.86,
-   "out_tfica_gross_wages": 4238.86,
    "q_fed_tax_before_refundable": -0.0,
    "q_refundable_credits": 12284.86,
    "q_self_employment_tax": 4238.86,
    "q_fed_employee_payroll_tax": 0.0,
    "status": "ok",
-   "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
-   ],
    "in_age1": 1.0,
    "in_age2": 6.0,
    "in_age3": 9.0

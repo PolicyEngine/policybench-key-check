@@ -110,9 +110,19 @@
     [
      "income_tax",
      "reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019."
+    ],
+    [
+     "income_tax",
+     "reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
+    ],
+    [
+     "income_tax",
+     "reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_056",
@@ -183,9 +193,19 @@
     [
      "income_tax",
      "reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019."
+    ],
+    [
+     "income_tax",
+     "reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
+    ],
+    [
+     "income_tax",
+     "reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -622,11 +642,10 @@
    "q_self_employment_tax": 613.22,
    "q_fed_employee_payroll_tax": 0.0,
    "unexpressed": [
-    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible)",
-    "PolicyEngine's default divorce year makes it pre-2019.",
-    "income_tax: Tax-Calculator gives alimony no effect in 2025 or 2026 (every instrument treated as post-2018)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a)).",
+    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
+    "income_tax: Tax-Calculator gives alimony no effect in 2025 or 2026 (every instrument treated as post-2018)"
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -671,11 +690,10 @@
    "q_self_employment_tax": 613.22,
    "q_fed_employee_payroll_tax": 0.0,
    "unexpressed": [
-    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible)",
-    "PolicyEngine's default divorce year makes it pre-2019.",
-    "income_tax: Tax-Calculator gives alimony no effect in 2025 or 2026 (every instrument treated as post-2018)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a)).",
+    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
+    "income_tax: Tax-Calculator gives alimony no effect in 2025 or 2026 (every instrument treated as post-2018)"
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -695,25 +713,22 @@
    "out_v13": 16100.0,
    "out_v29": 613.22,
    "out_v30": 4340.0,
-   "out_tfica_gross_wages": 613.22,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 613.22,
    "q_fed_employee_payroll_tax": 0.0,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible)",
-    "PolicyEngine's default divorce year makes it pre-2019.",
+    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a)).",
+    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
     "income_tax: alimony is left out (treated as a post-2018 instrument)",
     "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
     "income_tax: this build has no 2026 minimum qualified business income deduction (26 U.S.C. 199A(i))",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied"
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
    ]
   },
   "taxsim-cd2026110117-2025": {
@@ -733,23 +748,20 @@
    "out_v13": 15750.0,
    "out_v29": 613.22,
    "out_v30": 4340.0,
-   "out_tfica_gross_wages": 613.22,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 613.22,
    "q_fed_employee_payroll_tax": 0.0,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible)",
-    "PolicyEngine's default divorce year makes it pre-2019.",
+    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a)).",
+    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
     "income_tax: alimony is left out (treated as a post-2018 instrument)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied"
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
    ]
   }
  }

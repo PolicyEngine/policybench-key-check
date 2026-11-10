@@ -210,9 +210,24 @@
     [
      "income_tax",
      "reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated)."
+    ],
+    [
+     "income_tax",
+     "reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_117",
@@ -325,9 +340,24 @@
     [
      "income_tax",
      "reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated)."
+    ],
+    [
+     "income_tax",
+     "reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -1303,10 +1333,9 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 15044.79,
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)"
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -1372,10 +1401,12 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 14523.99,
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)",
+    "income_tax: reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -1409,7 +1440,6 @@
    "out_v28": 37252.75,
    "out_v29": 34068.42,
    "out_v30": 251263.82,
-   "out_tfica_gross_wages": 15044.79,
    "out_tfica_no_self_employment": 15044.79,
    "q_fed_tax_before_refundable": 30652.75,
    "q_refundable_credits": 0.0,
@@ -1417,19 +1447,19 @@
    "q_fed_employee_payroll_tax": 15044.79,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
     "income_tax: this build computes the 2026 child care credit at the pre-2026 rates (probe P5)",
     "income_tax: TAXSIM has no input for qualified overtime compensation (26 U.S.C. 225)",
     "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
     "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied"
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
    ]
   },
   "taxsim-cd2026110117-2025": {
@@ -1460,7 +1490,6 @@
    "out_v28": 37330.26,
    "out_v29": 33547.62,
    "out_v30": 251263.82,
-   "out_tfica_gross_wages": 14523.99,
    "out_tfica_no_self_employment": 14523.99,
    "q_fed_tax_before_refundable": 30730.26,
    "q_refundable_credits": 0.0,
@@ -1468,17 +1497,17 @@
    "q_fed_employee_payroll_tax": 14523.99,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
     "income_tax: TAXSIM has no input for qualified overtime compensation (26 U.S.C. 225)",
     "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied"
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
    ],
    "in_age1": 2.0,
    "in_age2": 11.0,

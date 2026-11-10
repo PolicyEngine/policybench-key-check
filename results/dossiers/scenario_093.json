@@ -183,12 +183,24 @@
      "dependent1 (age 27, gross income 45,000) meets neither dependency test of 26 U.S.C. 152 on the stated facts and is not claimed"
     ],
     [
+     "income_tax",
+     "reading: dependent1 (age 27) is stated disabled but has earnings of their own, so is not read as permanently and totally disabled. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it."
+    ],
+    [
      "payroll",
      "dependent1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line; their income tax return is outside the board's output"
     ],
     [
      "income_tax",
+     "dependent1 has income of their own (employment_income), which is not income of the head's return"
+    ],
+    [
+     "income_tax",
      "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
     ]
    ],
    "members_with_own_payroll": [
@@ -198,7 +210,18 @@
      "wages": 45000.0,
      "self_employment": 0.0
     }
-   ]
+   ],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_093",
@@ -296,12 +319,24 @@
      "dependent1 (age 27, gross income 45,000) meets neither dependency test of 26 U.S.C. 152 on the stated facts and is not claimed"
     ],
     [
+     "income_tax",
+     "reading: dependent1 (age 27) is stated disabled but has earnings of their own, so is not read as permanently and totally disabled. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it."
+    ],
+    [
      "payroll",
      "dependent1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line; their income tax return is outside the board's output"
     ],
     [
      "income_tax",
+     "dependent1 has income of their own (employment_income), which is not income of the head's return"
+    ],
+    [
+     "income_tax",
      "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
     ]
    ],
    "members_with_own_payroll": [
@@ -311,7 +346,18 @@
      "wages": 45000.0,
      "self_employment": 0.0
     }
-   ]
+   ],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -1089,14 +1135,14 @@
    "members_fed_employee_payroll_tax": 3442.5,
    "unexpressed": [
     "income_tax: dependent1 (age 27, gross income 45,000) meets neither dependency test of 26 U.S.C. 152 on the stated facts and is not claimed",
-    "payroll: dependent1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line",
-    "their income tax return is outside the board's output",
+    "income_tax: reading: dependent1 (age 27) is stated disabled but has earnings of their own, so is not read as permanently and totally disabled. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it.",
+    "payroll: dependent1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line; their income tax return is outside the board's output",
+    "income_tax: dependent1 has income of their own (employment_income), which is not income of the head's return",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)",
     "income_tax: student loan interest deduction figured under 26 U.S.C. 221"
    ]
@@ -1152,14 +1198,14 @@
    "members_fed_employee_payroll_tax": 3442.5,
    "unexpressed": [
     "income_tax: dependent1 (age 27, gross income 45,000) meets neither dependency test of 26 U.S.C. 152 on the stated facts and is not claimed",
-    "payroll: dependent1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line",
-    "their income tax return is outside the board's output",
+    "income_tax: reading: dependent1 (age 27) is stated disabled but has earnings of their own, so is not read as permanently and totally disabled. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it.",
+    "payroll: dependent1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line; their income tax return is outside the board's output",
+    "income_tax: dependent1 has income of their own (employment_income), which is not income of the head's return",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)",
     "income_tax: student loan interest deduction figured under 26 U.S.C. 221"
    ]
@@ -1170,25 +1216,24 @@
    "in_mstat": 2.0,
    "in_page": 51.0,
    "in_sage": 49.0,
-   "in_pwages": 49026.77,
-   "in_swages": 64915.1,
+   "in_pwages": 53000.0,
+   "in_swages": 65000.0,
    "in_intrec": 1156.0,
-   "in_nonprop": -2689.62,
+   "in_nonprop": -6747.75,
    "in_proptax": 3408.52,
    "out_taxsimid": 77.0,
    "out_year": 2026.0,
    "out_fiitax": 9128.99,
-   "out_fica": 17433.11,
-   "out_tfica": 8716.55,
+   "out_fica": 18054.0,
+   "out_tfica": 9027.0,
    "out_v10": 112408.25,
    "out_v13": 32200.0,
    "out_v18": 80208.25,
    "out_v19": 9128.99,
    "out_v26": 112408.25,
    "out_v28": 9128.99,
-   "out_v29": 17433.11,
-   "out_v30": 115097.87,
-   "out_tfica_gross_wages": 9027.0,
+   "out_v29": 18054.0,
+   "out_v30": 119156.0,
    "out_tfica_no_self_employment": 9027.0,
    "members_fed_employee_payroll_tax": 3442.5,
    "q_fed_tax_before_refundable": 9128.99,
@@ -1198,16 +1243,15 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: dependent1 (age 27, gross income 45,000) meets neither dependency test of 26 U.S.C. 152 on the stated facts and is not claimed",
-    "payroll: dependent1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line",
-    "their income tax return is outside the board's output",
+    "income_tax: reading: dependent1 (age 27) is stated disabled but has earnings of their own, so is not read as permanently and totally disabled. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it.",
+    "payroll: dependent1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line; their income tax return is outside the board's output",
+    "income_tax: dependent1 has income of their own (employment_income), which is not income of the head's return",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
-    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
     "income_tax: student loan interest deduction figured under 26 U.S.C. 221, entered as negative `nonprop`",
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
@@ -1219,25 +1263,24 @@
    "in_mstat": 2.0,
    "in_page": 51.0,
    "in_sage": 49.0,
-   "in_pwages": 49026.77,
-   "in_swages": 64915.1,
+   "in_pwages": 53000.0,
+   "in_swages": 65000.0,
    "in_intrec": 1156.0,
-   "in_nonprop": -2689.62,
+   "in_nonprop": -6747.75,
    "in_proptax": 3450.8,
    "out_taxsimid": 77.0,
    "out_year": 2025.0,
    "out_fiitax": 9231.99,
-   "out_fica": 17433.11,
-   "out_tfica": 8716.55,
+   "out_fica": 18054.0,
+   "out_tfica": 9027.0,
    "out_v10": 112408.25,
    "out_v13": 31500.0,
    "out_v18": 80908.25,
    "out_v19": 9231.99,
    "out_v26": 112408.25,
    "out_v28": 9231.99,
-   "out_v29": 17433.11,
-   "out_v30": 115097.87,
-   "out_tfica_gross_wages": 9027.0,
+   "out_v29": 18054.0,
+   "out_v30": 119156.0,
    "out_tfica_no_self_employment": 9027.0,
    "members_fed_employee_payroll_tax": 3442.5,
    "q_fed_tax_before_refundable": 9231.99,
@@ -1247,16 +1290,15 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: dependent1 (age 27, gross income 45,000) meets neither dependency test of 26 U.S.C. 152 on the stated facts and is not claimed",
-    "payroll: dependent1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line",
-    "their income tax return is outside the board's output",
+    "income_tax: reading: dependent1 (age 27) is stated disabled but has earnings of their own, so is not read as permanently and totally disabled. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it.",
+    "payroll: dependent1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line; their income tax return is outside the board's output",
+    "income_tax: dependent1 has income of their own (employment_income), which is not income of the head's return",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
-    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
     "income_tax: student loan interest deduction figured under 26 U.S.C. 221, entered as negative `nonprop`",
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

@@ -80,7 +80,7 @@
     "blind": false,
     "wages": 0.0,
     "deferral": 0.0,
-    "roth_deferral": 953.4000244140625,
+    "roth_deferral": 0.0,
     "ira_traditional_desired": 252.447998046875,
     "ira_roth_desired": 391.552001953125,
     "schedule_c": 0.0,
@@ -154,10 +154,33 @@
    "notes": [
     [
      "income_tax",
-     "head: traditional 401(k) deferral above wages, limited to wages"
+     "head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)"
+    ],
+    [
+     "income_tax",
+     "reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
+    ],
+    [
+     "income_tax",
+     "reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_089",
@@ -170,7 +193,7 @@
     "blind": false,
     "wages": 0.0,
     "deferral": 0.0,
-    "roth_deferral": 953.4000244140625,
+    "roth_deferral": 0.0,
     "ira_traditional_desired": 252.447998046875,
     "ira_roth_desired": 391.552001953125,
     "schedule_c": 0.0,
@@ -244,10 +267,33 @@
    "notes": [
     [
      "income_tax",
-     "head: traditional 401(k) deferral above wages, limited to wages"
+     "head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)"
+    ],
+    [
+     "income_tax",
+     "reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
+    ],
+    [
+     "income_tax",
+     "reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -1063,12 +1109,13 @@
    "q_self_employment_tax": 4286.24,
    "q_fed_employee_payroll_tax": 5039.91,
    "unexpressed": [
-    "income_tax: head: traditional 401(k) deferral above wages, limited to wages",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
    ]
   },
@@ -1126,12 +1173,13 @@
    "q_self_employment_tax": 4286.24,
    "q_fed_employee_payroll_tax": 5039.91,
    "unexpressed": [
-    "income_tax: head: traditional 401(k) deferral above wages, limited to wages",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
    ]
   },
@@ -1141,26 +1189,25 @@
    "in_mstat": 2.0,
    "in_page": 47.0,
    "in_sage": 46.0,
-   "in_swages": 58934.98,
+   "in_swages": 65881.18,
    "in_ssemp": 30335.29,
    "in_scorp": 19650.0,
-   "in_nonprop": -577.02,
+   "in_nonprop": -7523.22,
    "in_proptax": 3738.73,
    "out_taxsimid": 73.0,
    "out_year": 2026.0,
    "out_fiitax": 7235.8,
-   "out_fica": 13303.29,
-   "out_tfica": 8794.77,
+   "out_fica": 14366.06,
+   "out_tfica": 9326.15,
    "out_v10": 106200.13,
    "out_v13": 32200.0,
    "out_v18": 64431.7,
    "out_v19": 7235.8,
    "out_v26": 96631.7,
    "out_v28": 7235.8,
-   "out_v29": 13303.29,
-   "out_v30": 108920.27,
+   "out_v29": 14366.06,
+   "out_v30": 115866.47,
    "out_qbid": 9568.43,
-   "out_tfica_gross_wages": 9326.15,
    "out_tfica_no_self_employment": 5039.91,
    "q_fed_tax_before_refundable": 7235.8,
    "q_refundable_credits": 0.0,
@@ -1168,17 +1215,17 @@
    "q_fed_employee_payroll_tax": 5039.91,
    "status": "ok",
    "unexpressed": [
-    "income_tax: head: traditional 401(k) deferral above wages, limited to wages",
+    "income_tax: head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated.",
     "income_tax: TAXSIM has no input for qualified overtime compensation (26 U.S.C. 225)",
     "income_tax: partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
     "income_tax: this build has no 2026 minimum qualified business income deduction (26 U.S.C. 199A(i))",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
-    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
    ]
@@ -1189,26 +1236,25 @@
    "in_mstat": 2.0,
    "in_page": 47.0,
    "in_sage": 46.0,
-   "in_swages": 58934.98,
+   "in_swages": 65881.18,
    "in_ssemp": 30335.29,
    "in_scorp": 19650.0,
-   "in_nonprop": -577.02,
+   "in_nonprop": -7523.22,
    "in_proptax": 3982.36,
    "out_taxsimid": 73.0,
    "out_year": 2025.0,
    "out_fiitax": 7338.8,
-   "out_fica": 13303.29,
-   "out_tfica": 8794.77,
+   "out_fica": 14366.06,
+   "out_tfica": 9326.15,
    "out_v10": 106200.13,
    "out_v13": 31500.0,
    "out_v18": 65131.7,
    "out_v19": 7338.8,
    "out_v26": 96631.7,
    "out_v28": 7338.8,
-   "out_v29": 13303.29,
-   "out_v30": 108920.27,
+   "out_v29": 14366.06,
+   "out_v30": 115866.47,
    "out_qbid": 9568.43,
-   "out_tfica_gross_wages": 9326.15,
    "out_tfica_no_self_employment": 5039.91,
    "q_fed_tax_before_refundable": 7338.8,
    "q_refundable_credits": 0.0,
@@ -1216,16 +1262,16 @@
    "q_fed_employee_payroll_tax": 5039.91,
    "status": "ok",
    "unexpressed": [
-    "income_tax: head: traditional 401(k) deferral above wages, limited to wages",
+    "income_tax: head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated.",
     "income_tax: TAXSIM has no input for qualified overtime compensation (26 U.S.C. 225)",
     "income_tax: partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
-    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
    ]

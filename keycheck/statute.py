@@ -10,7 +10,7 @@ the answers table: it is this file's reading of the law, not the model's.
 
 Published amounts (sources saved by the law-2026 reader of run understand-inputs):
 Rev. Proc. 2025-32 and 2024-40; IRS Notices 2025-67 and 2024-80; 26 U.S.C. 25B, 163(h),
-219, 221, 402(g), 414(v).
+199A(e)(2), 219, 221, 402(g), 414(v).
 """
 
 from __future__ import annotations
@@ -33,7 +33,7 @@ AMOUNTS = {
             JOINT: (129_000, 20_000), SURVIVING_SPOUSE: (129_000, 20_000),
             SEPARATE: (0, 10_000), "spouse_of_participant": (242_000, 10_000),
         },
-        # 26 U.S.C. 221(b); Rev. Proc. 2025-32 sec. 4.31: (start, width)
+        # 26 U.S.C. 221(b); Rev. Proc. 2025-32 sec. 4.29: (start, width)
         "student_loan_cap": 2_500,
         "student_loan_phase_out": {JOINT: (175_000, 30_000), "other": (85_000, 15_000)},
         # 26 U.S.C. 62(a)(2)(D); Rev. Proc. 2025-32
@@ -46,6 +46,8 @@ AMOUNTS = {
         "savers_contribution_cap": 2_000,
         # 26 U.S.C. 163(h)(3)(F)(i)(II): acquisition debt incurred after 2017-12-15
         "mortgage_debt_limit": {SEPARATE: 375_000, "other": 750_000},
+        # 26 U.S.C. 199A(e)(2) threshold amount; Rev. Proc. 2025-32 sec. 4.26
+        "qbi_threshold": {JOINT: 403_500, SEPARATE: 201_775, "other": 201_750},
     },
     2025: {
         "deferral_limit": 23_500, "deferral_catch_up_50": 7_500, "deferral_catch_up_60_63": 11_250,
@@ -64,6 +66,8 @@ AMOUNTS = {
         },
         "savers_contribution_cap": 2_000,
         "mortgage_debt_limit": {SEPARATE: 375_000, "other": 750_000},
+        # Rev. Proc. 2024-40 sec. 2.27
+        "qbi_threshold": {JOINT: 394_600, SEPARATE: 197_300, "other": 197_300},
     },
 }
 
@@ -105,9 +109,11 @@ def ira_deductible_limit(
 ) -> float:
     """26 U.S.C. 219(g): the dollar limit an active participant (or the spouse of one) may deduct.
 
-    The limit falls in proportion to MAGI across the phase-out range (219(g)(2)(A)); a
-    reduced limit that is not a multiple of $10 rounds up to the next $10 (219(g)(2)(C));
-    while any of it is left it is at least $200 (219(g)(2)(B)).
+    The limit falls in proportion to MAGI across the phase-out range (219(g)(2)(A)); the
+    reduction is rounded down to the next lowest $10 (219(g)(2)(C)), which, with a dollar
+    limit that is a multiple of $10 (every limit here is), is the same as rounding the
+    reduced limit up to the next $10, as the code does; while any of it is left it is at
+    least $200 (219(g)(2)(B)).
     """
     a = AMOUNTS[year]
     dollars = a["ira_limit"] + (a["ira_catch_up_50"] if age >= 50 else 0)
@@ -154,7 +160,8 @@ def deductible_mortgage_interest(year: int, filing_status: str, interest: float,
 
     With debt above the limit the deductible share is limit / balance (IRS Pub. 936,
     Table 1, line 14). A household that states interest and no balance deducts it all.
-    Every loan is treated as incurred after 2017-12-15: the households state no dates.
+    Every loan is treated as incurred after 2017-12-15: the households state no dates
+    (keycheck.unit.READINGS["mortgage_date"]).
     """
     limits = AMOUNTS[year]["mortgage_debt_limit"]
     limit = limits[SEPARATE] if filing_status == SEPARATE else limits["other"]
@@ -182,8 +189,9 @@ def savers_credit(
     Each eligible filer's qualified contributions, less distributions in the testing
     period, count up to $2,000 (25B(a), (d)(2)). On a joint return a distribution to
     either spouse reduces both spouses' contributions (25B(d)(2)(D)). The households
-    state only the tax year's distributions, so earlier years of the testing period are
-    taken as zero.
+    state only the tax year's distributions, so the rest of the testing period (the two
+    prior years and the next year up to the return's due date, 25B(d)(2)(B)) is taken as
+    zero (keycheck.unit.READINGS["savers_credit"]).
     """
     cap = AMOUNTS[year]["savers_contribution_cap"]
     rate = savers_credit_rate(year, filing_status, agi)
@@ -195,3 +203,10 @@ def savers_credit(
     for contribution, distribution in zip(contributions_by_filer, reduction):
         total += min(cap, max(0.0, contribution - distribution))
     return rate * total
+
+
+def qbi_threshold(year: int, filing_status: str) -> float:
+    """26 U.S.C. 199A(e)(2): the taxable income above which the W-2 wage and property limit
+    of 199A(b)(2)(B) phases in."""
+    table = AMOUNTS[year]["qbi_threshold"]
+    return float(table.get(filing_status, table["other"]))

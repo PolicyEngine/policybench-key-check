@@ -172,8 +172,24 @@
     "reit_ptp": 0.0,
     "survivor_benefits": 0.0
    },
-   "notes": [],
-   "members_with_own_payroll": []
+   "notes": [
+    [
+     "income_tax",
+     "reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_038",
@@ -274,8 +290,24 @@
     "reit_ptp": 0.0,
     "survivor_benefits": 0.0
    },
-   "notes": [],
-   "members_with_own_payroll": []
+   "notes": [
+    [
+     "income_tax",
+     "reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -1328,8 +1360,7 @@
    "q_self_employment_tax": 2193.61,
    "q_fed_employee_payroll_tax": 571.26,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -1387,8 +1418,7 @@
    "q_self_employment_tax": 2193.61,
    "q_fed_employee_payroll_tax": 571.26,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -1417,7 +1447,6 @@
    "out_v29": 3336.14,
    "out_v30": 22992.5,
    "out_actc": 2909.35,
-   "out_tfica_gross_wages": 2764.88,
    "out_tfica_no_self_employment": 571.26,
    "q_fed_tax_before_refundable": -0.0,
    "q_refundable_credits": 10225.35,
@@ -1425,8 +1454,7 @@
    "q_fed_employee_payroll_tax": 571.26,
    "status": "ok",
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
+    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated.",
     "income_tax: this build has no 2026 minimum qualified business income deduction (26 U.S.C. 199A(i))"
    ],
    "map_computed": [
@@ -1456,7 +1484,6 @@
    "out_v29": 3336.14,
    "out_v30": 22992.5,
    "out_actc": 2909.35,
-   "out_tfica_gross_wages": 2764.88,
    "out_tfica_no_self_employment": 571.26,
    "q_fed_tax_before_refundable": -0.0,
    "q_refundable_credits": 10061.35,
@@ -1464,8 +1491,7 @@
    "q_fed_employee_payroll_tax": 571.26,
    "status": "ok",
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

@@ -113,7 +113,14 @@
      "reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_007",
@@ -186,7 +193,14 @@
      "reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -512,9 +526,7 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 0.0,
    "unexpressed": [
-    "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -554,9 +566,7 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 0.0,
    "unexpressed": [
-    "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -585,9 +595,7 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
-    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
@@ -619,9 +627,7 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
-    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

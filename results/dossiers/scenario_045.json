@@ -106,7 +106,9 @@
     "survivor_benefits": 0.0
    },
    "notes": [],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_045",
@@ -174,7 +176,9 @@
     "survivor_benefits": 0.0
    },
    "notes": [],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -628,11 +632,7 @@
    "q_fed_tax_before_refundable": 2173.07,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
-   "q_fed_employee_payroll_tax": 2775.08,
-   "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
-   ]
+   "q_fed_employee_payroll_tax": 2775.08
   },
   "taxcalc-6.9.0-2025": {
    "case_id": "scenario_045",
@@ -670,11 +670,7 @@
    "q_fed_tax_before_refundable": 2224.57,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
-   "q_fed_employee_payroll_tax": 2775.08,
-   "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
-   ]
+   "q_fed_employee_payroll_tax": 2775.08
   },
   "taxsim-cd2026110117-2026": {
    "case_id": "scenario_045",
@@ -696,17 +692,12 @@
    "out_v28": 2173.07,
    "out_v29": 5550.17,
    "out_v30": 36275.59,
-   "out_tfica_gross_wages": 2775.08,
    "out_tfica_no_self_employment": 2775.08,
    "q_fed_tax_before_refundable": 2173.07,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 2775.08,
-   "status": "ok",
-   "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
-   ]
+   "status": "ok"
   },
   "taxsim-cd2026110117-2025": {
    "case_id": "scenario_045",
@@ -728,17 +719,12 @@
    "out_v28": 2224.57,
    "out_v29": 5550.17,
    "out_v30": 36275.59,
-   "out_tfica_gross_wages": 2775.08,
    "out_tfica_no_self_employment": 2775.08,
    "q_fed_tax_before_refundable": 2224.57,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 2775.08,
-   "status": "ok",
-   "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
-   ]
+   "status": "ok"
   }
  }
 }

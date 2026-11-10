@@ -2,10 +2,11 @@
  "taxsim_build": "cd2026110117",
  "binary": "taxsimtest-osx.exe",
  "year": 2025,
- "dependents_path": "ages (age1..)",
+ "dependents_path": "ages (age1..); a qualifying child aged 17 or over sent as 18",
+ "records_b": 0,
  "input_map": "keycheck/map_taxsim.py",
- "input_map_version": "2026-11-10.1",
- "unit_version": "2026-11-10.1",
+ "input_map_version": "2026-11-10.2",
+ "unit_version": "2026-11-10.2",
  "shared": "results/shared/board100_salt_from_pe2.60.0_2025.csv",
  "rejected_records": 0
 }

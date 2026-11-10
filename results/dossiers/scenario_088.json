@@ -129,7 +129,7 @@
     ],
     [
      "income_tax",
-     "reading: Stated tip income is qualified tips (received in a tipped occupation); the occupation is not stated."
+     "reading: Stated tip income is not qualified tips (26 U.S.C. 224): the occupation is not stated, and an unstated status is false. The tips stay inside the stated wages; Tax-Calculator's tip_income is 0."
     ],
     [
      "income_tax",
@@ -140,7 +140,14 @@
      "reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_088",
@@ -214,7 +221,7 @@
     ],
     [
      "income_tax",
-     "reading: Stated tip income is qualified tips (received in a tipped occupation); the occupation is not stated."
+     "reading: Stated tip income is not qualified tips (26 U.S.C. 224): the occupation is not stated, and an unstated status is false. The tips stay inside the stated wages; Tax-Calculator's tip_income is 0."
     ],
     [
      "income_tax",
@@ -225,7 +232,14 @@
      "reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -735,14 +749,18 @@
    "in_e19200": 10777.0,
    "in_e19800": 2268.0,
    "in_e20100": 2672.35,
-   "in_tip_income": 9600.0,
    "in_RECID": 72.0,
    "in_FLPDYR": 2026.0,
    "out_aftertax_income": 22851.62,
    "out_benefit_cost_total": 2733.0,
    "out_benefit_value_total": 2733.0,
    "out_c00100": 24034.76,
-   "out_c62100": 13759.76,
+   "out_c04470": 26276.03,
+   "out_c18300": 10678.85,
+   "out_c19200": 10777.0,
+   "out_c19700": 4820.18,
+   "out_c21060": 26276.03,
+   "out_c62100": 7762.59,
    "out_combined": 2842.29,
    "out_credit_claim_urn": 0.72,
    "out_dwks10": 48.0,
@@ -756,8 +774,6 @@
    "out_ptax_er_p": 1421.14,
    "out_ptax_oasdi": 2303.56,
    "out_ptax_was": 2842.29,
-   "out_standard": 19150.0,
-   "out_tip_income_deduction": 9600.0,
    "out_ymod": 24034.76,
    "out_ymod1": 24034.76,
    "q_fed_tax_before_refundable": 0.0,
@@ -765,14 +781,12 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 1421.14,
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
-    "income_tax: reading: Stated tip income is qualified tips (received in a tipped occupation)",
-    "the occupation is not stated.",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: Stated tip income is not qualified tips (26 U.S.C. 224): the occupation is not stated, and an unstated status is false. The tips stay inside the stated wages; Tax-Calculator's tip_income is 0.",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
     "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -796,14 +810,18 @@
    "in_e19200": 10777.0,
    "in_e19800": 2268.0,
    "in_e20100": 2672.35,
-   "in_tip_income": 9600.0,
    "in_RECID": 72.0,
    "in_FLPDYR": 2025.0,
    "out_aftertax_income": 22851.62,
    "out_benefit_cost_total": 2733.0,
    "out_benefit_value_total": 2733.0,
    "out_c00100": 24034.76,
-   "out_c62100": 13759.76,
+   "out_c04470": 26396.21,
+   "out_c18300": 10678.85,
+   "out_c19200": 10777.0,
+   "out_c19700": 4940.35,
+   "out_c21060": 26396.21,
+   "out_c62100": 7642.41,
    "out_combined": 2842.29,
    "out_credit_claim_urn": 0.72,
    "out_dwks10": 48.0,
@@ -817,8 +835,6 @@
    "out_ptax_er_p": 1421.14,
    "out_ptax_oasdi": 2303.56,
    "out_ptax_was": 2842.29,
-   "out_standard": 17750.0,
-   "out_tip_income_deduction": 9600.0,
    "out_ymod": 24034.76,
    "out_ymod1": 24034.76,
    "q_fed_tax_before_refundable": 0.0,
@@ -826,14 +842,12 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 1421.14,
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
-    "income_tax: reading: Stated tip income is qualified tips (received in a tipped occupation)",
-    "the occupation is not stated.",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: Stated tip income is not qualified tips (26 U.S.C. 224): the occupation is not stated, and an unstated status is false. The tips stay inside the stated wages; Tax-Calculator's tip_income is 0.",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
     "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -859,7 +873,6 @@
    "out_v26": 8437.59,
    "out_v29": 2842.29,
    "out_v30": 24034.77,
-   "out_tfica_gross_wages": 1421.15,
    "out_tfica_no_self_employment": 1421.15,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 0.0,
@@ -867,24 +880,20 @@
    "q_fed_employee_payroll_tax": 1421.15,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
-    "income_tax: reading: Stated tip income is qualified tips (received in a tipped occupation)",
-    "the occupation is not stated.",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: Stated tip income is not qualified tips (26 U.S.C. 224): the occupation is not stated, and an unstated status is false. The tips stay inside the stated wages; Tax-Calculator's tip_income is 0.",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
     "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
     "income_tax: TAXSIM has no input for blindness (additional standard deduction, 26 U.S.C. 63(f)(2))",
-    "income_tax: TAXSIM has no input for qualified tips (26 U.S.C. 224)",
     "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
     "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
     "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied"
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
    ]
   },
   "taxsim-cd2026110117-2025": {
@@ -910,7 +919,6 @@
    "out_v26": 8317.42,
    "out_v29": 2842.29,
    "out_v30": 24034.77,
-   "out_tfica_gross_wages": 1421.15,
    "out_tfica_no_self_employment": 1421.15,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 0.0,
@@ -918,23 +926,19 @@
    "q_fed_employee_payroll_tax": 1421.15,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
-    "income_tax: reading: Stated tip income is qualified tips (received in a tipped occupation)",
-    "the occupation is not stated.",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: Stated tip income is not qualified tips (26 U.S.C. 224): the occupation is not stated, and an unstated status is false. The tips stay inside the stated wages; Tax-Calculator's tip_income is 0.",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
     "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
     "income_tax: TAXSIM has no input for blindness (additional standard deduction, 26 U.S.C. 63(f)(2))",
-    "income_tax: TAXSIM has no input for qualified tips (26 U.S.C. 224)",
     "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
     "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied"
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
    ]
   }
  }

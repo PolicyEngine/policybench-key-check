@@ -153,8 +153,20 @@
     "reit_ptp": 0.0,
     "survivor_benefits": 0.0
    },
-   "notes": [],
-   "members_with_own_payroll": []
+   "notes": [
+    [
+     "income_tax",
+     "reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_076",
@@ -238,8 +250,20 @@
     "reit_ptp": 0.0,
     "survivor_benefits": 0.0
    },
-   "notes": [],
-   "members_with_own_payroll": []
+   "notes": [
+    [
+     "income_tax",
+     "reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -995,8 +1019,7 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 12240.0,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not."
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -1053,8 +1076,7 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 12240.0,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not."
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -1085,7 +1107,6 @@
    "out_v28": 24403.8,
    "out_v29": 24480.0,
    "out_v30": 164220.0,
-   "out_tfica_gross_wages": 12240.0,
    "out_tfica_no_self_employment": 12240.0,
    "q_fed_tax_before_refundable": 19803.8,
    "q_refundable_credits": 0.0,
@@ -1093,11 +1114,9 @@
    "q_fed_employee_payroll_tax": 12240.0,
    "status": "ok",
    "unexpressed": [
+    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not.",
     "income_tax: this build computes the 2026 child care credit at the pre-2026 rates (probe P5)",
-    "income_tax: TAXSIM applies no W-2 wage or property limit to the qualified business income deduction",
-    "income_tax: this build ignores `otherprop` from 2024, so rent and estate income are entered as `intrec`",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: this build ignores `otherprop` from 2024, so rent and estate income are entered as `intrec`"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
@@ -1128,7 +1147,6 @@
    "out_v28": 24850.8,
    "out_v29": 24480.0,
    "out_v30": 164220.0,
-   "out_tfica_gross_wages": 12240.0,
    "out_tfica_no_self_employment": 12240.0,
    "q_fed_tax_before_refundable": 20250.8,
    "q_refundable_credits": 0.0,
@@ -1136,10 +1154,8 @@
    "q_fed_employee_payroll_tax": 12240.0,
    "status": "ok",
    "unexpressed": [
-    "income_tax: TAXSIM applies no W-2 wage or property limit to the qualified business income deduction",
-    "income_tax: this build ignores `otherprop` from 2024, so rent and estate income are entered as `intrec`",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not.",
+    "income_tax: this build ignores `otherprop` from 2024, so rent and estate income are entered as `intrec`"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

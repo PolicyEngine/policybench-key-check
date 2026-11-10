@@ -104,8 +104,20 @@
     "reit_ptp": 0.0,
     "survivor_benefits": 0.0
    },
-   "notes": [],
-   "members_with_own_payroll": []
+   "notes": [
+    [
+     "income_tax",
+     "reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_112",
@@ -172,8 +184,20 @@
     "reit_ptp": 0.0,
     "survivor_benefits": 0.0
    },
-   "notes": [],
-   "members_with_own_payroll": []
+   "notes": [
+    [
+     "income_tax",
+     "reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -647,8 +671,7 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 453.1,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -693,8 +716,7 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 453.1,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -717,7 +739,6 @@
    "out_v26": 4842.82,
    "out_v29": 906.19,
    "out_v30": 7842.82,
-   "out_tfica_gross_wages": 453.1,
    "out_tfica_no_self_employment": 453.1,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 453.1,
@@ -725,11 +746,8 @@
    "q_fed_employee_payroll_tax": 453.1,
    "status": "ok",
    "unexpressed": [
-    "income_tax: TAXSIM applies no W-2 wage or property limit to the qualified business income deduction",
-    "income_tax: partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: this build has no 2026 minimum qualified business income deduction (26 U.S.C. 199A(i))"
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a)).",
+    "income_tax: partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income"
    ]
   },
   "taxsim-cd2026110117-2025": {
@@ -752,7 +770,6 @@
    "out_v26": 4842.82,
    "out_v29": 906.19,
    "out_v30": 7842.82,
-   "out_tfica_gross_wages": 453.1,
    "out_tfica_no_self_employment": 453.1,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 453.1,
@@ -760,10 +777,8 @@
    "q_fed_employee_payroll_tax": 453.1,
    "status": "ok",
    "unexpressed": [
-    "income_tax: TAXSIM applies no W-2 wage or property limit to the qualified business income deduction",
-    "income_tax: partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a)).",
+    "income_tax: partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income"
    ]
   }
  }

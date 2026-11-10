@@ -116,8 +116,24 @@
     "reit_ptp": 0.0,
     "survivor_benefits": 0.0
    },
-   "notes": [],
-   "members_with_own_payroll": []
+   "notes": [
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_015",
@@ -184,8 +200,24 @@
     "reit_ptp": 0.0,
     "survivor_benefits": 0.0
    },
-   "notes": [],
-   "members_with_own_payroll": []
+   "notes": [
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -755,11 +787,10 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 3442.5,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
    ]
   },
@@ -809,11 +840,10 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 3442.5,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
    ]
   },
@@ -822,26 +852,25 @@
    "in_year": 2026.0,
    "in_mstat": 1.0,
    "in_page": 36.0,
-   "in_pwages": 43958.07,
+   "in_pwages": 45000.0,
    "in_intrec": 2000.0,
    "in_ltcg": -4510.0,
-   "in_nonprop": -48.69,
+   "in_nonprop": -1090.62,
    "in_proptax": 1906.88,
    "in_mortgage": 4861.8,
    "out_taxsimid": 13.0,
    "out_year": 2026.0,
    "out_fiitax": 2969.13,
-   "out_fica": 6725.58,
-   "out_tfica": 3362.79,
+   "out_fica": 6885.0,
+   "out_tfica": 3442.5,
    "out_v10": 42909.38,
    "out_v13": 16100.0,
    "out_v18": 26809.38,
    "out_v19": 2969.13,
    "out_v26": 42909.38,
    "out_v28": 2969.13,
-   "out_v29": 6725.58,
-   "out_v30": 45958.07,
-   "out_tfica_gross_wages": 3442.5,
+   "out_v29": 6885.0,
+   "out_v30": 47000.0,
    "out_tfica_no_self_employment": 3442.5,
    "q_fed_tax_before_refundable": 2969.13,
    "q_refundable_credits": 0.0,
@@ -849,13 +878,11 @@
    "q_fed_employee_payroll_tax": 3442.5,
    "status": "ok",
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
-    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
    ]
@@ -865,26 +892,25 @@
    "in_year": 2025.0,
    "in_mstat": 1.0,
    "in_page": 36.0,
-   "in_pwages": 43958.07,
+   "in_pwages": 45000.0,
    "in_intrec": 2000.0,
    "in_ltcg": -4510.0,
-   "in_nonprop": -48.69,
+   "in_nonprop": -1090.62,
    "in_proptax": 1927.83,
    "in_mortgage": 4861.8,
    "out_taxsimid": 13.0,
    "out_year": 2025.0,
    "out_fiitax": 3020.63,
-   "out_fica": 6725.58,
-   "out_tfica": 3362.79,
+   "out_fica": 6885.0,
+   "out_tfica": 3442.5,
    "out_v10": 42909.38,
    "out_v13": 15750.0,
    "out_v18": 27159.38,
    "out_v19": 3020.63,
    "out_v26": 42909.38,
    "out_v28": 3020.63,
-   "out_v29": 6725.58,
-   "out_v30": 45958.07,
-   "out_tfica_gross_wages": 3442.5,
+   "out_v29": 6885.0,
+   "out_v30": 47000.0,
    "out_tfica_no_self_employment": 3442.5,
    "q_fed_tax_before_refundable": 3020.63,
    "q_refundable_credits": 0.0,
@@ -892,13 +918,11 @@
    "q_fed_employee_payroll_tax": 3442.5,
    "status": "ok",
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
-    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
    ]

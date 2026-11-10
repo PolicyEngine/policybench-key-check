@@ -108,7 +108,18 @@
     "survivor_benefits": 0.0
    },
    "notes": [],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_016",
@@ -176,7 +187,18 @@
     "survivor_benefits": 0.0
    },
    "notes": [],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -616,8 +638,9 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 2649.8,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
    ],
    "map_computed": [
     "income_tax: student loan interest deduction figured under 26 U.S.C. 221"
@@ -661,8 +684,9 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 2649.8,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
    ],
    "map_computed": [
     "income_tax: student loan interest deduction figured under 26 U.S.C. 221"
@@ -686,7 +710,6 @@
    "out_v17": 44304.85,
    "out_v29": 5299.6,
    "out_v30": 34637.94,
-   "out_tfica_gross_wages": 2649.8,
    "out_tfica_no_self_employment": 2649.8,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 0.0,
@@ -694,9 +717,10 @@
    "q_fed_employee_payroll_tax": 2649.8,
    "status": "ok",
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them",
+    "income_tax: reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
    ],
    "map_computed": [
     "income_tax: student loan interest deduction figured under 26 U.S.C. 221, entered as negative `nonprop`",
@@ -721,7 +745,6 @@
    "out_v17": 44304.85,
    "out_v29": 5299.6,
    "out_v30": 34637.94,
-   "out_tfica_gross_wages": 2649.8,
    "out_tfica_no_self_employment": 2649.8,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 0.0,
@@ -729,9 +752,10 @@
    "q_fed_employee_payroll_tax": 2649.8,
    "status": "ok",
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them",
+    "income_tax: reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
    ],
    "map_computed": [
     "income_tax: student loan interest deduction figured under 26 U.S.C. 221, entered as negative `nonprop`",

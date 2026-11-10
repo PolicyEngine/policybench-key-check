@@ -12,14 +12,14 @@ person,charitable_non_cash_donations,9,federal,,e20100,mortgage,
 person,child_support_expense,4,none,,,,
 person,child_support_received,3,none,,,,
 person,disability_benefits,6,federal,,e01200 (no dedicated input),pensions (no dedicated input),taxable and not wages in the key; who paid for the coverage is not stated
-person,educational_assistance,2,none,,,,
+person,educational_assistance,2,none,,,,not taxable in the maps: read as a qualified scholarship (keycheck/unit.py READINGS educational_assistance)
 person,educator_expense,2,federal,,e03220 (the map applies the limit),"nonprop, negative",
 person,employer_sponsored_insurance_premiums,42,none,,,,
-person,estate_income,2,federal,,e02000,intrec,
-person,farm_income,2,none,,,,repeats farm_operations_income wherever the board states it; the engine does not read it
+person,estate_income,2,federal,,e02000,"intrec, either sign",not qualified business income in the maps or the key
+person,farm_income,2,none,,,,repeats farm_operations_income wherever the board states it; the engine does not read it (READINGS farm_income)
 person,farm_operations_income,2,federal,,e02100p/s,psemp/ssemp,
 person,farm_rent_income,4,federal,,e02000 and e27200,scorp,
-person,financial_assistance,6,none,,,,
+person,financial_assistance,6,none,,,,"a gift, not gross income, in the maps (READINGS financial_assistance)"
 person,fsla_overtime_premium,11,federal,,overtime_income,,TAXSIM has no input for the overtime deduction
 person,has_american_opportunity_credit_1098_t_or_exception,4,none,,,,
 person,has_american_opportunity_credit_institution_ein,4,none,,,,
@@ -27,12 +27,12 @@ person,has_champva_health_coverage_at_interview,1,none,,,,
 person,has_esi,53,none,,,,
 person,has_indian_health_service_coverage_at_interview,2,none,,,,
 person,has_other_means_tested_health_coverage_at_interview,1,none,,,,
-person,health_insurance_premiums_without_medicare_part_b,53,federal,,e17500,mortgage (the map applies the 7.5% floor),itemizers only
+person,health_insurance_premiums_without_medicare_part_b,53,federal,,e17500,mortgage (the map applies the 7.5% floor),itemizers only; every listed member's counts (26 U.S.C. 213(a))
 person,home_mortgage_interest,11,federal,axiom:housing/household#mortgage_interest_paid,e19200 (the map applies the debt limit),mortgage,itemizers only
 person,hourly_wage,50,none,,,,
 person,hours_worked_last_week,59,none,,,,
 person,is_blind,9,federal,axiom:demographics/person#blind,"blind_head, blind_spouse",,TAXSIM has no input for blindness
-person,is_disabled,29,none,axiom:demographics/person#disabled,,,"the engine's tax rules read other disability inputs, which the board never states"
+person,is_disabled,29,none,axiom:demographics/person#disabled,"XTOT, EIC (a dependent's class, derived)","depx, dep18; age 18 on the 2025 ages path (a dependent's class, derived)","the engine's tax rules read other disability inputs, which the board never states; keycheck/unit.py reads it for a member with no earnings as permanent and total disability (READINGS is_disabled)"
 person,is_enrolled_at_least_half_time_for_american_opportunity_credit,4,none,,,,
 person,is_paid_hourly,28,none,,,,
 person,is_pregnant,2,none,axiom:demographics/person#pregnant,,,
@@ -44,20 +44,20 @@ person,is_unmarried_partner_of_household_head,2,federal,,keeps the head from hea
 person,long_term_capital_gains,15,federal,axiom:income/person#long_term_capital_gains,p23250,ltcg,
 person,miscellaneous_income,1,federal,,e01200 (no dedicated input),pensions (no dedicated input),
 person,non_qualified_dividend_income,13,federal,axiom:income/person#dividend_income,e00600,intrec,the concept is total dividends; non-qualified is the total less qualified
-person,non_sch_d_capital_gains,4,federal,,e01100,ltcg,
-person,other_health_insurance_premiums,49,none,,,,
-person,other_medical_expenses,77,federal,,e17500,mortgage (the map applies the 7.5% floor),itemizers only
-person,over_the_counter_health_expenses,88,none,,,,
+person,non_sch_d_capital_gains,4,federal,,"e01100, or p23250 when the unit has Schedule D items",ltcg,capital gain distributions
+person,other_health_insurance_premiums,49,none,,,,not counted again: part of the premiums without Medicare Part B (READINGS other_health_insurance_premiums)
+person,other_medical_expenses,77,federal,,e17500,mortgage (the map applies the 7.5% floor),itemizers only; every listed member's counts (26 U.S.C. 213(a))
+person,over_the_counter_health_expenses,88,none,,,,left out of medical expenses in the maps and the key (READINGS over_the_counter)
 person,partnership_s_corp_income,4,federal,,e02000 and e26270,scorp,
 person,partnership_se_income,1,federal,,k1bx14p/s,"psemp/ssemp, taken out of scorp","self-employment earnings inside the partnership income, not more income"
 person,pre_subsidy_rent,28,none,axiom:housing/household#rent_paid,,rentpaid (state credits only; not sent),
-person,qualified_bdc_income,2,none,,,,
+person,qualified_bdc_income,2,none,,,,read as part of the stated dividends (READINGS qualified_bdc_income); the engine reads it in no formula
 person,qualified_dividend_income,15,federal,axiom:income/person#qualified_dividend_income,e00650 and e00600,dividends,
 person,qualified_reit_and_ptp_income,1,federal,,,,a component of the qualified business income deduction neither other model has
 person,real_estate_taxes,23,federal,axiom:housing/household#property_tax_paid,e18500,proptax,itemizers only
 person,receives_wic,1,none,,,,
-person,rental_income,4,federal,axiom:income/person#rental_income,e02000,intrec (this build ignores otherprop from 2024),qualified business income in the key by default; not in the other two
-person,roth_401k_contributions_desired,24,federal,,"e07240 (saver's credit, computed by the map)",,shares the 402(g) limit with traditional deferrals
+person,rental_income,4,federal,axiom:income/person#rental_income,e02000,"intrec, either sign (this build ignores otherprop from 2024)",qualified business income in the key by default; not in the maps (READINGS rental_qbi)
+person,roth_401k_contributions_desired,24,federal,,"e07240 (saver's credit, computed by the map)",,"shares the 402(g) limit with traditional deferrals and, with them, is limited to wages"
 person,roth_ira_contributions_desired,24,federal,,"e07240 (saver's credit, computed by the map)",,
 person,salt_refund_income,8,federal,,e00700,pensions (no dedicated input),taxable in full in the key; the prior-year tax benefit is not stated
 person,self_employment_income,7,federal,axiom:income/person#self_employment_income,e00900p/s,psemp/ssemp,
@@ -79,8 +79,8 @@ person,taxable_403b_distributions,1,federal,axiom:income/person#pension_income,e
 person,taxable_interest_income,38,federal,axiom:income/person#interest_income,e00300,intrec,
 person,taxable_ira_distributions,11,federal,axiom:income/person#pension_income,e01400,pensions,
 person,taxable_private_pension_income,28,federal,axiom:income/person#pension_income,e01500 and e01700,pensions,
-person,tip_income,1,none,,tip_income,,the key gives no tip deduction: it needs an occupation code the board cannot state
-person,traditional_401k_contributions_desired,24,federal,,"pencon_p/s, and out of e00200p/s",out of pwages/swages for income tax; in for payroll tax,
+person,tip_income,1,none,,tip_income (sent as 0),,the key gives no tip deduction: it needs an occupation code the board cannot state; the maps read stated tips as not qualified (READINGS tips)
+person,traditional_401k_contributions_desired,24,federal,,"pencon_p/s, and out of e00200p/s","nonprop, negative (pwages/swages stay gross)","limited by 402(g) and, with Roth deferrals, to wages"
 person,traditional_ira_contributions_desired,24,federal,,e03150 (the map applies 26 U.S.C. 219),"nonprop, negative",
 person,unadjusted_basis_qualified_property,5,federal,,PT_ubia_property,,limits the qualified business income deduction above the threshold only
 person,unemployment_compensation,1,federal,axiom:income/person#unemployment_insurance,e02300,pui,

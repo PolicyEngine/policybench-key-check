@@ -135,9 +135,20 @@
     [
      "income_tax",
      "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
+    ],
+    [
+     "income_tax",
+     "reading: A stated educator expense is an eligible educator's (26 U.S.C. 62(d)(1)): hours worked in a school are not stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_086",
@@ -217,9 +228,20 @@
     [
      "income_tax",
      "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
+    ],
+    [
+     "income_tax",
+     "reading: A stated educator expense is an eligible educator's (26 U.S.C. 62(d)(1)): hours worked in a school are not stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -916,8 +938,7 @@
    "q_fed_employee_payroll_tax": 4743.0,
    "unexpressed": [
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A stated educator expense is an eligible educator's (26 U.S.C. 62(d)(1)): hours worked in a school are not stated."
    ],
    "map_computed": [
     "income_tax: educator expenses limited by 26 U.S.C. 62(a)(2)(D)"
@@ -978,8 +999,7 @@
    "q_fed_employee_payroll_tax": 4743.0,
    "unexpressed": [
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A stated educator expense is an eligible educator's (26 U.S.C. 62(d)(1)): hours worked in a school are not stated."
    ],
    "map_computed": [
     "income_tax: educator expenses limited by 26 U.S.C. 62(a)(2)(D)"
@@ -1013,7 +1033,6 @@
    "out_v28": 5455.55,
    "out_v29": 9486.0,
    "out_v30": 74824.0,
-   "out_tfica_gross_wages": 4743.0,
    "out_tfica_no_self_employment": 4743.0,
    "q_fed_tax_before_refundable": 3255.55,
    "q_refundable_credits": 0.0,
@@ -1022,9 +1041,8 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: reading: A stated educator expense is an eligible educator's (26 U.S.C. 62(d)(1)): hours worked in a school are not stated.",
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
     "income_tax: educator expenses limited by 26 U.S.C. 62(a)(2)(D)",
@@ -1056,7 +1074,6 @@
    "out_v28": 5537.05,
    "out_v29": 9486.0,
    "out_v30": 74824.0,
-   "out_tfica_gross_wages": 4743.0,
    "out_tfica_no_self_employment": 4743.0,
    "q_fed_tax_before_refundable": 3337.05,
    "q_refundable_credits": 0.0,
@@ -1065,9 +1082,8 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: reading: A stated educator expense is an eligible educator's (26 U.S.C. 62(d)(1)): hours worked in a school are not stated.",
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
     "income_tax: educator expenses limited by 26 U.S.C. 62(a)(2)(D)",

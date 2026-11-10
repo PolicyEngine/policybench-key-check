@@ -56,16 +56,20 @@ def pairs(items):
     return out
 
 
+# The runners join a row's notes with this separator; a note can contain ";".
+SEPARATOR = " || "
+
+
 def tagged(text: str, group: str) -> str:
-    """The notes of one group, from '; '-joined 'group: note' entries."""
+    """The notes of one group, from SEPARATOR-joined 'group: note' entries."""
     keep = []
-    for entry in (e.strip() for e in (text or "").split(";")):
+    for entry in (e.strip() for e in (text or "").split(SEPARATOR)):
         if not entry:
             continue
         tag, _, note = entry.partition(":")
         if tag.strip() in (group, "all"):
             keep.append(note.strip())
-    return "; ".join(keep)
+    return SEPARATOR.join(keep)
 
 
 def main(argv=None) -> None:

@@ -248,7 +248,14 @@
     "survivor_benefits": 0.0
    },
    "notes": [],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_008",
@@ -382,7 +389,14 @@
     "survivor_benefits": 0.0
    },
    "notes": [],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -1896,11 +1910,7 @@
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 12433.61,
    "q_self_employment_tax": 565.18,
-   "q_fed_employee_payroll_tax": 2050.2,
-   "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
-   ]
+   "q_fed_employee_payroll_tax": 2050.2
   },
   "taxcalc-6.9.0-2025": {
    "case_id": "scenario_008",
@@ -1958,11 +1968,7 @@
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 12214.41,
    "q_self_employment_tax": 565.18,
-   "q_fed_employee_payroll_tax": 2050.2,
-   "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
-   ]
+   "q_fed_employee_payroll_tax": 2050.2
   },
   "taxsim-cd2026110117-2026": {
    "case_id": "scenario_008",
@@ -1991,7 +1997,6 @@
    "out_v29": 4665.58,
    "out_v30": 30915.0,
    "out_actc": 4202.61,
-   "out_tfica_gross_wages": 2615.38,
    "out_tfica_no_self_employment": 2050.2,
    "q_fed_tax_before_refundable": -0.0,
    "q_refundable_credits": 12433.61,
@@ -2000,8 +2005,6 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: TAXSIM has no input for blindness (additional standard deduction, 26 U.S.C. 63(f)(2))",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
     "income_tax: this build has no 2026 minimum qualified business income deduction (26 U.S.C. 199A(i))"
    ]
   },
@@ -2029,7 +2032,6 @@
    "out_v29": 4665.58,
    "out_v30": 30915.0,
    "out_actc": 4202.61,
-   "out_tfica_gross_wages": 2615.38,
    "out_tfica_no_self_employment": 2050.2,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 12214.41,
@@ -2037,17 +2039,14 @@
    "q_fed_employee_payroll_tax": 2050.2,
    "status": "ok",
    "unexpressed": [
-    "income_tax: TAXSIM's ages path gives a 17-year-old the $2,200 child credit in place of the $500 credit (probe P2)",
-    "income_tax: TAXSIM has no input for blindness (additional standard deduction, 26 U.S.C. 63(f)(2))",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: TAXSIM has no input for blindness (additional standard deduction, 26 U.S.C. 63(f)(2))"
    ],
    "in_age1": 1.0,
    "in_age2": 5.0,
    "in_age3": 10.0,
    "in_age4": 12.0,
    "in_age5": 14.0,
-   "in_age6": 17.0
+   "in_age6": 18.0
   }
  }
 }

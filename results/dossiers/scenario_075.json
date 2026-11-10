@@ -115,7 +115,14 @@
      "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_075",
@@ -188,7 +195,14 @@
      "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -685,9 +699,7 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 968.21,
    "unexpressed": [
-    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -741,9 +753,7 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 968.21,
    "unexpressed": [
-    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -770,7 +780,6 @@
    "out_v28": 14777.15,
    "out_v29": 1936.42,
    "out_v30": 109286.13,
-   "out_tfica_gross_wages": 968.21,
    "out_tfica_no_self_employment": 968.21,
    "q_fed_tax_before_refundable": 14777.15,
    "q_refundable_credits": 0.0,
@@ -779,9 +788,7 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
@@ -811,7 +818,6 @@
    "out_v28": 15056.15,
    "out_v29": 1936.42,
    "out_v30": 109286.13,
-   "out_tfica_gross_wages": 968.21,
    "out_tfica_no_self_employment": 968.21,
    "q_fed_tax_before_refundable": 15056.15,
    "q_refundable_credits": 0.0,
@@ -820,9 +826,7 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

@@ -121,7 +121,14 @@
      "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_114",
@@ -194,7 +201,14 @@
      "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -752,10 +766,10 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 1736.55,
    "unexpressed": [
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -820,10 +834,10 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 1736.55,
    "unexpressed": [
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -855,7 +869,6 @@
    "out_v29": 3473.1,
    "out_v30": 110093.77,
    "out_qbid": 4872.35,
-   "out_tfica_gross_wages": 1736.55,
    "out_tfica_no_self_employment": 1736.55,
    "q_fed_tax_before_refundable": 11265.27,
    "q_refundable_credits": 0.0,
@@ -863,19 +876,15 @@
    "q_fed_employee_payroll_tax": 1736.55,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: TAXSIM applies no W-2 wage or property limit to the qualified business income deduction",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
     "income_tax: partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income",
     "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: this build has no 2026 minimum qualified business income deduction (26 U.S.C. 199A(i))"
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied"
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
    ]
   },
   "taxsim-cd2026110117-2025": {
@@ -907,7 +916,6 @@
    "out_v29": 3473.1,
    "out_v30": 110093.77,
    "out_qbid": 4872.35,
-   "out_tfica_gross_wages": 1736.55,
    "out_tfica_no_self_employment": 1736.55,
    "q_fed_tax_before_refundable": 11350.04,
    "q_refundable_credits": 0.0,
@@ -915,17 +923,14 @@
    "q_fed_employee_payroll_tax": 1736.55,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: TAXSIM applies no W-2 wage or property limit to the qualified business income deduction",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
     "income_tax: partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied"
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
    ]
   }
  }

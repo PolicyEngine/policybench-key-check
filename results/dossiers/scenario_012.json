@@ -155,7 +155,14 @@
     "survivor_benefits": 0.0
    },
    "notes": [],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_012",
@@ -249,7 +256,14 @@
     "survivor_benefits": 0.0
    },
    "notes": [],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -1000,11 +1014,7 @@
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 6127.0,
    "q_self_employment_tax": 0.0,
-   "q_fed_employee_payroll_tax": 1683.0,
-   "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
-   ]
+   "q_fed_employee_payroll_tax": 1683.0
   },
   "taxcalc-6.9.0-2025": {
    "case_id": "scenario_012",
@@ -1051,11 +1061,7 @@
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 6028.0,
    "q_self_employment_tax": 0.0,
-   "q_fed_employee_payroll_tax": 1683.0,
-   "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
-   ]
+   "q_fed_employee_payroll_tax": 1683.0
   },
   "taxsim-cd2026110117-2026": {
    "case_id": "scenario_012",
@@ -1082,17 +1088,12 @@
    "out_v29": 3366.0,
    "out_v30": 22000.0,
    "out_actc": 1700.0,
-   "out_tfica_gross_wages": 1683.0,
    "out_tfica_no_self_employment": 1683.0,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 6127.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 1683.0,
    "status": "ok",
-   "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
-   ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
    ]
@@ -1119,17 +1120,12 @@
    "out_v29": 3366.0,
    "out_v30": 22000.0,
    "out_actc": 1700.0,
-   "out_tfica_gross_wages": 1683.0,
    "out_tfica_no_self_employment": 1683.0,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 6028.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 1683.0,
    "status": "ok",
-   "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
-   ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
    ],

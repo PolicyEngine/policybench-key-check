@@ -163,6 +163,10 @@
     [
      "payroll",
      "child1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line; their income tax return is outside the board's output"
+    ],
+    [
+     "income_tax",
+     "child1 has income of their own (employment_income), which is not income of the head's return"
     ]
    ],
    "members_with_own_payroll": [
@@ -172,7 +176,14 @@
      "wages": 45000.0,
      "self_employment": 0.0
     }
-   ]
+   ],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_123",
@@ -269,6 +280,10 @@
     [
      "payroll",
      "child1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line; their income tax return is outside the board's output"
+    ],
+    [
+     "income_tax",
+     "child1 has income of their own (employment_income), which is not income of the head's return"
     ]
    ],
    "members_with_own_payroll": [
@@ -278,7 +293,14 @@
      "wages": 45000.0,
      "self_employment": 0.0
     }
-   ]
+   ],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -1103,10 +1125,8 @@
    "q_fed_employee_payroll_tax": 11092.5,
    "members_fed_employee_payroll_tax": 3442.5,
    "unexpressed": [
-    "payroll: child1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line",
-    "their income tax return is outside the board's output",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "payroll: child1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line; their income tax return is outside the board's output",
+    "income_tax: child1 has income of their own (employment_income), which is not income of the head's return"
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -1160,10 +1180,8 @@
    "q_fed_employee_payroll_tax": 11092.5,
    "members_fed_employee_payroll_tax": 3442.5,
    "unexpressed": [
-    "payroll: child1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line",
-    "their income tax return is outside the board's output",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "payroll: child1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line; their income tax return is outside the board's output",
+    "income_tax: child1 has income of their own (employment_income), which is not income of the head's return"
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -1193,7 +1211,6 @@
    "out_v28": 7640.24,
    "out_v29": 15300.0,
    "out_v30": 100002.0,
-   "out_tfica_gross_wages": 7650.0,
    "out_tfica_no_self_employment": 7650.0,
    "members_fed_employee_payroll_tax": 3442.5,
    "q_fed_tax_before_refundable": 5440.24,
@@ -1202,16 +1219,13 @@
    "q_fed_employee_payroll_tax": 11092.5,
    "status": "ok",
    "unexpressed": [
-    "payroll: child1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line",
-    "their income tax return is outside the board's output",
-    "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "payroll: child1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line; their income tax return is outside the board's output",
+    "income_tax: child1 has income of their own (employment_income), which is not income of the head's return",
+    "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied"
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
    ]
   },
   "taxsim-cd2026110117-2025": {
@@ -1239,7 +1253,6 @@
    "out_v28": 7743.24,
    "out_v29": 15300.0,
    "out_v30": 100002.0,
-   "out_tfica_gross_wages": 7650.0,
    "out_tfica_no_self_employment": 7650.0,
    "members_fed_employee_payroll_tax": 3442.5,
    "q_fed_tax_before_refundable": 5543.24,
@@ -1248,15 +1261,12 @@
    "q_fed_employee_payroll_tax": 11092.5,
    "status": "ok",
    "unexpressed": [
-    "payroll: child1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line",
-    "their income tax return is outside the board's output",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "payroll: child1 has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line; their income tax return is outside the board's output",
+    "income_tax: child1 has income of their own (employment_income), which is not income of the head's return"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied"
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
    ],
    "in_age1": 16.0
   }

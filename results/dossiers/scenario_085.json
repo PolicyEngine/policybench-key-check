@@ -58,7 +58,7 @@
     "blind": false,
     "wages": 0.0,
     "deferral": 0.0,
-    "roth_deferral": 1.4982000589370728,
+    "roth_deferral": 0.0,
     "ira_traditional_desired": 0.3967039883136749,
     "ira_roth_desired": 0.6152960062026978,
     "schedule_c": 0.0,
@@ -115,14 +115,25 @@
    "notes": [
     [
      "income_tax",
-     "head: traditional 401(k) deferral above wages, limited to wages"
+     "head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)"
     ],
     [
      "income_tax",
      "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_085",
@@ -135,7 +146,7 @@
     "blind": false,
     "wages": 0.0,
     "deferral": 0.0,
-    "roth_deferral": 1.4982000589370728,
+    "roth_deferral": 0.0,
     "ira_traditional_desired": 0.3967039883136749,
     "ira_roth_desired": 0.6152960062026978,
     "schedule_c": 0.0,
@@ -192,14 +203,25 @@
    "notes": [
     [
      "income_tax",
-     "head: traditional 401(k) deferral above wages, limited to wages"
+     "head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)"
     ],
     [
      "income_tax",
      "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -553,11 +575,8 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 0.0,
    "unexpressed": [
-    "income_tax: head: traditional 401(k) deferral above wages, limited to wages",
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -600,11 +619,8 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 0.0,
    "unexpressed": [
-    "income_tax: head: traditional 401(k) deferral above wages, limited to wages",
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -634,11 +650,8 @@
    "q_fed_employee_payroll_tax": 0.0,
    "status": "ok",
    "unexpressed": [
-    "income_tax: head: traditional 401(k) deferral above wages, limited to wages",
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
@@ -671,11 +684,8 @@
    "q_fed_employee_payroll_tax": 0.0,
    "status": "ok",
    "unexpressed": [
-    "income_tax: head: traditional 401(k) deferral above wages, limited to wages",
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

@@ -1,0 +1,24 @@
+policyengine-us 2.60.0, scenario_020, board conventions, 2026
+change: ['head.divorce_year=2019'] 
+   alimony_expense_ald: before [5708.82373046875] after [0.0]
+   adjusted_gross_income: before [300150.1875] after [305859.0]
+   taxable_income: before [283854.1875] after [289563.0]
+   income_tax_before_refundable_credits: before [68334.734375] after [70332.8203125]
+
+policyengine-us 2.60.0, scenario_022, board conventions, 2026
+change: ['head.rental_income_would_be_qualified=false'] 
+   qualified_business_income_deduction: before [910.0] after [0.0]
+   taxable_income: before [74552.59375] after [75462.59375]
+   income_tax_before_refundable_credits: before [11113.5703125] after [11313.7705078125]
+
+policyengine-us 2.60.0, scenario_005, board conventions, 2026
+change: ['head.salt_refund_income=0'] 
+   adjusted_gross_income: before [543076.0] after [538928.375]
+   income_tax_before_refundable_credits: before [108525.578125] after [107198.3359375]
+
+policyengine-us 2.60.0, scenario_067, board conventions, 2026
+change: ['dependent1.is_tax_unit_dependent=false'] 
+   ctc: before [500.0] after [0.0]
+   non_refundable_ctc: before [500.0] after [0.0]
+   income_tax_before_refundable_credits: before [5616.240234375] after [7412.240234375]
+

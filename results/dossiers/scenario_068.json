@@ -107,8 +107,20 @@
     "reit_ptp": 0.0,
     "survivor_benefits": 0.0
    },
-   "notes": [],
-   "members_with_own_payroll": []
+   "notes": [
+    [
+     "income_tax",
+     "reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_068",
@@ -175,8 +187,20 @@
     "reit_ptp": 0.0,
     "survivor_benefits": 0.0
    },
-   "notes": [],
-   "members_with_own_payroll": []
+   "notes": [
+    [
+     "income_tax",
+     "reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -633,8 +657,7 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 2607.39,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition."
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -676,8 +699,7 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 2607.39,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition."
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -700,7 +722,6 @@
    "out_v28": 1910.02,
    "out_v29": 5214.78,
    "out_v30": 34083.53,
-   "out_tfica_gross_wages": 2607.39,
    "out_tfica_no_self_employment": 2607.39,
    "q_fed_tax_before_refundable": 1910.02,
    "q_refundable_credits": 0.0,
@@ -708,8 +729,7 @@
    "q_fed_employee_payroll_tax": 2607.39,
    "status": "ok",
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition."
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
@@ -735,7 +755,6 @@
    "out_v28": 1961.52,
    "out_v29": 5214.78,
    "out_v30": 34083.53,
-   "out_tfica_gross_wages": 2607.39,
    "out_tfica_no_self_employment": 2607.39,
    "q_fed_tax_before_refundable": 1961.52,
    "q_refundable_credits": 0.0,
@@ -743,8 +762,7 @@
    "q_fed_employee_payroll_tax": 2607.39,
    "status": "ok",
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition."
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

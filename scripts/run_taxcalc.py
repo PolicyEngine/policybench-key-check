@@ -3,7 +3,8 @@
   envs/tc690/bin/python scripts/run_taxcalc.py --scenarios <scenarios.csv> --year 2026 \
       [--shared results/shared/<file>.csv] --out results/taxcalc/<name>.csv
 
-Each household becomes one filing unit through keycheck.map_taxcalc (stated facts only).
+Each household becomes one filing unit through keycheck.map_taxcalc (the stated facts, plus
+the shared state and local tax amount, e18400, when --shared is given).
 Tax-Calculator runs one year with no extrapolation: Records(data, start_year=year,
 gfactors=None, weights=None) leaves every input as given (taxcalc/data.py:87-125).
 
@@ -18,8 +19,13 @@ Four passes: the IRA deduction, the student loan interest deduction and the save
 credit are amounts Tax-Calculator takes as given, and each depends on Tax-Calculator's
 own adjusted gross income (keycheck/map_taxcalc.py: after_pass).
 
+Notes that bear only on itemized deductions (keycheck.map_taxcalc.itemizer_notes: the
+shared state and local tax amount and the unit's itemized readings) are kept only for
+units Tax-Calculator itemizes in the final pass (out_c04470 > 0).
+
 Output: one row per household. Columns `in_*` are the inputs sent, `out_*` every
-calculated variable, `unexpressed` and `map_computed` the map's notes, and four `q_*`
+calculated variable, `unexpressed` and `map_computed` the map's notes (joined with
+" || "), and four `q_*`
 columns the board's lines as Tax-Calculator's variables give them:
   q_fed_tax_before_refundable = c09200 - setax - ptax_amc   (c09200 holds other taxes,
       net investment income tax, self-employment tax and Additional Medicare Tax:
@@ -46,6 +52,9 @@ sys.path.insert(0, str(ROOT))
 
 from keycheck import households as H  # noqa: E402
 from keycheck import map_taxcalc  # noqa: E402
+
+# Notes can contain ";"; scripts/build_answers.py splits on this separator.
+SEPARATOR = " || "
 
 
 def read_shared(path: Path | None) -> dict[str, dict[str, float]]:
@@ -144,8 +153,12 @@ def main(argv=None) -> None:
         out["q_fed_employee_payroll_tax"] += out["members_fed_employee_payroll_tax"]
         out["q_self_employment_tax"] += out["members_self_employment_tax"]
 
-    out["unexpressed"] = ["; ".join(n) for n in unexpressed]
-    out["map_computed"] = ["; ".join(dict.fromkeys(n)) for n in computed]
+    itemizes = np.asarray(calculator.array("c04470")) > 0
+    for i, unit in enumerate(units):
+        if itemizes[i]:
+            unexpressed[i] = unexpressed[i] + map_taxcalc.itemizer_notes(unit, shared.get(unit.case_id))
+    out["unexpressed"] = [SEPARATOR.join(dict.fromkeys(n)) for n in unexpressed]
+    out["map_computed"] = [SEPARATOR.join(dict.fromkeys(n)) for n in computed]
     args.out.parent.mkdir(parents=True, exist_ok=True)
     out.to_csv(args.out, index=False)
     meta = {

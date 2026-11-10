@@ -111,7 +111,14 @@
      "reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated)."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_078",
@@ -184,7 +191,14 @@
      "reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated)."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -674,10 +688,10 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 14317.32,
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -726,10 +740,10 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 13796.52,
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -755,7 +769,6 @@
    "out_v28": 24260.46,
    "out_v29": 29502.95,
    "out_v30": 200136.91,
-   "out_tfica_gross_wages": 14317.32,
    "out_tfica_no_self_employment": 14317.32,
    "q_fed_tax_before_refundable": 24260.46,
    "q_refundable_credits": 0.0,
@@ -763,11 +776,10 @@
    "q_fed_employee_payroll_tax": 14317.32,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
     "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
@@ -796,7 +808,6 @@
    "out_v28": 24509.46,
    "out_v29": 28982.15,
    "out_v30": 200136.91,
-   "out_tfica_gross_wages": 13796.52,
    "out_tfica_no_self_employment": 13796.52,
    "q_fed_tax_before_refundable": 24509.46,
    "q_refundable_credits": 0.0,
@@ -804,11 +815,10 @@
    "q_fed_employee_payroll_tax": 13796.52,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
     "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

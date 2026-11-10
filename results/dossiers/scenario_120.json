@@ -134,10 +134,33 @@
     ],
     [
      "income_tax",
+     "reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
+    ],
+    [
+     "income_tax",
      "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ],
+    [
+     "income_tax",
+     "reading: Every mortgage is acquisition debt incurred after 2017-12-15 (26 U.S.C. 163(h)(3)(F)(i)(II)): the loan dates are not stated."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_120",
@@ -211,10 +234,33 @@
     ],
     [
      "income_tax",
+     "reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
+    ],
+    [
+     "income_tax",
      "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ],
+    [
+     "income_tax",
+     "reading: Every mortgage is acquisition debt incurred after 2017-12-15 (26 U.S.C. 163(h)(3)(F)(i)(II)): the loan dates are not stated."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -833,15 +879,18 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 12668.17,
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)",
+    "income_tax: reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: reading: Every mortgage is acquisition debt incurred after 2017-12-15 (26 U.S.C. 163(h)(3)(F)(i)(II)): the loan dates are not stated.",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
     "income_tax: mortgage interest limited by 26 U.S.C. 163(h)(3)(F)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
    ]
@@ -907,15 +956,18 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 12668.17,
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)",
+    "income_tax: reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: reading: Every mortgage is acquisition debt incurred after 2017-12-15 (26 U.S.C. 163(h)(3)(F)(i)(II)): the loan dates are not stated.",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
     "income_tax: mortgage interest limited by 26 U.S.C. 163(h)(3)(F)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
    ]
@@ -925,18 +977,19 @@
    "in_year": 2026.0,
    "in_mstat": 1.0,
    "in_page": 76.0,
-   "in_pwages": 164979.56,
+   "in_pwages": 165597.0,
    "in_scorp": -2446.59,
    "in_intrec": 4300.0,
    "in_pensions": 31966.24,
    "in_gssi": 41900.0,
+   "in_nonprop": -617.44,
    "in_proptax": 14023.42,
    "in_mortgage": 21800.05,
    "out_taxsimid": 97.0,
    "out_year": 2026.0,
    "out_fiitax": 40330.21,
-   "out_fica": 25241.87,
-   "out_tfica": 12620.94,
+   "out_fica": 25336.34,
+   "out_tfica": 12668.17,
    "out_v10": 234414.21,
    "out_v12": 35615.0,
    "out_v13": 18150.0,
@@ -945,10 +998,9 @@
    "out_v19": 40259.78,
    "out_v26": 212614.16,
    "out_v28": 40259.78,
-   "out_v29": 25241.87,
-   "out_v30": 243145.8,
+   "out_v29": 25336.34,
+   "out_v30": 243763.24,
    "out_niit": 70.43,
-   "out_tfica_gross_wages": 12668.17,
    "out_tfica_no_self_employment": 12668.17,
    "q_fed_tax_before_refundable": 40330.21,
    "q_refundable_credits": 0.0,
@@ -956,26 +1008,26 @@
    "q_fed_employee_payroll_tax": 12668.17,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
     "income_tax: TAXSIM has no input for tax-exempt interest (Social Security provisional income, EITC investment income)",
     "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
     "income_tax: this build ignores `otherprop` from 2024, so rent and estate income are entered as `intrec`",
-    "income_tax: partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income",
+    "income_tax: partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income; a loss there also offsets other investment income in the EITC test and other qualified business income (probe vmt_box_side_effects ids 7, 12)",
     "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
     "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: reading: Every mortgage is acquisition debt incurred after 2017-12-15 (26 U.S.C. 163(h)(3)(F)(i)(II)): the loan dates are not stated.",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
-    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied",
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied",
     "income_tax: mortgage interest limited by 26 U.S.C. 163(h)(3)(F)"
    ]
   },
@@ -984,18 +1036,19 @@
    "in_year": 2025.0,
    "in_mstat": 1.0,
    "in_page": 76.0,
-   "in_pwages": 164979.56,
+   "in_pwages": 165597.0,
    "in_scorp": -2446.59,
    "in_intrec": 4300.0,
    "in_pensions": 31966.24,
    "in_gssi": 41900.0,
+   "in_nonprop": -617.44,
    "in_proptax": 14023.42,
    "in_mortgage": 22972.12,
    "out_taxsimid": 97.0,
    "out_year": 2025.0,
    "out_fiitax": 40307.4,
-   "out_fica": 25241.87,
-   "out_tfica": 12620.94,
+   "out_fica": 25336.34,
+   "out_tfica": 12668.17,
    "out_v10": 234414.21,
    "out_v12": 35615.0,
    "out_v13": 17750.0,
@@ -1004,10 +1057,9 @@
    "out_v19": 40236.98,
    "out_v26": 211442.09,
    "out_v28": 40236.97,
-   "out_v29": 25241.87,
-   "out_v30": 243145.8,
+   "out_v29": 25336.34,
+   "out_v30": 243763.24,
    "out_niit": 70.43,
-   "out_tfica_gross_wages": 12668.17,
    "out_tfica_no_self_employment": 12668.17,
    "q_fed_tax_before_refundable": 40307.4,
    "q_refundable_credits": 0.0,
@@ -1015,25 +1067,25 @@
    "q_fed_employee_payroll_tax": 12668.17,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
     "income_tax: TAXSIM has no input for tax-exempt interest (Social Security provisional income, EITC investment income)",
     "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
     "income_tax: this build ignores `otherprop` from 2024, so rent and estate income are entered as `intrec`",
-    "income_tax: partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income",
+    "income_tax: partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income; a loss there also offsets other investment income in the EITC test and other qualified business income (probe vmt_box_side_effects ids 7, 12)",
     "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: reading: Every mortgage is acquisition debt incurred after 2017-12-15 (26 U.S.C. 163(h)(3)(F)(i)(II)): the loan dates are not stated.",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
    ],
    "map_computed": [
-    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
-    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied",
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied",
     "income_tax: mortgage interest limited by 26 U.S.C. 163(h)(3)(F)"
    ]
   }

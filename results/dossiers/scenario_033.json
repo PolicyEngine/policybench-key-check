@@ -152,10 +152,25 @@
     ],
     [
      "income_tax",
+     "reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied."
+    ],
+    [
+     "income_tax",
      "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_033",
@@ -250,10 +265,25 @@
     ],
     [
      "income_tax",
+     "reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied."
+    ],
+    [
+     "income_tax",
      "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -836,13 +866,10 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 6043.5,
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -900,13 +927,10 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 6043.5,
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -937,7 +961,6 @@
    "out_v28": 3818.15,
    "out_v29": 12087.0,
    "out_v30": 99218.0,
-   "out_tfica_gross_wages": 6043.5,
    "out_tfica_no_self_employment": 6043.5,
    "q_fed_tax_before_refundable": 3818.15,
    "q_refundable_credits": 0.0,
@@ -945,15 +968,12 @@
    "q_fed_employee_payroll_tax": 6043.5,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
+    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
     "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
@@ -987,7 +1007,6 @@
    "out_v28": 3933.15,
    "out_v29": 12087.0,
    "out_v30": 99218.0,
-   "out_tfica_gross_wages": 6043.5,
    "out_tfica_no_self_employment": 6043.5,
    "q_fed_tax_before_refundable": 3933.15,
    "q_refundable_credits": 0.0,
@@ -995,15 +1014,12 @@
    "q_fed_employee_payroll_tax": 6043.5,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: reading: Medical expenses are the stated amounts",
-    "no Medicare Part B premium is added, since none is stated.",
+    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
     "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
-    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

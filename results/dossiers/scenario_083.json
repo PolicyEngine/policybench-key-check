@@ -105,8 +105,24 @@
     "reit_ptp": 0.0,
     "survivor_benefits": 0.0
    },
-   "notes": [],
-   "members_with_own_payroll": []
+   "notes": [
+    [
+     "income_tax",
+     "reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not."
+    ],
+    [
+     "income_tax",
+     "reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_083",
@@ -173,8 +189,24 @@
     "reit_ptp": 0.0,
     "survivor_benefits": 0.0
    },
-   "notes": [],
-   "members_with_own_payroll": []
+   "notes": [
+    [
+     "income_tax",
+     "reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not."
+    ],
+    [
+     "income_tax",
+     "reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -639,8 +671,8 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 539.33,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not.",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -679,8 +711,8 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 539.33,
    "unexpressed": [
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not.",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -701,7 +733,6 @@
    "out_v26": 11010.0,
    "out_v29": 1078.65,
    "out_v30": 11010.0,
-   "out_tfica_gross_wages": 539.32,
    "out_tfica_no_self_employment": 539.32,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 0.0,
@@ -709,10 +740,10 @@
    "q_fed_employee_payroll_tax": 539.32,
    "status": "ok",
    "unexpressed": [
+    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not.",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
     "income_tax: TAXSIM has no input for qualified overtime compensation (26 U.S.C. 225)",
-    "income_tax: this build ignores `otherprop` from 2024, so rent and estate income are entered as `intrec`",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: this build ignores `otherprop` from 2024, so rent and estate income are entered as `intrec`"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
@@ -736,7 +767,6 @@
    "out_v26": 11010.0,
    "out_v29": 1078.65,
    "out_v30": 11010.0,
-   "out_tfica_gross_wages": 539.32,
    "out_tfica_no_self_employment": 539.32,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 0.0,
@@ -744,10 +774,10 @@
    "q_fed_employee_payroll_tax": 539.32,
    "status": "ok",
    "unexpressed": [
+    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not.",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
     "income_tax: TAXSIM has no input for qualified overtime compensation (26 U.S.C. 225)",
-    "income_tax: this build ignores `otherprop` from 2024, so rent and estate income are entered as `intrec`",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: this build ignores `otherprop` from 2024, so rent and estate income are entered as `intrec`"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

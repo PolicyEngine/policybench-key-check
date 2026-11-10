@@ -114,7 +114,9 @@
      "reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [],
+   "disabled_reading": []
   },
   "2025": {
    "case_id": "scenario_074",
@@ -191,7 +193,9 @@
      "reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
     ]
    ],
-   "members_with_own_payroll": []
+   "members_with_own_payroll": [],
+   "itemized_notes": [],
+   "disabled_reading": []
   }
  },
  "committed_key": {
@@ -487,11 +491,9 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 0.0,
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
     "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)"
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -526,11 +528,9 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 0.0,
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
     "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is passed as e18400"
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)"
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -554,18 +554,14 @@
    "q_fed_employee_payroll_tax": 0.0,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
     "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
     "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
     "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
-    "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)"
    ],
    "map_computed": [
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied"
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
    ]
   },
   "taxsim-cd2026110117-2025": {
@@ -589,17 +585,13 @@
    "q_fed_employee_payroll_tax": 0.0,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
-    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
     "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
     "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
-    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
-    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
-    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income"
    ],
    "map_computed": [
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
-    "percentage ceilings not applied"
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
    ]
   }
  }
