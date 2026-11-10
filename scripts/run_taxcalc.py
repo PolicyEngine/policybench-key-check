@@ -10,7 +10,13 @@ gfactors=None, weights=None) leaves every input as given (taxcalc/data.py:87-125
 The default policy draws a seeded lottery for claiming the EITC and the refundable child
 tax credit (calcfunctions.py, "Credit claiming logic"; records.py:197-199). This check
 compares liabilities under the law, so it sets eitc_claim_prob_scale and
-actc_claim_prob_scale to 9e99, which the code documents as "always claim credit".
+actc_claim_prob_scale to 9e99, which the code documents as "always claim credit", and
+both claim_prob_min to 1. Records runs with exact_calculations=True, so phase-outs step
+as the statute and forms do.
+
+Four passes: the IRA deduction, the student loan interest deduction and the saver's
+credit are amounts Tax-Calculator takes as given, and each depends on Tax-Calculator's
+own adjusted gross income (keycheck/map_taxcalc.py: after_pass).
 
 Output: one row per household. Columns `in_*` are the inputs sent, `out_*` every
 calculated variable, `unexpressed` and `map_computed` the map's notes, and four `q_*`
@@ -63,36 +69,52 @@ def main(argv=None) -> None:
     import taxcalc
     from taxcalc import Calculator, Policy, Records
 
+    def calculate(rows: list[dict]):
+        frame = pd.DataFrame(rows).fillna(0)
+        frame["RECID"] = range(1, len(frame) + 1)
+        frame["FLPDYR"] = args.year
+        records = Records(
+            data=frame, start_year=args.year, gfactors=None, weights=None,
+            exact_calculations=True,
+        )
+        policy = Policy()
+        policy.implement_reform(
+            {
+                "eitc_claim_prob_scale": {args.year: 9e99},
+                "actc_claim_prob_scale": {args.year: 9e99},
+                "eitc_claim_prob_min": {args.year: 1.0},
+                "actc_claim_prob_min": {args.year: 1.0},
+            }
+        )
+        policy.set_year(args.year)
+        calculator = Calculator(policy=policy, records=records)
+        if calculator.current_year != args.year:
+            raise SystemExit(f"calculator is at {calculator.current_year}, not {args.year}")
+        calculator.calc_all()
+        return frame, calculator
+
     households = H.load(args.scenarios)
     shared = read_shared(args.shared)
-    rows, notes = [], []
-    for index, household in enumerate(households, start=1):
-        row, unexpressed, computed = map_taxcalc.row(
-            household, args.year, shared.get(household["id"], {})
-        )
-        row["RECID"] = index
-        row["FLPDYR"] = args.year
+    rows, units, unexpressed, computed = [], [], [], []
+    for household in households:
+        row, unit, notes, made = map_taxcalc.row(household, args.year, shared.get(household["id"]))
         rows.append(row)
-        notes.append((household["id"], unexpressed, computed))
-    frame = pd.DataFrame(rows).fillna(0)
+        units.append(unit)
+        unexpressed.append(notes)
+        computed.append(made)
+    # Passes 1 to 3 each fix the income measure of one amount Tax-Calculator takes as given.
+    for pass_number in (1, 2, 3):
+        _, calculator = calculate(rows)
+        agi = np.asarray(calculator.array("c00100"))
+        rows = [
+            map_taxcalc.after_pass(pass_number, row, unit, float(agi[i]), computed[i])
+            for i, (row, unit) in enumerate(zip(rows, units))
+        ]
+    frame, calculator = calculate(rows)
 
-    records = Records(data=frame, start_year=args.year, gfactors=None, weights=None)
-    policy = Policy()
-    policy.adjust(
-        {
-            "eitc_claim_prob_scale": [{"year": args.year, "value": 9e99}],
-            "actc_claim_prob_scale": [{"year": args.year, "value": 9e99}],
-        },
-        print_warnings=False,
-    )
-    policy.set_year(args.year)
-    calculator = Calculator(policy=policy, records=records)
-    if calculator.current_year != args.year:
-        raise SystemExit(f"calculator is at {calculator.current_year}, not {args.year}")
-    calculator.calc_all()
-
-    calc_names = sorted(Records.CALCULATED_VARS)
-    out = pd.DataFrame({"case_id": [n[0] for n in notes]})
+    variables = json.loads((Path(taxcalc.__file__).parent / "records_variables.json").read_text())
+    calc_names = sorted(variables["calc"])
+    out = pd.DataFrame({"case_id": [u.case_id for u in units]})
     for name in frame.columns:
         out[f"in_{name}"] = frame[name].to_numpy()
     for name in calc_names:
@@ -103,16 +125,36 @@ def main(argv=None) -> None:
     out["q_refundable_credits"] = out["out_refund"]
     out["q_self_employment_tax"] = out["out_setax"]
     out["q_fed_employee_payroll_tax"] = out["out_ptax_was"] / 2 + out["out_ptax_amc"]
-    out["unexpressed"] = ["; ".join(n[1]) for n in notes]
-    out["map_computed"] = ["; ".join(n[2]) for n in notes]
+
+    # Listed members with earnings of their own: their own return, for payroll and
+    # self-employment tax only (the board's payroll and self-employment outputs count
+    # every member; its income tax outputs count the head's return).
+    members = [
+        (index, member) for index, unit in enumerate(units) for member in unit.members_with_own_payroll
+    ]
+    out["members_fed_employee_payroll_tax"] = 0.0
+    out["members_self_employment_tax"] = 0.0
+    if members:
+        _, member_calc = calculate([map_taxcalc.member_row(m, args.year) for _, m in members])
+        fica = np.asarray(member_calc.array("ptax_was")) / 2
+        setax = np.asarray(member_calc.array("setax"))
+        for position, (index, _) in enumerate(members):
+            out.loc[index, "members_fed_employee_payroll_tax"] += float(fica[position])
+            out.loc[index, "members_self_employment_tax"] += float(setax[position])
+        out["q_fed_employee_payroll_tax"] += out["members_fed_employee_payroll_tax"]
+        out["q_self_employment_tax"] += out["members_self_employment_tax"]
+
+    out["unexpressed"] = ["; ".join(n) for n in unexpressed]
+    out["map_computed"] = ["; ".join(dict.fromkeys(n)) for n in computed]
     args.out.parent.mkdir(parents=True, exist_ok=True)
     out.to_csv(args.out, index=False)
     meta = {
         "taxcalc": taxcalc.__version__,
         "year": args.year,
-        "policy": "current law; eitc_claim_prob_scale and actc_claim_prob_scale set to 9e99",
+        "policy": "current law; exact_calculations=True; eitc/actc claim_prob_scale 9e99 and claim_prob_min 1.0",
         "input_map": "keycheck/map_taxcalc.py",
         "input_map_version": map_taxcalc.VERSION,
+        "unit_version": map_taxcalc.U.VERSION,
         "shared": str(args.shared) if args.shared else None,
         "numpy": np.__version__,
         "pandas": pd.__version__,
