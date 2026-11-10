@@ -1,0 +1,4 @@
+model,kind,maintainer,lineage,note
+policyengine-us,rules model,PolicyEngine,policyengine,"Writes PolicyBench's answer key. Open source."
+taxcalc,rules model,Tax-Calculator maintainers (PSLmodels),tax-calculator,"Open source. Its own validation against PolicyEngine adopts two PolicyEngine conventions; this check does not use that validation's settings."
+taxsim,rules model,NBER (Daniel Feenberg),taxsim,"Closed-source Fortran binary. Not PolicyEngine's TAXSIM emulator."
