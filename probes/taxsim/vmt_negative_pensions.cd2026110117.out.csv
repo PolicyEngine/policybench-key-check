@@ -1,0 +1,21 @@
+ TAXSIM: Item in error            :          19 pensions          -1000.0000000000000     
+ TAXSIM: Logical Record Number    :           0
+ TAXSIM: Law Year                 :        2026
+ TAXSIM: State id (SOI/FIPS)      :           0           0
+ TAXSIM: Data record, as converted:
+ TAXSIM taxsimid      1 year       2026 state         0 mstat         1
+ TAXSIM page         40 sage          0 depx          0 dep13         0
+ TAXSIM dep17         0 dep18         0 pwages    60000 swages        0
+ TAXSIM dividends     0 intrec        0 stcg          0 ltcg          0
+ TAXSIM otherprop     0 nonprop       0 pensions  -1000 gssi          0
+ TAXSIM ui            0 transfers     0 rentpaid      0 proptax       0
+ TAXSIM otheritem     0 childcare     0 mortgage      0 scorp         0
+ TAXSIM pbusinc       0 pprofinc      0 sbusinc       0 sprofinc      0
+ TAXSIM idtl          2 mtr           0 pui           0 sui           0
+ TAXSIM dep6          0 dep19         0 opt1          0 opt1v         0
+ TAXSIM opt2          0 opt2v         0 age1          0 age2          0
+ TAXSIM age3          0 age4          0 age5          0 age6          0
+ TAXSIM age7          0 age8          0 age9          0 age10         0
+ TAXSIM psemp         0 ssemp         0 statefip      0
+ TAXSIM: Abandoning processing    :          -1
+ TAXSIM: Taxsimtest version of    : 2026110117
