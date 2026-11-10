@@ -1,0 +1,13 @@
+{
+ "policyengine_us": "2.116.15",
+ "policyengine_core": "3.34.10",
+ "harness": "reference_audit/2026-09-28/scripts/sweep.py",
+ "harness_sha256": "f4c7783453a473a1bedcf64ef554c3a2fc29f9d663626948d920ed3ef2ea2b69",
+ "conventions": "board",
+ "year": 2026,
+ "latest_final_sha256": "dbbdd228b99933c6f336af97970821c25c863a18606285e8d6d9ffb3bc9af78e",
+ "sales_tax_tables_sha256": "7cf93799aad6a8c3a6fc70e7df4acc6043202a1ecc083f2c3101f76b87a85eae",
+ "skipped_variables": [
+  "traditional_ira_contributions_ald"
+ ]
+}
