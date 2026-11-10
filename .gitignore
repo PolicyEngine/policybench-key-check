@@ -1,0 +1,8 @@
+# Environments and build inputs, rebuilt by scripts
+envs/
+work/
+# Record-level households of the larger draw, rebuilt by scripts/draw_households.py
+data/draw/
+__pycache__/
+*.pyc
+.DS_Store
