@@ -1,0 +1,751 @@
+{
+ "case_id": "scenario_002",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 77,
+    "employment_income": 0.0,
+    "inputs": {
+     "bank_account_assets": 6800.0,
+     "disability_benefits": 24000.0,
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "over_the_counter_health_expenses": 200.0,
+     "social_security_retirement": 44080.0,
+     "taxable_interest_income": 400.0,
+     "taxable_private_pension_income": 18340.0,
+     "veterans_benefits": 48000.0
+    },
+    "name": "head"
+   },
+   {
+    "age": 75,
+    "employment_income": 0.0,
+    "inputs": {
+     "is_tax_unit_head": false,
+     "is_tax_unit_spouse": true,
+     "over_the_counter_health_expenses": 200.0
+    },
+    "name": "spouse"
+   }
+  ],
+  "children": [],
+  "country": "us",
+  "filing_status": "joint",
+  "household_inputs": {
+   "auto_loan_balance": 25000.0,
+   "auto_loan_interest": 1816.4705810546875,
+   "household_vehicles_value": 30200.0
+  },
+  "id": "scenario_002",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 54948,
+   "tax_unit_id": 141905
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {},
+  "state": "WA",
+  "tax_unit_inputs": {
+   "first_home_mortgage_balance": 569235.3125,
+   "second_home_mortgage_balance": 284000.0
+  },
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_002",
+   "year": 2026,
+   "state": "WA",
+   "status": "joint",
+   "head": {
+    "name": "head",
+    "age": 77,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 18340.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0
+   },
+   "spouse": {
+    "name": "spouse",
+    "age": 75,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0
+   },
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 400.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 18340.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 44080.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "disability_benefits": 24000.0,
+    "student_loan_interest": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 0.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 853235.3125,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 1816.4705810546875,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage."
+    ],
+    [
+     "income_tax",
+     "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
+    ]
+   ],
+   "members_with_own_payroll": []
+  },
+  "2025": {
+   "case_id": "scenario_002",
+   "year": 2025,
+   "state": "WA",
+   "status": "joint",
+   "head": {
+    "name": "head",
+    "age": 77,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 18340.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0
+   },
+   "spouse": {
+    "name": "spouse",
+    "age": 75,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0
+   },
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 400.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 18340.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 44080.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "disability_benefits": 24000.0,
+    "student_loan_interest": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 0.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 853235.3125,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 1816.4705810546875,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage."
+    ],
+    [
+     "income_tax",
+     "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
+    ]
+   ],
+   "members_with_own_payroll": []
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 0.0,
+  "federal_refundable_credits": 0.0,
+  "payroll_tax": 0.0,
+  "self_employment_tax": 0.0,
+  "state_income_tax_before_refundable_credits": 0.0
+ },
+ "board_exclusion_records": [
+  {
+   "scenario_id": "scenario_002",
+   "variable": "federal_income_tax_before_refundable_credits",
+   "reason_code": "reference_depends_on_unlisted_input",
+   "alternative_reading": "The prompt lists disability benefits from employment without saying who paid for the coverage. Benefits from employer-paid coverage are included in gross income (26 U.S.C. 105(a)); benefits from coverage the employee paid for with after-tax money are excluded (26 U.S.C. 104(a)(3)). The reference excludes them; the alternative value includes them.",
+   "frozen_value": 0.0,
+   "alternative_value": 1890.300049,
+   "engine_version": "policyengine-us 1.755.4",
+   "decided_on": "2026-09-22",
+   "decided_by": "developer",
+   "unlisted_input": "who paid for the coverage behind listed employment disability benefits, which decides whether they are taxable",
+   "note": "Corrected value applies r24_disability_benefits_taxable with every publication convention and upstream fix."
+  }
+ ],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "two_agree:policyengine",
+    "board_scores_it": "no",
+    "policyengine": 0.0,
+    "taxcalc": 1890.3,
+    "taxsim": 1890.3
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "no",
+    "policyengine": 1890.3,
+    "taxcalc": 1890.3,
+    "taxsim": 1890.3
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "no",
+    "policyengine": 1970.3,
+    "taxcalc": 1970.3,
+    "taxsim": 1970.3
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 1890.3,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 66403.0,
+   "irs_gross_income": 66403.0,
+   "tax_unit_taxable_social_security": 23663.0,
+   "tax_unit_social_security": 44080.0,
+   "taxable_income": 18903.0,
+   "taxable_income_deductions": 47500.0,
+   "standard_deduction": 35500.0,
+   "basic_standard_deduction": 32200.0,
+   "additional_standard_deduction": 3300.0,
+   "itemized_taxable_income_deductions": 1521.6,
+   "salt_deduction": 1521.6,
+   "salt": 1521.6,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 1521.6,
+   "additional_senior_deduction": 12000.0,
+   "income_tax_main_rates": 1890.3,
+   "amt_income": 66403.0,
+   "income_tax_before_credits": 1890.3,
+   "net_investment_income": 400.0,
+   "eitc_relevant_investment_income": 400.0,
+   "income_tax_before_refundable_credits": 1890.3,
+   "income_tax": 1890.3,
+   "state_sales_tax": 1268.0,
+   "age": {
+    "total": 152.0,
+    "persons": [
+     77.0,
+     75.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "board:federal_income_tax_before_refundable_credits": 1970.3,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 66403.0,
+   "irs_gross_income": 66403.0,
+   "tax_unit_taxable_social_security": 23663.0,
+   "tax_unit_social_security": 44080.0,
+   "taxable_income": 19703.0,
+   "taxable_income_deductions": 46700.0,
+   "standard_deduction": 34700.0,
+   "basic_standard_deduction": 31500.0,
+   "additional_standard_deduction": 3200.0,
+   "itemized_taxable_income_deductions": 1521.6,
+   "salt_deduction": 1521.6,
+   "salt": 1521.6,
+   "salt_cap": 40000.0,
+   "state_and_local_sales_or_income_tax": 1521.6,
+   "additional_senior_deduction": 12000.0,
+   "income_tax_main_rates": 1970.3,
+   "amt_income": 66403.0,
+   "income_tax_before_credits": 1970.3,
+   "net_investment_income": 400.0,
+   "eitc_relevant_investment_income": 400.0,
+   "income_tax_before_refundable_credits": 1970.3,
+   "income_tax": 1970.3,
+   "state_sales_tax": 1268.0,
+   "age": {
+    "total": 152.0,
+    "persons": [
+     77.0,
+     75.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 1890.3,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 66403.0,
+   "irs_gross_income": 66403.0,
+   "tax_unit_taxable_social_security": 23663.0,
+   "tax_unit_social_security": 44080.0,
+   "taxable_income": 18903.0,
+   "taxable_income_deductions": 47500.0,
+   "standard_deduction": 35500.0,
+   "basic_standard_deduction": 32200.0,
+   "additional_standard_deduction": 3300.0,
+   "itemized_taxable_income_deductions": 1856.31,
+   "salt_deduction": 1856.31,
+   "salt": 1856.31,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 1856.31,
+   "additional_senior_deduction": 12000.0,
+   "income_tax_main_rates": 1890.3,
+   "amt_income": 66403.0,
+   "income_tax_before_credits": 1890.3,
+   "net_investment_income": 400.0,
+   "eitc_relevant_investment_income": 400.0,
+   "income_tax_before_refundable_credits": 1890.3,
+   "income_tax": 1890.3,
+   "state_sales_tax": 1268.0,
+   "age": {
+    "total": 152.0,
+    "persons": [
+     77.0,
+     75.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "board:federal_income_tax_before_refundable_credits": 1890.3,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 66403.0,
+   "irs_gross_income": 66403.0,
+   "tax_unit_taxable_social_security": 23663.0,
+   "tax_unit_social_security": 44080.0,
+   "taxable_income": 18903.0,
+   "taxable_income_deductions": 47500.0,
+   "standard_deduction": 35500.0,
+   "basic_standard_deduction": 32200.0,
+   "additional_standard_deduction": 3300.0,
+   "itemized_taxable_income_deductions": 1898.38,
+   "salt_deduction": 1898.38,
+   "salt": 1898.38,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 1898.38,
+   "additional_senior_deduction": 12000.0,
+   "income_tax_main_rates": 1890.3,
+   "amt_income": 66403.0,
+   "income_tax_before_credits": 1890.3,
+   "net_investment_income": 400.0,
+   "eitc_relevant_investment_income": 400.0,
+   "income_tax_before_refundable_credits": 1890.3,
+   "income_tax": 1890.3,
+   "state_sales_tax": 1296.74,
+   "age": {
+    "total": 152.0,
+    "persons": [
+     77.0,
+     75.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_002",
+   "in_MARS": 2.0,
+   "in_XTOT": 2.0,
+   "in_age_head": 77.0,
+   "in_age_spouse": 75.0,
+   "in_e00300": 400.0,
+   "in_e01200": 24000.0,
+   "in_e01500": 18340.0,
+   "in_e01700": 18340.0,
+   "in_e02400": 44080.0,
+   "in_e18400": 1521.6,
+   "in_RECID": 3.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 84929.7,
+   "out_benefit_cost_total": 44080.0,
+   "out_benefit_value_total": 44080.0,
+   "out_c00100": 66403.0,
+   "out_c02500": 23663.0,
+   "out_c04800": 18903.0,
+   "out_c05200": 1890.3,
+   "out_c05800": 1890.3,
+   "out_c09200": 1890.3,
+   "out_c62100": 66403.0,
+   "out_combined": 1890.3,
+   "out_credit_claim_urn": 0.68,
+   "out_exact": 1.0,
+   "out_expanded_income": 86820.0,
+   "out_iitax": 1890.3,
+   "out_num": 2.0,
+   "out_senior_deduction": 12000.0,
+   "out_standard": 35500.0,
+   "out_taxbc": 1890.3,
+   "out_ymod": 64780.0,
+   "out_ymod1": 42740.0,
+   "q_fed_tax_before_refundable": 1890.3,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "unexpressed": [
+    "income_tax: reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage.",
+    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
+    "income_tax: no Tax-Calculator input for taxable disability benefits",
+    "entered through e01200, which enters AGI only",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is passed as e18400"
+   ]
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_002",
+   "in_MARS": 2.0,
+   "in_XTOT": 2.0,
+   "in_age_head": 77.0,
+   "in_age_spouse": 75.0,
+   "in_e00300": 400.0,
+   "in_e01200": 24000.0,
+   "in_e01500": 18340.0,
+   "in_e01700": 18340.0,
+   "in_e02400": 44080.0,
+   "in_e18400": 1521.6,
+   "in_RECID": 3.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 84849.7,
+   "out_benefit_cost_total": 44080.0,
+   "out_benefit_value_total": 44080.0,
+   "out_c00100": 66403.0,
+   "out_c02500": 23663.0,
+   "out_c04800": 19703.0,
+   "out_c05200": 1970.3,
+   "out_c05800": 1970.3,
+   "out_c09200": 1970.3,
+   "out_c62100": 66403.0,
+   "out_combined": 1970.3,
+   "out_credit_claim_urn": 0.68,
+   "out_exact": 1.0,
+   "out_expanded_income": 86820.0,
+   "out_iitax": 1970.3,
+   "out_num": 2.0,
+   "out_senior_deduction": 12000.0,
+   "out_standard": 34700.0,
+   "out_taxbc": 1970.3,
+   "out_ymod": 64780.0,
+   "out_ymod1": 42740.0,
+   "q_fed_tax_before_refundable": 1970.3,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "unexpressed": [
+    "income_tax: reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage.",
+    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
+    "income_tax: no Tax-Calculator input for taxable disability benefits",
+    "entered through e01200, which enters AGI only",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is passed as e18400"
+   ]
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_002",
+   "in_year": 2026.0,
+   "in_mstat": 2.0,
+   "in_page": 77.0,
+   "in_sage": 75.0,
+   "in_intrec": 400.0,
+   "in_pensions": 42340.0,
+   "in_gssi": 44080.0,
+   "in_proptax": 1521.6,
+   "out_taxsimid": 3.0,
+   "out_year": 2026.0,
+   "out_fiitax": 1890.3,
+   "out_v10": 66403.0,
+   "out_v12": 23663.0,
+   "out_v13": 35500.0,
+   "out_v18": 18903.0,
+   "out_v19": 1890.3,
+   "out_v26": 66403.0,
+   "out_v28": 1890.3,
+   "out_v30": 86820.0,
+   "q_fed_tax_before_refundable": 1890.3,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage.",
+    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+   ]
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_002",
+   "in_year": 2025.0,
+   "in_mstat": 2.0,
+   "in_page": 77.0,
+   "in_sage": 75.0,
+   "in_intrec": 400.0,
+   "in_pensions": 42340.0,
+   "in_gssi": 44080.0,
+   "in_proptax": 1521.6,
+   "out_taxsimid": 3.0,
+   "out_year": 2025.0,
+   "out_fiitax": 1970.3,
+   "out_v10": 66403.0,
+   "out_v12": 23663.0,
+   "out_v13": 34700.0,
+   "out_v18": 19703.0,
+   "out_v19": 1970.3,
+   "out_v26": 66403.0,
+   "out_v28": 1970.3,
+   "out_v30": 86820.0,
+   "q_fed_tax_before_refundable": 1970.3,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage.",
+    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+   ]
+  }
+ }
+}

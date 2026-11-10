@@ -1,0 +1,1162 @@
+{
+ "case_id": "scenario_005",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 35,
+    "employment_income": 180000.0,
+    "inputs": {
+     "bank_account_assets": 559200.0,
+     "charitable_cash_donations": 1069.7646484375,
+     "charitable_non_cash_donations": 1503.7646484375,
+     "employer_sponsored_insurance_premiums": 6889.27587890625,
+     "has_esi": true,
+     "health_insurance_premiums_without_medicare_part_b": 1500.0,
+     "hourly_wage": 69.19999694824219,
+     "hours_worked_last_week": 50.0,
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "long_term_capital_gains": 51920.0,
+     "non_qualified_dividend_income": 9722.3525390625,
+     "other_health_insurance_premiums": 1500.0,
+     "other_medical_expenses": 800.0,
+     "over_the_counter_health_expenses": 200.0,
+     "qualified_dividend_income": 77920.0,
+     "real_estate_taxes": 17280.0,
+     "roth_401k_contributions_desired": 4086.0,
+     "roth_ira_contributions_desired": 1678.0799560546875,
+     "salt_refund_income": 4147.67626953125,
+     "short_term_capital_gains": -62830.58984375,
+     "stock_assets": 4000.0,
+     "tax_exempt_interest_income": 8961.3525390625,
+     "tax_exempt_private_pension_income": 70000.0,
+     "taxable_interest_income": 65351.0,
+     "traditional_401k_contributions_desired": 23154.0,
+     "traditional_ira_contributions_desired": 1081.9200439453125,
+     "unreimbursed_business_employee_expenses": 13847.8232421875
+    },
+    "name": "head"
+   },
+   {
+    "age": 33,
+    "employment_income": 250000.0,
+    "inputs": {
+     "employer_sponsored_insurance_premiums": 6479.69775390625,
+     "has_esi": true,
+     "hourly_wage": 108.0,
+     "hours_worked_last_week": 40.0,
+     "is_tax_unit_head": false,
+     "is_tax_unit_spouse": true,
+     "other_medical_expenses": 500.0,
+     "over_the_counter_health_expenses": 50.0,
+     "roth_401k_contributions_desired": 4086.0,
+     "roth_ira_contributions_desired": 1678.0799560546875,
+     "taxable_interest_income": 585.0,
+     "traditional_401k_contributions_desired": 23154.0,
+     "traditional_ira_contributions_desired": 1081.9200439453125
+    },
+    "name": "spouse"
+   }
+  ],
+  "children": [],
+  "country": "us",
+  "filing_status": "joint",
+  "household_inputs": {
+   "household_vehicles_value": 8932.3525390625
+  },
+  "id": "scenario_005",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 61419,
+   "tax_unit_id": 72973
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {},
+  "state": "CA",
+  "tax_unit_inputs": {
+   "first_home_mortgage_balance": 2850000.0
+  },
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_005",
+   "year": 2026,
+   "state": "CA",
+   "status": "joint",
+   "head": {
+    "name": "head",
+    "age": 35,
+    "blind": false,
+    "wages": 180000.0,
+    "deferral": 20825.0,
+    "roth_deferral": 3675.0,
+    "ira_traditional_desired": 1081.9200439453125,
+    "ira_roth_desired": 1678.0799560546875,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 70000.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0
+   },
+   "spouse": {
+    "name": "spouse",
+    "age": 33,
+    "blind": false,
+    "wages": 250000.0,
+    "deferral": 20825.0,
+    "roth_deferral": 3675.0,
+    "ira_traditional_desired": 1081.9200439453125,
+    "ira_roth_desired": 1678.0799560546875,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0
+   },
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 65936.0,
+    "tax_exempt_interest": 8961.3525390625,
+    "qualified_dividends": 77920.0,
+    "non_qualified_dividends": 9722.3525390625,
+    "short_term_gains": -62830.58984375,
+    "long_term_gains": 51920.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 70000.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 4147.67626953125,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 2800.0,
+    "real_estate_taxes": 17280.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 2850000.0,
+    "charity_cash": 1069.7646484375,
+    "charity_non_cash": 1503.7646484375,
+    "employee_expenses": 13847.8232421875,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "head: desired 401(k) deferrals above the 402(g) limit, scaled in proportion (Stated 'desired' retirement contributions above a statutory limit are scaled down in proportion, as the board's key does.)"
+    ],
+    [
+     "income_tax",
+     "spouse: desired 401(k) deferrals above the 402(g) limit, scaled in proportion (Stated 'desired' retirement contributions above a statutory limit are scaled down in proportion, as the board's key does.)"
+    ],
+    [
+     "income_tax",
+     "reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated)."
+    ],
+    [
+     "income_tax",
+     "reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
+    ]
+   ],
+   "members_with_own_payroll": []
+  },
+  "2025": {
+   "case_id": "scenario_005",
+   "year": 2025,
+   "state": "CA",
+   "status": "joint",
+   "head": {
+    "name": "head",
+    "age": 35,
+    "blind": false,
+    "wages": 180000.0,
+    "deferral": 19975.0,
+    "roth_deferral": 3525.0,
+    "ira_traditional_desired": 1081.9200439453125,
+    "ira_roth_desired": 1678.0799560546875,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 70000.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0
+   },
+   "spouse": {
+    "name": "spouse",
+    "age": 33,
+    "blind": false,
+    "wages": 250000.0,
+    "deferral": 19975.0,
+    "roth_deferral": 3525.0,
+    "ira_traditional_desired": 1081.9200439453125,
+    "ira_roth_desired": 1678.0799560546875,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0
+   },
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 65936.0,
+    "tax_exempt_interest": 8961.3525390625,
+    "qualified_dividends": 77920.0,
+    "non_qualified_dividends": 9722.3525390625,
+    "short_term_gains": -62830.58984375,
+    "long_term_gains": 51920.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 70000.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 4147.67626953125,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 2800.0,
+    "real_estate_taxes": 17280.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 2850000.0,
+    "charity_cash": 1069.7646484375,
+    "charity_non_cash": 1503.7646484375,
+    "employee_expenses": 13847.8232421875,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "head: desired 401(k) deferrals above the 402(g) limit, scaled in proportion (Stated 'desired' retirement contributions above a statutory limit are scaled down in proportion, as the board's key does.)"
+    ],
+    [
+     "income_tax",
+     "spouse: desired 401(k) deferrals above the 402(g) limit, scaled in proportion (Stated 'desired' retirement contributions above a statutory limit are scaled down in proportion, as the board's key does.)"
+    ],
+    [
+     "income_tax",
+     "reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated)."
+    ],
+    [
+     "income_tax",
+     "reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
+    ]
+   ],
+   "members_with_own_payroll": []
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 106505.8984375,
+  "federal_refundable_credits": 0.0,
+  "payroll_tax": 36044.0,
+  "self_employment_tax": 0.0,
+  "state_income_tax_before_refundable_credits": 40975.25390625
+ },
+ "board_exclusion_records": [
+  {
+   "scenario_id": "scenario_005",
+   "variable": "federal_income_tax_before_refundable_credits",
+   "reason_code": "reference_engine_defect",
+   "root_cause": "r02_ira_219g",
+   "alternative_reading": "A filer who defers wages into a 401(k) or 403(b) is an active participant, and above the 2026 phase-out range ($81,000 to $91,000 single or head of household, $129,000 to $149,000 joint) deducts nothing.",
+   "frozen_value": 106505.8984375,
+   "alternative_value": 107198.335938,
+   "engine_version": "policyengine-us 1.755.4",
+   "decided_on": "2026-09-22",
+   "decided_by": "developer",
+   "defect": "PolicyEngine deducts traditional IRA contributions without the active-participant phase-out",
+   "law": "26 U.S.C. 219(g); IRS Notice 2025-67 (2026 ranges)",
+   "upstream": "to be filed",
+   "note": "Corrected value applies r02_ira_219g_v2 with every publication convention and upstream fix. The output also moves under r25_niit_in_federal_output (unlisted input)."
+  }
+ ],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_differ",
+    "board_scores_it": "no",
+    "policyengine": 106505.9,
+    "taxcalc": 108525.58,
+    "taxsim": 108867.91
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 30454.0,
+    "taxcalc": 30454.0,
+    "taxsim": 30454.0
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "two_agree:taxsim",
+    "board_scores_it": "no",
+    "policyengine": 108525.58,
+    "taxcalc": 108525.58,
+    "taxsim": 108867.91
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 30454.0,
+    "taxcalc": 30454.0,
+    "taxsim": 30454.0
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "no",
+    "policyengine": 110849.9,
+    "taxcalc": 110849.91,
+    "taxsim": 110849.91
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 29691.4,
+    "taxcalc": 29691.4,
+    "taxsim": 29691.4
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 108525.58,
+   "board:payroll_tax": 36044.0,
+   "board:state_income_tax_before_refundable_credits": 40975.25,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 543076.0,
+   "irs_gross_income": 546076.03,
+   "above_the_line_deductions": 3000.0,
+   "taxable_income": 509806.25,
+   "taxable_income_deductions": 33269.77,
+   "standard_deduction": 32200.0,
+   "basic_standard_deduction": 32200.0,
+   "itemized_taxable_income_deductions": 28977.2,
+   "salt_deduction": 28977.2,
+   "salt": 59602.03,
+   "salt_cap": 28977.2,
+   "state_and_local_sales_or_income_tax": 42322.03,
+   "real_estate_taxes": 17280.0,
+   "charitable_deduction_for_non_itemizers": 1069.76,
+   "income_tax_main_rates": 91115.6,
+   "capital_gains_tax": 11688.0,
+   "amt_income": 542006.25,
+   "income_tax_before_credits": 102803.6,
+   "net_investment_income_tax": 5721.98,
+   "net_investment_income": 150578.34,
+   "eitc_relevant_investment_income": 162539.7,
+   "income_tax_before_refundable_credits": 108525.58,
+   "income_tax": 108525.58,
+   "additional_medicare_tax": 1620.0,
+   "employee_payroll_tax": 36044.0,
+   "employee_state_payroll_tax": 5590.0,
+   "state_withheld_income_tax": 42322.03,
+   "state_sales_tax": 1867.0,
+   "age": {
+    "total": 68.0,
+    "persons": [
+     35.0,
+     33.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 430000.0,
+    "persons": [
+     180000.0,
+     250000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 388350.0,
+    "persons": [
+     159175.0,
+     229175.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 430000.0,
+    "persons": [
+     180000.0,
+     250000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 364500.0,
+    "persons": [
+     180000.0,
+     184500.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 22599.0,
+    "persons": [
+     11160.0,
+     11439.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 6235.0,
+    "persons": [
+     2610.0,
+     3625.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 41650.0,
+    "persons": [
+     20825.0,
+     20825.0
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 2163.84,
+    "persons": [
+     1081.9200439453125,
+     1081.9200439453125
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "board:federal_income_tax_before_refundable_credits": 110849.9,
+   "board:payroll_tax": 35281.4,
+   "board:state_income_tax_before_refundable_credits": 41158.0,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 544776.0,
+   "irs_gross_income": 547776.03,
+   "above_the_line_deductions": 3000.0,
+   "taxable_income": 513276.0,
+   "taxable_income_deductions": 31500.0,
+   "standard_deduction": 31500.0,
+   "basic_standard_deduction": 31500.0,
+   "itemized_taxable_income_deductions": 29140.73,
+   "salt_deduction": 26567.2,
+   "salt": 59760.13,
+   "salt_cap": 26567.2,
+   "state_and_local_sales_or_income_tax": 42480.13,
+   "real_estate_taxes": 17280.0,
+   "charitable_deduction": 2573.53,
+   "income_tax_main_rates": 93439.92,
+   "capital_gains_tax": 11688.0,
+   "amt_income": 544776.0,
+   "income_tax_before_credits": 105127.92,
+   "net_investment_income_tax": 5721.98,
+   "net_investment_income": 150578.34,
+   "eitc_relevant_investment_income": 162539.7,
+   "income_tax_before_refundable_credits": 110849.9,
+   "income_tax": 110849.9,
+   "additional_medicare_tax": 1620.0,
+   "employee_payroll_tax": 35281.4,
+   "employee_state_payroll_tax": 5590.0,
+   "state_withheld_income_tax": 42480.13,
+   "state_sales_tax": 1867.0,
+   "age": {
+    "total": 68.0,
+    "persons": [
+     35.0,
+     33.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 430000.0,
+    "persons": [
+     180000.0,
+     250000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 390050.0,
+    "persons": [
+     160025.0,
+     230025.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 430000.0,
+    "persons": [
+     180000.0,
+     250000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 352200.0,
+    "persons": [
+     176100.0,
+     176100.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 21836.4,
+    "persons": [
+     10918.2001953125,
+     10918.2001953125
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 6235.0,
+    "persons": [
+     2610.0,
+     3625.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 39950.0,
+    "persons": [
+     19975.0,
+     19975.0
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 2163.84,
+    "persons": [
+     1081.9200439453125,
+     1081.9200439453125
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 108525.58,
+   "board:payroll_tax": 36044.0,
+   "board:state_income_tax_before_refundable_credits": 40975.25,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 543076.0,
+   "irs_gross_income": 546076.03,
+   "above_the_line_deductions": 3000.0,
+   "taxable_income": 509806.25,
+   "taxable_income_deductions": 33269.77,
+   "standard_deduction": 32200.0,
+   "basic_standard_deduction": 32200.0,
+   "itemized_taxable_income_deductions": 28977.2,
+   "salt_deduction": 28977.2,
+   "salt": 59602.03,
+   "salt_cap": 28977.2,
+   "state_and_local_sales_or_income_tax": 42322.03,
+   "real_estate_taxes": 17280.0,
+   "charitable_deduction_for_non_itemizers": 1069.76,
+   "income_tax_main_rates": 91115.6,
+   "capital_gains_tax": 11688.0,
+   "amt_income": 537858.56,
+   "income_tax_before_credits": 102803.6,
+   "net_investment_income_tax": 5721.98,
+   "net_investment_income": 150578.34,
+   "eitc_relevant_investment_income": 162539.7,
+   "income_tax_before_refundable_credits": 108525.58,
+   "income_tax": 108525.58,
+   "additional_medicare_tax": 1620.0,
+   "employee_payroll_tax": 36044.0,
+   "employee_state_payroll_tax": 5590.0,
+   "state_withheld_income_tax": 42322.03,
+   "state_sales_tax": 1867.0,
+   "age": {
+    "total": 68.0,
+    "persons": [
+     35.0,
+     33.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 430000.0,
+    "persons": [
+     180000.0,
+     250000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 388350.0,
+    "persons": [
+     159175.0,
+     229175.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 430000.0,
+    "persons": [
+     180000.0,
+     250000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 364500.0,
+    "persons": [
+     180000.0,
+     184500.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 22599.0,
+    "persons": [
+     11160.0,
+     11439.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 6235.0,
+    "persons": [
+     2610.0,
+     3625.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 41650.0,
+    "persons": [
+     20825.0,
+     20825.0
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 2163.84,
+    "persons": [
+     1081.9200439453125,
+     1081.9200439453125
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "board:federal_income_tax_before_refundable_credits": 108525.58,
+   "board:payroll_tax": 36044.0,
+   "board:state_income_tax_before_refundable_credits": 40683.11,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 543076.0,
+   "irs_gross_income": 546076.03,
+   "above_the_line_deductions": 3000.0,
+   "taxable_income": 509806.25,
+   "taxable_income_deductions": 33269.77,
+   "standard_deduction": 32200.0,
+   "basic_standard_deduction": 32200.0,
+   "itemized_taxable_income_deductions": 28977.2,
+   "salt_deduction": 28977.2,
+   "salt": 59416.56,
+   "salt_cap": 28977.2,
+   "state_and_local_sales_or_income_tax": 42136.56,
+   "real_estate_taxes": 17280.0,
+   "charitable_deduction_for_non_itemizers": 1069.76,
+   "income_tax_main_rates": 91115.6,
+   "capital_gains_tax": 11688.0,
+   "amt_income": 537858.56,
+   "income_tax_before_credits": 102803.6,
+   "net_investment_income_tax": 5721.98,
+   "net_investment_income": 150578.34,
+   "eitc_relevant_investment_income": 162539.7,
+   "income_tax_before_refundable_credits": 108525.58,
+   "income_tax": 108525.58,
+   "additional_medicare_tax": 1620.0,
+   "employee_payroll_tax": 36044.0,
+   "employee_state_payroll_tax": 5590.0,
+   "state_withheld_income_tax": 42136.56,
+   "state_sales_tax": 1909.31,
+   "age": {
+    "total": 68.0,
+    "persons": [
+     35.0,
+     33.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 430000.0,
+    "persons": [
+     180000.0,
+     250000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 388350.0,
+    "persons": [
+     159175.0,
+     229175.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 430000.0,
+    "persons": [
+     180000.0,
+     250000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 364500.0,
+    "persons": [
+     180000.0,
+     184500.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 22599.0,
+    "persons": [
+     11160.0,
+     11439.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 6235.0,
+    "persons": [
+     2610.0,
+     3625.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 41650.0,
+    "persons": [
+     20825.0,
+     20825.0
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 2163.84,
+    "persons": [
+     1081.9200439453125,
+     1081.9200439453125
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_005",
+   "in_MARS": 2.0,
+   "in_XTOT": 2.0,
+   "in_age_head": 35.0,
+   "in_age_spouse": 33.0,
+   "in_e00200p": 159175.0,
+   "in_e00200s": 229175.0,
+   "in_e00200": 388350.0,
+   "in_pencon_p": 20825.0,
+   "in_pencon_s": 20825.0,
+   "in_e00300": 65936.0,
+   "in_e00400": 8961.35,
+   "in_e00600": 87642.35,
+   "in_e00650": 77920.0,
+   "in_e00700": 4147.68,
+   "in_e01500": 70000.0,
+   "in_p22250": -62830.59,
+   "in_p23250": 51920.0,
+   "in_e17500": 2800.0,
+   "in_e18400": 42322.03,
+   "in_e18500": 17280.0,
+   "in_e19800": 1069.76,
+   "in_e20100": 1503.76,
+   "in_e20400": 13847.82,
+   "in_RECID": 6.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 516797.21,
+   "out_c00100": 543076.03,
+   "out_c01000": -3000.0,
+   "out_c04800": 509806.26,
+   "out_c05200": 116050.0,
+   "out_c05800": 102803.6,
+   "out_c09200": 110145.58,
+   "out_c23650": -10910.59,
+   "out_c62100": 538928.35,
+   "out_combined": 167813.58,
+   "out_credit_claim_urn": 0.83,
+   "out_dwks10": 77920.0,
+   "out_dwks13": 77920.0,
+   "out_dwks14": 431886.26,
+   "out_dwks21": 431886.26,
+   "out_dwks45": 102803.6,
+   "out_earned": 388350.0,
+   "out_earned_p": 159175.0,
+   "out_earned_s": 229175.0,
+   "out_exact": 1.0,
+   "out_expanded_income": 684610.79,
+   "out_iitax": 108525.58,
+   "out_niit": 5721.98,
+   "out_num": 2.0,
+   "out_othertaxes": 7341.98,
+   "out_payrolltax": 59288.0,
+   "out_ptax_amc": 1620.0,
+   "out_ptax_er_p": 13770.0,
+   "out_ptax_er_s": 15064.0,
+   "out_ptax_oasdi": 45198.0,
+   "out_ptax_was": 57668.0,
+   "out_standard": 33269.76,
+   "out_taxbc": 102803.6,
+   "out_ymod": 552037.38,
+   "out_ymod1": 543076.03,
+   "q_fed_tax_before_refundable": 108525.58,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 30454.0,
+   "unexpressed": [
+    "income_tax: head: desired 401(k) deferrals above the 402(g) limit, scaled in proportion (Stated 'desired' retirement contributions above a statutory limit are scaled down in proportion, as the board's key does.)",
+    "income_tax: spouse: desired 401(k) deferrals above the 402(g) limit, scaled in proportion (Stated 'desired' retirement contributions above a statutory limit are scaled down in proportion, as the board's key does.)",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
+    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is passed as e18400"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
+   ]
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_005",
+   "in_MARS": 2.0,
+   "in_XTOT": 2.0,
+   "in_age_head": 35.0,
+   "in_age_spouse": 33.0,
+   "in_e00200p": 160025.0,
+   "in_e00200s": 230025.0,
+   "in_e00200": 390050.0,
+   "in_pencon_p": 19975.0,
+   "in_pencon_s": 19975.0,
+   "in_e00300": 65936.0,
+   "in_e00400": 8961.35,
+   "in_e00600": 87642.35,
+   "in_e00650": 77920.0,
+   "in_e00700": 4147.68,
+   "in_e01500": 70000.0,
+   "in_p22250": -62830.59,
+   "in_p23250": 51920.0,
+   "in_e17500": 2800.0,
+   "in_e18400": 42480.13,
+   "in_e18500": 17280.0,
+   "in_e19800": 1069.76,
+   "in_e20100": 1503.76,
+   "in_e20400": 13847.82,
+   "in_RECID": 6.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 515235.48,
+   "out_c00100": 544776.03,
+   "out_c01000": -3000.0,
+   "out_c04800": 513276.03,
+   "out_c05200": 118741.11,
+   "out_c05800": 105127.93,
+   "out_c09200": 112469.91,
+   "out_c23650": -10910.59,
+   "out_c62100": 540628.35,
+   "out_combined": 168612.71,
+   "out_credit_claim_urn": 0.83,
+   "out_dwks10": 77920.0,
+   "out_dwks13": 77920.0,
+   "out_dwks14": 435356.03,
+   "out_dwks21": 435356.03,
+   "out_dwks45": 105127.93,
+   "out_earned": 390050.0,
+   "out_earned_p": 160025.0,
+   "out_earned_s": 230025.0,
+   "out_exact": 1.0,
+   "out_expanded_income": 683848.19,
+   "out_iitax": 110849.91,
+   "out_niit": 5721.98,
+   "out_num": 2.0,
+   "out_othertaxes": 7341.98,
+   "out_payrolltax": 57762.8,
+   "out_ptax_amc": 1620.0,
+   "out_ptax_er_p": 13528.2,
+   "out_ptax_er_s": 14543.2,
+   "out_ptax_oasdi": 43672.8,
+   "out_ptax_was": 56142.8,
+   "out_standard": 31500.0,
+   "out_taxbc": 105127.93,
+   "out_ymod": 553737.38,
+   "out_ymod1": 544776.03,
+   "q_fed_tax_before_refundable": 110849.91,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 29691.4,
+   "unexpressed": [
+    "income_tax: head: desired 401(k) deferrals above the 402(g) limit, scaled in proportion (Stated 'desired' retirement contributions above a statutory limit are scaled down in proportion, as the board's key does.)",
+    "income_tax: spouse: desired 401(k) deferrals above the 402(g) limit, scaled in proportion (Stated 'desired' retirement contributions above a statutory limit are scaled down in proportion, as the board's key does.)",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
+    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is passed as e18400"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
+   ]
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_005",
+   "in_year": 2026.0,
+   "in_mstat": 2.0,
+   "in_page": 35.0,
+   "in_sage": 33.0,
+   "in_pwages": 159175.0,
+   "in_swages": 229175.0,
+   "in_dividends": 77920.0,
+   "in_intrec": 75658.35,
+   "in_stcg": -62830.59,
+   "in_ltcg": 51920.0,
+   "in_pensions": 4147.68,
+   "in_proptax": 59602.03,
+   "out_taxsimid": 6.0,
+   "out_year": 2026.0,
+   "out_fiitax": 108867.91,
+   "out_fica": 57892.85,
+   "out_tfica": 28184.07,
+   "out_v10": 543076.03,
+   "out_v13": 32200.0,
+   "out_v18": 510876.03,
+   "out_v19": 116392.33,
+   "out_v26": 543076.03,
+   "out_v28": 103145.93,
+   "out_v29": 57892.85,
+   "out_v30": 546076.03,
+   "out_niit": 5721.98,
+   "out_addmed": 1245.15,
+   "out_tfica_gross_wages": 30454.0,
+   "out_addmed_gross_wages": 1620.0,
+   "out_tfica_no_self_employment": 30454.0,
+   "q_fed_tax_before_refundable": 108867.91,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 30454.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: head: desired 401(k) deferrals above the 402(g) limit, scaled in proportion (Stated 'desired' retirement contributions above a statutory limit are scaled down in proportion, as the board's key does.)",
+    "income_tax: spouse: desired 401(k) deferrals above the 402(g) limit, scaled in proportion (Stated 'desired' retirement contributions above a statutory limit are scaled down in proportion, as the board's key does.)",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
+    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
+    "income_tax: TAXSIM has no input for tax-exempt interest (Social Security provisional income, EITC investment income)",
+    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
+    "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
+    "percentage ceilings not applied"
+   ]
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_005",
+   "in_year": 2025.0,
+   "in_mstat": 2.0,
+   "in_page": 35.0,
+   "in_sage": 33.0,
+   "in_pwages": 160025.0,
+   "in_swages": 230025.0,
+   "in_dividends": 77920.0,
+   "in_intrec": 75658.35,
+   "in_stcg": -62830.59,
+   "in_ltcg": 51920.0,
+   "in_pensions": 4147.68,
+   "in_proptax": 59760.13,
+   "in_mortgage": 2573.53,
+   "out_taxsimid": 6.0,
+   "out_year": 2025.0,
+   "out_fiitax": 110849.91,
+   "out_fica": 57594.75,
+   "out_tfica": 27755.92,
+   "out_v10": 544776.03,
+   "out_v13": 31500.0,
+   "out_v18": 513276.03,
+   "out_v19": 118741.11,
+   "out_v26": 544776.03,
+   "out_v28": 105127.93,
+   "out_v29": 57594.75,
+   "out_v30": 547776.03,
+   "out_niit": 5721.98,
+   "out_addmed": 1260.45,
+   "out_tfica_gross_wages": 29691.4,
+   "out_addmed_gross_wages": 1620.0,
+   "out_tfica_no_self_employment": 29691.4,
+   "q_fed_tax_before_refundable": 110849.91,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 29691.4,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: head: desired 401(k) deferrals above the 402(g) limit, scaled in proportion (Stated 'desired' retirement contributions above a statutory limit are scaled down in proportion, as the board's key does.)",
+    "income_tax: spouse: desired 401(k) deferrals above the 402(g) limit, scaled in proportion (Stated 'desired' retirement contributions above a statutory limit are scaled down in proportion, as the board's key does.)",
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
+    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
+    "income_tax: TAXSIM has no input for tax-exempt interest (Social Security provisional income, EITC investment income)",
+    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
+    "percentage ceilings not applied"
+   ]
+  }
+ }
+}

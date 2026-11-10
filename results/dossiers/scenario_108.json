@@ -1,0 +1,796 @@
+{
+ "case_id": "scenario_108",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 85,
+    "employment_income": 7656.0,
+    "inputs": {
+     "bank_account_assets": 270.0,
+     "has_indian_health_service_coverage_at_interview": true,
+     "is_disabled": true,
+     "is_surviving_spouse": true,
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "other_medical_expenses": 500.0,
+     "over_the_counter_health_expenses": 300.0,
+     "pre_subsidy_rent": 7200.0,
+     "social_security_survivors": 12934.0,
+     "survivor_benefits": 10392.0
+    },
+    "name": "head"
+   }
+  ],
+  "children": [],
+  "country": "us",
+  "filing_status": "single",
+  "household_inputs": {},
+  "id": "scenario_108",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 15853,
+   "tax_unit_id": 95986
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {},
+  "state": "WI",
+  "tax_unit_inputs": {},
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_108",
+   "year": 2026,
+   "state": "WI",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 85,
+    "blind": false,
+    "wages": 7656.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 0.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 12934.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 500.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 0.0,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 10392.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: Survivor benefits other than Social Security are not taxable (the board's reference reading; taxability is not stated)."
+    ],
+    [
+     "income_tax",
+     "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
+    ]
+   ],
+   "members_with_own_payroll": []
+  },
+  "2025": {
+   "case_id": "scenario_108",
+   "year": 2025,
+   "state": "WI",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 85,
+    "blind": false,
+    "wages": 7656.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 0.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 12934.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 500.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 0.0,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 10392.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: Survivor benefits other than Social Security are not taxable (the board's reference reading; taxability is not stated)."
+    ],
+    [
+     "income_tax",
+     "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
+    ]
+   ],
+   "members_with_own_payroll": []
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 0.0,
+  "federal_refundable_credits": 0.0,
+  "payroll_tax": 585.6839599609375,
+  "self_employment_tax": 0.0,
+  "state_income_tax_before_refundable_credits": 0.0
+ },
+ "board_exclusion_records": [
+  {
+   "scenario_id": "scenario_108",
+   "variable": "state_refundable_credits",
+   "reason_code": "reference_depends_on_unlisted_input",
+   "alternative_reading": "The prompt lists survivor benefits other than Social Security without saying what they are. Wisconsin homestead household income counts the gross amount of a survivor pension or annuity (Wis. Stat. 71.52(6); Schedule H line 9d), which is the reading under the alternative value; the reference leaves them out. The prompt lists survivor benefits other than Social Security without saying whether they are taxable; the reference treats them as nontaxable, while a survivor pension or annuity is taxable under 26 U.S.C. 72.",
+   "frozen_value": 271.3916015625,
+   "alternative_value": 0.0,
+   "engine_version": "policyengine-us 1.755.4",
+   "decided_on": "2026-09-22",
+   "decided_by": "developer",
+   "unlisted_input": "source of survivor_benefits (pension or annuity, or another survivor payment) and taxability of survivor_benefits",
+   "note": "Corrected value applies r10_wi_homestead_income and r16_survivor_benefits_federal_v2 together with every publication convention and upstream fix."
+  }
+ ],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 585.68,
+    "taxcalc": 585.68,
+    "taxsim": 585.68
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 585.68,
+    "taxcalc": 585.68,
+    "taxsim": 585.68
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 585.68,
+    "taxcalc": 585.68,
+    "taxsim": 585.68
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "board:payroll_tax": 585.68,
+   "adjusted_gross_income": 7656.0,
+   "irs_gross_income": 7656.0,
+   "tax_unit_social_security": 12934.0,
+   "taxable_income_deductions": 24150.0,
+   "standard_deduction": 18150.0,
+   "basic_standard_deduction": 16100.0,
+   "additional_standard_deduction": 2050.0,
+   "itemized_taxable_income_deductions": 2905.4,
+   "salt_deduction": 544.8,
+   "salt": 544.8,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 544.8,
+   "medical_expense_deduction": 2360.6,
+   "additional_senior_deduction": 6000.0,
+   "amt_income": 7656.0,
+   "employee_payroll_tax": 585.68,
+   "state_sales_tax": 454.0,
+   "age": {
+    "total": 85.0,
+    "persons": [
+     85.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 474.67,
+    "persons": [
+     474.6719970703125
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 111.01,
+    "persons": [
+     111.01199340820312
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "board:payroll_tax": 585.68,
+   "adjusted_gross_income": 7656.0,
+   "irs_gross_income": 7656.0,
+   "tax_unit_social_security": 12934.0,
+   "taxable_income_deductions": 23750.0,
+   "standard_deduction": 17750.0,
+   "basic_standard_deduction": 15750.0,
+   "additional_standard_deduction": 2000.0,
+   "itemized_taxable_income_deductions": 2690.6,
+   "salt_deduction": 544.8,
+   "salt": 544.8,
+   "salt_cap": 40000.0,
+   "state_and_local_sales_or_income_tax": 544.8,
+   "medical_expense_deduction": 2145.8,
+   "additional_senior_deduction": 6000.0,
+   "amt_income": 7656.0,
+   "employee_payroll_tax": 585.68,
+   "state_sales_tax": 454.0,
+   "age": {
+    "total": 85.0,
+    "persons": [
+     85.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 474.67,
+    "persons": [
+     474.6719970703125
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 111.01,
+    "persons": [
+     111.01199340820312
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "board:payroll_tax": 585.68,
+   "adjusted_gross_income": 7656.0,
+   "irs_gross_income": 7656.0,
+   "tax_unit_social_security": 12934.0,
+   "taxable_income_deductions": 24150.0,
+   "standard_deduction": 18150.0,
+   "basic_standard_deduction": 16100.0,
+   "additional_standard_deduction": 2050.0,
+   "itemized_taxable_income_deductions": 2879.12,
+   "salt_deduction": 518.52,
+   "salt": 518.52,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 518.52,
+   "medical_expense_deduction": 2360.6,
+   "additional_senior_deduction": 6000.0,
+   "amt_income": 7656.0,
+   "employee_payroll_tax": 585.68,
+   "state_sales_tax": 454.0,
+   "age": {
+    "total": 85.0,
+    "persons": [
+     85.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 474.67,
+    "persons": [
+     474.6719970703125
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 111.01,
+    "persons": [
+     111.01199340820312
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "board:payroll_tax": 585.68,
+   "adjusted_gross_income": 7656.0,
+   "irs_gross_income": 7656.0,
+   "tax_unit_social_security": 12934.0,
+   "taxable_income_deductions": 24150.0,
+   "standard_deduction": 18150.0,
+   "basic_standard_deduction": 16100.0,
+   "additional_standard_deduction": 2050.0,
+   "itemized_taxable_income_deductions": 2890.87,
+   "salt_deduction": 530.27,
+   "salt": 530.27,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 530.27,
+   "medical_expense_deduction": 2360.6,
+   "additional_senior_deduction": 6000.0,
+   "amt_income": 7656.0,
+   "employee_payroll_tax": 585.68,
+   "state_sales_tax": 464.29,
+   "age": {
+    "total": 85.0,
+    "persons": [
+     85.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 7656.0,
+    "persons": [
+     7656.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 474.67,
+    "persons": [
+     474.6719970703125
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 111.01,
+    "persons": [
+     111.01199340820312
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_108",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 85.0,
+   "in_e00200p": 7656.0,
+   "in_e00200": 7656.0,
+   "in_e02400": 12934.0,
+   "in_e17500": 500.0,
+   "in_e18400": 544.8,
+   "in_RECID": 86.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 20004.32,
+   "out_benefit_cost_total": 12934.0,
+   "out_benefit_value_total": 12934.0,
+   "out_c00100": 7656.0,
+   "out_c62100": 7656.0,
+   "out_combined": 1171.37,
+   "out_credit_claim_urn": 0.84,
+   "out_earned": 7656.0,
+   "out_earned_p": 7656.0,
+   "out_exact": 1.0,
+   "out_expanded_income": 21175.68,
+   "out_num": 1.0,
+   "out_payrolltax": 1171.37,
+   "out_ptax_er_p": 585.68,
+   "out_ptax_oasdi": 949.34,
+   "out_ptax_was": 1171.37,
+   "out_senior_deduction": 6000.0,
+   "out_standard": 18150.0,
+   "out_ymod": 14123.0,
+   "out_ymod1": 7656.0,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 585.68,
+   "unexpressed": [
+    "income_tax: reading: Survivor benefits other than Social Security are not taxable (the board's reference reading",
+    "taxability is not stated).",
+    "income_tax: reading: Medical expenses are the stated amounts",
+    "no Medicare Part B premium is added, since none is stated.",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is passed as e18400"
+   ]
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_108",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 85.0,
+   "in_e00200p": 7656.0,
+   "in_e00200": 7656.0,
+   "in_e02400": 12934.0,
+   "in_e17500": 500.0,
+   "in_e18400": 544.8,
+   "in_RECID": 86.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 20004.32,
+   "out_benefit_cost_total": 12934.0,
+   "out_benefit_value_total": 12934.0,
+   "out_c00100": 7656.0,
+   "out_c62100": 7656.0,
+   "out_combined": 1171.37,
+   "out_credit_claim_urn": 0.84,
+   "out_earned": 7656.0,
+   "out_earned_p": 7656.0,
+   "out_exact": 1.0,
+   "out_expanded_income": 21175.68,
+   "out_num": 1.0,
+   "out_payrolltax": 1171.37,
+   "out_ptax_er_p": 585.68,
+   "out_ptax_oasdi": 949.34,
+   "out_ptax_was": 1171.37,
+   "out_senior_deduction": 6000.0,
+   "out_standard": 17750.0,
+   "out_ymod": 14123.0,
+   "out_ymod1": 7656.0,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 585.68,
+   "unexpressed": [
+    "income_tax: reading: Survivor benefits other than Social Security are not taxable (the board's reference reading",
+    "taxability is not stated).",
+    "income_tax: reading: Medical expenses are the stated amounts",
+    "no Medicare Part B premium is added, since none is stated.",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is passed as e18400"
+   ]
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_108",
+   "in_year": 2026.0,
+   "in_mstat": 1.0,
+   "in_page": 85.0,
+   "in_pwages": 7656.0,
+   "in_gssi": 12934.0,
+   "in_proptax": 544.8,
+   "out_taxsimid": 86.0,
+   "out_year": 2026.0,
+   "out_fica": 1171.37,
+   "out_tfica": 585.68,
+   "out_v10": 7656.0,
+   "out_v13": 18150.0,
+   "out_v26": 7656.0,
+   "out_v29": 1171.37,
+   "out_v30": 20590.0,
+   "out_tfica_gross_wages": 585.68,
+   "out_tfica_no_self_employment": 585.68,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 585.68,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: Survivor benefits other than Social Security are not taxable (the board's reference reading",
+    "taxability is not stated).",
+    "income_tax: reading: Medical expenses are the stated amounts",
+    "no Medicare Part B premium is added, since none is stated.",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+   ],
+   "map_computed": [
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ]
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_108",
+   "in_year": 2025.0,
+   "in_mstat": 1.0,
+   "in_page": 85.0,
+   "in_pwages": 7656.0,
+   "in_gssi": 12934.0,
+   "in_proptax": 544.8,
+   "out_taxsimid": 86.0,
+   "out_year": 2025.0,
+   "out_fica": 1171.37,
+   "out_tfica": 585.68,
+   "out_v10": 7656.0,
+   "out_v13": 17750.0,
+   "out_v26": 7656.0,
+   "out_v29": 1171.37,
+   "out_v30": 20590.0,
+   "out_tfica_gross_wages": 585.68,
+   "out_tfica_no_self_employment": 585.68,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 585.68,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: Survivor benefits other than Social Security are not taxable (the board's reference reading",
+    "taxability is not stated).",
+    "income_tax: reading: Medical expenses are the stated amounts",
+    "no Medicare Part B premium is added, since none is stated.",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+   ],
+   "map_computed": [
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ]
+  }
+ }
+}

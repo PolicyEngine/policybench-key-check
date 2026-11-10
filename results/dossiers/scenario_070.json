@@ -1,0 +1,880 @@
+{
+ "case_id": "scenario_070",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 57,
+    "employment_income": 38000.0,
+    "inputs": {
+     "bank_account_assets": 1000.0,
+     "has_esi": true,
+     "health_insurance_premiums_without_medicare_part_b": 300.0,
+     "hourly_wage": 18.25,
+     "hours_worked_last_week": 40.0,
+     "is_paid_hourly": true,
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "other_health_insurance_premiums": 300.0,
+     "over_the_counter_health_expenses": 45.0,
+     "pre_subsidy_rent": 10800.0,
+     "roth_401k_contributions_desired": 262.0487976074219,
+     "roth_ira_contributions_desired": 107.62086486816406,
+     "student_loan_interest": 276.0,
+     "taxable_interest_income": 100.0,
+     "traditional_401k_contributions_desired": 1484.9432373046875,
+     "traditional_ira_contributions_desired": 69.38713836669922
+    },
+    "name": "head"
+   }
+  ],
+  "children": [],
+  "country": "us",
+  "filing_status": "single",
+  "household_inputs": {
+   "household_vehicles_value": 3200.0
+  },
+  "id": "scenario_070",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 12674,
+   "tax_unit_id": 15142
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {},
+  "state": "IL",
+  "tax_unit_inputs": {},
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_070",
+   "year": 2026,
+   "state": "IL",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 57,
+    "blind": false,
+    "wages": 38000.0,
+    "deferral": 1484.9432373046875,
+    "roth_deferral": 262.0487976074219,
+    "ira_traditional_desired": 69.38713836669922,
+    "ira_roth_desired": 107.62086486816406,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 100.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 276.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 300.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 0.0,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0
+   },
+   "notes": [],
+   "members_with_own_payroll": []
+  },
+  "2025": {
+   "case_id": "scenario_070",
+   "year": 2025,
+   "state": "IL",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 57,
+    "blind": false,
+    "wages": 38000.0,
+    "deferral": 1484.9432373046875,
+    "roth_deferral": 262.0487976074219,
+    "ira_traditional_desired": 69.38713836669922,
+    "ira_roth_desired": 107.62086486816406,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 100.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 276.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 300.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 0.0,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0
+   },
+   "notes": [],
+   "members_with_own_payroll": []
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 1979.9605712890625,
+  "federal_refundable_credits": 0.0,
+  "payroll_tax": 2907.0,
+  "self_employment_tax": 0.0,
+  "state_income_tax_before_refundable_credits": 1650.561279296875
+ },
+ "board_exclusion_records": [],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "two_agree:taxsim",
+    "board_scores_it": "yes",
+    "policyengine": 1979.96,
+    "taxcalc": 1979.96,
+    "taxsim": 2172.36
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 2907.0,
+    "taxcalc": 2907.0,
+    "taxsim": 2907.0
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "two_agree:taxsim",
+    "board_scores_it": "yes",
+    "policyengine": 1979.96,
+    "taxcalc": 1979.96,
+    "taxsim": 2172.36
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 2907.0,
+    "taxcalc": 2907.0,
+    "taxsim": 2907.0
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "two_agree:taxsim",
+    "board_scores_it": "yes",
+    "policyengine": 2031.46,
+    "taxcalc": 2031.46,
+    "taxsim": 2223.86
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 2907.0,
+    "taxcalc": 2907.0,
+    "taxsim": 2907.0
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 1979.96,
+   "board:payroll_tax": 2907.0,
+   "board:state_income_tax_before_refundable_credits": 1650.56,
+   "adjusted_gross_income": 36269.67,
+   "irs_gross_income": 36615.06,
+   "above_the_line_deductions": 345.39,
+   "student_loan_interest_ald": 276.0,
+   "taxable_income": 20169.67,
+   "taxable_income_deductions": 16100.0,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 1650.56,
+   "salt_deduction": 1650.56,
+   "salt": 1650.56,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 1650.56,
+   "income_tax_main_rates": 2172.36,
+   "amt_income": 36269.67,
+   "income_tax_before_credits": 2172.36,
+   "net_investment_income": 100.0,
+   "income_tax_non_refundable_credits": 192.4,
+   "income_tax_capped_non_refundable_credits": 192.4,
+   "savers_credit": 192.4,
+   "eitc_relevant_investment_income": 100.0,
+   "income_tax_before_refundable_credits": 1979.96,
+   "income_tax": 1979.96,
+   "employee_payroll_tax": 2907.0,
+   "state_withheld_income_tax": 1650.56,
+   "state_sales_tax": 548.0,
+   "age": {
+    "total": 57.0,
+    "persons": [
+     57.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 38000.0,
+    "persons": [
+     38000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 36515.06,
+    "persons": [
+     36515.05859375
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 38000.0,
+    "persons": [
+     38000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 38000.0,
+    "persons": [
+     38000.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 2356.0,
+    "persons": [
+     2356.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 551.0,
+    "persons": [
+     551.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 1484.94,
+    "persons": [
+     1484.9432373046875
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 69.39,
+    "persons": [
+     69.38713836669922
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "board:federal_income_tax_before_refundable_credits": 2031.46,
+   "board:payroll_tax": 2907.0,
+   "board:state_income_tax_before_refundable_credits": 1654.27,
+   "adjusted_gross_income": 36269.67,
+   "irs_gross_income": 36615.06,
+   "above_the_line_deductions": 345.39,
+   "student_loan_interest_ald": 276.0,
+   "taxable_income": 20519.67,
+   "taxable_income_deductions": 15750.0,
+   "standard_deduction": 15750.0,
+   "basic_standard_deduction": 15750.0,
+   "itemized_taxable_income_deductions": 1654.27,
+   "salt_deduction": 1654.27,
+   "salt": 1654.27,
+   "salt_cap": 40000.0,
+   "state_and_local_sales_or_income_tax": 1654.27,
+   "income_tax_main_rates": 2223.86,
+   "amt_income": 36269.67,
+   "income_tax_before_credits": 2223.86,
+   "net_investment_income": 100.0,
+   "income_tax_non_refundable_credits": 192.4,
+   "income_tax_capped_non_refundable_credits": 192.4,
+   "savers_credit": 192.4,
+   "eitc_relevant_investment_income": 100.0,
+   "income_tax_before_refundable_credits": 2031.46,
+   "income_tax": 2031.46,
+   "employee_payroll_tax": 2907.0,
+   "state_withheld_income_tax": 1654.27,
+   "state_sales_tax": 548.0,
+   "age": {
+    "total": 57.0,
+    "persons": [
+     57.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 38000.0,
+    "persons": [
+     38000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 36515.06,
+    "persons": [
+     36515.05859375
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 38000.0,
+    "persons": [
+     38000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 38000.0,
+    "persons": [
+     38000.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 2356.0,
+    "persons": [
+     2356.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 551.0,
+    "persons": [
+     551.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 1484.94,
+    "persons": [
+     1484.9432373046875
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 69.39,
+    "persons": [
+     69.38713836669922
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 1979.96,
+   "board:payroll_tax": 2907.0,
+   "board:state_income_tax_before_refundable_credits": 1650.56,
+   "adjusted_gross_income": 36269.67,
+   "irs_gross_income": 36615.06,
+   "above_the_line_deductions": 345.39,
+   "student_loan_interest_ald": 276.0,
+   "taxable_income": 20169.67,
+   "taxable_income_deductions": 16100.0,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 1650.56,
+   "salt_deduction": 1650.56,
+   "salt": 1650.56,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 1650.56,
+   "income_tax_main_rates": 2172.36,
+   "amt_income": 36269.67,
+   "income_tax_before_credits": 2172.36,
+   "net_investment_income": 100.0,
+   "income_tax_non_refundable_credits": 192.4,
+   "income_tax_capped_non_refundable_credits": 192.4,
+   "savers_credit": 192.4,
+   "eitc_relevant_investment_income": 100.0,
+   "income_tax_before_refundable_credits": 1979.96,
+   "income_tax": 1979.96,
+   "employee_payroll_tax": 2907.0,
+   "state_withheld_income_tax": 1650.56,
+   "state_sales_tax": 548.0,
+   "age": {
+    "total": 57.0,
+    "persons": [
+     57.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 38000.0,
+    "persons": [
+     38000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 36515.06,
+    "persons": [
+     36515.05859375
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 38000.0,
+    "persons": [
+     38000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 38000.0,
+    "persons": [
+     38000.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 2356.0,
+    "persons": [
+     2356.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 551.0,
+    "persons": [
+     551.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 1484.94,
+    "persons": [
+     1484.9432373046875
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 69.39,
+    "persons": [
+     69.38713836669922
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "board:federal_income_tax_before_refundable_credits": 1979.96,
+   "board:payroll_tax": 2907.0,
+   "board:state_income_tax_before_refundable_credits": 1650.56,
+   "adjusted_gross_income": 36269.67,
+   "irs_gross_income": 36615.06,
+   "above_the_line_deductions": 345.39,
+   "student_loan_interest_ald": 276.0,
+   "taxable_income": 20169.67,
+   "taxable_income_deductions": 16100.0,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 1650.56,
+   "salt_deduction": 1650.56,
+   "salt": 1650.56,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 1650.56,
+   "income_tax_main_rates": 2172.36,
+   "amt_income": 36269.67,
+   "income_tax_before_credits": 2172.36,
+   "net_investment_income": 100.0,
+   "income_tax_non_refundable_credits": 192.4,
+   "income_tax_capped_non_refundable_credits": 192.4,
+   "savers_credit": 192.4,
+   "eitc_relevant_investment_income": 100.0,
+   "income_tax_before_refundable_credits": 1979.96,
+   "income_tax": 1979.96,
+   "employee_payroll_tax": 2907.0,
+   "state_withheld_income_tax": 1650.56,
+   "state_sales_tax": 560.42,
+   "age": {
+    "total": 57.0,
+    "persons": [
+     57.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 38000.0,
+    "persons": [
+     38000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 36515.06,
+    "persons": [
+     36515.05859375
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 38000.0,
+    "persons": [
+     38000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 38000.0,
+    "persons": [
+     38000.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 2356.0,
+    "persons": [
+     2356.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 551.0,
+    "persons": [
+     551.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 1484.94,
+    "persons": [
+     1484.9432373046875
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 69.39,
+    "persons": [
+     69.38713836669922
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_070",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 57.0,
+   "in_e00200p": 36515.06,
+   "in_e00200": 36515.06,
+   "in_pencon_p": 1484.94,
+   "in_e00300": 100.0,
+   "in_e03150": 69.39,
+   "in_e03210": 276.0,
+   "in_e07240": 192.4,
+   "in_e17500": 300.0,
+   "in_e18400": 1650.56,
+   "in_RECID": 55.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 33213.04,
+   "out_c00100": 36269.67,
+   "out_c02900": 345.39,
+   "out_c04800": 20169.67,
+   "out_c05200": 2172.36,
+   "out_c05800": 2172.36,
+   "out_c07100": 192.4,
+   "out_c07240": 192.4,
+   "out_c09200": 1979.96,
+   "out_c62100": 36269.67,
+   "out_combined": 7793.96,
+   "out_credit_claim_urn": 0.63,
+   "out_earned": 36515.06,
+   "out_earned_p": 36515.06,
+   "out_exact": 1.0,
+   "out_expanded_income": 41007.0,
+   "out_iitax": 1979.96,
+   "out_num": 1.0,
+   "out_payrolltax": 5814.0,
+   "out_ptax_er_p": 2907.0,
+   "out_ptax_oasdi": 4712.0,
+   "out_ptax_was": 5814.0,
+   "out_standard": 16100.0,
+   "out_taxbc": 2172.36,
+   "out_ymod": 36545.67,
+   "out_ymod1": 36615.06,
+   "q_fed_tax_before_refundable": 1979.96,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 2907.0,
+   "unexpressed": [
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is passed as e18400"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)",
+    "income_tax: student loan interest deduction figured under 26 U.S.C. 221",
+    "income_tax: saver's credit figured under 26 U.S.C. 25B before the limit to tax"
+   ]
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_070",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 57.0,
+   "in_e00200p": 36515.06,
+   "in_e00200": 36515.06,
+   "in_pencon_p": 1484.94,
+   "in_e00300": 100.0,
+   "in_e03150": 69.39,
+   "in_e03210": 276.0,
+   "in_e07240": 192.4,
+   "in_e17500": 300.0,
+   "in_e18400": 1654.27,
+   "in_RECID": 55.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 33161.54,
+   "out_c00100": 36269.67,
+   "out_c02900": 345.39,
+   "out_c04800": 20519.67,
+   "out_c05200": 2223.86,
+   "out_c05800": 2223.86,
+   "out_c07100": 192.4,
+   "out_c07240": 192.4,
+   "out_c09200": 2031.46,
+   "out_c62100": 36269.67,
+   "out_combined": 7845.46,
+   "out_credit_claim_urn": 0.63,
+   "out_earned": 36515.06,
+   "out_earned_p": 36515.06,
+   "out_exact": 1.0,
+   "out_expanded_income": 41007.0,
+   "out_iitax": 2031.46,
+   "out_num": 1.0,
+   "out_payrolltax": 5814.0,
+   "out_ptax_er_p": 2907.0,
+   "out_ptax_oasdi": 4712.0,
+   "out_ptax_was": 5814.0,
+   "out_standard": 15750.0,
+   "out_taxbc": 2223.86,
+   "out_ymod": 36545.67,
+   "out_ymod1": 36615.06,
+   "q_fed_tax_before_refundable": 2031.46,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 2907.0,
+   "unexpressed": [
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is passed as e18400"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)",
+    "income_tax: student loan interest deduction figured under 26 U.S.C. 221",
+    "income_tax: saver's credit figured under 26 U.S.C. 25B before the limit to tax"
+   ]
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_070",
+   "in_year": 2026.0,
+   "in_mstat": 1.0,
+   "in_page": 57.0,
+   "in_pwages": 36515.06,
+   "in_intrec": 100.0,
+   "in_nonprop": -345.39,
+   "in_proptax": 1650.56,
+   "out_taxsimid": 55.0,
+   "out_year": 2026.0,
+   "out_fiitax": 2172.36,
+   "out_fica": 5586.8,
+   "out_tfica": 2793.4,
+   "out_v10": 36269.67,
+   "out_v13": 16100.0,
+   "out_v18": 20169.67,
+   "out_v19": 2172.36,
+   "out_v26": 36269.67,
+   "out_v28": 2172.36,
+   "out_v29": 5586.8,
+   "out_v30": 36615.06,
+   "out_tfica_gross_wages": 2907.0,
+   "out_tfica_no_self_employment": 2907.0,
+   "q_fed_tax_before_refundable": 2172.36,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 2907.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
+    "income_tax: TAXSIM has no input for the saver's credit (26 U.S.C. 25B)",
+    "the statute gives up to 192 before the limit to tax",
+    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
+    "income_tax: student loan interest deduction figured under 26 U.S.C. 221, entered as negative `nonprop`",
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ]
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_070",
+   "in_year": 2025.0,
+   "in_mstat": 1.0,
+   "in_page": 57.0,
+   "in_pwages": 36515.06,
+   "in_intrec": 100.0,
+   "in_nonprop": -345.39,
+   "in_proptax": 1654.27,
+   "out_taxsimid": 55.0,
+   "out_year": 2025.0,
+   "out_fiitax": 2223.86,
+   "out_fica": 5586.8,
+   "out_tfica": 2793.4,
+   "out_v10": 36269.67,
+   "out_v13": 15750.0,
+   "out_v18": 20519.67,
+   "out_v19": 2223.86,
+   "out_v26": 36269.67,
+   "out_v28": 2223.86,
+   "out_v29": 5586.8,
+   "out_v30": 36615.06,
+   "out_tfica_gross_wages": 2907.0,
+   "out_tfica_no_self_employment": 2907.0,
+   "q_fed_tax_before_refundable": 2223.86,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 2907.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)",
+    "income_tax: TAXSIM has no input for the saver's credit (26 U.S.C. 25B)",
+    "the statute gives up to 192 before the limit to tax",
+    "income_tax: adjustments to income are entered as negative `nonprop`, which this build also subtracts from EITC earned income"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and to wages",
+    "TAXSIM has no input for them, so wages are entered net for income tax and gross for payroll tax",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
+    "income_tax: student loan interest deduction figured under 26 U.S.C. 221, entered as negative `nonprop`",
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ]
+  }
+ }
+}

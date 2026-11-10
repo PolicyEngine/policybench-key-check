@@ -1,0 +1,606 @@
+{
+ "case_id": "scenario_074",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 54,
+    "employment_income": 0.0,
+    "inputs": {
+     "bank_account_assets": 510.0,
+     "charitable_cash_donations": 12329.8828125,
+     "child_support_expense": 2400.0,
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "pre_subsidy_rent": 2251.7646484375,
+     "real_estate_taxes": 1364.2940673828125,
+     "salt_refund_income": 3025.588134765625,
+     "social_security_disability": 33640.0,
+     "tax_exempt_private_pension_income": 11228.0,
+     "taxable_ira_distributions": 384.0,
+     "unreimbursed_business_employee_expenses": 8613.0
+    },
+    "name": "head"
+   }
+  ],
+  "children": [],
+  "country": "us",
+  "filing_status": "single",
+  "household_inputs": {},
+  "id": "scenario_074",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 40197,
+   "tax_unit_id": 124464
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {},
+  "state": "LA",
+  "tax_unit_inputs": {},
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_074",
+   "year": 2026,
+   "state": "LA",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 54,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 11612.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 0.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 384.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 11228.0,
+    "social_security": 33640.0,
+    "unemployment": 0.0,
+    "salt_refund": 3025.588134765625,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 0.0,
+    "real_estate_taxes": 1364.2940673828125,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 0.0,
+    "charity_cash": 12329.8828125,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 8613.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated)."
+    ],
+    [
+     "income_tax",
+     "reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
+    ]
+   ],
+   "members_with_own_payroll": []
+  },
+  "2025": {
+   "case_id": "scenario_074",
+   "year": 2025,
+   "state": "LA",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 54,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 11612.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 0.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 384.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 11228.0,
+    "social_security": 33640.0,
+    "unemployment": 0.0,
+    "salt_refund": 3025.588134765625,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 0.0,
+    "real_estate_taxes": 1364.2940673828125,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 0.0,
+    "charity_cash": 12329.8828125,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 8613.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated)."
+    ],
+    [
+     "income_tax",
+     "reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
+    ]
+   ],
+   "members_with_own_payroll": []
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 0.0,
+  "federal_refundable_credits": 0.0,
+  "payroll_tax": 0.0,
+  "self_employment_tax": 0.0,
+  "state_income_tax_before_refundable_credits": 0.0
+ },
+ "board_exclusion_records": [
+  {
+   "scenario_id": "scenario_074",
+   "variable": "head_medicare_eligible",
+   "reason_code": "reference_depends_on_unlisted_input",
+   "unlisted_input": "months_receiving_social_security_disability",
+   "alternative_reading": "The person's listed Social Security disability income is read as 24 or more months of SSDI receipt (the engine input months_receiving_social_security_disability, integer-typed, never carried by the data and never promptable). Recomputed with policyengine-us 1.755.4.",
+   "frozen_value": 0.0,
+   "alternative_value": 1.0,
+   "engine_version": "policyengine-us 1.755.4",
+   "decided_on": "2026-09-05",
+   "decided_by": "developer",
+   "judge_verdict": "llm_error (age_disability) where any row was judged",
+   "note": "In law the under-65 route needs 24 months of SSDI entitlement; a year-round recipient has at least 12. The facts do not settle it."
+  }
+ ],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "adjusted_gross_income": 3409.59,
+   "irs_gross_income": 3409.59,
+   "tax_unit_social_security": 33640.0,
+   "taxable_income_deductions": 17100.0,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 4044.6,
+   "salt_deduction": 2015.89,
+   "salt": 2015.89,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 651.6,
+   "real_estate_taxes": 1364.29,
+   "charitable_deduction": 2028.7,
+   "charitable_deduction_for_non_itemizers": 1000.0,
+   "amt_income": 2409.59,
+   "state_sales_tax": 543.0,
+   "age": {
+    "total": 54.0,
+    "persons": [
+     54.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "adjusted_gross_income": 3409.59,
+   "irs_gross_income": 3409.59,
+   "tax_unit_social_security": 33640.0,
+   "taxable_income_deductions": 15750.0,
+   "standard_deduction": 15750.0,
+   "basic_standard_deduction": 15750.0,
+   "itemized_taxable_income_deductions": 4061.65,
+   "salt_deduction": 2015.89,
+   "salt": 2015.89,
+   "salt_cap": 40000.0,
+   "state_and_local_sales_or_income_tax": 651.6,
+   "real_estate_taxes": 1364.29,
+   "charitable_deduction": 2045.75,
+   "amt_income": 3409.59,
+   "state_sales_tax": 543.0,
+   "age": {
+    "total": 54.0,
+    "persons": [
+     54.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "adjusted_gross_income": 3409.59,
+   "irs_gross_income": 3409.59,
+   "tax_unit_social_security": 33640.0,
+   "taxable_income_deductions": 17100.0,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 3936.0,
+   "salt_deduction": 1907.29,
+   "salt": 1907.29,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 543.0,
+   "real_estate_taxes": 1364.29,
+   "charitable_deduction": 2028.7,
+   "charitable_deduction_for_non_itemizers": 1000.0,
+   "amt_income": -616.0,
+   "state_sales_tax": 543.0,
+   "age": {
+    "total": 54.0,
+    "persons": [
+     54.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "adjusted_gross_income": 3409.59,
+   "irs_gross_income": 3409.59,
+   "tax_unit_social_security": 33640.0,
+   "taxable_income_deductions": 17100.0,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 3948.31,
+   "salt_deduction": 1919.6,
+   "salt": 1919.6,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 555.31,
+   "real_estate_taxes": 1364.29,
+   "charitable_deduction": 2028.7,
+   "charitable_deduction_for_non_itemizers": 1000.0,
+   "amt_income": -616.0,
+   "state_sales_tax": 555.31,
+   "age": {
+    "total": 54.0,
+    "persons": [
+     54.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_074",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 54.0,
+   "in_e00700": 3025.59,
+   "in_e01400": 384.0,
+   "in_e01500": 11228.0,
+   "in_e02400": 33640.0,
+   "in_e18400": 651.6,
+   "in_e18500": 1364.29,
+   "in_e19800": 12329.88,
+   "in_e20400": 8613.0,
+   "in_RECID": 59.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 48277.59,
+   "out_benefit_cost_total": 33640.0,
+   "out_benefit_value_total": 33640.0,
+   "out_c00100": 3409.59,
+   "out_c62100": 384.0,
+   "out_credit_claim_urn": 0.98,
+   "out_exact": 1.0,
+   "out_expanded_income": 48277.59,
+   "out_num": 1.0,
+   "out_standard": 17100.0,
+   "out_ymod": 20229.59,
+   "out_ymod1": 3409.59,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "unexpressed": [
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
+    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is passed as e18400"
+   ]
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_074",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 54.0,
+   "in_e00700": 3025.59,
+   "in_e01400": 384.0,
+   "in_e01500": 11228.0,
+   "in_e02400": 33640.0,
+   "in_e18400": 651.6,
+   "in_e18500": 1364.29,
+   "in_e19800": 12329.88,
+   "in_e20400": 8613.0,
+   "in_RECID": 59.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 48277.59,
+   "out_benefit_cost_total": 33640.0,
+   "out_benefit_value_total": 33640.0,
+   "out_c00100": 3409.59,
+   "out_c62100": 384.0,
+   "out_credit_claim_urn": 0.98,
+   "out_exact": 1.0,
+   "out_expanded_income": 48277.59,
+   "out_num": 1.0,
+   "out_standard": 15750.0,
+   "out_ymod": 20229.59,
+   "out_ymod1": 3409.59,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "unexpressed": [
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
+    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is passed as e18400"
+   ]
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_074",
+   "in_year": 2026.0,
+   "in_mstat": 1.0,
+   "in_page": 54.0,
+   "in_pensions": 3409.59,
+   "in_gssi": 33640.0,
+   "in_proptax": 2015.89,
+   "in_mortgage": 12312.83,
+   "out_taxsimid": 59.0,
+   "out_year": 2026.0,
+   "out_v10": 3409.59,
+   "out_v13": 16100.0,
+   "out_v26": 3409.59,
+   "out_v30": 37049.59,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
+    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
+    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
+    "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+   ],
+   "map_computed": [
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
+    "percentage ceilings not applied"
+   ]
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_074",
+   "in_year": 2025.0,
+   "in_mstat": 1.0,
+   "in_page": 54.0,
+   "in_pensions": 3409.59,
+   "in_gssi": 33640.0,
+   "in_proptax": 2015.89,
+   "in_mortgage": 12329.88,
+   "out_taxsimid": 59.0,
+   "out_year": 2025.0,
+   "out_v10": 3409.59,
+   "out_v13": 15750.0,
+   "out_v26": 3409.59,
+   "out_v30": 37049.59,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading",
+    "the prior-year tax benefit is not stated).",
+    "income_tax: reading: head is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated.",
+    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated",
+    "the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+   ],
+   "map_computed": [
+    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`",
+    "percentage ceilings not applied"
+   ]
+  }
+ }
+}
