@@ -147,6 +147,39 @@ def contested_scored() -> str:
     return table(["Household", "Line", "Key's answer", "Why contested", "Cause entries"], body, "llrll")
 
 
+POSITION_WORDS = {
+    ("supports_other_answer", "law"): "The entry says the law supports another answer",
+    ("supports_other_answer", "prompt_rule"): "The entry says the board's rule for unstated facts supports another answer",
+    ("turns_on_unstated_fact", ""): "The answer turns on a fact the household does not state",
+}
+POSITION_ORDER = ("supports_other_answer", "turns_on_unstated_fact")
+
+
+def scored_positions() -> str:
+    """Scored cells where a cause entry disputes the key's answer or leaves it open."""
+    names = dict(LINES)
+    scored = {(r["case_id"], r["quantity"]) for r in read("results/cell_status.csv") if r["board_scores_it"] == "yes"}
+    cells: dict[tuple[str, str], list[dict]] = {}
+    for r in read("results/cause_positions.csv"):
+        key = (r["case_id"], r["quantity"])
+        if key in scored and r["position"] in POSITION_ORDER:
+            cells.setdefault(key, []).append(r)
+    body = []
+    for (case, quantity), rows in sorted(cells.items()):
+        lead = min(rows, key=lambda r: POSITION_ORDER.index(r["position"]))
+        same = [r for r in rows if r["position"] == lead["position"]]
+        other = lead["supported_answer"] if lead["position"] == "supports_other_answer" else lead["other_reading_answer"]
+        if len({(r["supported_answer"], r["other_reading_answer"]) for r in same}) != 1:
+            raise SystemExit(f"{case} {quantity}: entries give different answers")
+        words = POSITION_WORDS[(lead["position"], lead["grounds"] if lead["position"] == "supports_other_answer" else "")]
+        body.append([case, names.get(quantity, quantity), f"{float(lead['key_value']):,.2f}",
+                     f"{float(other):,.2f}" if other else "", words,
+                     ", ".join(f"`{r['cause_id']}`" for r in same)])
+    if not body:
+        return "No cause entry disputes or leaves open a scored answer."
+    return table(["Household", "Line", "Key's answer", "Other answer", "Position", "Cause entries"], body, "llrrll")
+
+
 def shared_salt() -> str:
     rows = read("results/bindings.csv")
     body = []
@@ -170,9 +203,11 @@ BLOCKS = {
     "facts": facts,
     "causes": causes,
     "contested-scored": contested_scored,
+    "scored-positions": scored_positions,
     "shared-inputs": shared_salt,
 }
-PATTERN = re.compile(r"(<!-- generated:([a-z0-9-]+) -->\n)(.*?)(\n<!-- /generated -->)", re.S)
+# A block may be empty. [^<]* keeps one block from running into the next: no table holds a "<".
+PATTERN = re.compile(r"(<!-- generated:([a-z0-9-]+) -->\n)([^<]*)(<!-- /generated -->)")
 
 
 def render(text: str) -> tuple[str, list[str]]:
@@ -183,7 +218,10 @@ def render(text: str) -> tuple[str, list[str]]:
         if name not in BLOCKS:
             raise SystemExit(f"README names an unknown block: {name}")
         seen.append(name)
-        return match.group(1) + BLOCKS[name]() + match.group(4)
+        body = BLOCKS[name]()
+        if "<" in body:
+            raise SystemExit(f"block {name} holds a '<', which the block pattern cannot span")
+        return match.group(1) + body + "\n" + match.group(4)
 
     return PATTERN.sub(fill, text), seen
 
@@ -195,6 +233,8 @@ def main(argv=None) -> None:
     args = parser.parse_args(argv)
     text = args.readme.read_text()
     new, seen = render(text)
+    if len(seen) != text.count("<!-- generated:") or len(seen) != text.count("<!-- /generated -->"):
+        raise SystemExit("README has a generated marker the block pattern did not match")
     if args.check:
         if new != text:
             sys.exit("README tables are out of date: run python3 scripts/make_readme_tables.py")
