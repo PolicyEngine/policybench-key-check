@@ -16,17 +16,20 @@ probes/taxsim/). The facts this map rests on, each with its probe:
   EITC alone (`eitc_record`). On the ages path a 17-year-old gets $2,200 and an 18-year-old
   the $500 credit and EITC-child treatment (P2.2, P2.4), so a qualifying child aged 17 or
   over is sent as 18 (probe vmt_age17_as_18_2025).
-- `otherprop` is ignored from 2024 on (P6.1), so rent and estate income go to `intrec`,
-  either sign (a negative amount is accepted: probes vmt_negative_intrec and
-  fixmaps_negative_intrec), which is ordinary income, net investment income and EITC
-  investment income; rent is not qualified business income (unit.READINGS["rental_qbi"]).
+- `otherprop` is ignored from 2024 on (P6.1), so estate income and the rentals that are not
+  qualified business income go to `intrec`, either sign (a negative amount is accepted:
+  probes vmt_negative_intrec and fixmaps_negative_intrec), which is ordinary income, net
+  investment income and EITC investment income; rentals that are qualified business income
+  (unit.READINGS["rental_qbi"]) go to `scorp` with the passive partnership income. Every
+  passive amount is the one 26 U.S.C. 469 allows (unit.READINGS["passive_activity"]).
 - `nonprop` counts as earned income for the EITC (P6.8, P7.1), so other taxable income
   goes to `pensions` (ordinary income and nothing else); adjustments to income have no
   other home and go to `nonprop` as negative amounts, as NBER's page says.
 - Wages are entered gross (FICA wages, 26 U.S.C. 3121(v)(1)(A)), so self-employment tax
   and the wage base see them as the law does, and traditional 401(k) deferrals enter as
-  negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not
-  includible in gross income, 32(c)(2)(A)(i)) but not FICA (probe vmt_deferral_wage_base).
+  negative `nonprop`, which lowers AGI and the earned income of the EITC and the
+  refundable child credit (deferrals are not includible in gross income,
+  32(c)(2)(A)(i)) but not FICA (probe vmt_deferral_wage_base).
   One record then gives income tax and payroll tax; a second, with the self-employment
   boxes zeroed, splits `tfica` (`payroll_records`).
 - `psemp` carries self-employment tax and gets the qualified business income deduction
@@ -38,12 +41,15 @@ probes/taxsim/). The facts this map rests on, each with its probe:
   itemizer (P9.4). The SALT cap is the build's own; the map does not set it by option.
 - No input exists for blindness, a qualifying surviving spouse, pre-tax contributions,
   overtime, vehicle-loan interest, tax-exempt interest, charitable gifts by a
-  non-itemizer, or the saver's credit (P1); each is listed in `unexpressed` when the
-  household states it.
+  non-itemizer, or the saver's credit (P1), nor, in NBER's list of inputs
+  (sources/nber/taxsimtest_.txt), for the additional tax on early distributions
+  (26 U.S.C. 72(t)); each is listed in `unexpressed` when the household states it, the
+  72(t) tax with the amount the statute gives at TAXSIM's AGI.
 - Facts only the larger draw states (run causes-and-draw, unit draw-maps, with its probes
   D1-D3 of build cd2026110117): the self-employed health insurance and pension deductions
-  go to negative `nonprop`, which this build subtracts from EITC earned income (D1b) but
-  not from qualified business income (D1c); investment interest after 163(d) goes to
+  go to negative `nonprop`, which this build subtracts from the earned income of the EITC
+  (D1b) and of the refundable child credit (board 038) but not from qualified business
+  income (D1c); investment interest after 163(d) goes to
   `mortgage`; a Form 4952 election moves the elected net capital gain, then qualified
   dividends, to `intrec`. No input exists for the 25% and 28% rate gains, a care
   qualifying individual aged 13 or over, or the deemed earned income of an incapable
@@ -70,12 +76,11 @@ from . import map_taxcalc
 from . import statute as S
 from . import unit as U
 
-VERSION = "2026-11-10.3"
+VERSION = "2026-11-11.1"
 
-# 26 U.S.C. 213(a): medical expenses above 7.5% of AGI. 26 U.S.C. 170(b)(1)(I): from
-# 2026 charitable gifts count only above 0.5% of AGI.
-MEDICAL_FLOOR = 0.075
-CHARITY_FLOOR = {2026: 0.005, 2025: 0.0}
+# 26 U.S.C. 213(a): medical expenses above 7.5% of AGI. Charitable gifts: 170(b)(1)
+# ceilings and, from 2026, the 0.5% floor (statute.charitable_deduction).
+MEDICAL_FLOOR = S.MEDICAL_FLOOR
 
 # The 2026 zero rate on net capital gain and qualified dividends (26 U.S.C. 1(h), 1(j)(5)):
 # Rev. Proc. 2025-32 ends it at 49,450 for a single filer and 98,900 on a joint return
@@ -171,16 +176,22 @@ def first_pass(household: dict, year: int, shared: dict | None = None):
                 "no self-employment tax on them (26 U.S.C. 1402(b)(2)); this build has no $400 floor and charges it (probe P10.3: "
                 "`psemp` 300 gives 42.39, 15.3% of 277.05)")
     partnership_se = sum(f.partnership_se for f in unit.filers)
-    passive_business = a["partnership_s_corp"] - partnership_se + a["farm_rent"]
-    # Rent and estate income, either sign, to `intrec`: not qualified business income
-    # (unit.READINGS["rental_qbi"]); the build accepts a negative amount there.
-    property_income = a["rental"] + a["estate"]
+    # Passive partnership income (less partners' self-employment earnings) and rentals that
+    # are qualified business income to `scorp` (unit.READINGS["rental_qbi"]).
+    passive_business = a["partnership_s_corp"] - partnership_se + a["rental_qbi"]
+    # Estate income and the other rentals, either sign, to `intrec`: not qualified business
+    # income; the build accepts a negative amount there.
+    property_income = a["rental"] + a["farm_rent"] - a["rental_qbi"] + a["estate"]
     educator = S.educator_expense_deduction(year, [f.educator_expense for f in unit.filers])
     if any(f.educator_expense for f in unit.filers):
         computed.append("income_tax: educator expenses limited by 26 U.S.C. 62(a)(2)(D)")
     # Other taxable income goes to `pensions`; TAXSIM rejects a negative pension, so a net
     # loss there goes to `nonprop`.
-    other_income = a["miscellaneous"] + a["disability_benefits"] + a["salt_refund"]
+    other_income = a["miscellaneous"] + a["disability_benefits"] + a["salt_refund"] + a["educational_assistance"]
+    if a["rental"] + a["farm_rent"] != a["rental_stated"] + a["farm_rent_stated"] or a["partnership_s_corp"] != a["partnership_stated"]:
+        computed.append("income_tax: passive activity losses limited by 26 U.S.C. 469(a) (allowed amounts in `scorp`, `intrec` and the self-employment boxes)")
+    if a["hsa_deduction"] != a["hsa_stated"]:
+        computed.append("income_tax: health savings account deduction limited by 26 U.S.C. 223(b) (unit.READINGS['hsa']), entered as negative `nonprop`")
     if deferrals:
         computed.append("income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)")
 
@@ -208,7 +219,8 @@ def first_pass(household: dict, year: int, shared: dict | None = None):
         "intrec": a["taxable_interest"] + a["non_qualified_dividends"] + property_income + elected,
         "stcg": a["short_term_gains"],
         "ltcg": long_term - elected_gain,
-        "pensions": a["taxable_pensions"] + a["taxable_ira_distributions"] + max(0.0, other_income),
+        # Survivor benefits are a taxable pension or annuity (unit.READINGS["survivor_benefits"]).
+        "pensions": a["taxable_pensions"] + a["survivor_benefits"] + a["taxable_ira_distributions"] + max(0.0, other_income),
         "gssi": a["social_security"],
         "pui": a["unemployment"],
         # Deferrals and the adjustments that do not depend on AGI; the IRA and student
@@ -265,18 +277,15 @@ def first_pass(household: dict, year: int, shared: dict | None = None):
         unexpressed.append("income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)")
     if a["reit_ptp"]:
         unexpressed.append("income_tax: TAXSIM has no input for qualified REIT dividends and PTP income")
-    if a["rental"] or a["estate"]:
-        text = "income_tax: this build ignores `otherprop` from 2024, so rent and estate income are entered as `intrec`"
+    if property_income:
+        text = "income_tax: this build ignores `otherprop` from 2024, so estate income and rentals that are not qualified business income are entered as `intrec`"
         if property_income < 0:
             text += "; a net loss there also offsets interest in this build's EITC investment-income test (probe fixmaps_negative_intrec), where the law counts rents only as an excess (26 U.S.C. 32(i)(2)(C))"
         unexpressed.append(text)
-    if passive_business:
-        text = "income_tax: partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income"
-        if passive_business < 0:
-            text += "; a loss there also offsets other investment income in the EITC test and other qualified business income (probe vmt_box_side_effects ids 7, 12)"
-        unexpressed.append(text)
-    if a["miscellaneous"] or a["disability_benefits"] or a["salt_refund"]:
-        text = "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income"
+    if passive_business < 0:
+        unexpressed.append("income_tax: passive partnership or S corporation income and qualified rentals are entered as `scorp` (qualified business income, net investment income and EITC investment income, as the law counts passive income); a loss there also offsets other investment income in this build's EITC test and other qualified business income (probe vmt_box_side_effects ids 7, 12), where the law counts only net passive income (26 U.S.C. 32(i)(2)(D))")
+    if a["miscellaneous"] or a["disability_benefits"] or a["salt_refund"] or a["educational_assistance"]:
+        text = "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund, a taxable scholarship) is entered as `pensions`: `nonprop` would count as EITC earned income"
         if other_income < 0:
             text += "; a net loss goes to `nonprop`, which also lowers EITC earned income"
         unexpressed.append(text)
@@ -285,7 +294,7 @@ def first_pass(household: dict, year: int, shared: dict | None = None):
     if unit.status == S.SEPARATE and unit.dependents:
         unexpressed.append("income_tax: this build files a separate filer (`mstat` 6) with a dependent as head of household (draw-maps probes D2c-D2d)")
     if se_adjustments:
-        unexpressed.append("income_tax: the self-employed health insurance and pension deductions are entered as negative `nonprop`; this build also subtracts them from EITC earned income (probes P7.1, D1b), which is net earnings from self-employment in the law (26 U.S.C. 32(c)(2)(A)(ii); 162(l)(4) for the health deduction; for the pension deduction as read here, since it is not a deduction of the business), and does not subtract them from qualified business income (probe D1c), as Tax-Calculator and policyengine-us do")
+        unexpressed.append("income_tax: the self-employed health insurance and pension deductions are entered as negative `nonprop`; this build also subtracts them from the earned income of the EITC (probes P7.1, D1b) and of the refundable child credit (board 038: 100 of 162(l) deduction lowers it by 15.00), which is net earnings from self-employment in the law (26 U.S.C. 32(c)(2)(A)(ii), which 24(d)(1)(B)(i) also uses; 162(l)(4) for the health deduction; for the pension deduction as read here, since it is not a deduction of the business), and does not subtract them from qualified business income (probe D1c), as Tax-Calculator and policyengine-us do")
     if a["unrecaptured_1250"] or a["collectibles_28"]:
         unexpressed.append("income_tax: TAXSIM has no input for unrecaptured section 1250 gain or 28-percent rate gain (26 U.S.C. 1(h)(1)(E)-(F), (h)(4), (h)(6)); the whole long-term gain gets the 0, 15 and 20 percent rates")
     adults_in_care = [c["name"] for c in unit.care_individuals if c["why"] != "under 13"]
@@ -298,9 +307,10 @@ def first_pass(household: dict, year: int, shared: dict | None = None):
     if year >= 2026 and a["charity_cash"]:
         unexpressed.append("income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)")
     # 26 U.S.C. 199A(i): the 2026 minimum deduction needs $1,000 of qualified business
-    # income from active trades in which the taxpayer materially participates; `scorp`
-    # (passive partnership, S corporation and farm rent income) is left out of the test.
-    active_qbi = se_p + se_s + sstb_p + sstb_s
+    # income from active trades in which the taxpayer materially participates: Schedule C
+    # and F (unit.READINGS["passive_activity"]); partners' self-employment earnings and
+    # `scorp` are passive.
+    active_qbi = sum(f.schedule_c + f.schedule_f for f in unit.filers)
     if year >= 2026 and active_qbi >= 1_000:
         unexpressed.append("income_tax: this build has no 2026 minimum qualified business income deduction (26 U.S.C. 199A(i))")
     return record, unit, unexpressed, computed
@@ -318,6 +328,19 @@ def final_notes(record: dict, unit: U.Unit, out: dict, shared: dict | None = Non
     before_qbid = out.get("v18", 0.0) + out.get("qbid", 0.0)
     if business > 0 and before_qbid > S.qbi_threshold(unit.year, unit.status):
         notes.append("income_tax: TAXSIM applies no W-2 wage or property limit to the qualified business income deduction (26 U.S.C. 199A(b)(2)(B)); this unit's taxable income before the deduction passes the 199A(e)(2) threshold")
+    # 26 U.S.C. 24(b)(1) reduces the child and other-dependent credit by $50 for each $1,000
+    # or fraction thereof above the threshold; this build reduces it by 5% of the excess with
+    # no step (probes fixmaps2_ctc_phaseout_depNN and _ageN: joint, two children, AGI
+    # 409,940.53 gives 3,902.97 where the statute gives 3,900; 400,000.01 gives 4,400).
+    children_ctc = credit_counts(unit)[0]
+    full = 2_200.0 * children_ctc + 500.0 * (len(unit.dependents) - children_ctc)
+    agi = out.get("v10", 0.0)
+    excess = max(0.0, agi - S.CHILD_CREDIT_THRESHOLD.get(unit.status, S.CHILD_CREDIT_THRESHOLD["other"]))
+    if full > 0 and excess > 0:
+        law = min(full, S.child_credit_reduction(unit.status, agi))
+        build = min(full, 0.05 * excess)
+        if abs(law - build) >= 1:
+            notes.append(f"income_tax: this build phases the child tax credit out at 5% of the AGI above the threshold with no $1,000 step (probes fixmaps2_ctc_phaseout_depNN and _ageN); 26 U.S.C. 24(b)(1) takes $50 for each $1,000 or fraction thereof: the statute's reduction here is {law:,.2f}, the build's {build:,.2f}")
     # A joint return, or a single filer TAXSIM files as single (no dependent sent), in 2026.
     if unit.year == 2026 and (unit.status == S.JOINT or (unit.status == S.SINGLE and not record.get("depx"))):
         law, build = ZERO_RATE_END_2026[unit.status]
@@ -360,7 +383,7 @@ def after_pass(pass_number: int, record: dict, unit: U.Unit, agi: float, compute
             computed.append("income_tax: student loan interest deduction figured under 26 U.S.C. 221, entered as negative `nonprop`")
     elif pass_number == 3:
         medical = max(0.0, a["medical"] - MEDICAL_FLOOR * max(0.0, agi))
-        charity = max(0.0, a["charity_cash"] + a["charity_non_cash"] - CHARITY_FLOOR[year] * max(0.0, agi))
+        charity = S.charitable_deduction(year, a["charity_cash"], a["charity_non_cash"], agi)
         mortgage = S.deductible_mortgage_interest(year, unit.status, a["mortgage_interest"], a["mortgage_balances"])
         record["mortgage"] = mortgage + charity + medical + a["investment_interest_allowed"]
         if a["investment_interest"]:
@@ -372,7 +395,10 @@ def after_pass(pass_number: int, record: dict, unit: U.Unit, agi: float, compute
         if a["medical"]:
             computed.append("income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given")
         if a["charity_cash"] + a["charity_non_cash"]:
-            computed.append("income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied")
+            computed.append("income_tax: charitable gifts limited by the 26 U.S.C. 170(b)(1) ceilings (60% cash, 50% other gifts less the cash) and, from 2026, the 0.5% floor of 170(b)(1)(I) (unit.READINGS['charity']), entered in `mortgage`")
+        penalty = S.early_distribution_tax(a["early_distributions"], a["medical"], agi)
+        if penalty:
+            unexpressed.append(f"income_tax: TAXSIM has no input for the additional tax on early distributions (26 U.S.C. 72(t)), which the statute puts at {penalty:,.2f} at TAXSIM's AGI (unit.READINGS['retirement_penalty']); policyengine-us takes it as an input with no formula and the board states none")
         if a["mortgage_interest"] and mortgage != a["mortgage_interest"]:
             computed.append("income_tax: mortgage interest limited by 26 U.S.C. 163(h)(3)(F)")
         eligible = [f for f in unit.filers if f.age >= 18]
@@ -382,11 +408,11 @@ def after_pass(pass_number: int, record: dict, unit: U.Unit, agi: float, compute
             unexpressed.append(f"income_tax: TAXSIM has no input for the saver's credit (26 U.S.C. 25B), which the statute puts at up to {credit:,.0f} before the limit to tax (reading: " + U.READINGS["savers_credit"] + ")")
     deferrals = sum(f.deferral for f in unit.filers)
     adjustments = state.get("ira", 0.0) + state.get("student_loan", 0.0) + educator + a["hsa_deduction"]
-    other_income = a["miscellaneous"] + a["disability_benefits"] + a["salt_refund"]
+    other_income = a["miscellaneous"] + a["disability_benefits"] + a["salt_refund"] + a["educational_assistance"]
     se_adjustments = a["se_health_insurance"] + a["se_pension"]
     record["nonprop"] = -(deferrals + adjustments + se_adjustments) + min(0.0, other_income)
     if adjustments and pass_number == 3:
-        unexpressed.append("income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them")
+        unexpressed.append("income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from the earned income of the EITC (probe P7.1) and of the refundable child credit (board 038); the law's earned income (26 U.S.C. 32(c)(2), which 24(d)(1)(B)(i) also uses) is not reduced by them")
     return record
 
 

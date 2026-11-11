@@ -76,7 +76,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": {
     "name": "spouse",
@@ -92,9 +98,15 @@
     "schedule_f": 0.0,
     "partnership_se": 0.0,
     "educator_expense": 0.0,
-    "retirement_distributions": 32200.0,
+    "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "dependents": [],
    "left_out": [],
@@ -117,10 +129,16 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
     "hsa_deduction": 0.0,
     "domestic_production": 0.0,
     "medical": 7300.0,
@@ -135,12 +153,25 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
      "income_tax",
-     "reading: spouse is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
+     "reading: spouse (age 57) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated."
     ]
    ],
    "members_with_own_payroll": [],
@@ -154,7 +185,8 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": []
   },
   "2025": {
    "case_id": "scenario_025",
@@ -177,7 +209,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": {
     "name": "spouse",
@@ -193,9 +231,15 @@
     "schedule_f": 0.0,
     "partnership_se": 0.0,
     "educator_expense": 0.0,
-    "retirement_distributions": 32200.0,
+    "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "dependents": [],
    "left_out": [],
@@ -218,10 +262,16 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
     "hsa_deduction": 0.0,
     "domestic_production": 0.0,
     "medical": 7300.0,
@@ -236,12 +286,25 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
      "income_tax",
-     "reading: spouse is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
+     "reading: spouse (age 57) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated."
     ]
    ],
    "members_with_own_payroll": [],
@@ -255,7 +318,8 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": []
   }
  },
  "committed_key": {
@@ -791,7 +855,7 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 4798.48,
    "unexpressed": [
-    "income_tax: reading: spouse is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
+    "income_tax: reading: spouse (age 57) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated."
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -836,7 +900,7 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 4798.48,
    "unexpressed": [
-    "income_tax: reading: spouse is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
+    "income_tax: reading: spouse (age 57) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated."
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -869,7 +933,7 @@
    "q_fed_employee_payroll_tax": 4798.48,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: spouse is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
+    "income_tax: reading: spouse (age 57) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated."
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
@@ -905,7 +969,7 @@
    "q_fed_employee_payroll_tax": 4798.48,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: spouse is under 59 1/2 with retirement distributions. No additional tax on early retirement distributions (26 U.S.C. 72(t)): no exception or its absence is stated."
+    "income_tax: reading: spouse (age 57) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated."
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

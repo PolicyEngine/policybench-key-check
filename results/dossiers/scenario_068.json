@@ -63,7 +63,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": null,
    "dependents": [],
@@ -87,10 +93,16 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 73000.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
     "hsa_deduction": 0.0,
     "domestic_production": 0.0,
     "medical": 1500.0,
@@ -105,12 +117,25 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
      "income_tax",
-     "reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition."
+     "reading: Stated educational assistance (scholarships, grants and other assistance) is taxable in full: 26 U.S.C. 117(a) excludes a qualified scholarship only for a degree candidate and only as far as it pays tuition and required fees, books and equipment (117(b)); neither is stated, and 127 needs an employer's program, also not stated. It is not earned income for the EITC (it is not pay for services). No filer on the board or the draw is a dependent, so the dependent's standard deduction (63(c)(5)) and the kiddie tax (1(g)) do not arise; a member's amount counts in the member's gross income (152(d)(1)(B)). Tax-Calculator gets it in e01200 (AGI only), TAXSIM in `pensions` (`nonprop` would count as EITC earned income). policyengine-us leaves it out of gross income."
     ]
    ],
    "members_with_own_payroll": [],
@@ -120,7 +145,8 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": []
   },
   "2025": {
    "case_id": "scenario_068",
@@ -143,7 +169,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": null,
    "dependents": [],
@@ -167,10 +199,16 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 73000.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
     "hsa_deduction": 0.0,
     "domestic_production": 0.0,
     "medical": 1500.0,
@@ -185,12 +223,25 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
      "income_tax",
-     "reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition."
+     "reading: Stated educational assistance (scholarships, grants and other assistance) is taxable in full: 26 U.S.C. 117(a) excludes a qualified scholarship only for a degree candidate and only as far as it pays tuition and required fees, books and equipment (117(b)); neither is stated, and 127 needs an employer's program, also not stated. It is not earned income for the EITC (it is not pay for services). No filer on the board or the draw is a dependent, so the dependent's standard deduction (63(c)(5)) and the kiddie tax (1(g)) do not arise; a member's amount counts in the member's gross income (152(d)(1)(B)). Tax-Calculator gets it in e01200 (AGI only), TAXSIM in `pensions` (`nonprop` would count as EITC earned income). policyengine-us leaves it out of gross income."
     ]
    ],
    "members_with_own_payroll": [],
@@ -200,7 +251,8 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": []
   }
  },
  "committed_key": {
@@ -215,11 +267,11 @@
   "2026, against the committed key": {
    "federal_income_tax_before_refundable_credits": {
     "key_run": "pb-reference-2.60.0",
-    "class": "all_agree",
+    "class": "two_agree:policyengine",
     "board_scores_it": "yes",
     "policyengine": 1910.02,
-    "taxcalc": 1910.02,
-    "taxsim": 1910.02
+    "taxcalc": 14728.38,
+    "taxsim": 14728.38
    },
    "federal_refundable_credits": {
     "key_run": "pb-reference-2.60.0",
@@ -249,11 +301,11 @@
   "2026, against the engine rerun": {
    "federal_income_tax_before_refundable_credits": {
     "key_run": "pe-2.60.0-board-2026",
-    "class": "all_agree",
+    "class": "two_agree:policyengine",
     "board_scores_it": "yes",
     "policyengine": 1910.02,
-    "taxcalc": 1910.02,
-    "taxsim": 1910.02
+    "taxcalc": 14728.38,
+    "taxsim": 14728.38
    },
    "federal_refundable_credits": {
     "key_run": "pe-2.60.0-board-2026",
@@ -283,11 +335,11 @@
   "2025 law": {
    "federal_income_tax_before_refundable_credits": {
     "key_run": "pe-2.60.0-board-2025",
-    "class": "all_agree",
+    "class": "two_agree:policyengine",
     "board_scores_it": "yes",
     "policyengine": 1961.52,
-    "taxcalc": 1961.52,
-    "taxsim": 1961.52
+    "taxcalc": 15007.38,
+    "taxsim": 15007.38
    },
    "federal_refundable_credits": {
     "key_run": "pe-2.60.0-board-2025",
@@ -625,39 +677,41 @@
    "in_age_head": 31.0,
    "in_e00200p": 34083.53,
    "in_e00200": 34083.53,
+   "in_e01200": 73000.0,
    "in_e17500": 1500.0,
    "in_e18400": 2334.68,
    "in_RECID": 54.0,
    "in_FLPDYR": 2026.0,
-   "out_aftertax_income": 29566.12,
-   "out_c00100": 34083.53,
-   "out_c04800": 17983.53,
-   "out_c05200": 1910.02,
-   "out_c05800": 1910.02,
-   "out_c09200": 1910.02,
-   "out_c62100": 34083.53,
-   "out_combined": 7124.8,
+   "out_aftertax_income": 89747.76,
+   "out_c00100": 107083.53,
+   "out_c04800": 90983.53,
+   "out_c05200": 14728.38,
+   "out_c05800": 14728.38,
+   "out_c09200": 14728.38,
+   "out_c62100": 107083.53,
+   "out_combined": 19943.16,
    "out_credit_claim_urn": 0.32,
    "out_earned": 34083.53,
    "out_earned_p": 34083.53,
    "out_exact": 1.0,
-   "out_expanded_income": 36690.92,
-   "out_iitax": 1910.02,
+   "out_expanded_income": 109690.92,
+   "out_iitax": 14728.38,
    "out_num": 1.0,
    "out_payrolltax": 5214.78,
    "out_ptax_er_p": 2607.39,
    "out_ptax_oasdi": 4226.36,
    "out_ptax_was": 5214.78,
    "out_standard": 16100.0,
-   "out_taxbc": 1910.02,
-   "out_ymod": 34083.53,
-   "out_ymod1": 34083.53,
-   "q_fed_tax_before_refundable": 1910.02,
+   "out_taxbc": 14728.38,
+   "out_ymod": 107083.53,
+   "out_ymod1": 107083.53,
+   "q_fed_tax_before_refundable": 14728.38,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 2607.39,
    "unexpressed": [
-    "income_tax: reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition."
+    "income_tax: reading: Stated educational assistance (scholarships, grants and other assistance) is taxable in full: 26 U.S.C. 117(a) excludes a qualified scholarship only for a degree candidate and only as far as it pays tuition and required fees, books and equipment (117(b)); neither is stated, and 127 needs an employer's program, also not stated. It is not earned income for the EITC (it is not pay for services). No filer on the board or the draw is a dependent, so the dependent's standard deduction (63(c)(5)) and the kiddie tax (1(g)) do not arise; a member's amount counts in the member's gross income (152(d)(1)(B)). Tax-Calculator gets it in e01200 (AGI only), TAXSIM in `pensions` (`nonprop` would count as EITC earned income). policyengine-us leaves it out of gross income.",
+    "income_tax: no Tax-Calculator input for a taxable scholarship or grant; entered through e01200, which enters AGI only (not earned income)"
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -667,39 +721,41 @@
    "in_age_head": 31.0,
    "in_e00200p": 34083.53,
    "in_e00200": 34083.53,
+   "in_e01200": 73000.0,
    "in_e17500": 1500.0,
    "in_e18400": 2338.57,
    "in_RECID": 54.0,
    "in_FLPDYR": 2025.0,
-   "out_aftertax_income": 29514.62,
-   "out_c00100": 34083.53,
-   "out_c04800": 18333.53,
-   "out_c05200": 1961.52,
-   "out_c05800": 1961.52,
-   "out_c09200": 1961.52,
-   "out_c62100": 34083.53,
-   "out_combined": 7176.3,
+   "out_aftertax_income": 89468.76,
+   "out_c00100": 107083.53,
+   "out_c04800": 91333.53,
+   "out_c05200": 15007.38,
+   "out_c05800": 15007.38,
+   "out_c09200": 15007.38,
+   "out_c62100": 107083.53,
+   "out_combined": 20222.16,
    "out_credit_claim_urn": 0.32,
    "out_earned": 34083.53,
    "out_earned_p": 34083.53,
    "out_exact": 1.0,
-   "out_expanded_income": 36690.92,
-   "out_iitax": 1961.52,
+   "out_expanded_income": 109690.92,
+   "out_iitax": 15007.38,
    "out_num": 1.0,
    "out_payrolltax": 5214.78,
    "out_ptax_er_p": 2607.39,
    "out_ptax_oasdi": 4226.36,
    "out_ptax_was": 5214.78,
    "out_standard": 15750.0,
-   "out_taxbc": 1961.52,
-   "out_ymod": 34083.53,
-   "out_ymod1": 34083.53,
-   "q_fed_tax_before_refundable": 1961.52,
+   "out_taxbc": 15007.38,
+   "out_ymod": 107083.53,
+   "out_ymod1": 107083.53,
+   "q_fed_tax_before_refundable": 15007.38,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 2607.39,
    "unexpressed": [
-    "income_tax: reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition."
+    "income_tax: reading: Stated educational assistance (scholarships, grants and other assistance) is taxable in full: 26 U.S.C. 117(a) excludes a qualified scholarship only for a degree candidate and only as far as it pays tuition and required fees, books and equipment (117(b)); neither is stated, and 127 needs an employer's program, also not stated. It is not earned income for the EITC (it is not pay for services). No filer on the board or the draw is a dependent, so the dependent's standard deduction (63(c)(5)) and the kiddie tax (1(g)) do not arise; a member's amount counts in the member's gross income (152(d)(1)(B)). Tax-Calculator gets it in e01200 (AGI only), TAXSIM in `pensions` (`nonprop` would count as EITC earned income). policyengine-us leaves it out of gross income.",
+    "income_tax: no Tax-Calculator input for a taxable scholarship or grant; entered through e01200, which enters AGI only (not earned income)"
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -708,28 +764,30 @@
    "in_mstat": 1.0,
    "in_page": 31.0,
    "in_pwages": 34083.53,
+   "in_pensions": 73000.0,
    "in_proptax": 2334.68,
    "out_taxsimid": 54.0,
    "out_year": 2026.0,
-   "out_fiitax": 1910.02,
+   "out_fiitax": 14728.38,
    "out_fica": 5214.78,
    "out_tfica": 2607.39,
-   "out_v10": 34083.53,
+   "out_v10": 107083.53,
    "out_v13": 16100.0,
-   "out_v18": 17983.53,
-   "out_v19": 1910.02,
-   "out_v26": 34083.53,
-   "out_v28": 1910.02,
+   "out_v18": 90983.53,
+   "out_v19": 14728.38,
+   "out_v26": 107083.53,
+   "out_v28": 14728.38,
    "out_v29": 5214.78,
-   "out_v30": 34083.53,
+   "out_v30": 107083.53,
    "out_tfica_no_self_employment": 2607.39,
-   "q_fed_tax_before_refundable": 1910.02,
+   "q_fed_tax_before_refundable": 14728.38,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 2607.39,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition."
+    "income_tax: reading: Stated educational assistance (scholarships, grants and other assistance) is taxable in full: 26 U.S.C. 117(a) excludes a qualified scholarship only for a degree candidate and only as far as it pays tuition and required fees, books and equipment (117(b)); neither is stated, and 127 needs an employer's program, also not stated. It is not earned income for the EITC (it is not pay for services). No filer on the board or the draw is a dependent, so the dependent's standard deduction (63(c)(5)) and the kiddie tax (1(g)) do not arise; a member's amount counts in the member's gross income (152(d)(1)(B)). Tax-Calculator gets it in e01200 (AGI only), TAXSIM in `pensions` (`nonprop` would count as EITC earned income). policyengine-us leaves it out of gross income.",
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund, a taxable scholarship) is entered as `pensions`: `nonprop` would count as EITC earned income"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
@@ -741,28 +799,30 @@
    "in_mstat": 1.0,
    "in_page": 31.0,
    "in_pwages": 34083.53,
+   "in_pensions": 73000.0,
    "in_proptax": 2338.57,
    "out_taxsimid": 54.0,
    "out_year": 2025.0,
-   "out_fiitax": 1961.52,
+   "out_fiitax": 15007.38,
    "out_fica": 5214.78,
    "out_tfica": 2607.39,
-   "out_v10": 34083.53,
+   "out_v10": 107083.53,
    "out_v13": 15750.0,
-   "out_v18": 18333.53,
-   "out_v19": 1961.52,
-   "out_v26": 34083.53,
-   "out_v28": 1961.52,
+   "out_v18": 91333.53,
+   "out_v19": 15007.38,
+   "out_v26": 107083.53,
+   "out_v28": 15007.38,
    "out_v29": 5214.78,
-   "out_v30": 34083.53,
+   "out_v30": 107083.53,
    "out_tfica_no_self_employment": 2607.39,
-   "q_fed_tax_before_refundable": 1961.52,
+   "q_fed_tax_before_refundable": 15007.38,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 2607.39,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: Stated educational assistance (scholarships and grants) is not taxable: it is read as a qualified scholarship (26 U.S.C. 117(a)); whether it exceeded tuition and related expenses (117(b)) is not stated, and the board cannot state tuition."
+    "income_tax: reading: Stated educational assistance (scholarships, grants and other assistance) is taxable in full: 26 U.S.C. 117(a) excludes a qualified scholarship only for a degree candidate and only as far as it pays tuition and required fees, books and equipment (117(b)); neither is stated, and 127 needs an employer's program, also not stated. It is not earned income for the EITC (it is not pay for services). No filer on the board or the draw is a dependent, so the dependent's standard deduction (63(c)(5)) and the kiddie tax (1(g)) do not arise; a member's amount counts in the member's gross income (152(d)(1)(B)). Tax-Calculator gets it in e01200 (AGI only), TAXSIM in `pensions` (`nonprop` would count as EITC earned income). policyengine-us leaves it out of gross income.",
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund, a taxable scholarship) is entered as `pensions`: `nonprop` would count as EITC earned income"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

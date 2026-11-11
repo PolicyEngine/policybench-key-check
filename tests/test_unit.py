@@ -232,12 +232,31 @@ def test_surviving_spouse_with_a_qualifying_relative():
     assert any(U.READINGS["surviving_spouse"] in t for _, t in unit.notes)
 
 
-def test_retirement_penalty_note_at_59():
-    head = make_person("head", 59, 30_000, taxable_ira_distributions=5_000)
+def test_retirement_penalty_at_59():
+    # Item 4 (72(t)): a stated age of 59 does not state 59 1/2; IRA, SEP, 401(k) and 403(b)
+    # distributions are early; a private pension bears no 72(t) tax; age 60 is past 59 1/2.
+    head = make_person("head", 59, 30_000, taxable_ira_distributions=5_000, taxable_401k_distributions=1_000,
+                       taxable_private_pension_income=2_000)
     unit = U.build(make_household(head), 2026)
-    assert any("may be under 59 1/2" in t for _, t in unit.notes)
+    assert unit.amounts["early_distributions"] == 6_000
+    assert any(U.READINGS["retirement_penalty"] in t and "6,000.00" in t for _, t in unit.notes)
+    assert any("private pension, which bears no 72(t) tax" in t for _, t in unit.notes)
     head = make_person("head", 60, 30_000, taxable_ira_distributions=5_000)
-    assert not any("59 1/2" in t for _, t in U.build(make_household(head), 2026).notes)
+    unit = U.build(make_household(head), 2026)
+    assert unit.amounts["early_distributions"] == 0
+    assert not any(U.READINGS["retirement_penalty"] in t for _, t in unit.notes)
+    # 72(m)(7) under the is_disabled reading: stated disabled with no earnings of their own.
+    head = make_person("head", 45, 0.0, is_disabled=True, taxable_ira_distributions=5_000)
+    unit = U.build(make_household(head), 2026)
+    assert unit.amounts["early_distributions"] == 0
+    assert any("72(m)(7)" in t for _, t in unit.notes)
+    # With wages, the stated disability does not make the filer disabled under 72(m)(7).
+    head = make_person("head", 45, 10_000, is_disabled=True, taxable_ira_distributions=5_000)
+    assert U.build(make_household(head), 2026).amounts["early_distributions"] == 5_000
+    # Each spouse on their own age.
+    spouse = make_person("spouse", 62, 0.0, taxable_ira_distributions=4_000)
+    head = make_person("head", 50, 30_000, taxable_sep_distributions=3_000)
+    assert U.build(make_household(head, spouse), 2026).amounts["early_distributions"] == 3_000
 
 
 def test_unclaimed_member_medical_counts_and_is_noted_for_itemizers():
@@ -376,16 +395,46 @@ def test_self_employed_health_insurance_under_162l():
     # 162(l)(3): the deducted premiums leave medical expenses; the two statements are one amount.
     assert abs(unit.amounts["medical"] - (40_000 - unit.head.se_health)) < 1e-6
     assert any(U.READINGS["se_health_insurance"] in t for _, t in unit.notes)
+    assert any(U.READINGS["self_employed_health_insurance"] in t for _, t in unit.notes)
     assert any("policyengine-us allows 30,000" in t for _, t in unit.notes)
-    assert not any(U.READINGS["self_employed_health_insurance"] in t for _, t in unit.notes)
     # is_self_employed alone moves nothing.
     plain = make_person("head", 45, 0.0, self_employment_income=30_000)
     flagged = make_person("head", 45, 0.0, self_employment_income=30_000, is_self_employed=True)
     assert U.build(make_household(plain), 2026).amounts == U.build(make_household(flagged), 2026).amounts
-    # Premiums of a filer not stated self-employed: medical expenses only.
+    # Premiums of a filer with no Schedule C or F earnings: medical expenses only.
     head = make_person("head", 45, 50_000, health_insurance_premiums=4_000, health_insurance_premiums_without_medicare_part_b=3_000)
     unit = U.build(make_household(head), 2026)
     assert unit.amounts["se_health_insurance"] == 0 and unit.amounts["medical"] == 4_000
+
+
+def test_self_employed_health_insurance_on_the_board_038():
+    # Item 9: board household 038 (Schedule C 15,525, premiums without Medicare Part B of
+    # 100, no is_self_employed, no has_esi) deducts the 100 under 162(l); policyengine-us
+    # allows 0 (its deduction needs is_self_employed).
+    head = make_person("head", 40, 0.0, self_employment_income=15_525,
+                       health_insurance_premiums_without_medicare_part_b=100)
+    unit = U.build(make_household(head), 2026)
+    assert unit.head.se_health == 100 and unit.head.se_health_key == 0
+    assert unit.amounts["se_health_insurance"] == 100 and unit.amounts["medical"] == 0
+    assert any(U.READINGS["self_employed_health_insurance"] in t for _, t in unit.notes)
+    assert any("policyengine-us allows 0" in t for _, t in unit.notes)
+    # 162(l)(2)(B): a stated has_esi of the filer or the spouse bars it.
+    for spouse_esi in (False, True):
+        head = make_person("head", 40, 0.0, self_employment_income=15_525, has_esi=not spouse_esi,
+                           health_insurance_premiums_without_medicare_part_b=100)
+        spouse = make_person("spouse", 40, 20_000, has_esi=spouse_esi)
+        unit = U.build(make_household(head, spouse), 2026)
+        assert unit.amounts["se_health_insurance"] == 0 and unit.amounts["medical"] == 100
+        assert any("162(l)(2)(B)" in t for _, t in unit.notes)
+    # Schedule F earnings carry it too; a Schedule C loss does not.
+    head = make_person("head", 40, 0.0, farm_operations_income=8_000, health_insurance_premiums=600)
+    assert U.build(make_household(head), 2026).amounts["se_health_insurance"] == 600
+    head = make_person("head", 40, 9_000, self_employment_income=-500, health_insurance_premiums=600)
+    assert U.build(make_household(head), 2026).amounts["se_health_insurance"] == 0
+    # A partner's self-employment earnings are not 401(c)(2) earned income (item 3).
+    head = make_person("head", 40, 0.0, partnership_income=20_000, partnership_self_employment_net_earnings=20_000,
+                       health_insurance_premiums=600)
+    assert U.build(make_household(head), 2026).amounts["se_health_insurance"] == 0
 
 
 def test_self_employed_pension_contributions():
@@ -468,7 +517,9 @@ def test_care_individuals_property(household, year, care, premiums, pension, sel
     assert unit.amounts["care_expenses_of_incapable"] == (care if "head" in names else 0.0)
     for filer in unit.filers:
         assert 0 <= filer.se_pension <= max(0.0, filer.schedule_c) + 1e-9
-        assert 0 <= filer.se_health <= filer.se_health_key + 1e-6 <= filer.se_health_premiums + 1e-6
+        assert 0 <= filer.se_health <= filer.se_health_premiums + 1e-6
+        assert filer.se_health <= max(0.0, filer.se_earned_income) + 1e-6
+    assert 0 <= unit.head.se_health_key <= (premiums if self_employed else 0.0) + 1e-6
     assert unit.amounts["medical"] >= -1e-6
 
 
@@ -530,3 +581,170 @@ def test_board_return_unchanged(path):
             for a, b in zip(stored[group], now[group]):
                 _same_or_neutral(a, b, NEW_MEMBER, (path.stem, year, group))
         _same_or_neutral(stored["amounts"], now["amounts"], {k: 0.0 for k in now["amounts"]}, (path.stem, year, "amounts"))
+
+
+# Map version 2026-11-11.1: the board's rule for unstated facts, item by item ----------------
+
+
+def test_educational_assistance_is_taxable_and_counts_for_a_member():
+    # Item 1 (117(a)-(b)): degree candidacy and use for tuition are not stated.
+    unit = U.build(make_household(make_person("head", 20, 10_000, educational_assistance=6_000)), 2026)
+    assert unit.amounts["educational_assistance"] == 6_000
+    assert any(U.READINGS["educational_assistance"] in t for _, t in unit.notes)
+    member = make_person("dependent1", 30, 0.0, educational_assistance=6_000)
+    assert U.own_gross_income(member, 2026) == 6_000
+    unit = U.build(make_household(make_person("head", 50, 60_000), None, [member]), 2026)
+    assert [d["name"] for d in unit.left_out] == ["dependent1"]     # 6,000 > 5,300 (152(d)(1)(B))
+
+
+def test_survivor_benefits_are_taxable_and_count_for_a_member():
+    # Item 2 (61(a), 72): no exclusion's facts are stated.
+    unit = U.build(make_household(make_person("head", 70, 0.0, survivor_benefits=12_000)), 2026)
+    assert unit.amounts["survivor_benefits"] == 12_000
+    assert any(U.READINGS["survivor_benefits"] in t for _, t in unit.notes)
+    assert unit.head.retirement_distributions == 0          # not a 25B distribution
+    member = make_person("dependent1", 70, 0.0, survivor_benefits=6_000)
+    assert U.own_gross_income(member, 2025) == 6_000
+
+
+def test_passive_losses_are_suspended():
+    # Item 3 (469(a), (c)(1)-(2)): 004's partnership loss of 135 with no passive income.
+    unit = U.build(make_household(make_person("head", 40, 0.0, partnership_income=-135)), 2026)
+    assert unit.amounts["partnership_s_corp"] == 0 and unit.amounts["partnership_stated"] == -135
+    assert any(U.READINGS["passive_activity"] in t for _, t in unit.notes)
+    assert any("net passive activity loss of 135.00" in t for _, t in unit.notes)
+    # A rental loss with no passive income: no 469(i) offset (active participation is not stated).
+    unit = U.build(make_household(make_person("head", 40, 50_000, rental_income=-3_000)), 2026)
+    assert unit.amounts["rental"] == 0 and unit.amounts["rental_stated"] == -3_000
+    # Passive income absorbs passive losses, spouses together (one return).
+    head = make_person("head", 40, 50_000, rental_income=-1_500)
+    spouse = make_person("spouse", 40, 0.0, farm_rent_income=1_000)
+    unit = U.build(make_household(head, spouse), 2026)
+    assert unit.amounts["rental"] == -1_000 and unit.amounts["farm_rent"] == 1_000
+    # A net passive gain stands untouched.
+    head = make_person("head", 40, 0.0, partnership_income=5_000, rental_income=-3_000)
+    unit = U.build(make_household(head), 2026)
+    assert unit.amounts["rental"] == -3_000 and unit.amounts["partnership_s_corp"] == 5_000
+    assert not any("net passive activity loss" in t for _, t in unit.notes)
+    # Schedule C and F are not passive: their losses stand.
+    unit = U.build(make_household(make_person("head", 40, 50_000, self_employment_income=-6_260)), 2026)
+    assert unit.head.schedule_c == -6_260
+    # A disallowed partnership loss leaves net earnings from self-employment in the same share
+    # (Temp. Reg. 1.469-1T(d)(3)).
+    head = make_person("head", 40, 0.0, partnership_income=-10_000, partnership_self_employment_net_earnings=-10_000,
+                       rental_income=4_000)
+    unit = U.build(make_household(head), 2026)
+    assert unit.amounts["partnership_s_corp"] == -4_000 and abs(unit.head.partnership_se - (-4_000)) < 1e-9
+    assert any(t.startswith("a partner's self-employment loss shrinks") for g, t in unit.notes if g == "self_employment")
+
+
+@settings(max_examples=300)
+@given(st.floats(-50_000, 50_000).map(lambda x: round(x, 2)), st.floats(-50_000, 50_000).map(lambda x: round(x, 2)),
+       st.floats(-50_000, 50_000).map(lambda x: round(x, 2)), st.floats(-50_000, 50_000).map(lambda x: round(x, 2)))
+def test_passive_allowed_property(partnership, rent, spouse_rent, spouse_farm_rent):
+    head = make_person("head", 40, 30_000, partnership_income=partnership, rental_income=rent)
+    spouse = make_person("spouse", 40, 0.0, rental_income=spouse_rent, farm_rent_income=spouse_farm_rent)
+    a = U.build(make_household(head, spouse), 2026).amounts
+    allowed = a["partnership_s_corp"] + a["rental"] + a["farm_rent"]
+    stated = a["partnership_stated"] + a["rental_stated"] + a["farm_rent_stated"]
+    assert allowed >= -1e-6                                   # no net passive loss is allowed
+    assert allowed >= stated - 1e-6                           # nothing is added
+    if stated >= 0:
+        assert abs(allowed - stated) < 1e-6                   # a net gain stands
+
+
+def test_rent_and_farm_rent_are_qualified_on_a_stated_basis_alone():
+    # Item 8: 076 (rent 4,000, basis 49,921, no other business) and 062-like farm rent.
+    unit = U.build(make_household(make_person("head", 40, 30_000, rental_income=4_000,
+                                              unadjusted_basis_qualified_property=49_921)), 2026)
+    assert unit.amounts["rental_qbi"] == 4_000
+    unit = U.build(make_household(make_person("head", 40, 30_000, farm_rent_income=4_792.94,
+                                              unadjusted_basis_qualified_property=22_440)), 2026)
+    assert unit.amounts["rental_qbi"] == 4_792.94
+    # No basis: not qualified (rent or farm rent alike).
+    for key in ("rental_income", "farm_rent_income"):
+        unit = U.build(make_household(make_person("head", 40, 30_000, **{key: 4_000})), 2026)
+        assert unit.amounts["rental_qbi"] == 0, key
+    # Another stated trade or business explains the basis: the rental is not qualified.
+    for key in ("self_employment_income", "farm_operations_income", "partnership_income",
+                "sstb_self_employment_income_before_lsr"):
+        person = make_person("head", 40, 30_000, rental_income=4_000, unadjusted_basis_qualified_property=49_921, **{key: 1_000})
+        assert not U.rentals_qualified(person), key
+        assert U.build(make_household(person), 2026).amounts["rental_qbi"] == 0, key
+    # The SSTB basis does not state a qualified business.
+    person = make_person("head", 40, 30_000, rental_income=4_000, sstb_unadjusted_basis_qualified_property=10_000)
+    assert not U.rentals_qualified(person)
+    # The basis is a person's own: a spouse's basis does not qualify the head's rent.
+    head = make_person("head", 40, 30_000, rental_income=4_000)
+    spouse = make_person("spouse", 40, 0.0, unadjusted_basis_qualified_property=10_000)
+    assert U.build(make_household(head, spouse), 2026).amounts["rental_qbi"] == 0
+    # A qualified rental loss counts at its allowed amount (469 first).
+    unit = U.build(make_household(make_person("head", 40, 30_000, rental_income=-4_000,
+                                              unadjusted_basis_qualified_property=49_921)), 2026)
+    assert unit.amounts["rental_qbi"] == 0
+
+
+def test_hsa_deduction_capped_at_the_heads_self_only_limit():
+    # Item 6 (223(b)): 056-like, a stated deduction above the limit.
+    h = make_household(make_person("head", 40, 80_000), health_savings_account_ald=10_000)
+    unit = U.build(h, 2026)
+    assert unit.amounts["hsa_stated"] == 10_000 and unit.amounts["hsa_deduction"] == 4_400
+    assert any(U.READINGS["hsa"] in t for _, t in unit.notes)
+    assert any("exceeds the 26 U.S.C. 223(b) limit" in t for _, t in unit.notes)
+    h = make_household(make_person("head", 56, 80_000), health_savings_account_ald=10_000)
+    assert U.build(h, 2025).amounts["hsa_deduction"] == 5_300
+    h = make_household(make_person("head", 40, 80_000), health_savings_account_ald=3_000)
+    unit = U.build(h, 2026)
+    assert unit.amounts["hsa_deduction"] == 3_000
+    assert not any("exceeds the 26 U.S.C. 223(b) limit" in t for _, t in unit.notes)
+
+
+@given(YEARS, st.integers(18, 90), money)
+def test_hsa_deduction_property(year, age, stated):
+    a = U.build(make_household(make_person("head", age, 50_000), health_savings_account_ald=stated), year).amounts
+    assert 0 <= a["hsa_deduction"] <= min(stated, S.hsa_deduction_limit(year, age))
+    assert a["hsa_deduction"] == min(stated, S.hsa_deduction_limit(year, age))
+
+
+def test_disability_benefits_reading_names_the_alternatives():
+    # Item 10 (084): taxable in full, not earned income; the alternatives are named.
+    unit = U.build(make_household(make_person("head", 40, 0.0, disability_benefits=12_852)), 2026)
+    assert unit.amounts["disability_benefits"] == 12_852
+    text = U.READINGS["disability_benefits"]
+    assert "minimum retirement age" in text and "104(a)(3)" in text
+    assert any(text in t for _, t in unit.notes)
+
+
+def test_pending_items():
+    # Item 11. A negative miscellaneous income enters as 0, with a note.
+    unit = U.build(make_household(make_person("head", 40, 30_000, miscellaneous_income=-500)), 2026)
+    assert unit.amounts["miscellaneous"] == 0
+    assert any(U.READINGS["negative_miscellaneous"] in t and "-500.00" in t for _, t in unit.notes)
+    head = make_person("head", 40, 30_000, miscellaneous_income=800)
+    spouse = make_person("spouse", 40, 0.0, miscellaneous_income=-300)
+    assert U.build(make_household(head, spouse), 2026).amounts["miscellaneous"] == 800
+    # Alaska: no dividend is added; the reading names policyengine-us's.
+    h = make_household(make_person("head", 40, 30_000))
+    h["state"] = "AK"
+    unit = U.build(h, 2026)
+    assert any(U.READINGS["alaska_dividend"] in t for _, t in unit.notes)
+    h["state"] = "TX"
+    assert not any(U.READINGS["alaska_dividend"] in t for _, t in U.build(h, 2026).notes)
+    # The saver's credit: a private pension does not reduce contributions; a 401(k) distribution does.
+    unit = U.build(make_household(make_person("head", 40, 30_000, taxable_private_pension_income=3_000)), 2026)
+    assert unit.head.retirement_distributions == 0
+    unit = U.build(make_household(make_person("head", 40, 30_000, taxable_401k_distributions=3_000)), 2026)
+    assert unit.head.retirement_distributions == 3_000
+    # The member income keys hold no duplicate.
+    assert len(set(U._MEMBER_INCOME_KEYS)) == len(U._MEMBER_INCOME_KEYS)
+
+
+def test_passive_partnership_income_note_names_policyengines_reading():
+    # Item 3: the passive share outside box 14 is net investment income; policyengine-us
+    # counts only passive_partnership_s_corp_income (not stated) there.
+    head = make_person("head", 40, 0.0, partnership_income=10_000, partnership_self_employment_net_earnings=6_000)
+    unit = U.build(make_household(head), 2026)
+    assert any("4,000.00 of partnership" in t and "passive_partnership_s_corp_income" in t for _, t in unit.notes)
+    # A suspended loss leaves nothing passive to count.
+    unit = U.build(make_household(make_person("head", 40, 0.0, partnership_income=-135)), 2026)
+    assert not any("passive_partnership_s_corp_income" in t for _, t in unit.notes)

@@ -80,7 +80,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": {
     "name": "spouse",
@@ -98,7 +104,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "dependents": [],
    "left_out": [],
@@ -121,10 +133,16 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 0.0,
+    "hsa_stated": 1486.7646484375,
     "hsa_deduction": 1486.7646484375,
     "domestic_production": 0.0,
     "medical": 400.0,
@@ -139,12 +157,25 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
      "income_tax",
-     "reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated)."
+     "reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable."
     ],
     [
      "income_tax",
@@ -152,7 +183,11 @@
     ],
     [
      "income_tax",
-     "reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied."
+     "reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit."
+    ],
+    [
+     "income_tax",
+     "reading: The stated health savings account deduction is allowed up to the 26 U.S.C. 223(b) limit of one eligible individual, the head, with self-only coverage for the whole year (Rev. Proc. 2025-19: 4,400 for 2026; Rev. Proc. 2024-25: 4,300 for 2025), plus $1,000 when the head is 55 or older (223(b)(3)). The stated deduction states that the unit has an eligible individual; family coverage, a second eligible spouse and Medicare enrollment are not stated (the board's rule: do not infer coverage). Alternatives: family coverage (8,750 for 2026), or each spouse an eligible individual. policyengine-us takes the stated deduction as given."
     ],
     [
      "income_tax",
@@ -170,7 +205,8 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": []
   },
   "2025": {
    "case_id": "scenario_033",
@@ -193,7 +229,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": {
     "name": "spouse",
@@ -211,7 +253,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "dependents": [],
    "left_out": [],
@@ -234,10 +282,16 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 0.0,
+    "hsa_stated": 1486.7646484375,
     "hsa_deduction": 1486.7646484375,
     "domestic_production": 0.0,
     "medical": 400.0,
@@ -252,12 +306,25 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
      "income_tax",
-     "reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated)."
+     "reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable."
     ],
     [
      "income_tax",
@@ -265,7 +332,11 @@
     ],
     [
      "income_tax",
-     "reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied."
+     "reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit."
+    ],
+    [
+     "income_tax",
+     "reading: The stated health savings account deduction is allowed up to the 26 U.S.C. 223(b) limit of one eligible individual, the head, with self-only coverage for the whole year (Rev. Proc. 2025-19: 4,400 for 2026; Rev. Proc. 2024-25: 4,300 for 2025), plus $1,000 when the head is 55 or older (223(b)(3)). The stated deduction states that the unit has an eligible individual; family coverage, a second eligible spouse and Medicare enrollment are not stated (the board's rule: do not infer coverage). Alternatives: family coverage (8,750 for 2026), or each spouse an eligible individual. policyengine-us takes the stated deduction as given."
     ],
     [
      "income_tax",
@@ -283,7 +354,8 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": []
   }
  },
  "committed_key": {
@@ -828,6 +900,7 @@
    "in_e03290": 1486.76,
    "in_e17500": 400.0,
    "in_e18400": 1168.8,
+   "in_PT_SSTB_income": 1.0,
    "in_RECID": 28.0,
    "in_FLPDYR": 2026.0,
    "out_aftertax_income": 77956.35,
@@ -866,9 +939,10 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 6043.5,
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable.",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: The stated health savings account deduction is allowed up to the 26 U.S.C. 223(b) limit of one eligible individual, the head, with self-only coverage for the whole year (Rev. Proc. 2025-19: 4,400 for 2026; Rev. Proc. 2024-25: 4,300 for 2025), plus $1,000 when the head is 55 or older (223(b)(3)). The stated deduction states that the unit has an eligible individual; family coverage, a second eligible spouse and Medicare enrollment are not stated (the board's rule: do not infer coverage). Alternatives: family coverage (8,750 for 2026), or each spouse an eligible individual. policyengine-us takes the stated deduction as given.",
     "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
    ]
   },
@@ -889,6 +963,7 @@
    "in_e03290": 1486.76,
    "in_e17500": 400.0,
    "in_e18400": 1168.8,
+   "in_PT_SSTB_income": 1.0,
    "in_RECID": 28.0,
    "in_FLPDYR": 2025.0,
    "out_aftertax_income": 77841.35,
@@ -927,9 +1002,10 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 6043.5,
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable.",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: The stated health savings account deduction is allowed up to the 26 U.S.C. 223(b) limit of one eligible individual, the head, with self-only coverage for the whole year (Rev. Proc. 2025-19: 4,400 for 2026; Rev. Proc. 2024-25: 4,300 for 2025), plus $1,000 when the head is 55 or older (223(b)(3)). The stated deduction states that the unit has an eligible individual; family coverage, a second eligible spouse and Medicare enrollment are not stated (the board's rule: do not infer coverage). Alternatives: family coverage (8,750 for 2026), or each spouse an eligible individual. policyengine-us takes the stated deduction as given.",
     "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
    ]
   },
@@ -968,12 +1044,13 @@
    "q_fed_employee_payroll_tax": 6043.5,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable.",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: The stated health savings account deduction is allowed up to the 26 U.S.C. 223(b) limit of one eligible individual, the head, with self-only coverage for the whole year (Rev. Proc. 2025-19: 4,400 for 2026; Rev. Proc. 2024-25: 4,300 for 2025), plus $1,000 when the head is 55 or older (223(b)(3)). The stated deduction states that the unit has an eligible individual; family coverage, a second eligible spouse and Medicare enrollment are not stated (the board's rule: do not infer coverage). Alternatives: family coverage (8,750 for 2026), or each spouse an eligible individual. policyengine-us takes the stated deduction as given.",
     "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
-    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
-    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund, a taxable scholarship) is entered as `pensions`: `nonprop` would count as EITC earned income",
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from the earned income of the EITC (probe P7.1) and of the refundable child credit (board 038); the law's earned income (26 U.S.C. 32(c)(2), which 24(d)(1)(B)(i) also uses) is not reduced by them"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
@@ -1014,12 +1091,13 @@
    "q_fed_employee_payroll_tax": 6043.5,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A stated state or local tax refund is taxable in full (the board's reference reading; the prior-year tax benefit is not stated).",
+    "income_tax: reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable.",
     "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
-    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: The stated health savings account deduction is allowed up to the 26 U.S.C. 223(b) limit of one eligible individual, the head, with self-only coverage for the whole year (Rev. Proc. 2025-19: 4,400 for 2026; Rev. Proc. 2024-25: 4,300 for 2025), plus $1,000 when the head is 55 or older (223(b)(3)). The stated deduction states that the unit has an eligible individual; family coverage, a second eligible spouse and Medicare enrollment are not stated (the board's rule: do not infer coverage). Alternatives: family coverage (8,750 for 2026), or each spouse an eligible individual. policyengine-us takes the stated deduction as given.",
     "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
-    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income",
-    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund, a taxable scholarship) is entered as `pensions`: `nonprop` would count as EITC earned income",
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from the earned income of the EITC (probe P7.1) and of the refundable child credit (board 038); the law's earned income (26 U.S.C. 32(c)(2), which 24(d)(1)(B)(i) also uses) is not reduced by them"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

@@ -15,17 +15,22 @@ actc_claim_prob_scale to 9e99, which the code documents as "always claim credit"
 both claim_prob_min to 1. Records runs with exact_calculations=True, so phase-outs step
 as the statute and forms do.
 
-Four passes: the IRA deduction, the student loan interest deduction and the saver's
-credit are amounts Tax-Calculator takes as given, and each depends on Tax-Calculator's
-own adjusted gross income (keycheck/map_taxcalc.py: after_pass).
+Four passes: the IRA deduction, the student loan interest deduction, the saver's credit
+and the additional tax on early distributions (26 U.S.C. 72(t), e09900, whose medical
+exception needs AGI) are amounts Tax-Calculator takes as given, and each depends on
+Tax-Calculator's own adjusted gross income (keycheck/map_taxcalc.py: after_pass).
+
+A note on the 2026 minimum qualified business income deduction depends on Tax-Calculator's
+final deduction (keycheck.map_taxcalc.final_notes: qbided).
 
 Notes that bear only on itemized deductions (keycheck.map_taxcalc.itemizer_notes: the
-shared state and local tax amount and the unit's itemized readings) are kept only for
-units Tax-Calculator itemizes in the final pass (out_c04470 > 0).
+shared state and local tax amount, the unit's itemized readings, and a charitable
+deduction that differs from 26 U.S.C. 170(b)(1) at Tax-Calculator's final AGI) are kept
+only for units Tax-Calculator itemizes in the final pass (out_c04470 > 0).
 
-Inputs that only the larger draw's facts fill (keycheck/map_taxcalc.py: e03270, e03300,
-e58990, e24515, e24518, PT_binc_w2_wages) enter a row only when non-zero, so a run of the
-board's households keeps its `in_*` columns and a run of the draw has those extra ones.
+Inputs that only some households fill (keycheck/map_taxcalc.py: e03270, e03300, e58990,
+e24515, e24518, PT_binc_w2_wages, e09900) enter a row only when non-zero; a column exists
+when any household in the run fills it.
 
 Output: one row per household. Columns `in_*` are the inputs sent, `out_*` every
 calculated variable, `unexpressed` and `map_computed` the map's notes (joined with
@@ -158,9 +163,15 @@ def main(argv=None) -> None:
         out["q_self_employment_tax"] += out["members_self_employment_tax"]
 
     itemizes = np.asarray(calculator.array("c04470")) > 0
+    final_agi = np.asarray(calculator.array("c00100"))
+    final_charity = np.asarray(calculator.array("c19700"))
+    final_qbid = np.asarray(calculator.array("qbided"))
     for i, unit in enumerate(units):
+        unexpressed[i] = unexpressed[i] + map_taxcalc.final_notes(unit, float(final_qbid[i]))
         if itemizes[i]:
-            unexpressed[i] = unexpressed[i] + map_taxcalc.itemizer_notes(unit, shared.get(unit.case_id))
+            unexpressed[i] = unexpressed[i] + map_taxcalc.itemizer_notes(
+                unit, shared.get(unit.case_id), float(final_agi[i]), float(final_charity[i])
+            )
     out["unexpressed"] = [SEPARATOR.join(dict.fromkeys(n)) for n in unexpressed]
     out["map_computed"] = [SEPARATOR.join(dict.fromkeys(n)) for n in computed]
     args.out.parent.mkdir(parents=True, exist_ok=True)

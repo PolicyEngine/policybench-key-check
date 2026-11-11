@@ -55,6 +55,12 @@ AMOUNTS = {
         "annual_additions": 72_000,
         # 42 U.S.C. 430; SSA, 90 FR (2025-19763) (sources/ssa/fr-2025-19763-cola-2026.txt:380-403)
         "social_security_wage_base": 184_500,
+        # 26 U.S.C. 223(b)(2)(A)-(B); Rev. Proc. 2025-19 (sources/irs/rp-25-19.txt:41, :45);
+        # 223(b)(3)(B): the catch-up from age 55 is $1,000 from 2009 (sources/uscode/lii-26-223.txt:42)
+        "hsa_self_only": 4_400, "hsa_family": 8_750, "hsa_catch_up_55": 1_000,
+        # 26 U.S.C. 199A(i)(1)(B), (2)(A) (sources/uscode/usc26-s199A.txt:273-283): from 2026
+        # (Pub. L. 119-21 sec. 70105); indexed only after 2026 (199A(i)(3))
+        "qbi_minimum_deduction": 400, "qbi_minimum_active_income": 1_000,
     },
     2025: {
         "deferral_limit": 23_500, "deferral_catch_up_50": 7_500, "deferral_catch_up_60_63": 11_250,
@@ -79,8 +85,25 @@ AMOUNTS = {
         "annual_additions": 70_000,
         # SSA, 89 FR (2024-24871) (sources/ssa/fr-2024-24871-cola-2025.txt:380-403)
         "social_security_wage_base": 176_100,
+        # Rev. Proc. 2024-25 (sources/irs/rp-24-25.txt:36-38, :41-43); 223(b)(3)(B)
+        "hsa_self_only": 4_300, "hsa_family": 8_550, "hsa_catch_up_55": 1_000,
+        # 199A(i) applies to taxable years beginning after 2025
+        "qbi_minimum_deduction": 0, "qbi_minimum_active_income": math.inf,
     },
 }
+
+# 26 U.S.C. 72(t)(1) (sources/uscode/lii-26-72.txt:586-588): 10% additional tax on the part
+# of a distribution from a qualified retirement plan (4974(c)) included in gross income,
+# unless 72(t)(2) excepts it (age 59 1/2, disability under 72(m)(7), medical care, ...: :590-611).
+EARLY_DISTRIBUTION_RATE = 0.10
+# 72(t)(2)(B) (lii-26-72.txt:610-611): distributions up to the 213 deduction for the year's
+# medical care, figured whether or not the taxpayer itemizes: expenses above 7.5% of AGI (213(a)).
+MEDICAL_FLOOR = 0.075
+# 26 U.S.C. 170(b)(1)(G)(i), (A), (I) (sources/uscode/usc26-s170.txt:56, 96-99, 111):
+# cash to a public charity up to 60% of the contribution base, other gifts to one up to 50%
+# less the cash allowed ((G)(iii)(II)), and from 2026 only the excess of the total over 0.5%.
+CHARITY_CASH_CEILING, CHARITY_PUBLIC_CEILING = 0.60, 0.50
+CHARITY_FLOOR = {2026: 0.005, 2025: 0.0}
 
 # 26 U.S.C. 163(h)(4)(C), taxable years 2025 through 2028 (sources/uscode/usc26-s163.txt:263,
 # 266; Schedule 1-A lines 24-30, sources/irs/f1040s1a.txt:84-91): interest up to $10,000,
@@ -327,3 +350,71 @@ def self_employed_health_insurance_deduction(premiums: float, earned_income: flo
     401(c)(2)(A)(v)-(vi): net of the 404 deduction and the 164(f) deduction,
     lii-26-401.txt:704-717). Called with Schedule C income for the key's looser limit."""
     return min(max(0.0, premiums), max(0.0, earned_income))
+
+
+def hsa_deduction_limit(year: int, age: int) -> float:
+    """26 U.S.C. 223(b)(1)-(3): the limit for one eligible individual with self-only coverage
+    for the whole year (4,400 for 2026, 4,300 for 2025: Rev. Proc. 2025-19 and 2024-25),
+    plus the $1,000 additional contribution from age 55 (223(b)(3)). Sources at AMOUNTS.
+    keycheck.unit.READINGS["hsa"]: the stated deduction states one eligible individual, the
+    head; family coverage and a second eligible spouse are not stated."""
+    a = AMOUNTS[year]
+    return float(a["hsa_self_only"] + (a["hsa_catch_up_55"] if age >= 55 else 0))
+
+
+def early_distribution_tax(early_distributions: float, medical_expenses: float, agi: float) -> float:
+    """26 U.S.C. 72(t)(1): 10% of the early distributions included in gross income, less the
+    distributions 72(t)(2)(B) excepts: up to the amount deductible under 213 for the year's
+    medical care (expenses above 7.5% of AGI), figured whether or not the taxpayer itemizes.
+    `early_distributions` holds only distributions no other stated fact excepts
+    (keycheck.unit.READINGS["retirement_penalty"])."""
+    early = max(0.0, early_distributions)
+    medical = max(0.0, max(0.0, medical_expenses) - MEDICAL_FLOOR * max(0.0, agi))
+    return EARLY_DISTRIBUTION_RATE * max(0.0, early - medical)
+
+
+def charitable_deduction(year: int, cash: float, non_cash: float, contribution_base: float) -> float:
+    """26 U.S.C. 170(b)(1) for gifts to public charities (170(b)(1)(A) organizations): cash
+    up to 60% of the contribution base (170(b)(1)(G)(i)); other gifts, ordinary-income
+    property, up to 50% less the cash allowed (170(b)(1)(A), (G)(iii)(II)); then from 2026
+    only the part of the total above 0.5% of the contribution base (170(b)(1)(I)). The
+    contribution base is AGI without a net operating loss carryback (170(b)(1)(H)). The
+    excess over a ceiling carries forward five years (170(d)(1), (b)(1)(G)(ii)); no household
+    states a carryforward into the year. keycheck.unit.READINGS["charity"]."""
+    base = max(0.0, contribution_base)
+    cash_allowed = min(max(0.0, cash), CHARITY_CASH_CEILING * base)
+    other_allowed = min(max(0.0, non_cash), max(0.0, CHARITY_PUBLIC_CEILING * base - cash_allowed))
+    return max(0.0, cash_allowed + other_allowed - CHARITY_FLOOR[year] * base)
+
+
+def passive_activity_allowed(amounts: list[float]) -> list[float]:
+    """26 U.S.C. 469(a)-(b) (sources/uscode/lii-26-469.txt:15-30) for one return's passive
+    activities, each given as its net income (+) or loss (-): a net passive activity loss is
+    disallowed and carries forward to the next year (469(b)); the disallowed loss falls on
+    the loss activities in proportion to their losses (Temp. Reg. 1.469-1T(f)(2)(i),
+    sources/cfr/lii-26-cfr-1.469-1T.txt:165-198). Returns each activity's allowed amount:
+    income stands; each loss keeps its share of the passive income. No 469(i) offset: no
+    household states active participation (keycheck.unit.READINGS["passive_activity"])."""
+    income = sum(x for x in amounts if x > 0)
+    losses = -sum(x for x in amounts if x < 0)
+    if losses <= income:
+        return [float(x) for x in amounts]
+    share = income / losses
+    return [float(x) if x >= 0 else float(x) * share for x in amounts]
+
+
+# 26 U.S.C. 24(b)(1), (h)(2)-(4) (sources/uscode/usc26-s24.txt:35, :92-97): $2,200 a
+# qualifying child (2025; indexed after 2025, $2,200 for 2026: Rev. Proc. 2025-32,
+# sources/irs/rp-25-32.txt:594) and $500 a dependent
+# who is not one, reduced by $50 for each $1,000 "or fraction thereof" of modified AGI
+# above $400,000 on a joint return and $200,000 otherwise.
+CHILD_CREDIT_THRESHOLD = {JOINT: 400_000, "other": 200_000}
+
+
+def child_credit_reduction(filing_status: str, magi: float) -> float:
+    """26 U.S.C. 24(b)(1): $50 for each $1,000 or fraction thereof of modified AGI above the
+    threshold of 24(h)(3) (usc26-s24.txt:35, :94)."""
+    threshold = CHILD_CREDIT_THRESHOLD.get(filing_status, CHILD_CREDIT_THRESHOLD["other"])
+    excess = max(0.0, magi - threshold)
+    return 50.0 * math.ceil(round(excess, 2) / 1000.0)
+

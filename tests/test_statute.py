@@ -368,3 +368,114 @@ def test_self_employed_health_insurance_bounds(premiums, earned, more):
     assert S.self_employed_health_insurance_deduction(premiums + more, earned) >= d
     # Experiment E3: premiums 40,000 on Schedule C income 30,000: the key's limit gives 30,000.
     assert S.self_employed_health_insurance_deduction(40_000, 30_000) == 30_000
+
+
+# Map version 2026-11-11.1: the limits the board's rule for unstated facts brings in --------
+
+import math  # noqa: E402
+
+signed = st.floats(min_value=-100_000, max_value=100_000, allow_nan=False)
+
+
+def test_hsa_limit_published_amounts():
+    # Rev. Proc. 2025-19 (sources/irs/rp-25-19.txt:41) and 2024-25 (rp-24-25.txt:36-38);
+    # 223(b)(3): $1,000 more from age 55.
+    assert S.hsa_deduction_limit(2026, 54) == 4_400 and S.hsa_deduction_limit(2026, 55) == 5_400
+    assert S.hsa_deduction_limit(2025, 40) == 4_300 and S.hsa_deduction_limit(2025, 70) == 5_300
+
+
+@given(years, ages, ages)
+def test_hsa_limit_bounds_and_monotone_in_age(year, age, older):
+    a = S.hsa_deduction_limit(year, age)
+    assert S.AMOUNTS[year]["hsa_self_only"] <= a <= S.AMOUNTS[year]["hsa_self_only"] + S.AMOUNTS[year]["hsa_catch_up_55"]
+    assert S.hsa_deduction_limit(year, max(age, older)) >= a
+    assert a <= S.AMOUNTS[year]["hsa_family"] + S.AMOUNTS[year]["hsa_catch_up_55"]
+
+
+def test_early_distribution_tax_examples():
+    # 72(t)(1): 10% of 20,000; the medical exception (72(t)(2)(B)) excepts the expenses above
+    # 7.5% of AGI: 10,000 - 0.075 * 80,000 = 4,000, so the tax falls on 16,000.
+    assert S.early_distribution_tax(20_000, 0, 80_000) == 2_000
+    assert math.isclose(S.early_distribution_tax(20_000, 10_000, 80_000), 1_600)
+    assert S.early_distribution_tax(20_000, 50_000, 80_000) == 0
+    assert S.early_distribution_tax(0, 0, 80_000) == 0
+
+
+@given(money, money, money, money)
+def test_early_distribution_tax_bounds_and_monotone(early, medical, agi, more):
+    t = S.early_distribution_tax(early, medical, agi)
+    assert 0 <= t <= 0.10 * early + 1e-9
+    assert S.early_distribution_tax(early + more, medical, agi) >= t - 1e-9
+    assert S.early_distribution_tax(early, medical + more, agi) <= t + 1e-9
+    assert S.early_distribution_tax(early, medical, agi + more) >= t - 1e-9   # a higher floor excepts less
+
+
+def test_charitable_deduction_examples():
+    # 2025: cash up to 60% of the base; other gifts up to 50% less the cash allowed.
+    assert S.charitable_deduction(2025, 70_000, 0, 100_000) == 60_000
+    assert S.charitable_deduction(2025, 30_000, 30_000, 100_000) == 50_000
+    assert S.charitable_deduction(2025, 55_000, 30_000, 100_000) == 55_000
+    assert S.charitable_deduction(2025, 0, 70_000, 100_000) == 50_000
+    # 2026: then only the part above 0.5% of the base (170(b)(1)(I)).
+    assert S.charitable_deduction(2026, 10_000, 0, 100_000) == 9_500
+    assert S.charitable_deduction(2026, 400, 0, 100_000) == 0
+    assert S.charitable_deduction(2026, 70_000, 0, 100_000) == 59_500
+
+
+@given(years, money, money, money, money)
+def test_charitable_deduction_bounds_and_monotone(year, cash, non_cash, base, more):
+    d = S.charitable_deduction(year, cash, non_cash, base)
+    assert 0 <= d <= cash + non_cash + 1e-6
+    assert d <= S.CHARITY_CASH_CEILING * base + 1e-6
+    assert S.charitable_deduction(year, cash + more, non_cash, base) >= d - 1e-6
+    assert S.charitable_deduction(year, cash, non_cash + more, base) >= d - 1e-6
+    # The non-cash part never passes 50% of the base.
+    assert S.charitable_deduction(year, 0, non_cash, base) <= S.CHARITY_PUBLIC_CEILING * base + 1e-6
+
+
+def test_passive_activity_example_of_the_regulation():
+    # Temp. Reg. 1.469-1T(f)(2)(i), example (sources/cfr/lii-26-cfr-1.469-1T.txt:178-198):
+    # A -9,000, B -16,000, C +4,000: disallowed 7,560 (A) and 13,440 (B).
+    a, b, c = S.passive_activity_allowed([-9_000, -16_000, 4_000])
+    assert math.isclose(-9_000 - a, -7_560) and math.isclose(-16_000 - b, -13_440) and c == 4_000
+    assert S.passive_activity_allowed([-3_000]) == [0.0]
+    assert S.passive_activity_allowed([5_000, -3_000]) == [5_000, -3_000]
+
+
+@given(st.lists(signed, min_size=1, max_size=6))
+def test_passive_activity_allowed_properties(amounts):
+    allowed = S.passive_activity_allowed(amounts)
+    income = sum(x for x in amounts if x > 0)
+    assert len(allowed) == len(amounts)
+    for x, y in zip(amounts, allowed):
+        if x >= 0:
+            assert y == x
+        else:
+            assert x - 1e-6 <= y <= 0
+    # A net passive loss is never allowed; a net gain stands untouched.
+    assert sum(allowed) >= -1e-6 * max(1.0, income)
+    if sum(amounts) >= 0:
+        assert allowed == [float(x) for x in amounts]
+    else:
+        assert math.isclose(sum(allowed), 0.0, abs_tol=1e-6 * max(1.0, income))
+
+
+def test_child_credit_reduction_examples():
+    # 24(b)(1): $50 for each $1,000 or fraction thereof above $400,000 (joint), $200,000 otherwise.
+    assert S.child_credit_reduction(S.JOINT, 400_000) == 0
+    assert S.child_credit_reduction(S.JOINT, 400_000.01) == 50
+    assert S.child_credit_reduction(S.JOINT, 401_000) == 50
+    assert S.child_credit_reduction(S.JOINT, 409_940.53) == 500
+    assert S.child_credit_reduction(S.SINGLE, 209_940.53) == 500
+    assert S.child_credit_reduction(S.HEAD_OF_HOUSEHOLD, 150_000) == 0
+
+
+@given(statuses, money, money)
+def test_child_credit_reduction_steps(status, magi, more):
+    r = S.child_credit_reduction(status, magi)
+    threshold = S.CHILD_CREDIT_THRESHOLD.get(status, S.CHILD_CREDIT_THRESHOLD["other"])
+    assert r % 50 == 0 and r >= 0
+    assert S.child_credit_reduction(status, magi + more) >= r
+    # Never less than 5% of the excess, and less than 5% of the excess plus $50.
+    excess = max(0.0, magi - threshold)
+    assert 0.05 * excess - 1e-6 <= r < 0.05 * excess + 50 + 1e-6

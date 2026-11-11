@@ -62,7 +62,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": null,
    "dependents": [],
@@ -86,11 +92,17 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 0.0,
-    "hsa_deduction": 9915.44140625,
+    "hsa_stated": 9915.44140625,
+    "hsa_deduction": 4400.0,
     "domestic_production": 0.0,
     "medical": 0.0,
     "real_estate_taxes": 11949.087890625,
@@ -104,7 +116,20 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
@@ -117,12 +142,22 @@
     ],
     [
      "income_tax",
-     "reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied."
+     "reading: The stated health savings account deduction is allowed up to the 26 U.S.C. 223(b) limit of one eligible individual, the head, with self-only coverage for the whole year (Rev. Proc. 2025-19: 4,400 for 2026; Rev. Proc. 2024-25: 4,300 for 2025), plus $1,000 when the head is 55 or older (223(b)(3)). The stated deduction states that the unit has an eligible individual; family coverage, a second eligible spouse and Medicare enrollment are not stated (the board's rule: do not infer coverage). Alternatives: family coverage (8,750 for 2026), or each spouse an eligible individual. policyengine-us takes the stated deduction as given."
+    ],
+    [
+     "income_tax",
+     "the stated health savings account deduction of 9,915.44 exceeds the 26 U.S.C. 223(b) limit; 4,400 is allowed (policyengine-us takes the stated amount)"
     ]
    ],
    "members_with_own_payroll": [],
-   "itemized_notes": [],
-   "disabled_reading": []
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
   },
   "2025": {
    "case_id": "scenario_056",
@@ -145,7 +180,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": null,
    "dependents": [],
@@ -169,11 +210,17 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 0.0,
-    "hsa_deduction": 9915.44140625,
+    "hsa_stated": 9915.44140625,
+    "hsa_deduction": 4300.0,
     "domestic_production": 0.0,
     "medical": 0.0,
     "real_estate_taxes": 11949.087890625,
@@ -187,7 +234,20 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
@@ -200,12 +260,22 @@
     ],
     [
      "income_tax",
-     "reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied."
+     "reading: The stated health savings account deduction is allowed up to the 26 U.S.C. 223(b) limit of one eligible individual, the head, with self-only coverage for the whole year (Rev. Proc. 2025-19: 4,400 for 2026; Rev. Proc. 2024-25: 4,300 for 2025), plus $1,000 when the head is 55 or older (223(b)(3)). The stated deduction states that the unit has an eligible individual; family coverage, a second eligible spouse and Medicare enrollment are not stated (the board's rule: do not infer coverage). Alternatives: family coverage (8,750 for 2026), or each spouse an eligible individual. policyengine-us takes the stated deduction as given."
+    ],
+    [
+     "income_tax",
+     "the stated health savings account deduction of 9,915.44 exceeds the 26 U.S.C. 223(b) limit; 4,300 is allowed (policyengine-us takes the stated amount)"
     ]
    ],
    "members_with_own_payroll": [],
-   "itemized_notes": [],
-   "disabled_reading": []
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
   }
  },
  "committed_key": {
@@ -607,7 +677,7 @@
    "in_e00800": 1498.53,
    "in_e00900p": 4340.0,
    "in_e00900": 4340.0,
-   "in_e03290": 9915.44,
+   "in_e03290": 4400.0,
    "in_e18400": 402.0,
    "in_e18500": 11949.09,
    "in_e19200": 6773.0,
@@ -616,11 +686,11 @@
    "in_RECID": 46.0,
    "in_FLPDYR": 2026.0,
    "out_aftertax_income": 5225.31,
-   "out_c00100": -5882.05,
-   "out_c02900": 10222.05,
+   "out_c00100": -366.61,
+   "out_c02900": 4706.61,
    "out_c03260": 306.61,
    "out_c09200": 613.22,
-   "out_c62100": -6282.05,
+   "out_c62100": -766.61,
    "out_combined": 613.22,
    "out_credit_claim_urn": 0.29,
    "out_earned": 4033.39,
@@ -635,7 +705,7 @@
    "out_setax": 613.22,
    "out_sey": 4340.0,
    "out_standard": 17100.0,
-   "out_ymod": -5882.05,
+   "out_ymod": -366.61,
    "out_ymod1": 4340.0,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 0.0,
@@ -644,8 +714,12 @@
    "unexpressed": [
     "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
     "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a)).",
-    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
+    "income_tax: reading: The stated health savings account deduction is allowed up to the 26 U.S.C. 223(b) limit of one eligible individual, the head, with self-only coverage for the whole year (Rev. Proc. 2025-19: 4,400 for 2026; Rev. Proc. 2024-25: 4,300 for 2025), plus $1,000 when the head is 55 or older (223(b)(3)). The stated deduction states that the unit has an eligible individual; family coverage, a second eligible spouse and Medicare enrollment are not stated (the board's rule: do not infer coverage). Alternatives: family coverage (8,750 for 2026), or each spouse an eligible individual. policyengine-us takes the stated deduction as given.",
+    "income_tax: the stated health savings account deduction of 9,915.44 exceeds the 26 U.S.C. 223(b) limit; 4,400 is allowed (policyengine-us takes the stated amount)",
     "income_tax: Tax-Calculator gives alimony no effect in 2025 or 2026 (every instrument treated as post-2018)"
+   ],
+   "map_computed": [
+    "income_tax: health savings account deduction limited by 26 U.S.C. 223(b) (keycheck.unit.READINGS['hsa']), entered as e03290"
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -656,7 +730,7 @@
    "in_e00800": 1498.53,
    "in_e00900p": 4340.0,
    "in_e00900": 4340.0,
-   "in_e03290": 9915.44,
+   "in_e03290": 4300.0,
    "in_e18400": 402.0,
    "in_e18500": 11949.09,
    "in_e19200": 6773.0,
@@ -665,11 +739,11 @@
    "in_RECID": 46.0,
    "in_FLPDYR": 2025.0,
    "out_aftertax_income": 5225.31,
-   "out_c00100": -5882.05,
-   "out_c02900": 10222.05,
+   "out_c00100": -266.61,
+   "out_c02900": 4606.61,
    "out_c03260": 306.61,
    "out_c09200": 613.22,
-   "out_c62100": -5882.05,
+   "out_c62100": -266.61,
    "out_combined": 613.22,
    "out_credit_claim_urn": 0.29,
    "out_earned": 4033.39,
@@ -683,7 +757,7 @@
    "out_setax": 613.22,
    "out_sey": 4340.0,
    "out_standard": 15750.0,
-   "out_ymod": -5882.05,
+   "out_ymod": -266.61,
    "out_ymod1": 4340.0,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 0.0,
@@ -692,8 +766,12 @@
    "unexpressed": [
     "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
     "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a)).",
-    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
+    "income_tax: reading: The stated health savings account deduction is allowed up to the 26 U.S.C. 223(b) limit of one eligible individual, the head, with self-only coverage for the whole year (Rev. Proc. 2025-19: 4,400 for 2026; Rev. Proc. 2024-25: 4,300 for 2025), plus $1,000 when the head is 55 or older (223(b)(3)). The stated deduction states that the unit has an eligible individual; family coverage, a second eligible spouse and Medicare enrollment are not stated (the board's rule: do not infer coverage). Alternatives: family coverage (8,750 for 2026), or each spouse an eligible individual. policyengine-us takes the stated deduction as given.",
+    "income_tax: the stated health savings account deduction of 9,915.44 exceeds the 26 U.S.C. 223(b) limit; 4,300 is allowed (policyengine-us takes the stated amount)",
     "income_tax: Tax-Calculator gives alimony no effect in 2025 or 2026 (every instrument treated as post-2018)"
+   ],
+   "map_computed": [
+    "income_tax: health savings account deduction limited by 26 U.S.C. 223(b) (keycheck.unit.READINGS['hsa']), entered as e03290"
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -702,14 +780,14 @@
    "in_mstat": 1.0,
    "in_page": 20.0,
    "in_pprofinc": 4340.0,
-   "in_nonprop": -9915.44,
+   "in_nonprop": -4400.0,
    "in_proptax": 12351.09,
-   "in_mortgage": 8201.0,
+   "in_mortgage": 6773.0,
    "out_taxsimid": 46.0,
    "out_year": 2026.0,
    "out_fica": 613.22,
    "out_tfica": 613.22,
-   "out_v10": -5882.05,
+   "out_v10": -366.61,
    "out_v13": 16100.0,
    "out_v29": 613.22,
    "out_v30": 4340.0,
@@ -721,14 +799,16 @@
    "unexpressed": [
     "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
     "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a)).",
-    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
+    "income_tax: reading: The stated health savings account deduction is allowed up to the 26 U.S.C. 223(b) limit of one eligible individual, the head, with self-only coverage for the whole year (Rev. Proc. 2025-19: 4,400 for 2026; Rev. Proc. 2024-25: 4,300 for 2025), plus $1,000 when the head is 55 or older (223(b)(3)). The stated deduction states that the unit has an eligible individual; family coverage, a second eligible spouse and Medicare enrollment are not stated (the board's rule: do not infer coverage). Alternatives: family coverage (8,750 for 2026), or each spouse an eligible individual. policyengine-us takes the stated deduction as given.",
+    "income_tax: the stated health savings account deduction of 9,915.44 exceeds the 26 U.S.C. 223(b) limit; 4,400 is allowed (policyengine-us takes the stated amount)",
     "income_tax: alimony is left out (treated as a post-2018 instrument)",
     "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)",
     "income_tax: this build has no 2026 minimum qualified business income deduction (26 U.S.C. 199A(i))",
-    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from the earned income of the EITC (probe P7.1) and of the refundable child credit (board 038); the law's earned income (26 U.S.C. 32(c)(2), which 24(d)(1)(B)(i) also uses) is not reduced by them"
    ],
    "map_computed": [
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
+    "income_tax: health savings account deduction limited by 26 U.S.C. 223(b) (unit.READINGS['hsa']), entered as negative `nonprop`",
+    "income_tax: charitable gifts limited by the 26 U.S.C. 170(b)(1) ceilings (60% cash, 50% other gifts less the cash) and, from 2026, the 0.5% floor of 170(b)(1)(I) (unit.READINGS['charity']), entered in `mortgage`"
    ]
   },
   "taxsim-cd2026110117-2025": {
@@ -737,14 +817,14 @@
    "in_mstat": 1.0,
    "in_page": 20.0,
    "in_pprofinc": 4340.0,
-   "in_nonprop": -9915.44,
+   "in_nonprop": -4300.0,
    "in_proptax": 12351.09,
-   "in_mortgage": 8201.0,
+   "in_mortgage": 6773.0,
    "out_taxsimid": 46.0,
    "out_year": 2025.0,
    "out_fica": 613.22,
    "out_tfica": 613.22,
-   "out_v10": -5882.05,
+   "out_v10": -266.61,
    "out_v13": 15750.0,
    "out_v29": 613.22,
    "out_v30": 4340.0,
@@ -756,12 +836,14 @@
    "unexpressed": [
     "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
     "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a)).",
-    "income_tax: reading: The stated health savings account deduction is the allowed deduction (the board states it as a deduction); no 26 U.S.C. 223(b) limit is applied.",
+    "income_tax: reading: The stated health savings account deduction is allowed up to the 26 U.S.C. 223(b) limit of one eligible individual, the head, with self-only coverage for the whole year (Rev. Proc. 2025-19: 4,400 for 2026; Rev. Proc. 2024-25: 4,300 for 2025), plus $1,000 when the head is 55 or older (223(b)(3)). The stated deduction states that the unit has an eligible individual; family coverage, a second eligible spouse and Medicare enrollment are not stated (the board's rule: do not infer coverage). Alternatives: family coverage (8,750 for 2026), or each spouse an eligible individual. policyengine-us takes the stated deduction as given.",
+    "income_tax: the stated health savings account deduction of 9,915.44 exceeds the 26 U.S.C. 223(b) limit; 4,300 is allowed (policyengine-us takes the stated amount)",
     "income_tax: alimony is left out (treated as a post-2018 instrument)",
-    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from the earned income of the EITC (probe P7.1) and of the refundable child credit (board 038); the law's earned income (26 U.S.C. 32(c)(2), which 24(d)(1)(B)(i) also uses) is not reduced by them"
    ],
    "map_computed": [
-    "income_tax: charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied"
+    "income_tax: health savings account deduction limited by 26 U.S.C. 223(b) (unit.READINGS['hsa']), entered as negative `nonprop`",
+    "income_tax: charitable gifts limited by the 26 U.S.C. 170(b)(1) ceilings (60% cash, 50% other gifts less the cash) and, from 2026, the 0.5% floor of 170(b)(1)(I) (unit.READINGS['charity']), entered in `mortgage`"
    ]
   }
  }

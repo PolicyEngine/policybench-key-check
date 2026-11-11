@@ -47,6 +47,18 @@ KNOWN = {
         ("scenario_073", "head"): (0.0, 5556.96), ("scenario_085", "head"): (0.0, 8.49),
         ("scenario_089", "head"): (0.0, 5402.60),
     },
+    # Map version 2026-11-11.1 (the board's rule for unstated facts).
+    # 056 states an HSA deduction of 9,915.44; the map allows the head's self-only 223(b)
+    # limit (READINGS["hsa"]); PolicyEngine takes the stated amount.
+    "hsa": {"scenario_056": (4400.0, 9915.44)},
+    # 038: Schedule C 15,525 and premiums of 100, no is_self_employed and no has_esi: the map
+    # deducts them under 162(l) (READINGS["self_employed_health_insurance"]); PolicyEngine's
+    # deduction needs is_self_employed.
+    "se_health_insurance": {"scenario_038": (100.0, 0.0)},
+    # 72(t) at PolicyEngine's AGI (READINGS["retirement_penalty"]): 023 (403(b) 8,000 at 28),
+    # 064 (401(k) 20,000 at 48), 074 (IRA 384 at 54); PolicyEngine's qualified_retirement_penalty
+    # is an input with no formula, 0 on the board.
+    "retirement_penalty": {"scenario_023": (800.0, 0.0), "scenario_064": (2000.0, 0.0), "scenario_074": (38.4, 0.0)},
 }
 
 pytestmark = pytest.mark.skipif(not PE.exists() or len(DOSSIERS) != 100, reason="needs the PolicyEngine run and the 100 dossiers")
@@ -149,3 +161,22 @@ def test_student_loan_deduction_on_all_100(pairs):
         if abs(sent[unit.case_id] - pe["student_loan_interest_ald"]) > 0.5
     }
     assert differ == {}
+
+
+def test_hsa_deduction(pairs):
+    found = _differences(pairs, lambda u: u.amounts["hsa_deduction"], "health_savings_account_ald")
+    _same_keys_close(found, KNOWN["hsa"])
+
+
+def test_self_employed_health_insurance(pairs):
+    found = _differences(pairs, lambda u: u.amounts["se_health_insurance"], "self_employed_health_insurance_ald")
+    _same_keys_close(found, KNOWN["se_health_insurance"])
+
+
+def test_retirement_penalty(pairs):
+    agi = {unit.case_id: pe["adjusted_gross_income"] for unit, pe in pairs}
+
+    def ours(unit):
+        return S.early_distribution_tax(unit.amounts["early_distributions"], unit.amounts["medical"], agi[unit.case_id])
+    found = _differences(pairs, ours, "qualified_retirement_penalty")
+    _same_keys_close(found, KNOWN["retirement_penalty"])

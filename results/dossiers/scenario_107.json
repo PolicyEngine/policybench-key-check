@@ -56,9 +56,15 @@
     "schedule_f": 0.0,
     "partnership_se": 0.0,
     "educator_expense": 0.0,
-    "retirement_distributions": 7476.0,
+    "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": null,
    "dependents": [],
@@ -82,10 +88,16 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 6948.0,
     "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
     "hsa_deduction": 0.0,
     "domestic_production": 0.0,
     "medical": 0.0,
@@ -100,12 +112,25 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
      "income_tax",
-     "reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage."
+     "reading: Employment disability benefits are taxable in full and are not earned income. policyengine-us documents the stated amount as including the taxable and the tax-exempt part without stating the split (disability_benefits), and an unlisted amount is 0, so the tax-exempt part (26 U.S.C. 104(a)(3): coverage the employee paid for with after-tax money) is 0 and 105(a) includes the rest. The plan's minimum retirement age is an unlisted number, so the filer has reached it: the payments are a pension, not earned income (Pub. 596 counts disability retirement payments as earned income only before that age). Alternatives: earned income before the minimum retirement age (the EITC of a filer under 65), or excluded under 104(a)(3) because who paid for the coverage is not stated."
     ]
    ],
    "members_with_own_payroll": [],
@@ -115,7 +140,8 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": []
   },
   "2025": {
    "case_id": "scenario_107",
@@ -136,9 +162,15 @@
     "schedule_f": 0.0,
     "partnership_se": 0.0,
     "educator_expense": 0.0,
-    "retirement_distributions": 7476.0,
+    "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": null,
    "dependents": [],
@@ -162,10 +194,16 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 6948.0,
     "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
     "hsa_deduction": 0.0,
     "domestic_production": 0.0,
     "medical": 0.0,
@@ -180,12 +218,25 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
      "income_tax",
-     "reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage."
+     "reading: Employment disability benefits are taxable in full and are not earned income. policyengine-us documents the stated amount as including the taxable and the tax-exempt part without stating the split (disability_benefits), and an unlisted amount is 0, so the tax-exempt part (26 U.S.C. 104(a)(3): coverage the employee paid for with after-tax money) is 0 and 105(a) includes the rest. The plan's minimum retirement age is an unlisted number, so the filer has reached it: the payments are a pension, not earned income (Pub. 596 counts disability retirement payments as earned income only before that age). Alternatives: earned income before the minimum retirement age (the EITC of a filer under 65), or excluded under 104(a)(3) because who paid for the coverage is not stated."
     ]
    ],
    "members_with_own_payroll": [],
@@ -195,7 +246,8 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": []
   }
  },
  "committed_key": {
@@ -689,7 +741,7 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 486.96,
    "unexpressed": [
-    "income_tax: reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage.",
+    "income_tax: reading: Employment disability benefits are taxable in full and are not earned income. policyengine-us documents the stated amount as including the taxable and the tax-exempt part without stating the split (disability_benefits), and an unlisted amount is 0, so the tax-exempt part (26 U.S.C. 104(a)(3): coverage the employee paid for with after-tax money) is 0 and 105(a) includes the rest. The plan's minimum retirement age is an unlisted number, so the filer has reached it: the payments are a pension, not earned income (Pub. 596 counts disability retirement payments as earned income only before that age). Alternatives: earned income before the minimum retirement age (the EITC of a filer under 65), or excluded under 104(a)(3) because who paid for the coverage is not stated.",
     "income_tax: no Tax-Calculator input for taxable disability benefits; entered through e01200, which enters AGI only"
    ]
   },
@@ -739,7 +791,7 @@
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 486.96,
    "unexpressed": [
-    "income_tax: reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage.",
+    "income_tax: reading: Employment disability benefits are taxable in full and are not earned income. policyengine-us documents the stated amount as including the taxable and the tax-exempt part without stating the split (disability_benefits), and an unlisted amount is 0, so the tax-exempt part (26 U.S.C. 104(a)(3): coverage the employee paid for with after-tax money) is 0 and 105(a) includes the rest. The plan's minimum retirement age is an unlisted number, so the filer has reached it: the payments are a pension, not earned income (Pub. 596 counts disability retirement payments as earned income only before that age). Alternatives: earned income before the minimum retirement age (the EITC of a filer under 65), or excluded under 104(a)(3) because who paid for the coverage is not stated.",
     "income_tax: no Tax-Calculator input for taxable disability benefits; entered through e01200, which enters AGI only"
    ]
   },
@@ -773,8 +825,8 @@
    "q_fed_employee_payroll_tax": 486.96,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage.",
-    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income"
+    "income_tax: reading: Employment disability benefits are taxable in full and are not earned income. policyengine-us documents the stated amount as including the taxable and the tax-exempt part without stating the split (disability_benefits), and an unlisted amount is 0, so the tax-exempt part (26 U.S.C. 104(a)(3): coverage the employee paid for with after-tax money) is 0 and 105(a) includes the rest. The plan's minimum retirement age is an unlisted number, so the filer has reached it: the payments are a pension, not earned income (Pub. 596 counts disability retirement payments as earned income only before that age). Alternatives: earned income before the minimum retirement age (the EITC of a filer under 65), or excluded under 104(a)(3) because who paid for the coverage is not stated.",
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund, a taxable scholarship) is entered as `pensions`: `nonprop` would count as EITC earned income"
    ]
   },
   "taxsim-cd2026110117-2025": {
@@ -807,8 +859,8 @@
    "q_fed_employee_payroll_tax": 486.96,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: Employment disability benefits are taxable and are not wages (an employer-paid plan, 26 U.S.C. 105(a)). The board does not state who paid for the coverage.",
-    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income"
+    "income_tax: reading: Employment disability benefits are taxable in full and are not earned income. policyengine-us documents the stated amount as including the taxable and the tax-exempt part without stating the split (disability_benefits), and an unlisted amount is 0, so the tax-exempt part (26 U.S.C. 104(a)(3): coverage the employee paid for with after-tax money) is 0 and 105(a) includes the rest. The plan's minimum retirement age is an unlisted number, so the filer has reached it: the payments are a pension, not earned income (Pub. 596 counts disability retirement payments as earned income only before that age). Alternatives: earned income before the minimum retirement age (the EITC of a filer under 65), or excluded under 104(a)(3) because who paid for the coverage is not stated.",
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund, a taxable scholarship) is entered as `pensions`: `nonprop` would count as EITC earned income"
    ]
   }
  }

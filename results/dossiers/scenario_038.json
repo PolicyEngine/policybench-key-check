@@ -94,7 +94,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 100.0,
+    "se_health": 100.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 14428.19368125,
+    "incapable": false
    },
    "spouse": {
     "name": "spouse",
@@ -112,7 +118,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "dependents": [
     {
@@ -121,6 +133,8 @@
      "gross_income": 0.0,
      "disabled": false,
      "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
      "kind": "qualifying_child"
     },
     {
@@ -129,6 +143,8 @@
      "gross_income": 0.0,
      "disabled": false,
      "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
      "kind": "qualifying_child"
     }
    ],
@@ -152,13 +168,19 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
     "hsa_deduction": 0.0,
     "domestic_production": 0.0,
-    "medical": 104.0,
+    "medical": 4.0,
     "real_estate_taxes": 0.0,
     "mortgage_interest": 0.0,
     "mortgage_balances": 75000.0,
@@ -170,12 +192,33 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 100.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
      "income_tax",
-     "reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
+     "reading: A filer with Schedule C or Schedule F earnings who states person-paid health insurance premiums deducts them under 26 U.S.C. 162(l): the Form 7206 instructions let a self-employed person filing Schedule C or F hold the policy in the business's name or the person's own (sources/irs/i7206.txt:59-63), so no other fact about the plan is needed, and is_self_employed is not required. See se_health_insurance for the limit."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with Schedule C or Schedule F earnings deducts the person-paid premiums medical expenses count for the filer (health_insurance_premiums where stated, else the premiums without Medicare Part B) under 26 U.S.C. 162(l), up to the earned income of 401(c)(2) from the business under which the plan is taken as established, the one with the larger earned income: that business's income less its share of the deduction for half the self-employment tax (164(f)) among the filer's positive self-employment sources, and for Schedule C less the self-employed pension deduction. A stated has_esi of the filer or spouse is eligibility for an employer's subsidized plan and bars the deduction (162(l)(2)(B)); otherwise none is stated. Premiums deducted here leave medical expenses (162(l)(3)). policyengine-us deducts only health_insurance_premiums of a filer stated is_self_employed (self_employed_health_insurance_premiums.py: defined_for is_self_employed), up to self-employment income before those two reductions."
+    ],
+    [
+     "income_tax",
+     "head: the self-employed health insurance deduction is 100 under 26 U.S.C. 162(l) (earned income of 401(c)(2) from the business, 14,428); policyengine-us allows 0 (it deducts only health_insurance_premiums of a filer stated is_self_employed, up to Schedule C income)"
     ]
    ],
    "members_with_own_payroll": [],
@@ -189,7 +232,19 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": [
+    {
+     "name": "child1",
+     "age": 7,
+     "why": "under 13"
+    },
+    {
+     "name": "child2",
+     "age": 6,
+     "why": "under 13"
+    }
+   ]
   },
   "2025": {
    "case_id": "scenario_038",
@@ -212,7 +267,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 100.0,
+    "se_health": 100.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 14428.19368125,
+    "incapable": false
    },
    "spouse": {
     "name": "spouse",
@@ -230,7 +291,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "dependents": [
     {
@@ -239,6 +306,8 @@
      "gross_income": 0.0,
      "disabled": false,
      "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
      "kind": "qualifying_child"
     },
     {
@@ -247,6 +316,8 @@
      "gross_income": 0.0,
      "disabled": false,
      "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
      "kind": "qualifying_child"
     }
    ],
@@ -270,13 +341,19 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
     "hsa_deduction": 0.0,
     "domestic_production": 0.0,
-    "medical": 104.0,
+    "medical": 4.0,
     "real_estate_taxes": 0.0,
     "mortgage_interest": 0.0,
     "mortgage_balances": 75000.0,
@@ -288,12 +365,33 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 100.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
      "income_tax",
-     "reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
+     "reading: A filer with Schedule C or Schedule F earnings who states person-paid health insurance premiums deducts them under 26 U.S.C. 162(l): the Form 7206 instructions let a self-employed person filing Schedule C or F hold the policy in the business's name or the person's own (sources/irs/i7206.txt:59-63), so no other fact about the plan is needed, and is_self_employed is not required. See se_health_insurance for the limit."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with Schedule C or Schedule F earnings deducts the person-paid premiums medical expenses count for the filer (health_insurance_premiums where stated, else the premiums without Medicare Part B) under 26 U.S.C. 162(l), up to the earned income of 401(c)(2) from the business under which the plan is taken as established, the one with the larger earned income: that business's income less its share of the deduction for half the self-employment tax (164(f)) among the filer's positive self-employment sources, and for Schedule C less the self-employed pension deduction. A stated has_esi of the filer or spouse is eligibility for an employer's subsidized plan and bars the deduction (162(l)(2)(B)); otherwise none is stated. Premiums deducted here leave medical expenses (162(l)(3)). policyengine-us deducts only health_insurance_premiums of a filer stated is_self_employed (self_employed_health_insurance_premiums.py: defined_for is_self_employed), up to self-employment income before those two reductions."
+    ],
+    [
+     "income_tax",
+     "head: the self-employed health insurance deduction is 100 under 26 U.S.C. 162(l) (earned income of 401(c)(2) from the business, 14,428); policyengine-us allows 0 (it deducts only health_insurance_premiums of a filer stated is_self_employed, up to Schedule C income)"
     ]
    ],
    "members_with_own_payroll": [],
@@ -307,7 +405,19 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": [
+    {
+     "name": "child1",
+     "age": 7,
+     "why": "under 13"
+    },
+    {
+     "name": "child2",
+     "age": 6,
+     "why": "under 13"
+    }
+   ]
   }
  },
  "committed_key": {
@@ -330,11 +440,11 @@
    },
    "federal_refundable_credits": {
     "key_run": "pb-reference-2.60.0",
-    "class": "all_agree",
+    "class": "two_agree:taxsim",
     "board_scores_it": "yes",
     "policyengine": 10225.35,
     "taxcalc": 10225.35,
-    "taxsim": 10225.35
+    "taxsim": 10210.35
    },
    "self_employment_tax": {
     "key_run": "pb-reference-2.60.0",
@@ -364,11 +474,11 @@
    },
    "federal_refundable_credits": {
     "key_run": "pe-2.60.0-board-2026",
-    "class": "all_agree",
+    "class": "two_agree:taxsim",
     "board_scores_it": "yes",
     "policyengine": 10225.35,
     "taxcalc": 10225.35,
-    "taxsim": 10225.35
+    "taxsim": 10210.35
    },
    "self_employment_tax": {
     "key_run": "pe-2.60.0-board-2026",
@@ -398,11 +508,11 @@
    },
    "federal_refundable_credits": {
     "key_run": "pe-2.60.0-board-2025",
-    "class": "all_agree",
+    "class": "two_agree:taxsim",
     "board_scores_it": "yes",
     "policyengine": 10061.35,
     "taxcalc": 10061.35,
-    "taxsim": 10061.35
+    "taxsim": 10046.35
    },
    "self_employment_tax": {
     "key_run": "pe-2.60.0-board-2025",
@@ -1319,18 +1429,19 @@
    "in_e00200": 7467.5,
    "in_e00900p": 15525.0,
    "in_e00900": 15525.0,
-   "in_e17500": 104.0,
+   "in_e17500": 4.0,
    "in_e18400": 680.4,
+   "in_e03270": 100.0,
    "in_RECID": 31.0,
    "in_FLPDYR": 2026.0,
    "out_aftertax_income": 30452.98,
-   "out_c00100": 21895.69,
-   "out_c02900": 1096.81,
+   "out_c00100": 21795.69,
+   "out_c02900": 1196.81,
    "out_c03260": 1096.81,
    "out_c09200": 2193.61,
    "out_c11070": 2909.35,
    "out_c59660": 7316.0,
-   "out_c62100": 21495.69,
+   "out_c62100": 21395.69,
    "out_codtc_limited": 4400.0,
    "out_combined": -6889.21,
    "out_credit_claim_urn": 0.58,
@@ -1353,14 +1464,19 @@
    "out_setax": 2193.61,
    "out_sey": 15525.0,
    "out_standard": 32200.0,
-   "out_ymod": 21895.69,
+   "out_ymod": 21795.69,
    "out_ymod1": 22992.5,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 10225.35,
    "q_self_employment_tax": 2193.61,
    "q_fed_employee_payroll_tax": 571.26,
    "unexpressed": [
-    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
+    "income_tax: reading: A filer with Schedule C or Schedule F earnings who states person-paid health insurance premiums deducts them under 26 U.S.C. 162(l): the Form 7206 instructions let a self-employed person filing Schedule C or F hold the policy in the business's name or the person's own (sources/irs/i7206.txt:59-63), so no other fact about the plan is needed, and is_self_employed is not required. See se_health_insurance for the limit.",
+    "income_tax: reading: A filer with Schedule C or Schedule F earnings deducts the person-paid premiums medical expenses count for the filer (health_insurance_premiums where stated, else the premiums without Medicare Part B) under 26 U.S.C. 162(l), up to the earned income of 401(c)(2) from the business under which the plan is taken as established, the one with the larger earned income: that business's income less its share of the deduction for half the self-employment tax (164(f)) among the filer's positive self-employment sources, and for Schedule C less the self-employed pension deduction. A stated has_esi of the filer or spouse is eligibility for an employer's subsidized plan and bars the deduction (162(l)(2)(B)); otherwise none is stated. Premiums deducted here leave medical expenses (162(l)(3)). policyengine-us deducts only health_insurance_premiums of a filer stated is_self_employed (self_employed_health_insurance_premiums.py: defined_for is_self_employed), up to self-employment income before those two reductions.",
+    "income_tax: head: the self-employed health insurance deduction is 100 under 26 U.S.C. 162(l) (earned income of 401(c)(2) from the business, 14,428); policyengine-us allows 0 (it deducts only health_insurance_premiums of a filer stated is_self_employed, up to Schedule C income)"
+   ],
+   "map_computed": [
+    "income_tax: self-employed health insurance deduction limited by 26 U.S.C. 162(l)(2)(A) to earned income of 401(c)(2) from the business, entered as e03270"
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -1378,18 +1494,19 @@
    "in_e00200": 7467.5,
    "in_e00900p": 15525.0,
    "in_e00900": 15525.0,
-   "in_e17500": 104.0,
+   "in_e17500": 4.0,
    "in_e18400": 680.4,
+   "in_e03270": 100.0,
    "in_RECID": 31.0,
    "in_FLPDYR": 2025.0,
    "out_aftertax_income": 30288.98,
-   "out_c00100": 21895.69,
-   "out_c02900": 1096.81,
+   "out_c00100": 21795.69,
+   "out_c02900": 1196.81,
    "out_c03260": 1096.81,
    "out_c09200": 2193.61,
    "out_c11070": 2909.35,
    "out_c59660": 7152.0,
-   "out_c62100": 21895.69,
+   "out_c62100": 21795.69,
    "out_codtc_limited": 4400.0,
    "out_combined": -6725.21,
    "out_credit_claim_urn": 0.58,
@@ -1411,14 +1528,19 @@
    "out_setax": 2193.61,
    "out_sey": 15525.0,
    "out_standard": 31500.0,
-   "out_ymod": 21895.69,
+   "out_ymod": 21795.69,
    "out_ymod1": 22992.5,
    "q_fed_tax_before_refundable": 0.0,
    "q_refundable_credits": 10061.35,
    "q_self_employment_tax": 2193.61,
    "q_fed_employee_payroll_tax": 571.26,
    "unexpressed": [
-    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
+    "income_tax: reading: A filer with Schedule C or Schedule F earnings who states person-paid health insurance premiums deducts them under 26 U.S.C. 162(l): the Form 7206 instructions let a self-employed person filing Schedule C or F hold the policy in the business's name or the person's own (sources/irs/i7206.txt:59-63), so no other fact about the plan is needed, and is_self_employed is not required. See se_health_insurance for the limit.",
+    "income_tax: reading: A filer with Schedule C or Schedule F earnings deducts the person-paid premiums medical expenses count for the filer (health_insurance_premiums where stated, else the premiums without Medicare Part B) under 26 U.S.C. 162(l), up to the earned income of 401(c)(2) from the business under which the plan is taken as established, the one with the larger earned income: that business's income less its share of the deduction for half the self-employment tax (164(f)) among the filer's positive self-employment sources, and for Schedule C less the self-employed pension deduction. A stated has_esi of the filer or spouse is eligibility for an employer's subsidized plan and bars the deduction (162(l)(2)(B)); otherwise none is stated. Premiums deducted here leave medical expenses (162(l)(3)). policyengine-us deducts only health_insurance_premiums of a filer stated is_self_employed (self_employed_health_insurance_premiums.py: defined_for is_self_employed), up to self-employment income before those two reductions.",
+    "income_tax: head: the self-employed health insurance deduction is 100 under 26 U.S.C. 162(l) (earned income of 401(c)(2) from the business, 14,428); policyengine-us allows 0 (it deducts only health_insurance_premiums of a filer stated is_self_employed, up to Schedule C income)"
+   ],
+   "map_computed": [
+    "income_tax: self-employed health insurance deduction limited by 26 U.S.C. 162(l)(2)(A) to earned income of 401(c)(2) from the business, entered as e03270"
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -1429,6 +1551,7 @@
    "in_sage": 18.0,
    "in_pwages": 7467.5,
    "in_psemp": 15525.0,
+   "in_nonprop": -100.0,
    "in_proptax": 680.4,
    "in_depx": 2.0,
    "in_dep13": 2.0,
@@ -1436,25 +1559,28 @@
    "in_dep18": 2.0,
    "out_taxsimid": 31.0,
    "out_year": 2026.0,
-   "out_fiitax": -10225.35,
+   "out_fiitax": -10210.35,
    "out_fica": 3336.14,
    "out_tfica": 2764.88,
-   "out_v10": 21895.69,
+   "out_v10": 21795.69,
    "out_v13": 32200.0,
-   "out_v23": 2909.35,
+   "out_v23": 2894.35,
    "out_v25": 7316.0,
-   "out_v26": 21895.69,
+   "out_v26": 21795.69,
    "out_v29": 3336.14,
    "out_v30": 22992.5,
-   "out_actc": 2909.35,
+   "out_actc": 2894.35,
    "out_tfica_no_self_employment": 571.26,
    "q_fed_tax_before_refundable": -0.0,
-   "q_refundable_credits": 10225.35,
+   "q_refundable_credits": 10210.35,
    "q_self_employment_tax": 2193.62,
    "q_fed_employee_payroll_tax": 571.26,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated.",
+    "income_tax: reading: A filer with Schedule C or Schedule F earnings who states person-paid health insurance premiums deducts them under 26 U.S.C. 162(l): the Form 7206 instructions let a self-employed person filing Schedule C or F hold the policy in the business's name or the person's own (sources/irs/i7206.txt:59-63), so no other fact about the plan is needed, and is_self_employed is not required. See se_health_insurance for the limit.",
+    "income_tax: reading: A filer with Schedule C or Schedule F earnings deducts the person-paid premiums medical expenses count for the filer (health_insurance_premiums where stated, else the premiums without Medicare Part B) under 26 U.S.C. 162(l), up to the earned income of 401(c)(2) from the business under which the plan is taken as established, the one with the larger earned income: that business's income less its share of the deduction for half the self-employment tax (164(f)) among the filer's positive self-employment sources, and for Schedule C less the self-employed pension deduction. A stated has_esi of the filer or spouse is eligibility for an employer's subsidized plan and bars the deduction (162(l)(2)(B)); otherwise none is stated. Premiums deducted here leave medical expenses (162(l)(3)). policyengine-us deducts only health_insurance_premiums of a filer stated is_self_employed (self_employed_health_insurance_premiums.py: defined_for is_self_employed), up to self-employment income before those two reductions.",
+    "income_tax: head: the self-employed health insurance deduction is 100 under 26 U.S.C. 162(l) (earned income of 401(c)(2) from the business, 14,428); policyengine-us allows 0 (it deducts only health_insurance_premiums of a filer stated is_self_employed, up to Schedule C income)",
+    "income_tax: the self-employed health insurance and pension deductions are entered as negative `nonprop`; this build also subtracts them from the earned income of the EITC (probes P7.1, D1b) and of the refundable child credit (board 038: 100 of 162(l) deduction lowers it by 15.00), which is net earnings from self-employment in the law (26 U.S.C. 32(c)(2)(A)(ii), which 24(d)(1)(B)(i) also uses; 162(l)(4) for the health deduction; for the pension deduction as read here, since it is not a deduction of the business), and does not subtract them from qualified business income (probe D1c), as Tax-Calculator and policyengine-us do",
     "income_tax: this build has no 2026 minimum qualified business income deduction (26 U.S.C. 199A(i))"
    ],
    "map_computed": [
@@ -1469,29 +1595,33 @@
    "in_sage": 18.0,
    "in_pwages": 7467.5,
    "in_psemp": 15525.0,
+   "in_nonprop": -100.0,
    "in_proptax": 680.4,
    "in_depx": 2.0,
    "out_taxsimid": 31.0,
    "out_year": 2025.0,
-   "out_fiitax": -10061.35,
+   "out_fiitax": -10046.35,
    "out_fica": 3336.14,
    "out_tfica": 2764.88,
-   "out_v10": 21895.69,
+   "out_v10": 21795.69,
    "out_v13": 31500.0,
-   "out_v23": 2909.35,
+   "out_v23": 2894.35,
    "out_v25": 7152.0,
-   "out_v26": 21895.69,
+   "out_v26": 21795.69,
    "out_v29": 3336.14,
    "out_v30": 22992.5,
-   "out_actc": 2909.35,
+   "out_actc": 2894.35,
    "out_tfica_no_self_employment": 571.26,
    "q_fed_tax_before_refundable": -0.0,
-   "q_refundable_credits": 10061.35,
+   "q_refundable_credits": 10046.35,
    "q_self_employment_tax": 2193.62,
    "q_fed_employee_payroll_tax": 571.26,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
+    "income_tax: reading: A filer with Schedule C or Schedule F earnings who states person-paid health insurance premiums deducts them under 26 U.S.C. 162(l): the Form 7206 instructions let a self-employed person filing Schedule C or F hold the policy in the business's name or the person's own (sources/irs/i7206.txt:59-63), so no other fact about the plan is needed, and is_self_employed is not required. See se_health_insurance for the limit.",
+    "income_tax: reading: A filer with Schedule C or Schedule F earnings deducts the person-paid premiums medical expenses count for the filer (health_insurance_premiums where stated, else the premiums without Medicare Part B) under 26 U.S.C. 162(l), up to the earned income of 401(c)(2) from the business under which the plan is taken as established, the one with the larger earned income: that business's income less its share of the deduction for half the self-employment tax (164(f)) among the filer's positive self-employment sources, and for Schedule C less the self-employed pension deduction. A stated has_esi of the filer or spouse is eligibility for an employer's subsidized plan and bars the deduction (162(l)(2)(B)); otherwise none is stated. Premiums deducted here leave medical expenses (162(l)(3)). policyengine-us deducts only health_insurance_premiums of a filer stated is_self_employed (self_employed_health_insurance_premiums.py: defined_for is_self_employed), up to self-employment income before those two reductions.",
+    "income_tax: head: the self-employed health insurance deduction is 100 under 26 U.S.C. 162(l) (earned income of 401(c)(2) from the business, 14,428); policyengine-us allows 0 (it deducts only health_insurance_premiums of a filer stated is_self_employed, up to Schedule C income)",
+    "income_tax: the self-employed health insurance and pension deductions are entered as negative `nonprop`; this build also subtracts them from the earned income of the EITC (probes P7.1, D1b) and of the refundable child credit (board 038: 100 of 162(l) deduction lowers it by 15.00), which is net earnings from self-employment in the law (26 U.S.C. 32(c)(2)(A)(ii), which 24(d)(1)(B)(i) also uses; 162(l)(4) for the health deduction; for the pension deduction as read here, since it is not a deduction of the business), and does not subtract them from qualified business income (probe D1c), as Tax-Calculator and policyengine-us do"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

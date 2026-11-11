@@ -67,7 +67,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": null,
    "dependents": [],
@@ -91,10 +97,16 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 276.0,
+    "hsa_stated": 0.0,
     "hsa_deduction": 0.0,
     "domestic_production": 0.0,
     "medical": 300.0,
@@ -109,7 +121,20 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
@@ -128,7 +153,8 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": []
   },
   "2025": {
    "case_id": "scenario_070",
@@ -151,7 +177,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": null,
    "dependents": [],
@@ -175,10 +207,16 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 276.0,
+    "hsa_stated": 0.0,
     "hsa_deduction": 0.0,
     "domestic_production": 0.0,
     "medical": 300.0,
@@ -193,7 +231,20 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
@@ -212,7 +263,8 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": []
   }
  },
  "committed_key": {
@@ -759,7 +811,7 @@
     "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)",
     "income_tax: student loan interest deduction figured under 26 U.S.C. 221",
-    "income_tax: saver's credit figured under 26 U.S.C. 25B before the limit to tax (reading: The saver's credit testing period is the tax year only: distributions in the two prior years and in the next year before the return's due date (26 U.S.C. 25B(d)(2)(B)) are not stated and are taken as zero; tax-exempt IRA and pension distributions count. A filer is not a full-time student (25B(c)(2)(B)) unless stated; the American opportunity enrollment flags (at least half time) are not read as full time.)"
+    "income_tax: saver's credit figured under 26 U.S.C. 25B before the limit to tax (reading: The saver's credit testing period is the tax year only: distributions in the two prior years and in the next year before the return's due date (26 U.S.C. 25B(d)(2)(B)) are not stated and are taken as zero. Distributions that reduce contributions are those from plans 25B(d)(2)(A) names by their own names: IRAs (SEP included), 401(k) and 403(b) plans, taxable or not. A private pension does not count: whether its plan is a qualified plan (4974(c)) is not stated. A filer is not a full-time student (25B(c)(2)(B)) unless stated; the American opportunity enrollment flags (at least half time) are not read as full time.)"
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -815,7 +867,7 @@
     "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)",
     "income_tax: student loan interest deduction figured under 26 U.S.C. 221",
-    "income_tax: saver's credit figured under 26 U.S.C. 25B before the limit to tax (reading: The saver's credit testing period is the tax year only: distributions in the two prior years and in the next year before the return's due date (26 U.S.C. 25B(d)(2)(B)) are not stated and are taken as zero; tax-exempt IRA and pension distributions count. A filer is not a full-time student (25B(c)(2)(B)) unless stated; the American opportunity enrollment flags (at least half time) are not read as full time.)"
+    "income_tax: saver's credit figured under 26 U.S.C. 25B before the limit to tax (reading: The saver's credit testing period is the tax year only: distributions in the two prior years and in the next year before the return's due date (26 U.S.C. 25B(d)(2)(B)) are not stated and are taken as zero. Distributions that reduce contributions are those from plans 25B(d)(2)(A) names by their own names: IRAs (SEP included), 401(k) and 403(b) plans, taxable or not. A private pension does not count: whether its plan is a qualified plan (4974(c)) is not stated. A filer is not a full-time student (25B(c)(2)(B)) unless stated; the American opportunity enrollment flags (at least half time) are not read as full time.)"
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -848,8 +900,8 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
-    "income_tax: TAXSIM has no input for the saver's credit (26 U.S.C. 25B), which the statute puts at up to 192 before the limit to tax (reading: The saver's credit testing period is the tax year only: distributions in the two prior years and in the next year before the return's due date (26 U.S.C. 25B(d)(2)(B)) are not stated and are taken as zero; tax-exempt IRA and pension distributions count. A filer is not a full-time student (25B(c)(2)(B)) unless stated; the American opportunity enrollment flags (at least half time) are not read as full time.)",
-    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
+    "income_tax: TAXSIM has no input for the saver's credit (26 U.S.C. 25B), which the statute puts at up to 192 before the limit to tax (reading: The saver's credit testing period is the tax year only: distributions in the two prior years and in the next year before the return's due date (26 U.S.C. 25B(d)(2)(B)) are not stated and are taken as zero. Distributions that reduce contributions are those from plans 25B(d)(2)(A) names by their own names: IRAs (SEP included), 401(k) and 403(b) plans, taxable or not. A private pension does not count: whether its plan is a qualified plan (4974(c)) is not stated. A filer is not a full-time student (25B(c)(2)(B)) unless stated; the American opportunity enrollment flags (at least half time) are not read as full time.)",
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from the earned income of the EITC (probe P7.1) and of the refundable child credit (board 038); the law's earned income (26 U.S.C. 32(c)(2), which 24(d)(1)(B)(i) also uses) is not reduced by them"
    ],
    "map_computed": [
     "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
@@ -888,8 +940,8 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
-    "income_tax: TAXSIM has no input for the saver's credit (26 U.S.C. 25B), which the statute puts at up to 192 before the limit to tax (reading: The saver's credit testing period is the tax year only: distributions in the two prior years and in the next year before the return's due date (26 U.S.C. 25B(d)(2)(B)) are not stated and are taken as zero; tax-exempt IRA and pension distributions count. A filer is not a full-time student (25B(c)(2)(B)) unless stated; the American opportunity enrollment flags (at least half time) are not read as full time.)",
-    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
+    "income_tax: TAXSIM has no input for the saver's credit (26 U.S.C. 25B), which the statute puts at up to 192 before the limit to tax (reading: The saver's credit testing period is the tax year only: distributions in the two prior years and in the next year before the return's due date (26 U.S.C. 25B(d)(2)(B)) are not stated and are taken as zero. Distributions that reduce contributions are those from plans 25B(d)(2)(A) names by their own names: IRAs (SEP included), 401(k) and 403(b) plans, taxable or not. A private pension does not count: whether its plan is a qualified plan (4974(c)) is not stated. A filer is not a full-time student (25B(c)(2)(B)) unless stated; the American opportunity enrollment flags (at least half time) are not read as full time.)",
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from the earned income of the EITC (probe P7.1) and of the refundable child credit (board 038); the law's earned income (26 U.S.C. 32(c)(2), which 24(d)(1)(B)(i) also uses) is not reduced by them"
    ],
    "map_computed": [
     "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",

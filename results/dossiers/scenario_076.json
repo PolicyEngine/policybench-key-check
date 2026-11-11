@@ -92,7 +92,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": null,
    "dependents": [
@@ -102,6 +108,8 @@
      "gross_income": 0.0,
      "disabled": false,
      "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
      "kind": "qualifying_child"
     },
     {
@@ -110,6 +118,8 @@
      "gross_income": 0.0,
      "disabled": false,
      "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
      "kind": "qualifying_child"
     }
    ],
@@ -133,10 +143,16 @@
     "rental": 4000.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 4000.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 4000.0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
     "hsa_deduction": 0.0,
     "domestic_production": 0.0,
     "medical": 3000.0,
@@ -151,12 +167,29 @@
     "ubia": 49921.1015625,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
      "income_tax",
-     "reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not."
+     "reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true)."
+    ],
+    [
+     "income_tax",
+     "reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit."
     ]
    ],
    "members_with_own_payroll": [],
@@ -166,7 +199,14 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": [
+    {
+     "name": "child2",
+     "age": 8,
+     "why": "under 13"
+    }
+   ]
   },
   "2025": {
    "case_id": "scenario_076",
@@ -189,7 +229,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": null,
    "dependents": [
@@ -199,6 +245,8 @@
      "gross_income": 0.0,
      "disabled": false,
      "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
      "kind": "qualifying_child"
     },
     {
@@ -207,6 +255,8 @@
      "gross_income": 0.0,
      "disabled": false,
      "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
      "kind": "qualifying_child"
     }
    ],
@@ -230,10 +280,16 @@
     "rental": 4000.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 0.0,
+    "rental_stated": 4000.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 4000.0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
     "hsa_deduction": 0.0,
     "domestic_production": 0.0,
     "medical": 3000.0,
@@ -248,12 +304,29 @@
     "ubia": 49921.1015625,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
      "income_tax",
-     "reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not."
+     "reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true)."
+    ],
+    [
+     "income_tax",
+     "reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit."
     ]
    ],
    "members_with_own_payroll": [],
@@ -263,7 +336,14 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": [
+    {
+     "name": "child2",
+     "age": 8,
+     "why": "under 13"
+    }
+   ]
   }
  },
  "committed_key": {
@@ -278,11 +358,11 @@
   "2026, against the committed key": {
    "federal_income_tax_before_refundable_credits": {
     "key_run": "pb-reference-2.60.0",
-    "class": "two_agree:policyengine",
+    "class": "all_agree",
     "board_scores_it": "yes",
     "policyengine": 19611.8,
-    "taxcalc": 19803.8,
-    "taxsim": 19803.8
+    "taxcalc": 19611.8,
+    "taxsim": 19611.8
    },
    "federal_refundable_credits": {
     "key_run": "pb-reference-2.60.0",
@@ -312,11 +392,11 @@
   "2026, against the engine rerun": {
    "federal_income_tax_before_refundable_credits": {
     "key_run": "pe-2.60.0-board-2026",
-    "class": "two_agree:policyengine",
+    "class": "all_agree",
     "board_scores_it": "yes",
     "policyengine": 19611.8,
-    "taxcalc": 19803.8,
-    "taxsim": 19803.8
+    "taxcalc": 19611.8,
+    "taxsim": 19611.8
    },
    "federal_refundable_credits": {
     "key_run": "pe-2.60.0-board-2026",
@@ -346,11 +426,11 @@
   "2025 law": {
    "federal_income_tax_before_refundable_credits": {
     "key_run": "pe-2.60.0-board-2025",
-    "class": "two_agree:policyengine",
+    "class": "all_agree",
     "board_scores_it": "yes",
     "policyengine": 20058.8,
-    "taxcalc": 20250.8,
-    "taxsim": 20250.8
+    "taxcalc": 20058.8,
+    "taxsim": 20058.8
    },
    "federal_refundable_credits": {
     "key_run": "pe-2.60.0-board-2025",
@@ -979,24 +1059,25 @@
    "in_e00200": 160000.0,
    "in_e00300": 220.0,
    "in_e02000": 4000.0,
+   "in_e27200": 4000.0,
    "in_e17500": 3000.0,
    "in_e18400": 7595.38,
    "in_e32800": 1000.0,
    "in_PT_ubia_property": 49921.1,
    "in_RECID": 61.0,
    "in_FLPDYR": 2026.0,
-   "out_aftertax_income": 132176.2,
+   "out_aftertax_income": 132368.2,
    "out_c00100": 164220.0,
-   "out_c04800": 140070.0,
-   "out_c05200": 24403.8,
-   "out_c05800": 24403.8,
+   "out_c04800": 139270.0,
+   "out_c05200": 24211.8,
+   "out_c05800": 24211.8,
    "out_c07100": 4600.0,
    "out_c07180": 200.0,
    "out_c07220": 4400.0,
-   "out_c09200": 19803.8,
+   "out_c09200": 19611.8,
    "out_c32800": 1000.0,
-   "out_c62100": 164220.0,
-   "out_combined": 44283.8,
+   "out_c62100": 163420.0,
+   "out_combined": 44091.8,
    "out_credit_claim_urn": 0.18,
    "out_ctc_nonrefundable": 4400.0,
    "out_ctc_total": 4400.0,
@@ -1004,22 +1085,24 @@
    "out_earned_p": 160000.0,
    "out_exact": 1.0,
    "out_expanded_income": 176460.0,
-   "out_iitax": 19803.8,
+   "out_iitax": 19611.8,
    "out_num": 1.0,
    "out_payrolltax": 24480.0,
    "out_ptax_er_p": 12240.0,
    "out_ptax_oasdi": 19840.0,
    "out_ptax_was": 24480.0,
+   "out_qbided": 800.0,
    "out_standard": 24150.0,
-   "out_taxbc": 24403.8,
+   "out_taxbc": 24211.8,
    "out_ymod": 164220.0,
    "out_ymod1": 164220.0,
-   "q_fed_tax_before_refundable": 19803.8,
+   "q_fed_tax_before_refundable": 19611.8,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 12240.0,
    "unexpressed": [
-    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not."
+    "income_tax: reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true).",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit."
    ]
   },
   "taxcalc-6.9.0-2025": {
@@ -1036,24 +1119,25 @@
    "in_e00200": 160000.0,
    "in_e00300": 220.0,
    "in_e02000": 4000.0,
+   "in_e27200": 4000.0,
    "in_e17500": 3000.0,
    "in_e18400": 7613.93,
    "in_e32800": 1000.0,
    "in_PT_ubia_property": 49921.1,
    "in_RECID": 61.0,
    "in_FLPDYR": 2025.0,
-   "out_aftertax_income": 131729.2,
+   "out_aftertax_income": 131921.2,
    "out_c00100": 164220.0,
-   "out_c04800": 140595.0,
-   "out_c05200": 24850.8,
-   "out_c05800": 24850.8,
+   "out_c04800": 139795.0,
+   "out_c05200": 24658.8,
+   "out_c05800": 24658.8,
    "out_c07100": 4600.0,
    "out_c07180": 200.0,
    "out_c07220": 4400.0,
-   "out_c09200": 20250.8,
+   "out_c09200": 20058.8,
    "out_c32800": 1000.0,
-   "out_c62100": 164220.0,
-   "out_combined": 44730.8,
+   "out_c62100": 163420.0,
+   "out_combined": 44538.8,
    "out_credit_claim_urn": 0.18,
    "out_ctc_nonrefundable": 4400.0,
    "out_ctc_total": 4400.0,
@@ -1061,22 +1145,24 @@
    "out_earned_p": 160000.0,
    "out_exact": 1.0,
    "out_expanded_income": 176460.0,
-   "out_iitax": 20250.8,
+   "out_iitax": 20058.8,
    "out_num": 1.0,
    "out_payrolltax": 24480.0,
    "out_ptax_er_p": 12240.0,
    "out_ptax_oasdi": 19840.0,
    "out_ptax_was": 24480.0,
+   "out_qbided": 800.0,
    "out_standard": 23625.0,
-   "out_taxbc": 24850.8,
+   "out_taxbc": 24658.8,
    "out_ymod": 164220.0,
    "out_ymod1": 164220.0,
-   "q_fed_tax_before_refundable": 20250.8,
+   "q_fed_tax_before_refundable": 20058.8,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 12240.0,
    "unexpressed": [
-    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not."
+    "income_tax: reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true).",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit."
    ]
   },
   "taxsim-cd2026110117-2026": {
@@ -1085,7 +1171,8 @@
    "in_mstat": 1.0,
    "in_page": 45.0,
    "in_pwages": 160000.0,
-   "in_intrec": 4220.0,
+   "in_scorp": 4000.0,
+   "in_intrec": 220.0,
    "in_proptax": 7595.38,
    "in_childcare": 1000.0,
    "in_depx": 2.0,
@@ -1094,29 +1181,30 @@
    "in_dep18": 2.0,
    "out_taxsimid": 61.0,
    "out_year": 2026.0,
-   "out_fiitax": 19803.8,
+   "out_fiitax": 19611.8,
    "out_fica": 24480.0,
    "out_tfica": 12240.0,
    "out_v10": 164220.0,
    "out_v13": 24150.0,
-   "out_v18": 140070.0,
-   "out_v19": 24403.8,
+   "out_v18": 139270.0,
+   "out_v19": 24211.8,
    "out_v22": 4400.0,
    "out_v24": 200.0,
-   "out_v26": 164220.0,
-   "out_v28": 24403.8,
+   "out_v26": 163420.0,
+   "out_v28": 24211.8,
    "out_v29": 24480.0,
    "out_v30": 164220.0,
+   "out_qbid": 800.0,
    "out_tfica_no_self_employment": 12240.0,
-   "q_fed_tax_before_refundable": 19803.8,
+   "q_fed_tax_before_refundable": 19611.8,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 12240.0,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not.",
-    "income_tax: this build computes the 2026 child care credit at the pre-2026 rates (probe P5)",
-    "income_tax: this build ignores `otherprop` from 2024, so rent and estate income are entered as `intrec`"
+    "income_tax: reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true).",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: this build computes the 2026 child care credit at the pre-2026 rates (probe P5)"
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
@@ -1128,34 +1216,36 @@
    "in_mstat": 1.0,
    "in_page": 45.0,
    "in_pwages": 160000.0,
-   "in_intrec": 4220.0,
+   "in_scorp": 4000.0,
+   "in_intrec": 220.0,
    "in_proptax": 7613.93,
    "in_childcare": 1000.0,
    "in_depx": 2.0,
    "out_taxsimid": 61.0,
    "out_year": 2025.0,
-   "out_fiitax": 20250.8,
+   "out_fiitax": 20058.8,
    "out_fica": 24480.0,
    "out_tfica": 12240.0,
    "out_v10": 164220.0,
    "out_v13": 23625.0,
-   "out_v18": 140595.0,
-   "out_v19": 24850.8,
+   "out_v18": 139795.0,
+   "out_v19": 24658.8,
    "out_v22": 4400.0,
    "out_v24": 200.0,
-   "out_v26": 164220.0,
-   "out_v28": 24850.8,
+   "out_v26": 163420.0,
+   "out_v28": 24658.8,
    "out_v29": 24480.0,
    "out_v30": 164220.0,
+   "out_qbid": 800.0,
    "out_tfica_no_self_employment": 12240.0,
-   "q_fed_tax_before_refundable": 20250.8,
+   "q_fed_tax_before_refundable": 20058.8,
    "q_refundable_credits": 0.0,
    "q_self_employment_tax": 0.0,
    "q_fed_employee_payroll_tax": 12240.0,
    "status": "ok",
    "unexpressed": [
-    "income_tax: reading: Stated rental income and estate income are not qualified business income: whether a rental is a section 162 trade or business (26 U.S.C. 199A(d)(1)) is not stated. Tax-Calculator gets rent in e02000 only (not e26270 or e27200); TAXSIM gets rent and estate income in `intrec`, either sign. PolicyEngine's default counts rent as qualified business income (rental_income_would_be_qualified defaults to true) and estate income not.",
-    "income_tax: this build ignores `otherprop` from 2024, so rent and estate income are entered as `intrec`"
+    "income_tax: reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true).",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit."
    ],
    "map_computed": [
     "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"

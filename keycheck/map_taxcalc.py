@@ -17,8 +17,18 @@ Notes that bear only on itemized deductions (`itemizer_notes`) are added by the 
 only for units Tax-Calculator itemizes in the final pass.
 
 Inputs only the larger draw's facts fill (e03270, e03300, e58990, e24515, e24518,
-PT_binc_w2_wages) enter a row only when non-zero, so a board row keeps its columns;
-Tax-Calculator reads a missing input as zero.
+PT_binc_w2_wages), and the 72(t) tax (e09900, added in pass 3), enter a row only when
+non-zero; Tax-Calculator reads a missing input as zero.
+
+Schedule E (e02000) holds the allowed passive amounts (keycheck.unit.READINGS
+["passive_activity"]) and estate income. Of it, e26270 holds only partners'
+self-employment earnings (K-1 box 14), which Tax-Calculator leaves out of net investment
+income and EITC investment income (calcfunctions.py:2797, :3232), as 26 U.S.C. 1411(c)(6)
+and 32(i)(2)(D) do; e27200 holds the rest of the partnership income and the rentals that
+are qualified business income (READINGS["rental_qbi"]), which Tax-Calculator counts in
+qualified business income (calcfunctions.py:1796) and in both investment-income measures,
+as the law counts passive income. A rental that is not qualified business income is in
+e02000 only.
 """
 
 from __future__ import annotations
@@ -26,7 +36,7 @@ from __future__ import annotations
 from . import statute as S
 from . import unit as U
 
-VERSION = "2026-11-10.3"
+VERSION = "2026-11-11.1"
 
 MARS = {S.SINGLE: 1, S.JOINT: 2, S.SEPARATE: 3, S.HEAD_OF_HOUSEHOLD: 4, S.SURVIVING_SPOUSE: 5}
 
@@ -36,13 +46,47 @@ SHARED_SALT_NOTE = (
 )
 
 
-def itemizer_notes(unit: U.Unit, shared: dict | None = None) -> list[str]:
+def itemizer_notes(unit: U.Unit, shared: dict | None = None, agi: float | None = None,
+                   charity: float | None = None) -> list[str]:
     """Notes that can move Tax-Calculator's answer only when it itemizes (final out_c04470
-    > 0: taxcalc/calculator.py zeroes c04470 for a unit that takes the standard deduction)."""
+    > 0: taxcalc/calculator.py zeroes c04470 for a unit that takes the standard deduction).
+    With Tax-Calculator's final AGI and charitable deduction (c19700), a note names a
+    difference from 26 U.S.C. 170(b)(1) as read in keycheck.unit.READINGS["charity"]."""
     notes = [f"{group}: {text}" for group, text in unit.itemized_notes]
     if shared and "salt_income_or_sales_tax" in shared:
         notes.append(SHARED_SALT_NOTE)
+    a = unit.amounts
+    if agi is not None and charity is not None and (a["charity_cash"] or a["charity_non_cash"]):
+        statute = S.charitable_deduction(unit.year, a["charity_cash"], a["charity_non_cash"], agi)
+        if abs(statute - charity) >= 1:
+            notes.append(f"income_tax: Tax-Calculator's charitable deduction is {charity:,.2f}; 26 U.S.C. 170(b)(1) as read here gives {statute:,.2f} (Tax-Calculator caps non-cash gifts at 30% of AGI and applies the 0.5% floor before its ceilings; the reading takes non-cash gifts as ordinary-income property under the 50% ceiling)")
     return notes
+
+
+def final_notes(unit: U.Unit, qbided: float) -> list[str]:
+    """Notes that depend on Tax-Calculator's final answer: its qualified business income
+    deduction `qbided`.
+
+    26 U.S.C. 199A(i) (2026; sources/uscode/usc26-s199A.txt:273-283): the deduction is at
+    least $400 when the qualified business income from active trades, in which the taxpayer
+    materially participates, reaches $1,000: Schedule C and F here (READINGS
+    ["passive_activity"]). Tax-Calculator tests all qualified business income (qbinc,
+    calcfunctions.py:1892). The note fires where the two tests differ and the floor can
+    move the deduction: Tax-Calculator's deduction sits at the $400 floor it applied, or
+    falls below the $400 the statute's floor gives."""
+    year = unit.year
+    floor = S.AMOUNTS[year]["qbi_minimum_deduction"]
+    if not floor:
+        return []
+    a = unit.amounts
+    active = sum(f.schedule_c + f.schedule_f for f in unit.filers)
+    everything = active + a["partnership_s_corp"] + a["rental_qbi"]
+    threshold = S.AMOUNTS[year]["qbi_minimum_active_income"]
+    if everything >= threshold > active and abs(qbided - floor) < 0.005:
+        return [f"income_tax: Tax-Calculator raises the qualified business income deduction to its 2026 minimum of $400 because all qualified business income reaches $1,000 ({everything:,.0f} here); 26 U.S.C. 199A(i) counts only active trades, in which the taxpayer materially participates ({active:,.0f} here, Schedule C and F), so the statute gives no minimum"]
+    if active >= threshold > everything and qbided < floor - 0.005:
+        return [f"income_tax: Tax-Calculator gives no 2026 minimum qualified business income deduction because all qualified business income is under $1,000 ({everything:,.0f} here); 26 U.S.C. 199A(i) counts only active trades ({active:,.0f} here, Schedule C and F), so the statute raises the deduction from {qbided:,.2f} to $400"]
+    return []
 
 
 def row(household: dict, year: int, shared: dict | None = None):
@@ -68,16 +112,24 @@ def row(household: dict, year: int, shared: dict | None = None):
         computed.append("income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages")
 
     dividends = a["qualified_dividends"] + a["non_qualified_dividends"]
-    taxable_pensions = a["taxable_pensions"]
+    # Survivor benefits are a taxable pension or annuity (READINGS["survivor_benefits"]).
+    taxable_pensions = a["taxable_pensions"] + a["survivor_benefits"]
     # Tax-Calculator has no line for other taxable income. e01200 (Form 4797 gains) enters
     # adjusted gross income and nothing else, so it carries the two stated items that are
     # taxable and belong to no other input.
-    other_income = a["miscellaneous"] + a["disability_benefits"]
+    other_income = a["miscellaneous"] + a["disability_benefits"] + a["educational_assistance"]
     if a["miscellaneous"]:
         unexpressed.append("income_tax: no Tax-Calculator input for miscellaneous income; entered through e01200, which enters AGI only")
     if a["disability_benefits"]:
         unexpressed.append("income_tax: no Tax-Calculator input for taxable disability benefits; entered through e01200, which enters AGI only")
+    if a["educational_assistance"]:
+        unexpressed.append("income_tax: no Tax-Calculator input for a taxable scholarship or grant; entered through e01200, which enters AGI only (not earned income)")
     schedule_e = a["rental"] + a["farm_rent"] + a["partnership_s_corp"] + a["estate"]
+    partner_se = sum(f.partnership_se for f in unit.filers)
+    if a["partnership_s_corp"]:
+        computed.append("income_tax: partnership and S corporation income other than partners' self-employment earnings is entered as e27200 (with e02000), so it counts as net investment income and EITC investment income, as passive income does (26 U.S.C. 1411(c)(2)(A), 32(i)(2)(D)); e26270 holds only the self-employment earnings")
+    if a["rental"] + a["farm_rent"] != a["rental_stated"] + a["farm_rent_stated"] or a["partnership_s_corp"] != a["partnership_stated"]:
+        computed.append("income_tax: passive activity losses limited by 26 U.S.C. 469(a) (allowed amounts in e02000, e26270, e27200 and k1bx14)")
 
     educator = S.educator_expense_deduction(year, [f.educator_expense for f in unit.filers])
     if any(f.educator_expense for f in unit.filers):
@@ -92,9 +144,13 @@ def row(household: dict, year: int, shared: dict | None = None):
     sstb = sum(f.sstb for f in unit.filers)
     other_qbi = (
         sum(f.schedule_c - f.sstb + f.schedule_f for f in unit.filers)
-        + a["partnership_s_corp"] + a["farm_rent"]
+        + a["partnership_s_corp"] + a["rental_qbi"]
     )
-    if sstb > 0 and other_qbi > 0:
+    # Tax-Calculator marks a unit's business income as all SSTB or all not
+    # (PT_SSTB_income): the larger in size decides, a loss as well as income (199A(d)(3)
+    # excludes an SSTB's items of loss as well as income).
+    sstb_selected = sstb != 0 and abs(sstb) >= abs(other_qbi)
+    if sstb != 0 and other_qbi != 0:
         unexpressed.append("income_tax: Tax-Calculator marks all of a unit's business income as a specified service trade or not; this unit has both")
     if a["reit_ptp"]:
         unexpressed.append("income_tax: no Tax-Calculator input for qualified REIT dividends and PTP income (26 U.S.C. 199A(b)(1)(B))")
@@ -127,6 +183,8 @@ def row(household: dict, year: int, shared: dict | None = None):
         unexpressed.append(f"income_tax: Tax-Calculator has no deemed earned income for a spouse incapable of self-care (26 U.S.C. 21(d)(2)): it limits the care credit by {name}'s stated earnings, {stated:,.0f}, where the statute deems {deemed:,.0f}")
     if a["se_health_insurance"]:
         computed.append("income_tax: self-employed health insurance deduction limited by 26 U.S.C. 162(l)(2)(A) to earned income of 401(c)(2) from the business, entered as e03270")
+    if a["hsa_deduction"] != a["hsa_stated"]:
+        computed.append("income_tax: health savings account deduction limited by 26 U.S.C. 223(b) (keycheck.unit.READINGS['hsa']), entered as e03290")
     if a["se_pension"]:
         computed.append("income_tax: self-employed pension contributions limited to the 415(c)(1)(A) amount and Schedule C income, as the key does, entered as e03300 (reading: " + U.READINGS["se_pension"] + ")")
     # The Form 4952 election: Tax-Calculator's Schedule D tax worksheet takes it from
@@ -137,8 +195,7 @@ def row(household: dict, year: int, shared: dict | None = None):
     # 199A(b)(2)(B) wages: Tax-Calculator takes one wage pool for the unit's one kind of
     # business (PT_SSTB_income); policyengine-us splits a person's total by
     # sstb_w2_wages_from_qualified_business only when the person has both kinds.
-    if sstb > 0 and other_qbi > 0:
-        sstb_selected = sstb >= other_qbi
+    if sstb != 0 and other_qbi != 0:
         w2_wages = a["sstb_qbi_w2_wages"] if sstb_selected else max(0.0, a["qbi_w2_wages"] - a["sstb_qbi_w2_wages"])
         if a["qbi_w2_wages"]:
             computed.append("income_tax: W-2 wages of the qualified businesses (PT_binc_w2_wages) are those of the kind of business PT_SSTB_income selects")
@@ -173,8 +230,8 @@ def row(household: dict, year: int, shared: dict | None = None):
         "e01500": taxable_pensions + a["tax_exempt_pensions"],
         "e01700": taxable_pensions,
         "e02000": schedule_e,
-        "e26270": a["partnership_s_corp"],
-        "e27200": a["farm_rent"],
+        "e26270": partner_se,
+        "e27200": a["rental_qbi"] + a["partnership_s_corp"] - partner_se,
         "k1bx14p": k1_p, "k1bx14s": k1_s,
         "e02100p": sched_f_p, "e02100s": sched_f_s, "e02100": sched_f_p + sched_f_s,
         "e02300": a["unemployment"],
@@ -196,8 +253,8 @@ def row(household: dict, year: int, shared: dict | None = None):
         "e20100": a["charity_non_cash"],
         "e20400": a["employee_expenses"],
         "e32800": a["child_care"],
-        "PT_SSTB_income": int(sstb > 0 and sstb >= other_qbi),
-        "PT_ubia_property": a["ubia"] + (a["sstb_ubia"] if sstb > 0 else 0.0),
+        "PT_SSTB_income": int(sstb_selected),
+        "PT_ubia_property": a["ubia"] + (a["sstb_ubia"] if sstb != 0 else 0.0),
         "overtime_income": sum(f.overtime_premium for f in unit.filers),
         # unit.READINGS["tips"]: stated tips are not qualified tips (occupation unstated).
         "tip_income": 0.0,
@@ -223,7 +280,9 @@ def _compensation(filer: U.Filer) -> float:
     """26 U.S.C. 219(f)(1): wages in gross income plus net self-employment earnings less the
     deduction for half of self-employment tax (the wage-base cap is ignored: it cannot bind
     at the amounts where compensation limits a contribution)."""
-    net = filer.self_employment
+    # 401(c)(2): earned income from Schedule C and F only; a partner's self-employment
+    # earnings are not, since the partner's services are not stated (READINGS["passive_activity"]).
+    net = filer.schedule_c + filer.schedule_f
     half_se_tax = 0.5 * 0.153 * 0.9235 * net if net * 0.9235 >= 400 else 0.0
     # 401(c)(2)(A)(v): earned income is also net of the self-employed pension deduction
     # (policyengine-us ira_compensation.py subtracts it too).
@@ -289,6 +348,11 @@ def after_pass(pass_number: int, row: dict, unit: U.Unit, agi: float, computed: 
         row["e07240"] = credit
         if credit:
             computed.append("income_tax: saver's credit figured under 26 U.S.C. 25B before the limit to tax (reading: " + U.READINGS["savers_credit"] + ")")
+        # 26 U.S.C. 72(t): the medical exception needs AGI (READINGS["retirement_penalty"]).
+        penalty = S.early_distribution_tax(unit.amounts["early_distributions"], unit.amounts["medical"], agi)
+        if penalty:
+            row["e09900"] = penalty
+            computed.append("income_tax: additional tax on early distributions figured under 26 U.S.C. 72(t), entered as e09900; policyengine-us takes it as an input with no formula and the board states none")
     return row
 
 

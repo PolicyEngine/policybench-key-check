@@ -90,7 +90,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": {
     "name": "spouse",
@@ -108,7 +114,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 3467.430419921875,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "dependents": [],
    "left_out": [],
@@ -131,10 +143,16 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 19650.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 19650.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
     "hsa_deduction": 0.0,
     "domestic_production": 0.0,
     "medical": 2700.0,
@@ -149,7 +167,20 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
@@ -158,15 +189,27 @@
     ],
     [
      "income_tax",
+     "spouse: Schedule C or F earnings and person-paid premiums, but a stated has_esi of the filer or spouse is eligibility for an employer's subsidized plan, which bars the 26 U.S.C. 162(l) deduction (162(l)(2)(B)); the premiums stay in medical expenses"
+    ],
+    [
+     "income_tax",
+     "reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true)."
+    ],
+    [
+     "income_tax",
+     "the maps read 19,650.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive"
+    ],
+    [
+     "income_tax",
+     "reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit."
+    ],
+    [
+     "income_tax",
      "reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
     ],
     [
      "income_tax",
      "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
-    ],
-    [
-     "income_tax",
-     "reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
     ]
    ],
    "members_with_own_payroll": [],
@@ -180,7 +223,8 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": []
   },
   "2025": {
    "case_id": "scenario_089",
@@ -203,7 +247,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 0.0,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "spouse": {
     "name": "spouse",
@@ -221,7 +271,13 @@
     "educator_expense": 0.0,
     "retirement_distributions": 0.0,
     "overtime_premium": 3467.430419921875,
-    "tips": 0.0
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
    },
    "dependents": [],
    "left_out": [],
@@ -244,10 +300,16 @@
     "rental": 0.0,
     "farm_rent": 0.0,
     "partnership_s_corp": 19650.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 19650.0,
+    "rental_qbi": 0,
     "estate": 0.0,
     "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
     "disability_benefits": 0.0,
     "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
     "hsa_deduction": 0.0,
     "domestic_production": 0.0,
     "medical": 2700.0,
@@ -262,7 +324,20 @@
     "ubia": 0.0,
     "sstb_ubia": 0.0,
     "reit_ptp": 0.0,
-    "survivor_benefits": 0.0
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
    },
    "notes": [
     [
@@ -271,15 +346,27 @@
     ],
     [
      "income_tax",
+     "spouse: Schedule C or F earnings and person-paid premiums, but a stated has_esi of the filer or spouse is eligibility for an employer's subsidized plan, which bars the 26 U.S.C. 162(l) deduction (162(l)(2)(B)); the premiums stay in medical expenses"
+    ],
+    [
+     "income_tax",
+     "reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true)."
+    ],
+    [
+     "income_tax",
+     "the maps read 19,650.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive"
+    ],
+    [
+     "income_tax",
+     "reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit."
+    ],
+    [
+     "income_tax",
      "reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
     ],
     [
      "income_tax",
      "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
-    ],
-    [
-     "income_tax",
-     "reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
     ]
    ],
    "members_with_own_payroll": [],
@@ -293,7 +380,8 @@
      "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
     ]
    ],
-   "disabled_reading": []
+   "disabled_reading": [],
+   "care_individuals": []
   }
  },
  "committed_key": {
@@ -1067,7 +1155,7 @@
    "in_e00900s": 30335.29,
    "in_e00900": 30335.29,
    "in_e02000": 19650.0,
-   "in_e26270": 19650.0,
+   "in_e27200": 19650.0,
    "in_e03150": 577.02,
    "in_e17500": 2700.0,
    "in_e18400": 3738.73,
@@ -1110,12 +1198,16 @@
    "q_fed_employee_payroll_tax": 5039.91,
    "unexpressed": [
     "income_tax: head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)",
+    "income_tax: spouse: Schedule C or F earnings and person-paid premiums, but a stated has_esi of the filer or spouse is eligibility for an employer's subsidized plan, which bars the 26 U.S.C. 162(l) deduction (162(l)(2)(B)); the premiums stay in medical expenses",
+    "income_tax: reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true).",
+    "income_tax: the maps read 19,650.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
     "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
-    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
-    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
    ],
    "map_computed": [
     "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
+    "income_tax: partnership and S corporation income other than partners' self-employment earnings is entered as e27200 (with e02000), so it counts as net investment income and EITC investment income, as passive income does (26 U.S.C. 1411(c)(2)(A), 32(i)(2)(D)); e26270 holds only the self-employment earnings",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
    ]
   },
@@ -1131,7 +1223,7 @@
    "in_e00900s": 30335.29,
    "in_e00900": 30335.29,
    "in_e02000": 19650.0,
-   "in_e26270": 19650.0,
+   "in_e27200": 19650.0,
    "in_e03150": 577.02,
    "in_e17500": 2700.0,
    "in_e18400": 3982.36,
@@ -1174,12 +1266,16 @@
    "q_fed_employee_payroll_tax": 5039.91,
    "unexpressed": [
     "income_tax: head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)",
+    "income_tax: spouse: Schedule C or F earnings and person-paid premiums, but a stated has_esi of the filer or spouse is eligibility for an employer's subsidized plan, which bars the 26 U.S.C. 162(l) deduction (162(l)(2)(B)); the premiums stay in medical expenses",
+    "income_tax: reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true).",
+    "income_tax: the maps read 19,650.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
     "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
-    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
-    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated."
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
    ],
    "map_computed": [
     "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
+    "income_tax: partnership and S corporation income other than partners' self-employment earnings is entered as e27200 (with e02000), so it counts as net investment income and EITC investment income, as passive income does (26 U.S.C. 1411(c)(2)(A), 32(i)(2)(D)); e26270 holds only the self-employment earnings",
     "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
    ]
   },
@@ -1216,13 +1312,15 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)",
+    "income_tax: spouse: Schedule C or F earnings and person-paid premiums, but a stated has_esi of the filer or spouse is eligibility for an employer's subsidized plan, which bars the 26 U.S.C. 162(l) deduction (162(l)(2)(B)); the premiums stay in medical expenses",
+    "income_tax: reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true).",
+    "income_tax: the maps read 19,650.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
     "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
     "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
-    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated.",
     "income_tax: TAXSIM has no input for qualified overtime compensation (26 U.S.C. 225)",
-    "income_tax: partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income",
     "income_tax: this build has no 2026 minimum qualified business income deduction (26 U.S.C. 199A(i))",
-    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from the earned income of the EITC (probe P7.1) and of the refundable child credit (board 038); the law's earned income (26 U.S.C. 32(c)(2), which 24(d)(1)(B)(i) also uses) is not reduced by them"
    ],
    "map_computed": [
     "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
@@ -1263,12 +1361,14 @@
    "status": "ok",
    "unexpressed": [
     "income_tax: head: 401(k) deferrals above wages, limited to wages in proportion (reading: 401(k) deferrals, traditional and Roth together, are limited to the filer's own wages: a deferral comes out of pay, and no self-employed plan is stated.)",
+    "income_tax: spouse: Schedule C or F earnings and person-paid premiums, but a stated has_esi of the filer or spouse is eligibility for an employer's subsidized plan, which bars the 26 U.S.C. 162(l) deduction (162(l)(2)(B)); the premiums stay in medical expenses",
+    "income_tax: reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true).",
+    "income_tax: the maps read 19,650.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
     "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
     "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
-    "income_tax: reading: A self-employed filer's stated premiums go to itemized medical expenses, not the 26 U.S.C. 162(l) deduction: whether the plan was established under the business is not stated.",
     "income_tax: TAXSIM has no input for qualified overtime compensation (26 U.S.C. 225)",
-    "income_tax: partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income",
-    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c)(2)) is not reduced by them"
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from the earned income of the EITC (probe P7.1) and of the refundable child credit (board 038); the law's earned income (26 U.S.C. 32(c)(2), which 24(d)(1)(B)(i) also uses) is not reduced by them"
    ],
    "map_computed": [
     "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",

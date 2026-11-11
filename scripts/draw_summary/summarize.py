@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pe_checks as PC
-from families import COMMON_MISSING, family
+from families import COMMON_MISSING, ONLY_TAXCALC, family
 from pe_checks import read_rows
 
 from keycheck import households as H
@@ -89,11 +89,12 @@ def explanation(cls, case, quantity):
     if cls == "two_agree:taxsim":
         return sorted({f for f in ts if f[0] == "taxsim"}), bool(ts)
     if cls == "two_agree:taxcalc":
-        return sorted({f for f in tc if f[0] == "taxcalc"}), bool(tc)
+        return sorted({f for f in tc if f[0] == "taxcalc"} | {ONLY_TAXCALC[f] for f in ts if f in ONLY_TAXCALC}), bool(tc)
     if cls == "two_agree:policyengine":
         return sorted(pe_apart(tc, ts, case, quantity)), bool(tc & ts)
     if cls == "all_differ":
-        return sorted({f for f in tc | ts if f[0] in ("taxsim", "taxcalc")} | pe_apart(tc, ts, case, quantity)), bool(tc | ts)
+        return sorted({f for f in tc | ts if f[0] in ("taxsim", "taxcalc")} | pe_apart(tc, ts, case, quantity)
+                      | {ONLY_TAXCALC[f] for f in ts if f in ONLY_TAXCALC}), bool(tc | ts)
     return [], False
 
 STATED_SKIP = U.NON_TAX_INPUTS | U.MEMO_INPUTS
@@ -114,7 +115,7 @@ md.append("")
 md.append("scripts/draw_summary/summarize.py writes this page and its CSV from the git-ignored local draw files (the board column of the composition table comes from the committed dossiers and board Tax-Calculator run). "
           "This summary compares PolicyEngine (policyengine-us 2.60.0 with the board's conventions), "
           "Tax-Calculator 6.9.0 and NBER TAXSIM (build cd2026110117) on the 1,000 households of the draw "
-          "(seed 20261110), for tax year 2026. The input maps are keycheck version 2026-11-10.3. No committed "
+          "(seed 20261110), for tax year 2026. The input maps are keycheck version " + U.VERSION + ". No committed "
           "key exists for the draw, so PolicyEngine's own run stands as its answer. Two answers agree when they "
           "differ by no more than $1. The record-level files stay out of git; this page and its CSV hold "
           "aggregates only.")
@@ -173,10 +174,13 @@ md.append("For each household and line where the models do not all agree, this s
           "explains the difference in kind. A cell counts as explained when one of these holds for the model that stands apart:")
 md.append("")
 md.append("- TAXSIM or Tax-Calculator apart: that model's map carries a note of its own on the line, for a fact the map "
-          "could not express or a limit of the model (several found by probes of the TAXSIM build).")
+          "could not express or a limit of the model (several found by probes of the TAXSIM build); for Tax-Calculator, "
+          "also the additional tax on early distributions (26 U.S.C. 72(t)), which only its map can send.")
 md.append("- PolicyEngine apart (it carries no notes): both maps carry a note that names PolicyEngine's different treatment "
-          "(its full deduction of investment interest, its looser 162(l) limit, its default divorce year for alimony, its "
-          "default that rent is qualified business income, its count of care expenses); or both maps note a fact that "
+          "(its full deduction of investment interest, its 162(l) deduction, its default divorce year for alimony, its "
+          "default that rent is qualified business income, its count of care expenses, no passive activity loss limit, "
+          "the stated HSA deduction taken whole, a scholarship or survivor benefits left out of income, the Alaska "
+          "dividend it adds); or both maps note a fact that "
           "neither Tax-Calculator nor TAXSIM can take, so those two agree without it; or PolicyEngine's own run shows it "
           "took the other side of a reading both maps share (it claims a member the maps leave out, it does not count a "
           "disabled adult as an EITC child, it files a different status, or its medical expense deduction exceeds the "
@@ -234,16 +238,12 @@ def observation(case):
     pe, tc, ts = PE_RUN[case], TC_ROWS[case], TS_ROWS[case]
     v = lambda name: float(pe[name]["value"])
     agi = {"pe": v("adjusted_gross_income"), "tc": float(tc["out_c00100"]), "ts": float(ts["out_v10"])}
-    misc = sum(H.amount(p, "miscellaneous_income") for p in H.people(draw[case]))
     gap = agi["pe"] - agi["tc"]
     if abs(agi["tc"] - agi["ts"]) <= 1 and gap > 1:
-        if misc < 0 and abs(gap + misc) <= 1:
-            return (f"PolicyEngine's AGI exceeds both maps' by {gap:,.2f}, the size of the stated negative miscellaneous "
-                    "income, which both maps subtract (no reading covers a negative amount there)")
         return f"PolicyEngine's AGI exceeds both maps' by {gap:,.2f}; the saved run does not show the source"
     if abs(gap) <= 1 and v("savers_credit") > 0 and float(tc.get("in_e07240") or 0) == 0:
         return (f"AGI and taxable income agree; PolicyEngine's run allows a saver's credit of {v('savers_credit'):,.2f}, "
-                "where the maps' statute figure is 0 (the household states taxable pension income)")
+                "where the maps' statute figure is 0")
     return "AGI and taxable income agree across the three; not traced further"
 
 md.append("## The largest unexplained differences")

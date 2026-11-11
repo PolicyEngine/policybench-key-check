@@ -222,12 +222,20 @@ def test_taxsim_record_conserves_wages_and_adjustments(h, year):
         assert record["ltcg"] == a["long_term_gains"] + a["capital_gain_distributions"]
 
 
-def test_rental_loss_goes_to_intrec_and_is_noted():
+def test_rental_loss_is_suspended_and_estate_loss_goes_to_intrec():
+    # Items 3 and 8: a rental loss with no passive income is disallowed (469(a)); the
+    # allowed amount (0) reaches `intrec`, and the 469 computation is named.
     head = person("head", 40, 50_000, rental_income=-3_000, taxable_interest_income=1_000)
+    record, unit, unexpressed, computed = MS.first_pass(household(head), 2026)
+    assert record["intrec"] == 1_000 and record["scorp"] == 0
+    assert any("469(a)" in n for n in computed)
+    assert any(U.READINGS["rental_qbi"] in n for n in unexpressed)
+    assert any(U.READINGS["passive_activity"] in n for n in unexpressed)
+    # Estate income as stated is the nonpassive part: its loss still reaches `intrec`.
+    head = person("head", 40, 50_000, estate_income=-3_000, taxable_interest_income=1_000)
     record, unit, unexpressed, _ = MS.first_pass(household(head), 2026)
     assert record["intrec"] == -2_000 and record["scorp"] == 0
     assert any("offsets interest" in n for n in unexpressed)
-    assert any(U.READINGS["rental_qbi"] in n for n in unexpressed)
 
 
 def test_final_notes_depend_on_taxsims_answer():
@@ -414,8 +422,9 @@ def test_taxsim_rate_gains_and_care_notes():
 
 def test_taxsim_se_box_loss_is_noted():
     # Probes P7.4 and D4: a loss in `psemp` does not offset `pprofinc` for self-employment tax.
+    # A Schedule C loss beside SSTB earnings (a partnership loss would be suspended by 469).
     head = person("head", 50, 0.0, sstb_self_employment_income_before_lsr=20_000,
-                  partnership_income=-10_000, partnership_self_employment_net_earnings=-10_000)
+                  self_employment_income=-10_000)
     record, unit, unexpressed, _ = MS.first_pass(household(head), 2026)
     assert record["psemp"] == -10_000 and record["pprofinc"] == 20_000
     se = [n for n in unexpressed if n.startswith("self_employment:") and "does not net a loss" in n]
@@ -491,3 +500,160 @@ def test_taxsim_zero_rate_band_property(gains, ordinary, joint):
     band = min(build, taxable) - max(law, taxable - preferred)
     assert len(notes) == int(round(gains, 2) > 0 and 0.15 * band >= 1)
     assert band <= build - law + 1e-6                          # never more than the gap between the two ends
+
+
+# Map version 2026-11-11.1: routes and notes item by item -------------------------------
+
+
+def test_scholarship_and_survivor_routes():
+    # Items 1-2: taxable, and not earned income in either engine.
+    head = person("head", 40, 20_000, educational_assistance=6_000, survivor_benefits=12_000)
+    row, _, unexpressed, _ = MT.row(household(head), 2026)
+    assert row["e01200"] == 6_000 and row["e01500"] == 12_000 and row["e01700"] == 12_000
+    assert any("taxable scholarship" in n for n in unexpressed)
+    record, _, unexpressed, _ = MS.first_pass(household(head), 2026)
+    assert record["pensions"] == 18_000 and record["nonprop"] == 0
+    assert any("a taxable scholarship" in n for n in unexpressed)
+
+
+def test_early_distribution_tax_routes():
+    # Item 4: Tax-Calculator e09900 after the AGI pass; TAXSIM has no input, so a note.
+    head = person("head", 45, 30_000, taxable_ira_distributions=5_000)
+    row, unit, _, computed = MT.row(household(head), 2026)
+    assert "e09900" not in row
+    after = MT.after_pass(3, row, unit, 35_000.0, computed)
+    assert after["e09900"] == 500
+    assert any("72(t)" in n and "e09900" in n for n in computed)
+    record, unit, unexpressed, computed = MS.first_pass(household(head), 2026)
+    MS.after_pass(3, record, unit, 35_000.0, computed, unexpressed, {})
+    assert any("72(t)" in n and "500.00" in n for n in unexpressed)
+    # Past 59: nothing.
+    old = person("head", 60, 30_000, taxable_ira_distributions=5_000)
+    row, unit, _, computed = MT.row(household(old), 2026)
+    assert "e09900" not in MT.after_pass(3, row, unit, 35_000.0, computed)
+
+
+def test_charity_ceilings_in_taxsim_and_note_for_taxcalc():
+    # Item 5: TAXSIM's `mortgage` carries the 170(b)(1) deduction; Tax-Calculator's own is noted where it differs.
+    head = person("head", 40, 100_000, charitable_cash_donations=70_000)
+    record, unit, unexpressed, computed = MS.first_pass(household(head), 2025)
+    after = MS.after_pass(3, record, unit, 100_000.0, computed, unexpressed, {})
+    assert after["mortgage"] == 60_000
+    head = person("head", 40, 100_000, charitable_cash_donations=10_000, charitable_non_cash_donations=40_000)
+    record, unit, unexpressed, computed = MS.first_pass(household(head), 2025)
+    assert MS.after_pass(3, record, unit, 100_000.0, computed, unexpressed, {})["mortgage"] == 50_000
+    notes = MT.itemizer_notes(unit, None, 100_000.0, 40_000.0)                    # Tax-Calculator: 30% non-cash
+    assert any("170(b)(1) as read here gives 50,000.00" in n for n in notes)
+    assert not any("170(b)(1) as read here" in n for n in MT.itemizer_notes(unit, None, 100_000.0, 50_000.0))
+
+
+def test_hsa_limit_routes():
+    # Item 6.
+    h = household(person("head", 40, 80_000), health_savings_account_ald=10_000)
+    row, _, _, computed = MT.row(h, 2026)
+    assert row["e03290"] == 4_400 and any("223(b)" in n for n in computed)
+    record, _, _, computed = MS.first_pass(h, 2026)
+    assert record["nonprop"] == -4_400 and any("223(b)" in n for n in computed)
+
+
+def test_sstb_flag_follows_the_larger_amount_in_size():
+    # Item 7 (033): an SSTB loss with no other qualified business income marks the unit SSTB.
+    head = person("head", 40, 40_000, sstb_self_employment_income_before_lsr=-11_400,
+                  sstb_unadjusted_basis_qualified_property=5_000)
+    row, *_ = MT.row(household(head), 2026)
+    assert row["PT_SSTB_income"] == 1 and row["PT_ubia_property"] == 5_000
+    head = person("head", 40, 40_000, sstb_self_employment_income_before_lsr=-1_000, self_employment_income=6_000)
+    assert MT.row(household(head), 2026)[0]["PT_SSTB_income"] == 0     # other QBI 5,000 vs SSTB 1,000
+    head = person("head", 40, 40_000, self_employment_income=6_000)
+    assert MT.row(household(head), 2026)[0]["PT_SSTB_income"] == 0
+
+
+def test_rental_and_partnership_qbi_routes():
+    # Item 8: a qualified rental to e27200 and `scorp`; one that is not to e02000 only and `intrec`.
+    qualified = person("head", 40, 30_000, rental_income=4_000, unadjusted_basis_qualified_property=49_921)
+    row, *_ = MT.row(household(qualified), 2026)
+    assert row["e27200"] == 4_000 and row["e02000"] == 4_000 and row["e26270"] == 0
+    record, *_ = MS.first_pass(household(qualified), 2026)
+    assert record["scorp"] == 4_000 and record["intrec"] == 0
+    plain = person("head", 40, 30_000, rental_income=4_000)
+    row, *_ = MT.row(household(plain), 2026)
+    assert row["e27200"] == 0 and row["e02000"] == 4_000
+    record, *_ = MS.first_pass(household(plain), 2026)
+    assert record["scorp"] == 0 and record["intrec"] == 4_000
+    # Item 3: a partner's self-employment earnings to e26270 and the self-employment box; the
+    # rest of the share to e27200 (net investment income) and `scorp`.
+    partner = person("head", 40, 0.0, partnership_income=10_000, partnership_self_employment_net_earnings=6_000)
+    row, _, _, computed = MT.row(household(partner), 2026)
+    assert row["e26270"] == 6_000 and row["e27200"] == 4_000 and row["e02000"] == 10_000
+    assert any("e27200" in n and "1411(c)(2)(A)" in n for n in computed)
+    record, *_ = MS.first_pass(household(partner), 2026)
+    assert record["psemp"] == 6_000 and record["scorp"] == 4_000
+
+
+def test_minimum_qbi_deduction_counts_only_active_income():
+    # 199A(i) (2026): partnership income alone is passive; Tax-Calculator tests all QBI.
+    # The Tax-Calculator note fires only where its deduction sits at the floor it applied.
+    partner = person("head", 40, 30_000, partnership_income=1_500)
+    _, unit, _, _ = MT.row(household(partner), 2026)
+    notes = MT.final_notes(unit, 400.0)
+    assert len(notes) == 1 and "1,500" in notes[0] and "gives no minimum" in notes[0]
+    assert MT.final_notes(unit, 900.0) == []                  # the floor did not bind
+    _, unit, _, _ = MT.row(household(partner), 2025)
+    assert MT.final_notes(unit, 400.0) == []                  # no minimum before 2026
+    _, _, unexpressed, _ = MS.first_pass(household(partner), 2026)
+    assert not any("no 2026 minimum qualified business income deduction" in n for n in unexpressed)
+    # Active income of 1,200 beside a passive loss: the statute's floor applies, Tax-Calculator's does not.
+    mixed = person("head", 40, 30_000, self_employment_income=1_200, partnership_income=-500, rental_income=900)
+    _, unit, _, _ = MT.row(household(mixed), 2026)
+    assert unit.amounts["partnership_s_corp"] == -500
+    notes = MT.final_notes(unit, 140.0)
+    assert len(notes) == 1 and "raises the deduction from 140.00 to $400" in notes[0]
+    active = person("head", 40, 30_000, self_employment_income=5_000)
+    _, unit, _, _ = MT.row(household(active), 2026)
+    assert MT.final_notes(unit, 400.0) == []
+    _, _, unexpressed, _ = MS.first_pass(household(active), 2026)
+    assert any("no 2026 minimum qualified business income deduction" in n for n in unexpressed)
+
+
+def test_self_employed_health_insurance_038_routes():
+    # Item 9.
+    head = person("head", 40, 0.0, self_employment_income=15_525, health_insurance_premiums_without_medicare_part_b=100)
+    row, _, _, computed = MT.row(household(head), 2026)
+    assert row["e03270"] == 100 and row["e17500"] == 0
+    record, *_ = MS.first_pass(household(head), 2026)
+    assert record["nonprop"] == -100
+
+
+def test_negative_miscellaneous_enters_as_zero():
+    # Item 11.
+    head = person("head", 40, 30_000, miscellaneous_income=-500)
+    row, *_ = MT.row(household(head), 2026)
+    assert row["e01200"] == 0
+    record, *_ = MS.first_pass(household(head), 2026)
+    assert record["pensions"] == 0 and record["nonprop"] == 0
+
+
+def _ctc_notes(notes):
+    return [n for n in notes if "child tax credit out at 5%" in n]
+
+
+def test_taxsim_child_credit_phase_out_note():
+    # Item 11, probes fixmaps2_ctc_phaseout_depNN: joint, two children, AGI 409,940.53: the
+    # statute takes 500, the build 497.03; at 401,000 both take 50.
+    h = household(person("head", 40, 400_000), person("spouse", 40), [person("child1", 5), person("child2", 8)])
+    record, unit, _, _ = MS.first_pass(h, 2026)
+    notes = _ctc_notes(MS.final_notes(record, unit, {"v10": 409_940.53}))
+    assert len(notes) == 1 and "500.00" in notes[0] and "497.03" in notes[0]
+    assert _ctc_notes(MS.final_notes(record, unit, {"v10": 401_000.0})) == []
+    assert _ctc_notes(MS.final_notes(record, unit, {"v10": 399_000.0})) == []
+    assert len(_ctc_notes(MS.final_notes(record, unit, {"v10": 400_000.01}))) == 1
+
+
+@settings(max_examples=200)
+@given(st.floats(min_value=350_000, max_value=600_000, allow_nan=False).map(lambda x: round(x, 2)))
+def test_taxsim_child_credit_note_property(agi):
+    h = household(person("head", 40, 400_000), person("spouse", 40), [person("child1", 5), person("child2", 8)])
+    record, unit, _, _ = MS.first_pass(h, 2026)
+    law = min(4_400.0, S.child_credit_reduction(S.JOINT, agi))
+    build = min(4_400.0, 0.05 * max(0.0, agi - 400_000))
+    assert len(_ctc_notes(MS.final_notes(record, unit, {"v10": agi}))) == int(abs(law - build) >= 1)
