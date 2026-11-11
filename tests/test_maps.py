@@ -156,7 +156,7 @@ def test_disabled_adult_without_earnings_is_an_eitc_child():
     assert MS.needs_eitc_record(unit) and MS.eitc_record(record, unit)["dep18"] == 1
 
 
-@settings(max_examples=400)
+@settings(max_examples=400, deadline=None)  # a loaded host overruns the 200 ms default
 @given(households())
 def test_2026_counts_respect_the_builds_order(h):
     record, unit, _, _ = MS.first_pass(h, 2026)

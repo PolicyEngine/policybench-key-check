@@ -1,6 +1,6 @@
 # The 1,000-household draw: three models compared (tax year 2026)
 
-This summary compares PolicyEngine (policyengine-us 2.60.0 with the board's conventions), Tax-Calculator 6.9.0 and NBER TAXSIM (build cd2026110117) on the 1,000 households of the draw (seed 20261110), for tax year 2026. The input maps are keycheck version 2026-11-10.3. No committed key exists for the draw, so PolicyEngine's own run stands as its answer. Two answers agree when they differ by no more than $1. The record-level files stay out of git; this page and its CSV hold aggregates only.
+scripts/draw_summary/summarize.py writes this page and its CSV from the git-ignored local draw files (the board column of the composition table comes from the committed dossiers and board Tax-Calculator run). This summary compares PolicyEngine (policyengine-us 2.60.0 with the board's conventions), Tax-Calculator 6.9.0 and NBER TAXSIM (build cd2026110117) on the 1,000 households of the draw (seed 20261110), for tax year 2026. The input maps are keycheck version 2026-11-10.3. No committed key exists for the draw, so PolicyEngine's own run stands as its answer. Two answers agree when they differ by no more than $1. The record-level files stay out of git; this page and its CSV hold aggregates only.
 
 ## Agreement by line
 

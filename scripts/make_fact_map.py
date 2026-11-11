@@ -134,9 +134,9 @@ FACTS = {
     ("tax_unit", "second_home_mortgage_interest"): ("", "", "", "none", "the board's builder drops it"),
 }
 
-# Inputs only the 1,000-household draw states . The
-# effect column follows the reader's trace of policyengine-us 2.60.0
-# (evidence/traces/draw-inputs.md F1-F14); the fields are the ones keycheck's maps send.
+# Inputs only the 1,000-household draw states. The effect column follows the reader's trace
+# of policyengine-us 2.60.0 (evidence/traces/draw-inputs.md F1-F14); the fields are the ones
+# keycheck's maps send.
 DRAW_FACTS = {
     ("household", "qualified_passenger_vehicle_loan_interest"): ("", "auto_loan_interest (Tax-Calculator applies the cap and phase-out)", "", "federal", "26 U.S.C. 163(h)(4) from 2025; TAXSIM has no input, and its note gives the statute's size at TAXSIM's AGI"),
     ("person", "bond_assets"): NONE,
