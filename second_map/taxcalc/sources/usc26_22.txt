@@ -1,0 +1,61 @@
+
+(a) General rule
+In the case of a qualified individual, there shall be allowed as a credit against the tax imposed by this chapter for the taxable year an amount equal to 15 percent of such individual’s section 22 amount for such taxable year.
+(b) Qualified individualFor purposes of this section, the term “qualified individual” means any individual—
+(1)
+ who has attained age 65 before the close of the taxable year, or
+(2)
+ who retired on disability before the close of the taxable year and who, when he retired, was permanently and totally disabled.
+(c) Section 22 amountFor purposes of subsection (a)—
+(1) In general
+An individual’s section 22 amount for the taxable year shall be the applicable initial amount determined under paragraph (2), reduced as provided in paragraph (3) and in subsection (d).
+(2) Initial amount
+(A) In generalExcept as provided in subparagraph (B), the initial amount shall be—
+(i)
+ $5,000 in the case of a single individual, or a joint return where only one spouse is a qualified individual,
+(ii)
+ $7,500 in the case of a joint return where both spouses are qualified individuals, or
+(iii)
+ $3,750 in the case of a married individual filing a separate return.
+(B) Limitation in case of individuals who have not attained age 65
+(i) In general
+In the case of a qualified individual who has not attained age 65 before the close of the taxable year, except as provided in clause (ii), the initial amount shall not exceed the disability income for the taxable year.
+(ii) Special rules in case of joint returnIn the case of a joint return where both spouses are qualified individuals and at least one spouse has not attained age 65 before the close of the taxable year—
+(I)
+ if both spouses have not attained age 65 before the close of the taxable year, the initial amount shall not exceed the sum of such spouses’ disability income, or
+(II)
+ if one spouse has attained age 65 before the close of the taxable year, the initial amount shall not exceed the sum of $5,000 plus the disability income for the taxable year of the spouse who has not attained age 65 before the close of the taxable year.
+(iii) Disability income
+For purposes of this subparagraph, the term “disability income” means the aggregate amount includable in the gross income of the individual for the taxable year under section 72 or 105(a) to the extent such amount constitutes wages (or payments in lieu of wages) for the period during which the individual is absent from work on account of permanent and total disability.
+(3) Reduction
+(A) In generalThe reduction under this paragraph is an amount equal to the sum of the amounts received by the individual (or, in the case of a joint return, by either spouse) as a pension or annuity or as a disability benefit—
+(i) which is excluded from gross income and payable under—
+(I)
+ title II of the Social Security Act,
+(II)
+ the Railroad Retirement Act of 1974, or
+(III)
+ a law administered by the Department of Veterans Affairs, or
+(ii)
+ which is excluded from gross income under any provision of law not contained in this title.
+No reduction shall be made under clause (i)(III) for any amount described in section 104(a)(4).
+(B) Treatment of certain workmen’s compensation benefits
+For purposes of subparagraph (A), any amount treated as a social security benefit under section 86(d)(3) shall be treated as a disability benefit received under title II of the Social Security Act.
+(d) Adjusted gross income limitationIf the adjusted gross income of the taxpayer exceeds—
+(1)
+ $7,500 in the case of a single individual,
+(2)
+ $10,000 in the case of a joint return, or
+(3)
+ $5,000 in the case of a married individual filing a separate return,
+the section 22 amount shall be reduced by one-half of the excess of the adjusted gross income over $7,500, $10,000, or $5,000, as the case may be.
+(e) Definitions and special rulesFor purposes of this section—
+(1) Married couple must file joint return
+Except in the case of a husband and wife who live apart at all times during the taxable year, if the taxpayer is married at the close of the taxable year, the credit provided by this section shall be allowed only if the taxpayer and his spouse file a joint return for the taxable year.
+(2) Marital status
+Marital status shall be determined under section 7703.
+(3) Permanent and total disability defined
+An individual is permanently and totally disabled if he is unable to engage in any substantial gainful activity by reason of any medically determinable physical or mental impairment which can be expected to result in death or which has lasted or can be expected to last for a continuous period of not less than 12 months. An individual shall not be considered to be permanently and totally disabled unless he furnishes proof of the existence thereof in such form and manner, and at such times, as the Secretary may require.
+(f) Nonresident alien ineligible for credit
+No credit shall be allowed under this section to any nonresident alien.
+(Aug. 16, 1954, ch. 736, 68A Stat. 15, § 37; Aug. 9, 1955, ch. 659, § 1, 69 Stat. 591; Jan. 28, 1956, ch. 17, § 1, 70 Stat. 8; Pub. L. 87–792, § 7(a), Oct. 10, 1962, 76 Stat. 828; Pub. L. 87–876, § 1, Oct. 24, 1962, 76 Stat. 1199; Pub. L. 88–272, title I, § 113(a), title II, §§ 201(d)(3), 202(a), Feb. 26, 1964, 78 Stat. 24, 32, 33; Pub. L. 93–406, title II, § 2002(g)(1), Sept. 2, 1974, 88 Stat. 968; Pub. L. 94–455, title V, § 503(a), title XIX, § 1901(c)(1), Oct. 4, 1976, 90 Stat. 1559, 1803; Pub. L. 95–600, title VII, §§ 701(a)(1)–(3), 703(j)(11), Nov. 6, 1978, 92 Stat. 2897, 2942; Pub. L. 96–222, title I, § 107(a)(1)(E)(i), Apr. 1, 1980, 94 Stat. 222; Pub. L. 97–34, title I, § 111(b)(4), Aug. 13, 1981, 95 Stat. 194; Pub. L. 98–21, title I, § 122(a), Apr. 20, 1983, 97 Stat. 85; renumbered § 22 and amended Pub. L. 98–369, div. A, title IV, §§ 471(c), 474(d), July 18, 1984, 98 Stat. 826, 830; Pub. L. 99–514, title XIII, § 1301(j)(8), Oct. 22, 1986, 100 Stat. 2658; Pub. L. 115–141, div. U, title IV, § 401(a)(2)(A), Mar. 23, 2018, 132 Stat. 1184.)
