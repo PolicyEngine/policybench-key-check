@@ -73,7 +73,7 @@ def main(argv=None) -> None:
             continue
         meta = json.loads(source.with_suffix(".meta.json").read_text())
         shared = {r["case_id"]: r for r in read(args.root / meta["shared"])} if meta.get("shared") else {}
-        shared_run = run.get("inputs_from_other_runs", "")
+        shared_run = run.get("inputs_from_other_runs", "").rpartition("from ")[2]
         for r in read(source):
             case = r["case_id"]
             if run["model"] == "taxcalc":
@@ -88,7 +88,7 @@ def main(argv=None) -> None:
             given = shared.get(case)
             from_other = ""
             if given:
-                from_other = f"state and local income or sales tax paid = {float(given['value']):.2f}, computed by {shared_run or given['source']}"
+                from_other = f"state and local income or sales tax paid = {float(given['value']):.2f}, computed by run {shared_run}" if shared_run else f"state and local income or sales tax paid = {float(given['value']):.2f}, computed by {given['source']}"
             rows.append({
                 **base, "case_id": case,
                 "input_map": meta["input_map"] + " on keycheck/unit.py",
