@@ -18,7 +18,8 @@ from importlib.metadata import version
 YEAR = 2026
 
 
-def build(people: dict[str, dict], system, tax_unit: dict | None = None, household: dict | None = None) -> dict:
+def build(people: dict[str, dict], system, tax_unit: dict | None = None, household: dict | None = None,
+          state: str = "TX") -> dict:
     """A situation with each input placed on the entity the engine defines it for."""
     names = list(people)
     groups = {"tax_unit": dict(tax_unit or {}), "household": dict(household or {})}
@@ -45,7 +46,7 @@ def build(people: dict[str, dict], system, tax_unit: dict | None = None, househo
         "spm_units": {"spm_unit": {"members": names}},
         "families": {"family": {"members": names}},
         "marital_units": marital,
-        "households": {"household": {"members": names, "state_code": {str(YEAR): "TX"}, **yearly(groups["household"])}},
+        "households": {"household": {"members": names, "state_code": {str(YEAR): state}, **yearly(groups["household"])}},
     }
 
 

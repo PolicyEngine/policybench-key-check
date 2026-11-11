@@ -1,0 +1,109 @@
+policyengine-us 2.116.15, tax year 2026, the engine's own rules
+
+== R1 educational assistance beside wages
+   stated: {'head': {'is_tax_unit_head': True, 'age': 20, 'employment_income': 13000, 'educational_assistance': 5000}}
+   irs_gross_income: [13000.0]
+   adjusted_gross_income: [13000.0]
+   taxable_income: [0.0]
+   income_tax_before_refundable_credits: [0.0]
+   law: 26 U.S.C. 117(a)-(b): a scholarship is excluded only for a degree candidate and only as far as it pays tuition and required fees, books, supplies and equipment.
+
+== R2 survivor benefits beside wages
+   stated: {'head': {'is_tax_unit_head': True, 'age': 60, 'employment_income': 20000, 'survivor_benefits': 28800}}
+   irs_gross_income: [20000.0]
+   adjusted_gross_income: [20000.0]
+   taxable_income: [3900.0]
+   income_tax_before_refundable_credits: [390.0]
+   law: 26 U.S.C. 61(a) and 72: a survivor annuity is gross income unless an exclusion applies (101(a) life insurance proceeds, 104(a)(1) workers' compensation, 38 U.S.C. 5301 veterans' benefits).
+
+== R3 a taxable 401(k) distribution at age 48
+   stated: {'head': {'is_tax_unit_head': True, 'age': 48, 'employment_income': 40000, 'taxable_401k_distributions': 20000}}
+   qualified_retirement_penalty: [0.0]
+   irs_gross_income: [60000.0]
+   adjusted_gross_income: [60000.0]
+   taxable_income: [43900.0]
+   income_tax_before_refundable_credits: [5020.0]
+   law: 26 U.S.C. 72(t)(1): 10% additional tax on an early distribution unless an exception of 72(t)(2) applies; here 10% of 20,000.
+
+== R3 variant: the same with qualified_retirement_penalty stated as 2,000
+   stated: {'head': {'is_tax_unit_head': True, 'age': 48, 'employment_income': 40000, 'taxable_401k_distributions': 20000}}; tax unit {'qualified_retirement_penalty': 2000}
+   qualified_retirement_penalty: [2000.0]
+   irs_gross_income: [60000.0]
+   adjusted_gross_income: [60000.0]
+   taxable_income: [43900.0]
+   income_tax_before_refundable_credits: [7020.0]
+   law: As R3: shows whether the engine's line includes the additional tax when the input holds it.
+
+== R4 a net loss from rent and farm rent at wages of 199,000
+   stated: {'head': {'is_tax_unit_head': True, 'age': 45, 'employment_income': 199000, 'rental_income': 2000, 'farm_rent_income': -2446.59}}
+   irs_gross_income: [201000.0]
+   adjusted_gross_income: [198553.40625]
+   taxable_income: [182453.40625]
+   income_tax_before_refundable_credits: [36386.81640625]
+   law: 26 U.S.C. 469(a), (c)(2), (i): a rental activity is passive and its net loss is disallowed; the $25,000 allowance needs active participation and is gone at modified AGI of $150,000.
+
+== R4 variant: a rental loss of 10,000 at wages of 60,000
+   stated: {'head': {'is_tax_unit_head': True, 'age': 45, 'employment_income': 60000, 'rental_income': -10000}}
+   irs_gross_income: [60000.0]
+   adjusted_gross_income: [50000.0]
+   taxable_income: [33900.0]
+   income_tax_before_refundable_credits: [3820.0]
+   law: As R4: within the 469(i) allowance only if the taxpayer actively participates.
+
+== R5 a health savings account deduction of 9,915.44 for a single person aged 20
+   stated: {'head': {'is_tax_unit_head': True, 'age': 20, 'employment_income': 30000}}; tax unit {'health_savings_account_ald': 9915.44}
+   health_savings_account_ald: [9915.4404296875]
+   above_the_line_deductions: [9915.4404296875]
+   adjusted_gross_income: [20084.55859375]
+   law: 26 U.S.C. 223(b): for 2026 at most $4,400 with self-only coverage and $8,750 with family coverage (Rev. Proc. 2025-19).
+
+== R6 a negative miscellaneous income beside wages
+   stated: {'head': {'is_tax_unit_head': True, 'age': 40, 'employment_income': 50000, 'miscellaneous_income': -5000}}
+   irs_gross_income: [50000.0]
+   adjusted_gross_income: [50000.0]
+   taxable_income: [33900.0]
+   income_tax_before_refundable_credits: [3820.0]
+   law: Form 1040 Schedule 1 line 8 takes other income; whether a stated negative amount reduces income depends on what it is, which the household does not state.
+
+== R7 an Alaska resident with wages only
+   stated: {'head': {'is_tax_unit_head': True, 'age': 40, 'employment_income': 49000}}; state AK
+   ak_permanent_fund_dividend: [1000.0]
+   irs_gross_income: [50000.0]
+   adjusted_gross_income: [50000.0]
+   taxable_income: [33900.0]
+   income_tax_before_refundable_credits: [3820.0]
+   law: The Alaska Permanent Fund Dividend is federal gross income (Form 1040 Schedule 1 line 8g); the household states no dividend.
+
+== R8 a saver's credit with a taxable pension distribution above the contribution
+   stated: {'head': {'is_tax_unit_head': True, 'age': 40, 'employment_income': 30000, 'traditional_ira_contributions_desired': 2000, 'taxable_private_pension_income': 3000}}
+   savers_credit: [200.0]
+   adjusted_gross_income: [31000.0]
+   law: 26 U.S.C. 25B(d)(2)(A): distributions from a qualified plan in the testing period reduce the contributions that count; here 2,000 of contributions less 3,000 of distributions leaves nothing.
+
+== R8 variant: the distribution stated as a taxable 401(k) distribution
+   stated: {'head': {'is_tax_unit_head': True, 'age': 40, 'employment_income': 30000, 'traditional_ira_contributions_desired': 2000, 'taxable_401k_distributions': 3000}}
+   savers_credit: [0.0]
+   adjusted_gross_income: [31000.0]
+   law: As R8.
+
+== R9 disability benefits at age 50 with one child
+   stated: {'head': {'is_tax_unit_head': True, 'age': 50, 'disability_benefits': 15000}, 'child': {'age': 10}}
+   taxable_disability_benefits: [15000.0, 0.0]
+   tax_unit_earned_income: [0.0]
+   eitc: [0.0]
+   adjusted_gross_income: [15000.0]
+   law: Employer-paid disability retirement benefits count as earned income for the EITC until the plan's minimum retirement age (IRS Pub. 596); the household does not state the plan or that age.
+
+== R10 rent of 10,000 with unadjusted basis of qualified property stated
+   stated: {'head': {'is_tax_unit_head': True, 'age': 40, 'employment_income': 50000, 'rental_income': 10000, 'unadjusted_basis_qualified_property': 200000}}
+   qualified_business_income: [10000.0]
+   qualified_business_income_deduction: [2000.0]
+   taxable_income: [41900.0]
+   law: 26 U.S.C. 199A(c)(1), (d)(1): qualified business income comes from a qualified trade or business; the household states the basis and not whether the rental is a trade or business.
+
+== R10 variant: the same rent with rental_income_would_be_qualified false
+   stated: {'head': {'is_tax_unit_head': True, 'age': 40, 'employment_income': 50000, 'rental_income': 10000, 'unadjusted_basis_qualified_property': 200000, 'rental_income_would_be_qualified': False}}
+   qualified_business_income: [0.0]
+   qualified_business_income_deduction: [0.0]
+   taxable_income: [43900.0]
+   law: As R10.
