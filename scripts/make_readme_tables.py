@@ -71,10 +71,13 @@ def cell_status() -> str:
     for key, label in STATUSES:
         mine = [r for r in rows if r["status"] == key]
         trivial = sum(1 for r in mine if r["trivial"] == "true")
-        body.append([label, len(mine), sum(1 for r in mine if r["board_scores_it"] == "yes"), trivial])
+        salt = sum(1 for r in mine if r["status_detail"] == "key_salt_amount_itemized")
+        body.append([label, len(mine), sum(1 for r in mine if r["board_scores_it"] == "yes"), trivial, salt])
     body.append(["Total", len(rows), sum(1 for r in rows if r["board_scores_it"] == "yes"),
-                 sum(1 for r in rows if r["trivial"] == "true")])
-    return table(["Status", "Cells", "Of which the board scores", "Of which trivial zeros"], body)
+                 sum(1 for r in rows if r["trivial"] == "true"),
+                 sum(1 for r in rows if r["status_detail"] == "key_salt_amount_itemized")])
+    return table(["Status", "Cells", "Of which the board scores", "Of which trivial zeros",
+                  "Of which every reproducing run itemizes on PolicyEngine's state and local tax amount"], body)
 
 
 def cell_status_by_quantity() -> str:
@@ -107,6 +110,53 @@ def second_map() -> str:
                          pairs[("no", "yes")], pairs[("no", "no")]])
     return table(["Engine", "Line", "Both maps give the key", "Only the first", "Only the second", "Neither"],
                  body, "llrrrr")
+
+
+FIRST_RUNS = {"taxcalc": "taxcalc-6.9.0-2026", "taxsim": "taxsim-cd2026110117-2026"}
+KEY_RUN, KEY_FALLBACK = "pb-reference-2.60.0", "pe-2.60.0-board-2026"
+
+
+def _second_map_cells() -> list[dict]:
+    """Each engine, household and line: the key, the current first map's answer, the second map's."""
+    answers = {}
+    for r in read("results/answers.csv"):
+        if r["case_set"] == "board-100" and r["status"] == "ok" and r["value"] != "":
+            answers[(r["run"], r["case_id"], r["quantity"])] = float(r["value"])
+    out = []
+    for engine, label in (("taxcalc", "Tax-Calculator"), ("taxsim", "TAXSIM")):
+        for r in read(f"second_map/{engine}/answers_2026.csv"):
+            case, line = r["case_id"], r["quantity"]
+            key = answers.get((KEY_RUN, case, line), answers.get((KEY_FALLBACK, case, line)))
+            first = answers[(FIRST_RUNS[engine], case, line)]
+            second = float(r["value"])
+            out.append({"engine": label, "case_id": case, "line": line, "key": key, "first": first, "second": second,
+                        "first_agrees": abs(first - key) <= 1.0, "second_agrees": abs(second - key) <= 1.0})
+    return out
+
+
+def second_map_current() -> str:
+    cells = _second_map_cells()
+    body = []
+    for engine in ("Tax-Calculator", "TAXSIM"):
+        for line, line_label in LINES:
+            mine = [c for c in cells if c["engine"] == engine and c["line"] == line]
+            if len(mine) != 100:
+                raise SystemExit(f"second map {engine} {line}: {len(mine)} households")
+            pairs = Counter((c["first_agrees"], c["second_agrees"]) for c in mine)
+            body.append([engine, line_label, pairs[(True, True)], pairs[(True, False)],
+                         pairs[(False, True)], pairs[(False, False)]])
+    return table(["Engine", "Line", "Both maps give the key", "Only the first", "Only the second", "Neither"],
+                 body, "llrrrr")
+
+
+def second_only_current() -> str:
+    names = dict(LINES)
+    rows = [c for c in _second_map_cells() if c["second_agrees"] and not c["first_agrees"]]
+    body = [[c["engine"], c["case_id"], names[c["line"]], f"{c['key']:,.2f}", f"{c['first']:,.2f}", f"{c['second']:,.2f}"]
+            for c in sorted(rows, key=lambda c: (c["engine"], c["case_id"], c["line"]))]
+    if not body:
+        return "No second map gives the key where the current first map does not."
+    return table(["Engine", "Household", "Line", "Key's answer", "First map", "Second map"], body, "lllrrr")
 
 
 def facts() -> str:
@@ -214,6 +264,8 @@ BLOCKS = {
     "cell-status-by-quantity": cell_status_by_quantity,
     "draw-1000": draw,
     "second-map": second_map,
+    "second-map-current": second_map_current,
+    "second-only-current": second_only_current,
     "facts": facts,
     "causes": causes,
     "contested-scored": contested_scored,

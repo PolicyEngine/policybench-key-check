@@ -98,25 +98,29 @@ into its federal and state parts) one of three statuses, by rules it applies mec
 (`docs/coverage.md` states them):
 
 - **Reproduced by a run of another lineage.** A Tax-Calculator or TAXSIM run gives the key's
-  answer within $1 and no cause entry disputes it. Two runs share a lineage where they share an
-  engine, a convention file, an input map or an input that another run computed. The
-  Tax-Calculator and TAXSIM runs share one input map, so their agreement counts once.
+  answer within $1 and no cause entry disputes it or leaves it open. Two runs share a lineage
+  where they share an engine, a convention file or an input map. The Tax-Calculator and TAXSIM
+  runs share one input map, so their agreement counts once. An input that another run computed
+  does not join two runs into one lineage; it qualifies the cell. Where every reproducing run
+  itemizes on the state and local tax amount that the PolicyEngine run computed, the table's last
+  column counts the cell, so a reader can leave those cells out.
 - **Contested.** A cause entry says the law or the board's rule for unstated facts supports a
   different answer, or that the answer turns on a fact the household does not state.
 - **Resting on PolicyEngine alone.** No other model produces the quantity, or none agrees and no
   entry disputes the key's answer or leaves it open.
 
 <!-- generated:cell-status -->
-| Status | Cells | Of which the board scores | Of which trivial zeros |
-|---|---:|---:|---:|
-| Reproduced by a run of another lineage | 376 | 372 | 123 |
-| Contested | 21 | 8 | 0 |
-| Resting on PolicyEngine alone | 103 | 96 | 36 |
-| Total | 500 | 476 | 159 |
+| Status | Cells | Of which the board scores | Of which trivial zeros | Of which every reproducing run itemizes on PolicyEngine's state and local tax amount |
+|---|---:|---:|---:|---:|
+| Reproduced by a run of another lineage | 376 | 372 | 123 | 10 |
+| Contested | 21 | 8 | 0 | 0 |
+| Resting on PolicyEngine alone | 103 | 96 | 36 | 0 |
+| Total | 500 | 476 | 159 | 10 |
 <!-- /generated -->
 
-A trivial zero is a cell where the key and every agreeing run answer zero, such as the
-self-employment tax of a household with no self-employment income: true, and a weak test.
+A trivial zero is a self-employment tax or payroll tax cell where the key answers zero and the
+household states none of the tax's base (no self-employment income, or no wages): true, and a weak
+test. The income tax lines carry no such flag.
 
 <!-- generated:cell-status-by-quantity -->
 | Quantity | Reproduced by a run of another lineage | Contested | Resting on PolicyEngine alone |
@@ -171,7 +175,10 @@ reproduce for 2026 and for 2025.
 which answer the law supports and why, and any existing report. `results/cause_cells.csv` gives
 the dollars each cause adds to each answer, by household, line and run. `tests/test_causes.py`
 checks that, for every household, line and pair of answers, the difference between the answers
-equals the difference between the sums of their cause amounts within $1.
+equals the difference between the sums of their cause amounts within $1. The test shows that the
+amounts add up to every difference. It does not show that the split among several entries on one
+answer is right: that split rests on the counterfactual runs each row's `basis` names, which the
+test does not rerun.
 `results/cause_positions.csv` gives each entry's position on each household's answer. `docs/causes.md`
 gives the account in prose, and ends with the scored answers an entry would change.
 
@@ -222,15 +229,48 @@ silent choices, and two models fed by one map share them. Four things bound that
 | TAXSIM | Federal employee payroll tax | 100 | 0 | 0 | 0 |
 <!-- /generated -->
 
-   The second maps never give the key where the first do not. Most of the gap is second-map
-   error: the comparers ruled that it took a deduction for vehicle loan interest on facts the
-   board does not state, entered TAXSIM dependents on the input path where the test build's 2026
-   EITC is wrong, and put non-taxable amounts in a TAXSIM field that raises taxable Social
-   Security. The comparison also found places where the first maps left the rule above in ways
-   that matched PolicyEngine: a scholarship and survivor benefits left out of income, a passive
-   loss deducted, and no additional tax on an early retirement distribution. A further builder
-   has applied the rule uniformly since (map version 2026-11-11.1,
-   `evidence/traces/builder-2.md`), and the tables above follow that version.
+   That table compares the second maps with the first maps as they stood at commit 1336819 (map
+   version 2026-11-10.3). Against those first maps, the second maps never gave the key where the
+   first did not. Most of the gap is second-map error: the comparers ruled that it took a
+   deduction for vehicle loan interest on facts the board does not state, entered TAXSIM
+   dependents on the input path where the test build's 2026 EITC is wrong, and put non-taxable
+   amounts in a TAXSIM field that raises taxable Social Security. The comparison also found places
+   where the first maps left the rule above in ways that matched PolicyEngine: a scholarship and
+   survivor benefits left out of income, a passive loss deducted, and no additional tax on an
+   early retirement distribution. A further builder has since revised the first maps on those
+   points (map version 2026-11-11.1, `evidence/traces/builder-2.md`). The agreement, status and
+   shared-input tables on this page follow that version. Against it, the second maps compare as
+   follows:
+
+<!-- generated:second-map-current -->
+| Engine | Line | Both maps give the key | Only the first | Only the second | Neither |
+|---|---|---:|---:|---:|---:|
+| Tax-Calculator | Tax before refundable credits | 72 | 13 | 4 | 11 |
+| Tax-Calculator | Refundable credits | 97 | 3 | 0 | 0 |
+| Tax-Calculator | Self-employment tax | 100 | 0 | 0 | 0 |
+| Tax-Calculator | Federal employee payroll tax | 100 | 0 | 0 | 0 |
+| TAXSIM | Tax before refundable credits | 66 | 6 | 0 | 28 |
+| TAXSIM | Refundable credits | 86 | 9 | 0 | 5 |
+| TAXSIM | Self-employment tax | 100 | 0 | 0 | 0 |
+| TAXSIM | Federal employee payroll tax | 100 | 0 | 0 | 0 |
+<!-- /generated -->
+
+   The cells where a second map gives the key and the current first map does not:
+
+<!-- generated:second-only-current -->
+| Engine | Household | Line | Key's answer | First map | Second map |
+|---|---|---|---:|---:|---:|
+| Tax-Calculator | scenario_023 | Tax before refundable credits | 643.43 | 1,443.43 | 643.43 |
+| Tax-Calculator | scenario_030 | Tax before refundable credits | 0.00 | 190.00 | 0.00 |
+| Tax-Calculator | scenario_068 | Tax before refundable credits | 1,910.02 | 14,728.38 | 1,910.02 |
+| Tax-Calculator | scenario_074 | Tax before refundable credits | 0.00 | 38.40 | 0.00 |
+<!-- /generated -->
+
+   `second_map/taxcalc/notes.csv` gives the blind author's reading on each of those cells: it
+   read the scholarship as excluded from income, and it read the filer in each early-distribution
+   cell listed here as disabled, which excepts the distribution from the additional tax. So on
+   those two facts an author who never saw PolicyEngine's answers gave the key's answer, and the
+   current first maps read the household the other way.
 4. **The record of each run.** `results/runs.csv` says who wrote each run's input map and what
    the run shares with other runs; `results/bindings.csv` says, for each household and run, which
    inputs another run computed, which amounts this repo computed from statute, and which stated
