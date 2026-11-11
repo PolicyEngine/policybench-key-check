@@ -1,0 +1,631 @@
+{
+ "case_id": "scenario_031",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 67,
+    "employment_income": 0.0,
+    "inputs": {
+     "alimony_expense": 1165.0,
+     "bank_account_assets": 4200.0,
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "over_the_counter_health_expenses": 50.0,
+     "social_security_retirement": 9445.470703125,
+     "taxable_ira_distributions": 800.0,
+     "taxable_private_pension_income": 13608.0
+    },
+    "name": "head"
+   }
+  ],
+  "children": [],
+  "country": "us",
+  "filing_status": "single",
+  "household_inputs": {},
+  "id": "scenario_031",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 60752,
+   "tax_unit_id": 149250
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {},
+  "state": "CA",
+  "tax_unit_inputs": {
+   "first_home_mortgage_balance": 77000.0
+  },
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_031",
+   "year": 2026,
+   "state": "CA",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 67,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 800.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 0.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 800.0,
+    "taxable_pensions": 13608.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 9445.470703125,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 1165.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 0.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 77000.0,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  },
+  "2025": {
+   "case_id": "scenario_031",
+   "year": 2025,
+   "state": "CA",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 67,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 800.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 0.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 800.0,
+    "taxable_pensions": 13608.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 9445.470703125,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 1165.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 0.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 77000.0,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 0.0,
+  "federal_refundable_credits": 0.0,
+  "payroll_tax": 0.0,
+  "self_employment_tax": 0.0,
+  "state_income_tax_before_refundable_credits": 0.0
+ },
+ "board_exclusion_records": [],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "adjusted_gross_income": 13243.0,
+   "irs_gross_income": 14408.0,
+   "above_the_line_deductions": 1165.0,
+   "alimony_expense_ald": 1165.0,
+   "tax_unit_social_security": 9445.47,
+   "taxable_income_deductions": 24150.0,
+   "standard_deduction": 18150.0,
+   "basic_standard_deduction": 16100.0,
+   "additional_standard_deduction": 2050.0,
+   "itemized_taxable_income_deductions": 2118.38,
+   "salt_deduction": 676.8,
+   "salt": 676.8,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 676.8,
+   "medical_expense_deduction": 1441.57,
+   "additional_senior_deduction": 6000.0,
+   "amt_income": 13243.0,
+   "state_withheld_income_tax": 75.37,
+   "state_sales_tax": 564.0,
+   "age": {
+    "total": 67.0,
+    "persons": [
+     67.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "adjusted_gross_income": 13243.0,
+   "irs_gross_income": 14408.0,
+   "above_the_line_deductions": 1165.0,
+   "alimony_expense_ald": 1165.0,
+   "tax_unit_social_security": 9445.47,
+   "taxable_income_deductions": 23750.0,
+   "standard_deduction": 17750.0,
+   "basic_standard_deduction": 15750.0,
+   "additional_standard_deduction": 2000.0,
+   "itemized_taxable_income_deductions": 1903.57,
+   "salt_deduction": 676.8,
+   "salt": 676.8,
+   "salt_cap": 40000.0,
+   "state_and_local_sales_or_income_tax": 676.8,
+   "medical_expense_deduction": 1226.77,
+   "additional_senior_deduction": 6000.0,
+   "amt_income": 13243.0,
+   "state_withheld_income_tax": 75.37,
+   "state_sales_tax": 564.0,
+   "age": {
+    "total": 67.0,
+    "persons": [
+     67.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "adjusted_gross_income": 13243.0,
+   "irs_gross_income": 14408.0,
+   "above_the_line_deductions": 1165.0,
+   "alimony_expense_ald": 1165.0,
+   "tax_unit_social_security": 9445.47,
+   "taxable_income_deductions": 24150.0,
+   "standard_deduction": 18150.0,
+   "basic_standard_deduction": 16100.0,
+   "additional_standard_deduction": 2050.0,
+   "itemized_taxable_income_deductions": 2005.57,
+   "salt_deduction": 564.0,
+   "salt": 564.0,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 564.0,
+   "medical_expense_deduction": 1441.57,
+   "additional_senior_deduction": 6000.0,
+   "amt_income": 13243.0,
+   "state_withheld_income_tax": 75.37,
+   "state_sales_tax": 564.0,
+   "age": {
+    "total": 67.0,
+    "persons": [
+     67.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "adjusted_gross_income": 13243.0,
+   "irs_gross_income": 14408.0,
+   "above_the_line_deductions": 1165.0,
+   "alimony_expense_ald": 1165.0,
+   "tax_unit_social_security": 9445.47,
+   "taxable_income_deductions": 24150.0,
+   "standard_deduction": 18150.0,
+   "basic_standard_deduction": 16100.0,
+   "additional_standard_deduction": 2050.0,
+   "itemized_taxable_income_deductions": 2018.36,
+   "salt_deduction": 576.78,
+   "salt": 576.78,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 576.78,
+   "medical_expense_deduction": 1441.57,
+   "additional_senior_deduction": 6000.0,
+   "amt_income": 13243.0,
+   "state_withheld_income_tax": 74.08,
+   "state_sales_tax": 576.78,
+   "age": {
+    "total": 67.0,
+    "persons": [
+     67.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_031",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 67.0,
+   "in_e01400": 800.0,
+   "in_e01500": 13608.0,
+   "in_e01700": 13608.0,
+   "in_e02400": 9445.47,
+   "in_e03500": 1165.0,
+   "in_e18400": 676.8,
+   "in_RECID": 26.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 23853.47,
+   "out_benefit_cost_total": 9445.47,
+   "out_benefit_value_total": 9445.47,
+   "out_c00100": 14408.0,
+   "out_c62100": 14408.0,
+   "out_credit_claim_urn": 0.79,
+   "out_exact": 1.0,
+   "out_expanded_income": 23853.47,
+   "out_num": 1.0,
+   "out_senior_deduction": 6000.0,
+   "out_standard": 18150.0,
+   "out_ymod": 19130.74,
+   "out_ymod1": 14408.0,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "unexpressed": [
+    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
+    "income_tax: Tax-Calculator gives alimony no effect in 2025 or 2026 (every instrument treated as post-2018)"
+   ]
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_031",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 67.0,
+   "in_e01400": 800.0,
+   "in_e01500": 13608.0,
+   "in_e01700": 13608.0,
+   "in_e02400": 9445.47,
+   "in_e03500": 1165.0,
+   "in_e18400": 676.8,
+   "in_RECID": 26.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 23853.47,
+   "out_benefit_cost_total": 9445.47,
+   "out_benefit_value_total": 9445.47,
+   "out_c00100": 14408.0,
+   "out_c62100": 14408.0,
+   "out_credit_claim_urn": 0.79,
+   "out_exact": 1.0,
+   "out_expanded_income": 23853.47,
+   "out_num": 1.0,
+   "out_senior_deduction": 6000.0,
+   "out_standard": 17750.0,
+   "out_ymod": 19130.74,
+   "out_ymod1": 14408.0,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "unexpressed": [
+    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
+    "income_tax: Tax-Calculator gives alimony no effect in 2025 or 2026 (every instrument treated as post-2018)"
+   ]
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_031",
+   "in_year": 2026.0,
+   "in_mstat": 1.0,
+   "in_page": 67.0,
+   "in_pensions": 14408.0,
+   "in_gssi": 9445.47,
+   "in_proptax": 676.8,
+   "out_taxsimid": 26.0,
+   "out_year": 2026.0,
+   "out_v10": 14408.0,
+   "out_v13": 18150.0,
+   "out_v26": 14408.0,
+   "out_v30": 23853.47,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
+    "income_tax: alimony is left out (treated as a post-2018 instrument)"
+   ]
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_031",
+   "in_year": 2025.0,
+   "in_mstat": 1.0,
+   "in_page": 67.0,
+   "in_pensions": 14408.0,
+   "in_gssi": 9445.47,
+   "in_proptax": 676.8,
+   "out_taxsimid": 26.0,
+   "out_year": 2025.0,
+   "out_v10": 14408.0,
+   "out_v13": 17750.0,
+   "out_v26": 14408.0,
+   "out_v30": 23853.47,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: Alimony follows each model's only or default treatment: the divorce date is not stated. Tax-Calculator and TAXSIM treat it as a post-2018 instrument (not income, not deductible); PolicyEngine's default divorce year makes it pre-2019.",
+    "income_tax: alimony is left out (treated as a post-2018 instrument)"
+   ]
+  }
+ }
+}

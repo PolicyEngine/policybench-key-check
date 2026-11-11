@@ -1,0 +1,1017 @@
+{
+ "case_id": "scenario_091",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 22,
+    "employment_income": 27000.0,
+    "inputs": {
+     "attends_eligible_educational_institution_for_american_opportunity_credit": true,
+     "bank_account_assets": 558700.0,
+     "employer_sponsored_insurance_premiums": 6589.27587890625,
+     "fsla_overtime_premium": 627.906982421875,
+     "has_american_opportunity_credit_1098_t_or_exception": true,
+     "has_american_opportunity_credit_institution_ein": true,
+     "has_esi": true,
+     "health_insurance_premiums_without_medicare_part_b": 1800.0,
+     "hourly_wage": 13.0,
+     "hours_worked_last_week": 42.0,
+     "is_enrolled_at_least_half_time_for_american_opportunity_credit": true,
+     "is_paid_hourly": true,
+     "is_pursuing_credential_for_american_opportunity_credit": true,
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "non_qualified_dividend_income": 208.0,
+     "non_sch_d_capital_gains": 1170.0,
+     "other_health_insurance_premiums": 1800.0,
+     "over_the_counter_health_expenses": 25.0,
+     "qualified_dividend_income": 3968.0,
+     "roth_401k_contributions_desired": 163.44000244140625,
+     "roth_ira_contributions_desired": 67.12319946289062,
+     "stock_assets": 718100.0,
+     "taxable_interest_income": 4806.0,
+     "traditional_401k_contributions_desired": 926.1599731445312,
+     "traditional_ira_contributions_desired": 43.276798248291016
+    },
+    "name": "head"
+   }
+  ],
+  "children": [],
+  "country": "us",
+  "filing_status": "single",
+  "household_inputs": {},
+  "id": "scenario_091",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 15534,
+   "tax_unit_id": 18488
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {},
+  "state": "WI",
+  "tax_unit_inputs": {},
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_091",
+   "year": 2026,
+   "state": "WI",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 22,
+    "blind": false,
+    "wages": 27000.0,
+    "deferral": 926.1599731445312,
+    "roth_deferral": 163.44000244140625,
+    "ira_traditional_desired": 43.276798248291016,
+    "ira_roth_desired": 67.12319946289062,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 627.906982421875,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 4806.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 3968.0,
+    "non_qualified_dividends": 208.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 1170.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 1800.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 0.0,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  },
+  "2025": {
+   "case_id": "scenario_091",
+   "year": 2025,
+   "state": "WI",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 22,
+    "blind": false,
+    "wages": 27000.0,
+    "deferral": 926.1599731445312,
+    "roth_deferral": 163.44000244140625,
+    "ira_traditional_desired": 43.276798248291016,
+    "ira_roth_desired": 67.12319946289062,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 627.906982421875,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 4806.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 3968.0,
+    "non_qualified_dividends": 208.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 1170.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 1800.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 0.0,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 1349.998779296875,
+  "federal_refundable_credits": 0.0,
+  "payroll_tax": 2065.5,
+  "self_employment_tax": 0.0,
+  "state_income_tax_before_refundable_credits": 878.5157470703125
+ },
+ "board_exclusion_records": [],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "two_agree:taxsim",
+    "board_scores_it": "yes",
+    "policyengine": 1350.0,
+    "taxcalc": 1350.0,
+    "taxsim": 1545.35
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 2065.5,
+    "taxcalc": 2065.5,
+    "taxsim": 2065.5
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "two_agree:taxsim",
+    "board_scores_it": "yes",
+    "policyengine": 1350.0,
+    "taxcalc": 1350.0,
+    "taxsim": 1545.35
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 2065.5,
+    "taxcalc": 2065.5,
+    "taxsim": 2065.5
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "two_agree:taxsim",
+    "board_scores_it": "yes",
+    "policyengine": 1401.5,
+    "taxcalc": 1401.5,
+    "taxsim": 1596.85
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 2065.5,
+    "taxcalc": 2065.5,
+    "taxsim": 2065.5
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 1350.0,
+   "board:payroll_tax": 2065.5,
+   "board:state_income_tax_before_refundable_credits": 878.52,
+   "adjusted_gross_income": 36182.56,
+   "irs_gross_income": 36225.84,
+   "above_the_line_deductions": 43.28,
+   "taxable_income": 19454.66,
+   "taxable_income_deductions": 16727.91,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 841.8,
+   "salt_deduction": 841.8,
+   "salt": 841.8,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 841.8,
+   "overtime_income_deduction": 627.91,
+   "income_tax_main_rates": 1470.0,
+   "amt_income": 35554.66,
+   "income_tax_before_credits": 1470.0,
+   "net_investment_income": 10152.0,
+   "income_tax_non_refundable_credits": 120.0,
+   "income_tax_capped_non_refundable_credits": 120.0,
+   "savers_credit": 120.0,
+   "eitc_relevant_investment_income": 10152.0,
+   "income_tax_before_refundable_credits": 1350.0,
+   "income_tax": 1350.0,
+   "employee_payroll_tax": 2065.5,
+   "state_withheld_income_tax": 841.8,
+   "state_sales_tax": 516.0,
+   "age": {
+    "total": 22.0,
+    "persons": [
+     22.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 27000.0,
+    "persons": [
+     27000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 26073.84,
+    "persons": [
+     26073.83984375
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 27000.0,
+    "persons": [
+     27000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 27000.0,
+    "persons": [
+     27000.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1674.0,
+    "persons": [
+     1674.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 391.5,
+    "persons": [
+     391.5
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 926.16,
+    "persons": [
+     926.1599731445312
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 43.28,
+    "persons": [
+     43.276798248291016
+    ]
+   },
+   "fsla_overtime_premium": {
+    "total": 627.91,
+    "persons": [
+     627.906982421875
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "board:federal_income_tax_before_refundable_credits": 1401.5,
+   "board:payroll_tax": 2065.5,
+   "board:state_income_tax_before_refundable_credits": 903.0,
+   "adjusted_gross_income": 36182.56,
+   "irs_gross_income": 36225.84,
+   "above_the_line_deductions": 43.28,
+   "taxable_income": 19804.66,
+   "taxable_income_deductions": 16377.91,
+   "standard_deduction": 15750.0,
+   "basic_standard_deduction": 15750.0,
+   "itemized_taxable_income_deductions": 863.27,
+   "salt_deduction": 863.27,
+   "salt": 863.27,
+   "salt_cap": 40000.0,
+   "state_and_local_sales_or_income_tax": 863.27,
+   "overtime_income_deduction": 627.91,
+   "income_tax_main_rates": 1521.5,
+   "amt_income": 35554.66,
+   "income_tax_before_credits": 1521.5,
+   "net_investment_income": 10152.0,
+   "income_tax_non_refundable_credits": 120.0,
+   "income_tax_capped_non_refundable_credits": 120.0,
+   "savers_credit": 120.0,
+   "eitc_relevant_investment_income": 10152.0,
+   "income_tax_before_refundable_credits": 1401.5,
+   "income_tax": 1401.5,
+   "employee_payroll_tax": 2065.5,
+   "state_withheld_income_tax": 863.27,
+   "state_sales_tax": 516.0,
+   "age": {
+    "total": 22.0,
+    "persons": [
+     22.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 27000.0,
+    "persons": [
+     27000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 26073.84,
+    "persons": [
+     26073.83984375
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 27000.0,
+    "persons": [
+     27000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 27000.0,
+    "persons": [
+     27000.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1674.0,
+    "persons": [
+     1674.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 391.5,
+    "persons": [
+     391.5
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 926.16,
+    "persons": [
+     926.1599731445312
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 43.28,
+    "persons": [
+     43.276798248291016
+    ]
+   },
+   "fsla_overtime_premium": {
+    "total": 627.91,
+    "persons": [
+     627.906982421875
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 1350.0,
+   "board:payroll_tax": 2065.5,
+   "board:state_income_tax_before_refundable_credits": 878.52,
+   "adjusted_gross_income": 36182.56,
+   "irs_gross_income": 36225.84,
+   "above_the_line_deductions": 43.28,
+   "taxable_income": 19454.66,
+   "taxable_income_deductions": 16727.91,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 841.8,
+   "salt_deduction": 841.8,
+   "salt": 841.8,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 841.8,
+   "overtime_income_deduction": 627.91,
+   "income_tax_main_rates": 1470.0,
+   "amt_income": 35554.66,
+   "income_tax_before_credits": 1470.0,
+   "net_investment_income": 10152.0,
+   "income_tax_non_refundable_credits": 120.0,
+   "income_tax_capped_non_refundable_credits": 120.0,
+   "savers_credit": 120.0,
+   "eitc_relevant_investment_income": 10152.0,
+   "income_tax_before_refundable_credits": 1350.0,
+   "income_tax": 1350.0,
+   "employee_payroll_tax": 2065.5,
+   "state_withheld_income_tax": 841.8,
+   "state_sales_tax": 516.0,
+   "age": {
+    "total": 22.0,
+    "persons": [
+     22.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 27000.0,
+    "persons": [
+     27000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 26073.84,
+    "persons": [
+     26073.83984375
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 27000.0,
+    "persons": [
+     27000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 27000.0,
+    "persons": [
+     27000.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1674.0,
+    "persons": [
+     1674.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 391.5,
+    "persons": [
+     391.5
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 926.16,
+    "persons": [
+     926.1599731445312
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 43.28,
+    "persons": [
+     43.276798248291016
+    ]
+   },
+   "fsla_overtime_premium": {
+    "total": 627.91,
+    "persons": [
+     627.906982421875
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "board:federal_income_tax_before_refundable_credits": 1350.0,
+   "board:payroll_tax": 2065.5,
+   "board:state_income_tax_before_refundable_credits": 878.52,
+   "adjusted_gross_income": 36182.56,
+   "irs_gross_income": 36225.84,
+   "above_the_line_deductions": 43.28,
+   "taxable_income": 19454.66,
+   "taxable_income_deductions": 16727.91,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 841.8,
+   "salt_deduction": 841.8,
+   "salt": 841.8,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 841.8,
+   "overtime_income_deduction": 627.91,
+   "income_tax_main_rates": 1470.0,
+   "amt_income": 35554.66,
+   "income_tax_before_credits": 1470.0,
+   "net_investment_income": 10152.0,
+   "income_tax_non_refundable_credits": 120.0,
+   "income_tax_capped_non_refundable_credits": 120.0,
+   "savers_credit": 120.0,
+   "eitc_relevant_investment_income": 10152.0,
+   "income_tax_before_refundable_credits": 1350.0,
+   "income_tax": 1350.0,
+   "employee_payroll_tax": 2065.5,
+   "state_withheld_income_tax": 841.8,
+   "state_sales_tax": 527.69,
+   "age": {
+    "total": 22.0,
+    "persons": [
+     22.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 27000.0,
+    "persons": [
+     27000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 26073.84,
+    "persons": [
+     26073.83984375
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 27000.0,
+    "persons": [
+     27000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 27000.0,
+    "persons": [
+     27000.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1674.0,
+    "persons": [
+     1674.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 391.5,
+    "persons": [
+     391.5
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 926.16,
+    "persons": [
+     926.1599731445312
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 43.28,
+    "persons": [
+     43.276798248291016
+    ]
+   },
+   "fsla_overtime_premium": {
+    "total": 627.91,
+    "persons": [
+     627.906982421875
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_091",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 22.0,
+   "in_e00200p": 26073.84,
+   "in_e00200": 26073.84,
+   "in_pencon_p": 926.16,
+   "in_e00300": 4806.0,
+   "in_e00600": 4176.0,
+   "in_e00650": 3968.0,
+   "in_e01100": 1170.0,
+   "in_e03150": 43.28,
+   "in_e07240": 120.0,
+   "in_e17500": 1800.0,
+   "in_e18400": 841.8,
+   "in_overtime_income": 627.91,
+   "in_RECID": 75.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 33736.5,
+   "out_c00100": 36182.56,
+   "out_c02900": 43.28,
+   "out_c04800": 19454.66,
+   "out_c05200": 2086.56,
+   "out_c05800": 1470.0,
+   "out_c07100": 120.0,
+   "out_c07240": 120.0,
+   "out_c09200": 1350.0,
+   "out_c62100": 35554.66,
+   "out_combined": 5481.0,
+   "out_credit_claim_urn": 0.85,
+   "out_dwks10": 5138.0,
+   "out_dwks13": 5138.0,
+   "out_dwks14": 14316.66,
+   "out_dwks21": 14316.66,
+   "out_dwks45": 1470.0,
+   "out_earned": 26073.84,
+   "out_earned_p": 26073.84,
+   "out_exact": 1.0,
+   "out_expanded_income": 39217.5,
+   "out_iitax": 1350.0,
+   "out_num": 1.0,
+   "out_overtime_income_deduction": 627.91,
+   "out_payrolltax": 4131.0,
+   "out_ptax_er_p": 2065.5,
+   "out_ptax_oasdi": 3348.0,
+   "out_ptax_was": 4131.0,
+   "out_standard": 16100.0,
+   "out_taxbc": 1470.0,
+   "out_ymod": 36182.56,
+   "out_ymod1": 36225.84,
+   "q_fed_tax_before_refundable": 1350.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 2065.5,
+   "unexpressed": [
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)",
+    "income_tax: saver's credit figured under 26 U.S.C. 25B before the limit to tax (reading: The saver's credit testing period is the tax year only: distributions in the two prior years and in the next year before the return's due date (26 U.S.C. 25B(d)(2)(B)) are not stated and are taken as zero. Distributions that reduce contributions are those from plans 25B(d)(2)(A) names by their own names: IRAs (SEP included), 401(k) and 403(b) plans, taxable or not. A private pension does not count: whether its plan is a qualified plan (4974(c)) is not stated. A filer is not a full-time student (25B(c)(2)(B)) unless stated; the American opportunity enrollment flags (at least half time) are not read as full time.)"
+   ]
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_091",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 22.0,
+   "in_e00200p": 26073.84,
+   "in_e00200": 26073.84,
+   "in_pencon_p": 926.16,
+   "in_e00300": 4806.0,
+   "in_e00600": 4176.0,
+   "in_e00650": 3968.0,
+   "in_e01100": 1170.0,
+   "in_e03150": 43.28,
+   "in_e07240": 120.0,
+   "in_e17500": 1800.0,
+   "in_e18400": 863.27,
+   "in_overtime_income": 627.91,
+   "in_RECID": 75.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 33685.0,
+   "out_c00100": 36182.56,
+   "out_c02900": 43.28,
+   "out_c04800": 19804.66,
+   "out_c05200": 2138.06,
+   "out_c05800": 1521.5,
+   "out_c07100": 120.0,
+   "out_c07240": 120.0,
+   "out_c09200": 1401.5,
+   "out_c62100": 35554.66,
+   "out_combined": 5532.5,
+   "out_credit_claim_urn": 0.85,
+   "out_dwks10": 5138.0,
+   "out_dwks13": 5138.0,
+   "out_dwks14": 14666.66,
+   "out_dwks21": 14666.66,
+   "out_dwks45": 1521.5,
+   "out_earned": 26073.84,
+   "out_earned_p": 26073.84,
+   "out_exact": 1.0,
+   "out_expanded_income": 39217.5,
+   "out_iitax": 1401.5,
+   "out_num": 1.0,
+   "out_overtime_income_deduction": 627.91,
+   "out_payrolltax": 4131.0,
+   "out_ptax_er_p": 2065.5,
+   "out_ptax_oasdi": 3348.0,
+   "out_ptax_was": 4131.0,
+   "out_standard": 15750.0,
+   "out_taxbc": 1521.5,
+   "out_ymod": 36182.56,
+   "out_ymod1": 36225.84,
+   "q_fed_tax_before_refundable": 1401.5,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 2065.5,
+   "unexpressed": [
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)",
+    "income_tax: saver's credit figured under 26 U.S.C. 25B before the limit to tax (reading: The saver's credit testing period is the tax year only: distributions in the two prior years and in the next year before the return's due date (26 U.S.C. 25B(d)(2)(B)) are not stated and are taken as zero. Distributions that reduce contributions are those from plans 25B(d)(2)(A) names by their own names: IRAs (SEP included), 401(k) and 403(b) plans, taxable or not. A private pension does not count: whether its plan is a qualified plan (4974(c)) is not stated. A filer is not a full-time student (25B(c)(2)(B)) unless stated; the American opportunity enrollment flags (at least half time) are not read as full time.)"
+   ]
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_091",
+   "in_year": 2026.0,
+   "in_mstat": 1.0,
+   "in_page": 22.0,
+   "in_pwages": 27000.0,
+   "in_dividends": 3968.0,
+   "in_intrec": 5014.0,
+   "in_ltcg": 1170.0,
+   "in_nonprop": -969.44,
+   "in_proptax": 841.8,
+   "out_taxsimid": 75.0,
+   "out_year": 2026.0,
+   "out_fiitax": 1545.35,
+   "out_fica": 4131.0,
+   "out_tfica": 2065.5,
+   "out_v10": 36182.56,
+   "out_v13": 16100.0,
+   "out_v18": 20082.56,
+   "out_v19": 2161.91,
+   "out_v26": 36182.56,
+   "out_v28": 1545.35,
+   "out_v29": 4131.0,
+   "out_v30": 37152.0,
+   "out_tfica_no_self_employment": 2065.5,
+   "q_fed_tax_before_refundable": 1545.35,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 2065.5,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: TAXSIM has no input for qualified overtime compensation (26 U.S.C. 225)",
+    "income_tax: TAXSIM has no input for the saver's credit (26 U.S.C. 25B), which the statute puts at up to 120 before the limit to tax (reading: The saver's credit testing period is the tax year only: distributions in the two prior years and in the next year before the return's due date (26 U.S.C. 25B(d)(2)(B)) are not stated and are taken as zero. Distributions that reduce contributions are those from plans 25B(d)(2)(A) names by their own names: IRAs (SEP included), 401(k) and 403(b) plans, taxable or not. A private pension does not count: whether its plan is a qualified plan (4974(c)) is not stated. A filer is not a full-time student (25B(c)(2)(B)) unless stated; the American opportunity enrollment flags (at least half time) are not read as full time.)",
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from the earned income of the EITC (probe P7.1) and of the refundable child credit (board 038); the law's earned income (26 U.S.C. 32(c)(2), which 24(d)(1)(B)(i) also uses) is not reduced by them"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ]
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_091",
+   "in_year": 2025.0,
+   "in_mstat": 1.0,
+   "in_page": 22.0,
+   "in_pwages": 27000.0,
+   "in_dividends": 3968.0,
+   "in_intrec": 5014.0,
+   "in_ltcg": 1170.0,
+   "in_nonprop": -969.44,
+   "in_proptax": 863.27,
+   "out_taxsimid": 75.0,
+   "out_year": 2025.0,
+   "out_fiitax": 1596.85,
+   "out_fica": 4131.0,
+   "out_tfica": 2065.5,
+   "out_v10": 36182.56,
+   "out_v13": 15750.0,
+   "out_v18": 20432.56,
+   "out_v19": 2213.41,
+   "out_v26": 36182.56,
+   "out_v28": 1596.85,
+   "out_v29": 4131.0,
+   "out_v30": 37152.0,
+   "out_tfica_no_self_employment": 2065.5,
+   "q_fed_tax_before_refundable": 1596.85,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 2065.5,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: TAXSIM has no input for qualified overtime compensation (26 U.S.C. 225)",
+    "income_tax: TAXSIM has no input for the saver's credit (26 U.S.C. 25B), which the statute puts at up to 120 before the limit to tax (reading: The saver's credit testing period is the tax year only: distributions in the two prior years and in the next year before the return's due date (26 U.S.C. 25B(d)(2)(B)) are not stated and are taken as zero. Distributions that reduce contributions are those from plans 25B(d)(2)(A) names by their own names: IRAs (SEP included), 401(k) and 403(b) plans, taxable or not. A private pension does not count: whether its plan is a qualified plan (4974(c)) is not stated. A filer is not a full-time student (25B(c)(2)(B)) unless stated; the American opportunity enrollment flags (at least half time) are not read as full time.)",
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from the earned income of the EITC (probe P7.1) and of the refundable child credit (board 038); the law's earned income (26 U.S.C. 32(c)(2), which 24(d)(1)(B)(i) also uses) is not reduced by them"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ]
+  }
+ }
+}

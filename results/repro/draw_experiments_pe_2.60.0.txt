@@ -1,0 +1,91 @@
+policyengine-us 2.60.0, tax year 2026, the engine's own rules
+
+== E1 investment interest expense above investment income
+   members: ['head']
+   interest_deduction: [20000.0]
+   itemized_taxable_income_deductions: [33217.37890625]
+   tax_unit_itemizes: [True]
+   taxable_income: [87782.625]
+   income_tax_before_refundable_credits: [14024.177734375]
+   law: 26 U.S.C. 163(d)(1): investment interest is deductible only up to net investment income; here $1,000 of interest income.
+
+== E1 variant B: qualified dividends with a Form 4952 election of $6,000
+   members: ['head']
+   net_capital_gain: [4000.0]
+   interest_deduction: [20000.0]
+   taxable_income: [97782.625]
+   income_tax_before_refundable_credits: [15944.177734375]
+   law: 26 U.S.C. 163(d)(4)(B): net investment income includes qualified dividends only so far as the taxpayer elects, and the elected amount leaves the rate preference of 1(h); the statute's deduction here is $1,000 + $6,000.
+
+== E2 a separated head with an older member who has no income
+   members: ['head', 'other']
+   filing_status: ['SEPARATE']
+   head_of_household_eligible: [False]
+   is_tax_unit_dependent: [False, True]
+   law: 26 U.S.C. 7703(b) and 2(b): a married person living apart files as head of household only with a qualifying child at home; otherwise separately.
+
+== E2 variant B: the other member is aged 10
+   members: ['head', 'other']
+   filing_status: ['HEAD_OF_HOUSEHOLD']
+   head_of_household_eligible: [True]
+   is_tax_unit_dependent: [False, True]
+   law: As E2.
+
+== E2 variant C: a married couple and a third adult who is separated
+   members: ['head', 'spouse', 'other']
+   filing_status: ['JOINT']
+   is_tax_unit_spouse: [False, True, False]
+   is_tax_unit_dependent: [False, False, True]
+   law: As E2: the third adult's status does not bear on the couple's return.
+
+== E3 self-employed health insurance premiums above Schedule C income
+   members: ['head']
+   self_employed_health_insurance_ald: [30000.0]
+   self_employment_tax: [4238.86474609375]
+   self_employment_tax_ald: [2119.432373046875]
+   medical_expense: not available (ValueError: Variable medical_expense does not exist.)
+   medical_expense_deduction: [10000.0]
+   adjusted_gross_income: [-2119.431640625]
+   law: 26 U.S.C. 162(l)(2)(A) with 401(c)(2): the deduction cannot exceed earned income from the business net of the deduction for half the self-employment tax; premiums deducted here are not medical expenses (162(l)(3)).
+
+== E4 qualified vehicle loan interest of a surviving spouse at MAGI 150,000
+   members: ['head', 'child']
+   filing_status: ['SURVIVING_SPOUSE']
+   auto_loan_interest_deduction: [5000.0]
+   law: 26 U.S.C. 163(h)(4)(C)(ii): the phase-out starts at $100,000 ($200,000 on a joint return); 50 steps of $200 exceed $5,000, so the statute allows nothing.
+
+== E5 care expenses for a spouse incapable of self-care
+   members: ['head', 'spouse']
+   count_cdcc_eligible: [1]
+   min_head_spouse_earned: [3000.0]
+   cdcc_relevant_expenses: [3000.0]
+   cdcc: [1050.0]
+   tax_unit_childcare_expenses: [0.0]
+   law: 26 U.S.C. 21(b)(1)(C) and (d)(2): an incapable spouse is a qualifying individual and has deemed earned income of $250 a month ($3,000).
+
+== E5 variant B: an incapable member aged 30 with $10,000 of wages
+   members: ['head', 'spouse', 'other']
+   is_tax_unit_dependent: [False, False, True]
+   is_cdcc_eligible: [False, False, True]
+   count_cdcc_eligible: [1]
+   cdcc_relevant_expenses: [3000.0]
+   cdcc: [1050.0]
+   law: 26 U.S.C. 21(b)(1)(B): a person incapable of self-care who would be a dependent but for the gross income test is a qualifying individual.
+
+== E6 partnership income and partnership self-employment earnings under the 2.60.0 names
+   members: ['head']
+   partnership_s_corp_income: [50000.0]
+   adjusted_gross_income: [46467.61328125]
+   self_employment_tax: [7064.7744140625]
+   qualified_business_income_deduction: [6073.52294921875]
+   eitc_earned_income: [46467.61328125]
+   law: The same two facts the board states as partnership_s_corp_income and partnership_se_income.
+
+== E6 variant: the board's older name for partnership income
+   members: ['head']
+   partnership_s_corp_income: [50000.0]
+   adjusted_gross_income: [46467.61328125]
+   self_employment_tax: [7064.7744140625]
+   qualified_business_income_deduction: [6073.52294921875]
+   eitc_earned_income: [46467.61328125]
+   law: As E6: the answers should equal E6's.

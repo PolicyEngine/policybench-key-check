@@ -1,0 +1,1886 @@
+{
+ "case_id": "scenario_064",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 48,
+    "employment_income": 97295.0,
+    "inputs": {
+     "bank_account_assets": 56000.0,
+     "employer_sponsored_insurance_premiums": 19647.525390625,
+     "farm_income": -16800.0,
+     "farm_operations_income": -16800.0,
+     "fsla_overtime_premium": 13899.2861328125,
+     "has_esi": true,
+     "health_insurance_premiums_without_medicare_part_b": 1560.0,
+     "hourly_wage": 31.25,
+     "hours_worked_last_week": 60.0,
+     "is_paid_hourly": true,
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "long_term_capital_gains": -18235.412109375,
+     "other_medical_expenses": 3000.0,
+     "over_the_counter_health_expenses": 1000.0,
+     "partnership_s_corp_income": 19350.0,
+     "partnership_se_income": 14000.0,
+     "roth_401k_contributions_desired": 408.6000061035156,
+     "roth_ira_contributions_desired": 167.80799865722656,
+     "stock_assets": 58676.46875,
+     "taxable_401k_distributions": 20000.0,
+     "traditional_401k_contributions_desired": 2315.39990234375,
+     "traditional_ira_contributions_desired": 108.19200134277344,
+     "unadjusted_basis_qualified_property": 30948.869140625
+    },
+    "name": "head"
+   },
+   {
+    "age": 47,
+    "employment_income": 0.0,
+    "inputs": {
+     "is_tax_unit_head": false,
+     "is_tax_unit_spouse": true,
+     "other_medical_expenses": 2000.0
+    },
+    "name": "spouse"
+   },
+   {
+    "age": 27,
+    "employment_income": 0.0,
+    "inputs": {
+     "employer_sponsored_insurance_premiums": 7609.27587890625,
+     "has_esi": true,
+     "health_insurance_premiums_without_medicare_part_b": 780.0,
+     "hours_worked_last_week": 20.0,
+     "is_disabled": true,
+     "is_tax_unit_head": false,
+     "is_tax_unit_spouse": false,
+     "other_medical_expenses": 1000.0,
+     "roth_401k_contributions_desired": 68.0999984741211,
+     "roth_ira_contributions_desired": 27.968000411987305,
+     "traditional_401k_contributions_desired": 385.8999938964844,
+     "traditional_ira_contributions_desired": 18.031999588012695
+    },
+    "name": "dependent1"
+   },
+   {
+    "age": 18,
+    "employment_income": 0.0,
+    "inputs": {
+     "has_esi": true,
+     "hours_worked_last_week": 40.0,
+     "is_tax_unit_head": false,
+     "is_tax_unit_spouse": false
+    },
+    "name": "dependent2"
+   }
+  ],
+  "children": [
+   {
+    "age": 12,
+    "employment_income": 0.0,
+    "inputs": {
+     "has_esi": true,
+     "is_tax_unit_head": false,
+     "is_tax_unit_spouse": false
+    },
+    "name": "child1"
+   }
+  ],
+  "country": "us",
+  "filing_status": "joint",
+  "household_inputs": {
+   "household_vehicles_value": 65900.0
+  },
+  "id": "scenario_064",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 15684,
+   "tax_unit_id": 95791
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {},
+  "state": "WI",
+  "tax_unit_inputs": {
+   "domestic_production_ald": 1795.5,
+   "first_home_mortgage_balance": 44117.6484375
+  },
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_064",
+   "year": 2026,
+   "state": "WI",
+   "status": "joint",
+   "head": {
+    "name": "head",
+    "age": 48,
+    "blind": false,
+    "wages": 97295.0,
+    "deferral": 2315.39990234375,
+    "roth_deferral": 408.6000061035156,
+    "ira_traditional_desired": 108.19200134277344,
+    "ira_roth_desired": 167.80799865722656,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": -16800.0,
+    "partnership_se": 14000.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 20000.0,
+    "overtime_premium": 13899.2861328125,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": {
+    "name": "spouse",
+    "age": 47,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "dependents": [
+    {
+     "name": "dependent1",
+     "age": 27,
+     "gross_income": 0.0,
+     "disabled": true,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    },
+    {
+     "name": "dependent2",
+     "age": 18,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    },
+    {
+     "name": "child1",
+     "age": 12,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    }
+   ],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 0.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": -18235.412109375,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 20000.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 19350.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 19350.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 1795.5,
+    "medical": 8340.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 44117.6484375,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 30948.869140625,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 20000.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: dependent1 (age 27) is a qualifying child under this reading, qualifying relative without it. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it."
+    ],
+    [
+     "income_tax",
+     "reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true)."
+    ],
+    [
+     "income_tax",
+     "the maps read 5,350.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive"
+    ],
+    [
+     "income_tax",
+     "reading: Stated farm income repeats farm_operations_income (equal wherever the board states both) and is not added."
+    ],
+    [
+     "income_tax",
+     "reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit."
+    ],
+    [
+     "income_tax",
+     "reading: Stated partnership self-employment earnings (K-1 box 14) sit inside the stated partnership income: they are self-employment earnings, not more income."
+    ],
+    [
+     "income_tax",
+     "reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
+    ],
+    [
+     "income_tax",
+     "reading: head (age 48) takes 20,000.00 of taxable IRA, SEP, 401(k) or 403(b) distributions. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [
+    {
+     "name": "dependent1",
+     "age": 27,
+     "gross_income": 0.0,
+     "with_reading": "qualifying_child",
+     "without_reading": "qualifying_relative",
+     "income_readings_without": []
+    }
+   ],
+   "care_individuals": [
+    {
+     "name": "child1",
+     "age": 12,
+     "why": "under 13"
+    }
+   ]
+  },
+  "2025": {
+   "case_id": "scenario_064",
+   "year": 2025,
+   "state": "WI",
+   "status": "joint",
+   "head": {
+    "name": "head",
+    "age": 48,
+    "blind": false,
+    "wages": 97295.0,
+    "deferral": 2315.39990234375,
+    "roth_deferral": 408.6000061035156,
+    "ira_traditional_desired": 108.19200134277344,
+    "ira_roth_desired": 167.80799865722656,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": -16800.0,
+    "partnership_se": 14000.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 20000.0,
+    "overtime_premium": 13899.2861328125,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": {
+    "name": "spouse",
+    "age": 47,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "dependents": [
+    {
+     "name": "dependent1",
+     "age": 27,
+     "gross_income": 0.0,
+     "disabled": true,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    },
+    {
+     "name": "dependent2",
+     "age": 18,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    },
+    {
+     "name": "child1",
+     "age": 12,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    }
+   ],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 0.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": -18235.412109375,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 20000.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 19350.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 19350.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 1795.5,
+    "medical": 8340.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 44117.6484375,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 30948.869140625,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 20000.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: dependent1 (age 27) is a qualifying child under this reading, qualifying relative without it. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it."
+    ],
+    [
+     "income_tax",
+     "reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true)."
+    ],
+    [
+     "income_tax",
+     "the maps read 5,350.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive"
+    ],
+    [
+     "income_tax",
+     "reading: Stated farm income repeats farm_operations_income (equal wherever the board states both) and is not added."
+    ],
+    [
+     "income_tax",
+     "reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit."
+    ],
+    [
+     "income_tax",
+     "reading: Stated partnership self-employment earnings (K-1 box 14) sit inside the stated partnership income: they are self-employment earnings, not more income."
+    ],
+    [
+     "income_tax",
+     "reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
+    ],
+    [
+     "income_tax",
+     "reading: head (age 48) takes 20,000.00 of taxable IRA, SEP, 401(k) or 403(b) distributions. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [
+    {
+     "name": "dependent1",
+     "age": 27,
+     "gross_income": 0.0,
+     "with_reading": "qualifying_child",
+     "without_reading": "qualifying_relative",
+     "income_readings_without": []
+    }
+   ],
+   "care_individuals": [
+    {
+     "name": "child1",
+     "age": 12,
+     "why": "under 13"
+    }
+   ]
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 4441.455078125,
+  "federal_refundable_credits": 0.0,
+  "payroll_tax": 7443.0673828125,
+  "self_employment_tax": 0.0,
+  "state_income_tax_before_refundable_credits": 4599.62158203125
+ },
+ "board_exclusion_records": [
+  {
+   "scenario_id": "scenario_064",
+   "variable": "ssi",
+   "reason_code": "reference_depends_on_unlisted_input",
+   "unlisted_input": "meets_ssi_disability_criteria",
+   "alternative_reading": "The household fact 'is disabled' is read as satisfying SSI's disability criterion (the engine input meets_ssi_disability_criteria, which the certified microdata never sets and the prompt never lists). Recomputed with policyengine-us 1.755.4 with each person in a correctly built marital unit; the run's own situation placed every household member in one marital unit, which deems the whole household's income to the adult and masks the change.",
+   "frozen_value": 0.0,
+   "alternative_value": 11928.0,
+   "engine_version": "policyengine-us 1.755.4",
+   "decided_on": "2026-09-05",
+   "decided_by": "developer",
+   "judge_verdict": "prompt_ambiguity (claude-opus-5, 2026-09-05)",
+   "note": "Under the alternative reading nine of the twelve models that paid SSI land within 10% of the $11,928 federal benefit (five exactly); deepseek-v4-pro, deepseek-v4-pro-0813 and inkling also applied a one-third in-kind reduction the facts do not support."
+  },
+  {
+   "scenario_id": "scenario_064",
+   "variable": "dependent1_medicaid_eligible",
+   "reason_code": "reference_depends_on_unlisted_input",
+   "alternative_reading": "The prompt lists an adult 'Dependent' without saying whether that person is the claiming filers' child. If the dependent is their child, 42 CFR 435.603(f)(2) puts the dependent in the parents' Medicaid household, whose combined MAGI decides eligibility; the reference treats the dependent as a non-child whose household is their own (42 CFR 435.603(f)(2)(i), (f)(3)).",
+   "frozen_value": 1.0,
+   "alternative_value": 0.0,
+   "engine_version": "policyengine-us 1.755.4",
+   "decided_on": "2026-09-22",
+   "decided_by": "developer",
+   "unlisted_input": "the relationship of an adult tax dependent to the filers who claim them",
+   "note": "Corrected value applies r067_adult_dependent_relationship with every publication convention and upstream fix."
+  },
+  {
+   "scenario_id": "scenario_064",
+   "variable": "dependent2_medicaid_eligible",
+   "reason_code": "reference_depends_on_unlisted_input",
+   "alternative_reading": "The prompt lists an 18-year-old 'Dependent' separately from the household's children without saying whose child they are. Read as a non-child tax dependent, the dependent's Medicaid household is their own under 42 CFR 435.603(f)(2)(i), with $0 of MAGI; the reference places them in the claiming filers' household.",
+   "frozen_value": 0.0,
+   "alternative_value": 1.0,
+   "engine_version": "policyengine-us 1.755.4",
+   "decided_on": "2026-09-22",
+   "decided_by": "developer",
+   "unlisted_input": "the relationship of an adult tax dependent to the filers who claim them",
+   "note": "Corrected value applies r067_adult_dependent_nonchild with every publication convention and upstream fix."
+  }
+ ],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_differ",
+    "board_scores_it": "yes",
+    "policyengine": 4441.46,
+    "taxcalc": 6441.45,
+    "taxsim": 6109.37
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 7443.07,
+    "taxcalc": 7443.07,
+    "taxsim": 7443.07
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_differ",
+    "board_scores_it": "yes",
+    "policyengine": 4441.46,
+    "taxcalc": 6441.45,
+    "taxsim": 6109.37
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 7443.07,
+    "taxcalc": 7443.07,
+    "taxsim": 7443.07
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_differ",
+    "board_scores_it": "yes",
+    "policyengine": 4544.46,
+    "taxcalc": 6544.45,
+    "taxsim": 6212.37
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 7443.07,
+    "taxcalc": 7443.07,
+    "taxsim": 7443.07
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 4441.46,
+   "board:payroll_tax": 7443.07,
+   "board:state_income_tax_before_refundable_credits": 4599.62,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 114421.41,
+   "irs_gross_income": 134329.59,
+   "above_the_line_deductions": 19908.19,
+   "domestic_production_ald": 1795.5,
+   "taxable_income": 67812.12,
+   "taxable_income_deductions": 46609.29,
+   "standard_deduction": 32200.0,
+   "basic_standard_deduction": 32200.0,
+   "itemized_taxable_income_deductions": 4720.91,
+   "salt_deduction": 4720.91,
+   "salt": 4720.91,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 4720.91,
+   "qualified_business_income_deduction": 510.0,
+   "overtime_income_deduction": 13899.29,
+   "income_tax_main_rates": 7641.46,
+   "amt_income": 100012.12,
+   "income_tax_before_credits": 7641.46,
+   "net_investment_income": -3000.0,
+   "income_tax_non_refundable_credits": 3200.0,
+   "income_tax_capped_non_refundable_credits": 3200.0,
+   "non_refundable_ctc": 3200.0,
+   "ctc": 3200.0,
+   "ctc_qualifying_children": 1.0,
+   "eitc_child_count": 2.0,
+   "income_tax_before_refundable_credits": 4441.46,
+   "income_tax": 4441.46,
+   "employee_payroll_tax": 7443.07,
+   "tax_unit_dependents": 3.0,
+   "state_withheld_income_tax": 4720.91,
+   "state_sales_tax": 1108.0,
+   "age": {
+    "total": 152.0,
+    "persons": [
+     48.0,
+     47.0,
+     27.0,
+     18.0,
+     12.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_dependent": {
+    "total": 3.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_full_time_student": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employment_income": {
+    "total": 97295.0,
+    "persons": [
+     97295.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 94979.6,
+    "persons": [
+     94979.6015625,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 97295.0,
+    "persons": [
+     97295.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 97295.0,
+    "persons": [
+     97295.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 6032.29,
+    "persons": [
+     6032.2900390625,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 1410.78,
+    "persons": [
+     1410.7774658203125,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 2701.3,
+    "persons": [
+     2315.39990234375,
+     0.0,
+     385.8999938964844,
+     0.0,
+     0.0
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 108.19,
+    "persons": [
+     108.19200134277344,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "ctc_qualifying_child": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "is_eitc_qualifying_child": {
+    "total": 2.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_child_dependent": {
+    "total": 3.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "fsla_overtime_premium": {
+    "total": 13899.29,
+    "persons": [
+     13899.2861328125,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse",
+    "dependent1",
+    "dependent2",
+    "child1"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "board:federal_income_tax_before_refundable_credits": 4544.46,
+   "board:payroll_tax": 7443.07,
+   "board:state_income_tax_before_refundable_credits": 4669.78,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 114421.41,
+   "irs_gross_income": 134329.59,
+   "above_the_line_deductions": 19908.19,
+   "domestic_production_ald": 1795.5,
+   "taxable_income": 68512.12,
+   "taxable_income_deductions": 45909.29,
+   "standard_deduction": 31500.0,
+   "basic_standard_deduction": 31500.0,
+   "itemized_taxable_income_deductions": 4759.21,
+   "salt_deduction": 4759.21,
+   "salt": 4759.21,
+   "salt_cap": 40000.0,
+   "state_and_local_sales_or_income_tax": 4759.21,
+   "qualified_business_income_deduction": 510.0,
+   "overtime_income_deduction": 13899.29,
+   "income_tax_main_rates": 7744.46,
+   "amt_income": 100012.12,
+   "income_tax_before_credits": 7744.46,
+   "net_investment_income": -3000.0,
+   "income_tax_non_refundable_credits": 3200.0,
+   "income_tax_capped_non_refundable_credits": 3200.0,
+   "non_refundable_ctc": 3200.0,
+   "ctc": 3200.0,
+   "ctc_qualifying_children": 1.0,
+   "eitc_child_count": 2.0,
+   "income_tax_before_refundable_credits": 4544.46,
+   "income_tax": 4544.46,
+   "employee_payroll_tax": 7443.07,
+   "tax_unit_dependents": 3.0,
+   "state_withheld_income_tax": 4759.21,
+   "state_sales_tax": 1108.0,
+   "age": {
+    "total": 152.0,
+    "persons": [
+     48.0,
+     47.0,
+     27.0,
+     18.0,
+     12.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_dependent": {
+    "total": 3.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_full_time_student": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employment_income": {
+    "total": 97295.0,
+    "persons": [
+     97295.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 94979.6,
+    "persons": [
+     94979.6015625,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 97295.0,
+    "persons": [
+     97295.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 97295.0,
+    "persons": [
+     97295.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 6032.29,
+    "persons": [
+     6032.2900390625,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 1410.78,
+    "persons": [
+     1410.7774658203125,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 2701.3,
+    "persons": [
+     2315.39990234375,
+     0.0,
+     385.8999938964844,
+     0.0,
+     0.0
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 108.19,
+    "persons": [
+     108.19200134277344,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "ctc_qualifying_child": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "is_eitc_qualifying_child": {
+    "total": 2.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_child_dependent": {
+    "total": 3.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "fsla_overtime_premium": {
+    "total": 13899.29,
+    "persons": [
+     13899.2861328125,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse",
+    "dependent1",
+    "dependent2",
+    "child1"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 4441.46,
+   "board:payroll_tax": 7443.07,
+   "board:state_income_tax_before_refundable_credits": 4599.62,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 114421.41,
+   "irs_gross_income": 134329.59,
+   "above_the_line_deductions": 19908.19,
+   "domestic_production_ald": 1795.5,
+   "taxable_income": 67812.12,
+   "taxable_income_deductions": 46609.29,
+   "standard_deduction": 32200.0,
+   "basic_standard_deduction": 32200.0,
+   "itemized_taxable_income_deductions": 4720.91,
+   "salt_deduction": 4720.91,
+   "salt": 4720.91,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 4720.91,
+   "qualified_business_income_deduction": 510.0,
+   "overtime_income_deduction": 13899.29,
+   "income_tax_main_rates": 7641.46,
+   "amt_income": 100012.12,
+   "income_tax_before_credits": 7641.46,
+   "net_investment_income": -3000.0,
+   "income_tax_non_refundable_credits": 3200.0,
+   "income_tax_capped_non_refundable_credits": 3200.0,
+   "non_refundable_ctc": 3200.0,
+   "ctc": 3200.0,
+   "ctc_qualifying_children": 1.0,
+   "eitc_child_count": 2.0,
+   "income_tax_before_refundable_credits": 4441.46,
+   "income_tax": 4441.46,
+   "employee_payroll_tax": 7443.07,
+   "tax_unit_dependents": 3.0,
+   "state_withheld_income_tax": 4720.91,
+   "state_sales_tax": 1108.0,
+   "age": {
+    "total": 152.0,
+    "persons": [
+     48.0,
+     47.0,
+     27.0,
+     18.0,
+     12.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_dependent": {
+    "total": 3.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_full_time_student": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employment_income": {
+    "total": 97295.0,
+    "persons": [
+     97295.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 94979.6,
+    "persons": [
+     94979.6015625,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 97295.0,
+    "persons": [
+     97295.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 97295.0,
+    "persons": [
+     97295.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 6032.29,
+    "persons": [
+     6032.2900390625,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 1410.78,
+    "persons": [
+     1410.7774658203125,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 2701.3,
+    "persons": [
+     2315.39990234375,
+     0.0,
+     385.8999938964844,
+     0.0,
+     0.0
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 108.19,
+    "persons": [
+     108.19200134277344,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "ctc_qualifying_child": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "is_eitc_qualifying_child": {
+    "total": 2.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_child_dependent": {
+    "total": 3.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "fsla_overtime_premium": {
+    "total": 13899.29,
+    "persons": [
+     13899.2861328125,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse",
+    "dependent1",
+    "dependent2",
+    "child1"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "board:federal_income_tax_before_refundable_credits": 4441.46,
+   "board:payroll_tax": 7443.07,
+   "board:state_income_tax_before_refundable_credits": 4599.62,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 114421.41,
+   "irs_gross_income": 134329.59,
+   "above_the_line_deductions": 19908.19,
+   "domestic_production_ald": 1795.5,
+   "taxable_income": 67812.12,
+   "taxable_income_deductions": 46609.29,
+   "standard_deduction": 32200.0,
+   "basic_standard_deduction": 32200.0,
+   "itemized_taxable_income_deductions": 4720.91,
+   "salt_deduction": 4720.91,
+   "salt": 4720.91,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 4720.91,
+   "qualified_business_income_deduction": 510.0,
+   "overtime_income_deduction": 13899.29,
+   "income_tax_main_rates": 7641.46,
+   "amt_income": 100012.12,
+   "income_tax_before_credits": 7641.46,
+   "net_investment_income": -3000.0,
+   "income_tax_non_refundable_credits": 3200.0,
+   "income_tax_capped_non_refundable_credits": 3200.0,
+   "non_refundable_ctc": 3200.0,
+   "ctc": 3200.0,
+   "ctc_qualifying_children": 1.0,
+   "eitc_child_count": 2.0,
+   "income_tax_before_refundable_credits": 4441.46,
+   "income_tax": 4441.46,
+   "employee_payroll_tax": 7443.07,
+   "tax_unit_dependents": 3.0,
+   "state_withheld_income_tax": 4720.91,
+   "state_sales_tax": 1133.11,
+   "age": {
+    "total": 152.0,
+    "persons": [
+     48.0,
+     47.0,
+     27.0,
+     18.0,
+     12.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_dependent": {
+    "total": 3.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_full_time_student": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employment_income": {
+    "total": 97295.0,
+    "persons": [
+     97295.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 94979.6,
+    "persons": [
+     94979.6015625,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 97295.0,
+    "persons": [
+     97295.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 97295.0,
+    "persons": [
+     97295.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 6032.29,
+    "persons": [
+     6032.2900390625,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 1410.78,
+    "persons": [
+     1410.7774658203125,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 2701.3,
+    "persons": [
+     2315.39990234375,
+     0.0,
+     385.8999938964844,
+     0.0,
+     0.0
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 108.19,
+    "persons": [
+     108.19200134277344,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "ctc_qualifying_child": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "is_eitc_qualifying_child": {
+    "total": 2.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_child_dependent": {
+    "total": 3.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "fsla_overtime_premium": {
+    "total": 13899.29,
+    "persons": [
+     13899.2861328125,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse",
+    "dependent1",
+    "dependent2",
+    "child1"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_064",
+   "in_MARS": 2.0,
+   "in_XTOT": 5.0,
+   "in_n24": 1.0,
+   "in_EIC": 3.0,
+   "in_nu13": 1.0,
+   "in_nu18": 1.0,
+   "in_f2441": 1.0,
+   "in_age_head": 48.0,
+   "in_age_spouse": 47.0,
+   "in_e00200p": 94979.6,
+   "in_e00200": 94979.6,
+   "in_pencon_p": 2315.4,
+   "in_e01500": 20000.0,
+   "in_e01700": 20000.0,
+   "in_e02000": 19350.0,
+   "in_e26270": 14000.0,
+   "in_e27200": 5350.0,
+   "in_k1bx14p": 14000.0,
+   "in_e02100p": -16800.0,
+   "in_e02100": -16800.0,
+   "in_p23250": -18235.41,
+   "in_e03150": 108.19,
+   "in_e03240": 1795.5,
+   "in_e17500": 8340.0,
+   "in_e18400": 4720.91,
+   "in_PT_ubia_property": 30948.87,
+   "in_overtime_income": 13899.29,
+   "in_e09900": 2000.0,
+   "in_RECID": 51.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 87725.07,
+   "out_c00100": 114421.41,
+   "out_c01000": -3000.0,
+   "out_c02900": 108.19,
+   "out_c04800": 67812.12,
+   "out_c05200": 7641.45,
+   "out_c05800": 7641.45,
+   "out_c07100": 3200.0,
+   "out_c07220": 2200.0,
+   "out_c09200": 6441.45,
+   "out_c23650": -18235.41,
+   "out_c62100": 100012.12,
+   "out_combined": 21327.59,
+   "out_credit_claim_urn": 0.98,
+   "out_ctc_nonrefundable": 3200.0,
+   "out_ctc_total": 3200.0,
+   "out_earned": 92179.6,
+   "out_earned_p": 92179.6,
+   "out_exact": 1.0,
+   "out_expanded_income": 109052.66,
+   "out_iitax": 6441.45,
+   "out_num": 2.0,
+   "out_odc": 1000.0,
+   "out_othertaxes": 2000.0,
+   "out_overtime_income_deduction": 13899.29,
+   "out_payrolltax": 14886.14,
+   "out_ptax_er_p": 7443.07,
+   "out_ptax_oasdi": 12064.58,
+   "out_ptax_was": 14886.14,
+   "out_qbided": 510.0,
+   "out_sey": -2800.0,
+   "out_standard": 32200.0,
+   "out_taxbc": 7641.45,
+   "out_ymod": 114421.41,
+   "out_ymod1": 114529.6,
+   "q_fed_tax_before_refundable": 6441.45,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 7443.07,
+   "unexpressed": [
+    "income_tax: reading: dependent1 (age 27) is a qualifying child under this reading, qualifying relative without it. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it.",
+    "income_tax: reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true).",
+    "income_tax: the maps read 5,350.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive",
+    "income_tax: reading: Stated farm income repeats farm_operations_income (equal wherever the board states both) and is not added.",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: Stated partnership self-employment earnings (K-1 box 14) sit inside the stated partnership income: they are self-employment earnings, not more income.",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: reading: head (age 48) takes 20,000.00 of taxable IRA, SEP, 401(k) or 403(b) distributions. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated.",
+    "income_tax: Tax-Calculator zeroes the domestic production activities deduction (repealed for years after 2017)"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
+    "income_tax: partnership and S corporation income other than partners' self-employment earnings is entered as e27200 (with e02000), so it counts as net investment income and EITC investment income, as passive income does (26 U.S.C. 1411(c)(2)(A), 32(i)(2)(D)); e26270 holds only the self-employment earnings",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)",
+    "income_tax: additional tax on early distributions figured under 26 U.S.C. 72(t), entered as e09900; policyengine-us takes it as an input with no formula and the board states none"
+   ]
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_064",
+   "in_MARS": 2.0,
+   "in_XTOT": 5.0,
+   "in_n24": 1.0,
+   "in_EIC": 3.0,
+   "in_nu13": 1.0,
+   "in_nu18": 1.0,
+   "in_f2441": 1.0,
+   "in_age_head": 48.0,
+   "in_age_spouse": 47.0,
+   "in_e00200p": 94979.6,
+   "in_e00200": 94979.6,
+   "in_pencon_p": 2315.4,
+   "in_e01500": 20000.0,
+   "in_e01700": 20000.0,
+   "in_e02000": 19350.0,
+   "in_e26270": 14000.0,
+   "in_e27200": 5350.0,
+   "in_k1bx14p": 14000.0,
+   "in_e02100p": -16800.0,
+   "in_e02100": -16800.0,
+   "in_p23250": -18235.41,
+   "in_e03150": 108.19,
+   "in_e03240": 1795.5,
+   "in_e17500": 8340.0,
+   "in_e18400": 4759.21,
+   "in_PT_ubia_property": 30948.87,
+   "in_overtime_income": 13899.29,
+   "in_e09900": 2000.0,
+   "in_RECID": 51.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 87622.07,
+   "out_c00100": 114421.41,
+   "out_c01000": -3000.0,
+   "out_c02900": 108.19,
+   "out_c04800": 68512.12,
+   "out_c05200": 7744.45,
+   "out_c05800": 7744.45,
+   "out_c07100": 3200.0,
+   "out_c07220": 2200.0,
+   "out_c09200": 6544.45,
+   "out_c23650": -18235.41,
+   "out_c62100": 100012.12,
+   "out_combined": 21430.59,
+   "out_credit_claim_urn": 0.98,
+   "out_ctc_nonrefundable": 3200.0,
+   "out_ctc_total": 3200.0,
+   "out_earned": 92179.6,
+   "out_earned_p": 92179.6,
+   "out_exact": 1.0,
+   "out_expanded_income": 109052.66,
+   "out_iitax": 6544.45,
+   "out_num": 2.0,
+   "out_odc": 1000.0,
+   "out_othertaxes": 2000.0,
+   "out_overtime_income_deduction": 13899.29,
+   "out_payrolltax": 14886.14,
+   "out_ptax_er_p": 7443.07,
+   "out_ptax_oasdi": 12064.58,
+   "out_ptax_was": 14886.14,
+   "out_qbided": 510.0,
+   "out_sey": -2800.0,
+   "out_standard": 31500.0,
+   "out_taxbc": 7744.45,
+   "out_ymod": 114421.41,
+   "out_ymod1": 114529.6,
+   "q_fed_tax_before_refundable": 6544.45,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 7443.07,
+   "unexpressed": [
+    "income_tax: reading: dependent1 (age 27) is a qualifying child under this reading, qualifying relative without it. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it.",
+    "income_tax: reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true).",
+    "income_tax: the maps read 5,350.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive",
+    "income_tax: reading: Stated farm income repeats farm_operations_income (equal wherever the board states both) and is not added.",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: Stated partnership self-employment earnings (K-1 box 14) sit inside the stated partnership income: they are self-employment earnings, not more income.",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: reading: head (age 48) takes 20,000.00 of taxable IRA, SEP, 401(k) or 403(b) distributions. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated.",
+    "income_tax: Tax-Calculator zeroes the domestic production activities deduction (repealed for years after 2017)"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
+    "income_tax: partnership and S corporation income other than partners' self-employment earnings is entered as e27200 (with e02000), so it counts as net investment income and EITC investment income, as passive income does (26 U.S.C. 1411(c)(2)(A), 32(i)(2)(D)); e26270 holds only the self-employment earnings",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)",
+    "income_tax: additional tax on early distributions figured under 26 U.S.C. 72(t), entered as e09900; policyengine-us takes it as an input with no formula and the board states none"
+   ]
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_064",
+   "in_year": 2026.0,
+   "in_mstat": 2.0,
+   "in_page": 48.0,
+   "in_sage": 47.0,
+   "in_pwages": 97295.0,
+   "in_psemp": -2800.0,
+   "in_scorp": 5350.0,
+   "in_ltcg": -18235.41,
+   "in_pensions": 20000.0,
+   "in_nonprop": -2423.59,
+   "in_proptax": 4720.91,
+   "in_depx": 3.0,
+   "in_dep13": 1.0,
+   "in_dep17": 1.0,
+   "in_dep18": 1.0,
+   "out_taxsimid": 51.0,
+   "out_year": 2026.0,
+   "out_fiitax": 6109.37,
+   "out_fica": 14886.13,
+   "out_tfica": 7443.07,
+   "out_v10": 114421.41,
+   "out_v13": 32200.0,
+   "out_v18": 81711.41,
+   "out_v19": 9309.37,
+   "out_v22": 3200.0,
+   "out_v26": 113911.41,
+   "out_v28": 9309.37,
+   "out_v29": 14886.13,
+   "out_v30": 119845.0,
+   "out_qbid": 510.0,
+   "out_tfica_no_self_employment": 7443.07,
+   "q_fed_tax_before_refundable": 6109.37,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 7443.07,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: dependent1 (age 27) is a qualifying child under this reading, qualifying relative without it. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it.",
+    "income_tax: reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true).",
+    "income_tax: the maps read 5,350.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive",
+    "income_tax: reading: Stated farm income repeats farm_operations_income (equal wherever the board states both) and is not added.",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: Stated partnership self-employment earnings (K-1 box 14) sit inside the stated partnership income: they are self-employment earnings, not more income.",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: reading: head (age 48) takes 20,000.00 of taxable IRA, SEP, 401(k) or 403(b) distributions. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated.",
+    "income_tax: TAXSIM has no input for qualified overtime compensation (26 U.S.C. 225)",
+    "income_tax: the domestic production activities deduction is left out (repealed for years after 2017)",
+    "income_tax: TAXSIM has no input for the additional tax on early distributions (26 U.S.C. 72(t)), which the statute puts at 2,000.00 at TAXSIM's AGI (unit.READINGS['retirement_penalty']); policyengine-us takes it as an input with no formula and the board states none",
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from the earned income of the EITC (probe P7.1) and of the refundable child credit (board 038); the law's earned income (26 U.S.C. 32(c)(2), which 24(d)(1)(B)(i) also uses) is not reduced by them"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
+    "income_tax: the EITC comes from a second TAXSIM record with `dep18` = the EITC children (at most three); the tax before refundable credits and the refundable child credit come from the first, with `dep18` = the children under 17 (this build gives the $2,200 credit to every `dep18` child)",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ],
+   "in_b_dep13": 1.0,
+   "in_b_dep17": 1.0,
+   "in_b_dep18": 3.0,
+   "out_b_fiitax": 2709.37,
+   "out_b_v22": 6600.0
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_064",
+   "in_year": 2025.0,
+   "in_mstat": 2.0,
+   "in_page": 48.0,
+   "in_sage": 47.0,
+   "in_pwages": 97295.0,
+   "in_psemp": -2800.0,
+   "in_scorp": 5350.0,
+   "in_ltcg": -18235.41,
+   "in_pensions": 20000.0,
+   "in_nonprop": -2423.59,
+   "in_proptax": 4759.21,
+   "in_depx": 3.0,
+   "out_taxsimid": 51.0,
+   "out_year": 2025.0,
+   "out_fiitax": 6212.37,
+   "out_fica": 14886.13,
+   "out_tfica": 7443.07,
+   "out_v10": 114421.41,
+   "out_v13": 31500.0,
+   "out_v18": 82411.41,
+   "out_v19": 9412.37,
+   "out_v22": 3200.0,
+   "out_v26": 113911.41,
+   "out_v28": 9412.37,
+   "out_v29": 14886.13,
+   "out_v30": 119845.0,
+   "out_qbid": 510.0,
+   "out_tfica_no_self_employment": 7443.07,
+   "q_fed_tax_before_refundable": 6212.37,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 7443.07,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: dependent1 (age 27) is a qualifying child under this reading, qualifying relative without it. A listed member other than the head and spouse whom the board states 'is disabled' and who has no earnings of their own (wages and self-employment earnings both zero) is taken as permanently and totally disabled (26 U.S.C. 22(e)(3)), so meets the qualifying-child age test at any age (152(c)(3)(B)): a dependent for the $500 credit (24(h)(4)) and an EITC qualifying child (32(c)(3)). A disabled member with earnings of their own is not: 22(e)(3) requires inability to engage in substantial gainful activity, and the board does not say the impairment is total or lasting. Unit.disabled_reading lists the members this reading moves and the class each would have without it.",
+    "income_tax: reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true).",
+    "income_tax: the maps read 5,350.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive",
+    "income_tax: reading: Stated farm income repeats farm_operations_income (equal wherever the board states both) and is not added.",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: Stated partnership self-employment earnings (K-1 box 14) sit inside the stated partnership income: they are self-employment earnings, not more income.",
+    "income_tax: reading: The stated FLSA overtime premium sits inside the stated wages; it is not added to them.",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: reading: head (age 48) takes 20,000.00 of taxable IRA, SEP, 401(k) or 403(b) distributions. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated.",
+    "income_tax: TAXSIM has no input for qualified overtime compensation (26 U.S.C. 225)",
+    "income_tax: the domestic production activities deduction is left out (repealed for years after 2017)",
+    "income_tax: TAXSIM has no input for the additional tax on early distributions (26 U.S.C. 72(t)), which the statute puts at 2,000.00 at TAXSIM's AGI (unit.READINGS['retirement_penalty']); policyengine-us takes it as an input with no formula and the board states none",
+    "income_tax: adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from the earned income of the EITC (probe P7.1) and of the refundable child credit (board 038); the law's earned income (26 U.S.C. 32(c)(2), which 24(d)(1)(B)(i) also uses) is not reduced by them"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ],
+   "in_age1": 12.0,
+   "in_age2": 18.0,
+   "in_age3": 18.0
+  }
+ }
+}

@@ -1,0 +1,401 @@
+case_id,quantity,value,formula
+scenario_000,federal_income_tax_before_refundable_credits,3343.12,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_000,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_000,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_000,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_001,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_001,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_001,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_001,federal_employee_payroll_tax,2223.39,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_002,federal_income_tax_before_refundable_credits,3428.96,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_002,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_002,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_002,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_003,federal_income_tax_before_refundable_credits,22400.66,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_003,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_003,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_003,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_004,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_004,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_004,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_004,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_005,federal_income_tax_before_refundable_credits,107377.35,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_005,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_005,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_005,federal_employee_payroll_tax,30454.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_007,federal_income_tax_before_refundable_credits,3736.68,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_007,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_007,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_007,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_008,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_008,federal_refundable_credits,6537.19,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_008,self_employment_tax,565.18,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_008,federal_employee_payroll_tax,2050.20,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_009,federal_income_tax_before_refundable_credits,8348.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_009,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_009,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_009,federal_employee_payroll_tax,4590.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_012,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_012,federal_refundable_credits,3383.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_012,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_012,federal_employee_payroll_tax,1683.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_013,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_013,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_013,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_013,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_014,federal_income_tax_before_refundable_credits,6311.32,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_014,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_014,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_014,federal_employee_payroll_tax,6802.97,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_015,federal_income_tax_before_refundable_credits,2969.13,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_015,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_015,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_015,federal_employee_payroll_tax,3442.50,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_016,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_016,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_016,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_016,federal_employee_payroll_tax,2649.80,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_018,federal_income_tax_before_refundable_credits,5211.05,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_018,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_018,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_018,federal_employee_payroll_tax,5202.38,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_020,federal_income_tax_before_refundable_credits,70401.42,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_020,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_020,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_020,federal_employee_payroll_tax,16689.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_021,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_021,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_021,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_021,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_022,federal_income_tax_before_refundable_credits,11313.77,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_022,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_022,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_022,federal_employee_payroll_tax,4026.58,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_023,federal_income_tax_before_refundable_credits,643.43,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_023,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_023,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_023,federal_employee_payroll_tax,1334.36,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_025,federal_income_tax_before_refundable_credits,7031.03,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_025,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_025,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_025,federal_employee_payroll_tax,4798.48,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_026,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_026,federal_refundable_credits,5402.69,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_026,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_026,federal_employee_payroll_tax,6518.47,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_027,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_027,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_027,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_027,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_028,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_028,federal_refundable_credits,7240.80,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_028,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_028,federal_employee_payroll_tax,4590.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_029,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_029,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_029,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_029,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_030,federal_income_tax_before_refundable_credits,190.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_030,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_030,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_030,federal_employee_payroll_tax,994.50,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_031,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_031,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_031,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_031,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_032,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_032,federal_refundable_credits,3918.50,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_032,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_032,federal_employee_payroll_tax,2218.50,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_033,federal_income_tax_before_refundable_credits,3818.15,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_033,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_033,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_033,federal_employee_payroll_tax,6043.50,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_036,federal_income_tax_before_refundable_credits,4926.40,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_036,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_036,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_036,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_037,federal_income_tax_before_refundable_credits,2804.73,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_037,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_037,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_037,federal_employee_payroll_tax,3208.67,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_038,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_038,federal_refundable_credits,4561.72,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_038,self_employment_tax,2193.62,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_038,federal_employee_payroll_tax,571.26,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_039,federal_income_tax_before_refundable_credits,8596.03,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_039,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_039,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_039,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_040,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_040,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_040,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_040,federal_employee_payroll_tax,2142.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_042,federal_income_tax_before_refundable_credits,2857.11,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_042,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_042,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_042,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_043,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_043,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_043,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_043,federal_employee_payroll_tax,312.74,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_044,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_044,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_044,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_044,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_045,federal_income_tax_before_refundable_credits,2173.07,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_045,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_045,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_045,federal_employee_payroll_tax,2775.08,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_046,federal_income_tax_before_refundable_credits,2280.36,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_046,federal_refundable_credits,2661.51,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_046,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_046,federal_employee_payroll_tax,7038.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_048,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_048,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_048,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_048,federal_employee_payroll_tax,585.68,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_049,federal_income_tax_before_refundable_credits,36330.14,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_049,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_049,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_049,federal_employee_payroll_tax,15134.50,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_051,federal_income_tax_before_refundable_credits,2620.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_051,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_051,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_051,federal_employee_payroll_tax,3060.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_052,federal_income_tax_before_refundable_credits,104225.40,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_052,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_052,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_052,federal_employee_payroll_tax,20939.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_053,federal_income_tax_before_refundable_credits,5903.11,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_053,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_053,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_053,federal_employee_payroll_tax,5123.10,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_054,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_054,federal_refundable_credits,3224.52,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_054,self_employment_tax,2416.15,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_054,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_055,federal_income_tax_before_refundable_credits,25478.58,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_055,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_055,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_055,federal_employee_payroll_tax,6398.09,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_056,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_056,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_056,self_employment_tax,613.22,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_056,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_057,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_057,federal_refundable_credits,664.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_057,self_employment_tax,1469.47,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_057,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_059,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_059,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_059,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_059,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_060,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_060,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_060,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_060,federal_employee_payroll_tax,229.50,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_062,federal_income_tax_before_refundable_credits,4443.42,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_062,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_062,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_062,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_064,federal_income_tax_before_refundable_credits,6109.37,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_064,federal_refundable_credits,946.50,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_064,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_064,federal_employee_payroll_tax,7443.07,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_066,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_066,federal_refundable_credits,39.78,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_066,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_066,federal_employee_payroll_tax,39.78,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_067,federal_income_tax_before_refundable_credits,6561.24,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_067,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_067,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_067,federal_employee_payroll_tax,6300.54,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_068,federal_income_tax_before_refundable_credits,14728.38,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_068,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_068,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_068,federal_employee_payroll_tax,2607.39,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_070,federal_income_tax_before_refundable_credits,2172.36,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_070,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_070,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_070,federal_employee_payroll_tax,2907.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_071,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_071,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_071,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_071,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_072,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_072,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_072,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_072,federal_employee_payroll_tax,1530.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_073,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_073,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_073,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_073,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_074,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_074,federal_refundable_credits,231.46,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_074,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_074,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_075,federal_income_tax_before_refundable_credits,14777.15,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_075,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_075,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_075,federal_employee_payroll_tax,968.21,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_076,federal_income_tax_before_refundable_credits,20003.80,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_076,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_076,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_076,federal_employee_payroll_tax,12240.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_077,federal_income_tax_before_refundable_credits,690.62,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_077,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_077,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_077,federal_employee_payroll_tax,1989.47,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_078,federal_income_tax_before_refundable_credits,24260.46,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_078,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_078,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_078,federal_employee_payroll_tax,14317.32,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_079,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_079,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_079,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_079,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_080,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_080,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_080,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_080,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_081,federal_income_tax_before_refundable_credits,26933.76,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_081,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_081,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_081,federal_employee_payroll_tax,13387.65,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_082,federal_income_tax_before_refundable_credits,10333.77,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_082,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_082,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_082,federal_employee_payroll_tax,7664.92,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_083,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_083,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_083,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_083,federal_employee_payroll_tax,539.32,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_084,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_084,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_084,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_084,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_085,federal_income_tax_before_refundable_credits,2322.85,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_085,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_085,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_085,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_086,federal_income_tax_before_refundable_credits,3255.54,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_086,federal_refundable_credits,703.52,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_086,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_086,federal_employee_payroll_tax,4743.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_088,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_088,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_088,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_088,federal_employee_payroll_tax,1421.15,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_089,federal_income_tax_before_refundable_credits,7235.80,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_089,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_089,self_employment_tax,4286.24,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_089,federal_employee_payroll_tax,5039.91,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_090,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_090,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_090,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_090,federal_employee_payroll_tax,535.50,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_091,federal_income_tax_before_refundable_credits,1545.35,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_091,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_091,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_091,federal_employee_payroll_tax,2065.50,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_092,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_092,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_092,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_092,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_093,federal_income_tax_before_refundable_credits,11848.99,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_093,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_093,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_093,federal_employee_payroll_tax,12469.50,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_095,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_095,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_095,self_employment_tax,593.23,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_095,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_098,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_098,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_098,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_098,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_099,federal_income_tax_before_refundable_credits,13071.49,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_099,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_099,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_099,federal_employee_payroll_tax,12622.50,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_100,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_100,federal_refundable_credits,143.47,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_100,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_100,federal_employee_payroll_tax,452.48,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_101,federal_income_tax_before_refundable_credits,13418.60,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_101,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_101,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_101,federal_employee_payroll_tax,7879.50,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_102,federal_income_tax_before_refundable_credits,6104.09,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_102,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_102,self_employment_tax,0.14,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_102,federal_employee_payroll_tax,6670.80,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_104,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_104,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_104,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_104,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_107,federal_income_tax_before_refundable_credits,211.23,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_107,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_107,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_107,federal_employee_payroll_tax,486.96,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_108,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_108,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_108,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_108,federal_employee_payroll_tax,585.68,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_109,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_109,federal_refundable_credits,6371.72,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_109,self_employment_tax,4238.86,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_109,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_110,federal_income_tax_before_refundable_credits,25840.76,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_110,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_110,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_110,federal_employee_payroll_tax,7650.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_111,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_111,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_111,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_111,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_112,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_112,federal_refundable_credits,453.10,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_112,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_112,federal_employee_payroll_tax,453.10,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_114,federal_income_tax_before_refundable_credits,11265.27,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_114,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_114,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_114,federal_employee_payroll_tax,1736.55,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_115,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_115,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_115,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_115,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_116,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_116,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_116,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_116,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_117,federal_income_tax_before_refundable_credits,30652.75,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_117,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_117,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_117,federal_employee_payroll_tax,15044.79,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_118,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_118,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_118,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_118,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_119,federal_income_tax_before_refundable_credits,0.00,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_119,federal_refundable_credits,5304.07,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_119,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_119,federal_employee_payroll_tax,4207.50,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_120,federal_income_tax_before_refundable_credits,40454.90,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_120,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_120,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_120,federal_employee_payroll_tax,12668.17,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_121,federal_income_tax_before_refundable_credits,875.34,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_121,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_121,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_121,federal_employee_payroll_tax,1963.37,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_122,federal_income_tax_before_refundable_credits,4990.29,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_122,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_122,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_122,federal_employee_payroll_tax,0.00,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"
+scenario_123,federal_income_tax_before_refundable_credits,8660.24,"sum over the household's records of passA.fiitax + passA.v25 (EITC) + passA.actc (ACTC); fiitax includes NIIT and AMT, excludes Additional Medicare Tax (probe1 #23)"
+scenario_123,federal_refundable_credits,0.00,sum over records of passA.v25 (EITC) + passA.actc (additional CTC)
+scenario_123,self_employment_tax,0.00,"sum over records of (passB.tfica - passB.addmed) - (passC.tfica - passC.addmed); passB = gross wages + SE income, passC = gross wages only"
+scenario_123,federal_employee_payroll_tax,11092.50,"sum over records of (passC.tfica - passC.addmed) + passB.addmed (employee SS + Medicare on gross wages, plus Additional Medicare Tax on wages and SE income)"

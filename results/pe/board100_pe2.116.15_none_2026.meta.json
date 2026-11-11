@@ -1,0 +1,11 @@
+{
+ "policyengine_us": "2.116.15",
+ "policyengine_core": "3.34.10",
+ "harness": "reference_audit/2026-09-28/scripts/sweep.py",
+ "harness_sha256": "f4c7783453a473a1bedcf64ef554c3a2fc29f9d663626948d920ed3ef2ea2b69",
+ "conventions": "none",
+ "year": 2026,
+ "skipped_variables": [
+  "traditional_ira_contributions_ald"
+ ]
+}

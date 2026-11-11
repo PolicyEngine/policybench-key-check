@@ -1,0 +1,1009 @@
+{
+ "case_id": "scenario_088",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 56,
+    "employment_income": 18577.05859375,
+    "inputs": {
+     "bank_account_assets": 31776.470703125,
+     "charitable_cash_donations": 2268.0,
+     "charitable_non_cash_donations": 2672.35302734375,
+     "health_insurance_premiums_without_medicare_part_b": 30.0,
+     "home_mortgage_interest": 10777.0,
+     "hourly_wage": 27.815126419067383,
+     "hours_worked_last_week": 13.0,
+     "is_blind": true,
+     "is_disabled": true,
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "other_medical_expenses": 175.0,
+     "over_the_counter_health_expenses": 100.0,
+     "qualified_dividend_income": 48.0,
+     "real_estate_taxes": 10036.8525390625,
+     "salt_refund_income": 675.0,
+     "tax_exempt_private_pension_income": 238.0,
+     "taxable_interest_income": 139.7058868408203,
+     "taxable_private_pension_income": 1862.0,
+     "tip_income": 9600.0,
+     "unemployment_compensation": 2733.0,
+     "weeks_unemployed": 15.0
+    },
+    "name": "head"
+   }
+  ],
+  "children": [],
+  "country": "us",
+  "filing_status": "single",
+  "household_inputs": {
+   "auto_loan_balance": 60558.82421875,
+   "auto_loan_interest": 4788.0
+  },
+  "id": "scenario_088",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 43057,
+   "tax_unit_id": 127769
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {
+   "receives_housing_assistance": true
+  },
+  "state": "TX",
+  "tax_unit_inputs": {
+   "first_home_mortgage_balance": 159659.25,
+   "first_home_mortgage_interest": 10777.0
+  },
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_088",
+   "year": 2026,
+   "state": "TX",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 56,
+    "blind": true,
+    "wages": 18577.05859375,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 9600.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 139.7058868408203,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 48.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 1862.0,
+    "tax_exempt_pensions": 238.0,
+    "social_security": 0.0,
+    "unemployment": 2733.0,
+    "salt_refund": 675.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 205.0,
+    "real_estate_taxes": 10036.8525390625,
+    "mortgage_interest": 10777.0,
+    "mortgage_balances": 159659.25,
+    "charity_cash": 2268.0,
+    "charity_non_cash": 2672.35302734375,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 4788.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable."
+    ],
+    [
+     "income_tax",
+     "reading: Stated tip income is not qualified tips (26 U.S.C. 224): the occupation is not stated, and an unstated status is false. The tips stay inside the stated wages; Tax-Calculator's tip_income is 0."
+    ],
+    [
+     "income_tax",
+     "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
+    ],
+    [
+     "income_tax",
+     "reading: head (age 56) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  },
+  "2025": {
+   "case_id": "scenario_088",
+   "year": 2025,
+   "state": "TX",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 56,
+    "blind": true,
+    "wages": 18577.05859375,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 9600.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 139.7058868408203,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 48.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 1862.0,
+    "tax_exempt_pensions": 238.0,
+    "social_security": 0.0,
+    "unemployment": 2733.0,
+    "salt_refund": 675.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 205.0,
+    "real_estate_taxes": 10036.8525390625,
+    "mortgage_interest": 10777.0,
+    "mortgage_balances": 159659.25,
+    "charity_cash": 2268.0,
+    "charity_non_cash": 2672.35302734375,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 4788.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable."
+    ],
+    [
+     "income_tax",
+     "reading: Stated tip income is not qualified tips (26 U.S.C. 224): the occupation is not stated, and an unstated status is false. The tips stay inside the stated wages; Tax-Calculator's tip_income is 0."
+    ],
+    [
+     "income_tax",
+     "reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated."
+    ],
+    [
+     "income_tax",
+     "reading: head (age 56) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 0.0,
+  "federal_refundable_credits": 0.0,
+  "payroll_tax": 1421.1448974609375,
+  "self_employment_tax": 0.0,
+  "state_income_tax_before_refundable_credits": 0.0
+ },
+ "board_exclusion_records": [],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 1421.14,
+    "taxcalc": 1421.14,
+    "taxsim": 1421.15
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 1421.14,
+    "taxcalc": 1421.14,
+    "taxsim": 1421.15
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 1421.14,
+    "taxcalc": 1421.14,
+    "taxsim": 1421.15
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "board:payroll_tax": 1421.14,
+   "adjusted_gross_income": 24034.76,
+   "irs_gross_income": 24034.76,
+   "taxable_income_deductions": 26276.03,
+   "standard_deduction": 18150.0,
+   "basic_standard_deduction": 16100.0,
+   "additional_standard_deduction": 2050.0,
+   "tax_unit_itemizes": 1.0,
+   "itemized_taxable_income_deductions": 26276.03,
+   "salt_deduction": 10678.85,
+   "salt": 10678.85,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 642.0,
+   "real_estate_taxes": 10036.85,
+   "interest_deduction": 10777.0,
+   "charitable_deduction": 4820.18,
+   "charitable_deduction_for_non_itemizers": 1000.0,
+   "amt_income": 8437.58,
+   "net_investment_income": 187.71,
+   "eitc_relevant_investment_income": 187.71,
+   "employee_payroll_tax": 1421.14,
+   "state_sales_tax": 535.0,
+   "age": {
+    "total": 56.0,
+    "persons": [
+     56.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_blind": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "irs_employment_income": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1151.78,
+    "persons": [
+     1151.777587890625
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 269.37,
+    "persons": [
+     269.3673400878906
+    ]
+   },
+   "tip_income": {
+    "total": 9600.0,
+    "persons": [
+     9600.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "board:payroll_tax": 1421.14,
+   "adjusted_gross_income": 24034.76,
+   "irs_gross_income": 24034.76,
+   "taxable_income_deductions": 26396.21,
+   "standard_deduction": 17750.0,
+   "basic_standard_deduction": 15750.0,
+   "additional_standard_deduction": 2000.0,
+   "tax_unit_itemizes": 1.0,
+   "itemized_taxable_income_deductions": 26396.21,
+   "salt_deduction": 10678.85,
+   "salt": 10678.85,
+   "salt_cap": 40000.0,
+   "state_and_local_sales_or_income_tax": 642.0,
+   "real_estate_taxes": 10036.85,
+   "interest_deduction": 10777.0,
+   "charitable_deduction": 4940.35,
+   "amt_income": 8317.41,
+   "net_investment_income": 187.71,
+   "eitc_relevant_investment_income": 187.71,
+   "employee_payroll_tax": 1421.14,
+   "state_sales_tax": 535.0,
+   "age": {
+    "total": 56.0,
+    "persons": [
+     56.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_blind": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "irs_employment_income": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1151.78,
+    "persons": [
+     1151.777587890625
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 269.37,
+    "persons": [
+     269.3673400878906
+    ]
+   },
+   "tip_income": {
+    "total": 9600.0,
+    "persons": [
+     9600.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "board:payroll_tax": 1421.14,
+   "adjusted_gross_income": 24034.76,
+   "irs_gross_income": 24034.76,
+   "taxable_income_deductions": 26169.03,
+   "standard_deduction": 18150.0,
+   "basic_standard_deduction": 16100.0,
+   "additional_standard_deduction": 2050.0,
+   "tax_unit_itemizes": 1.0,
+   "itemized_taxable_income_deductions": 26169.03,
+   "salt_deduction": 10571.85,
+   "salt": 10571.85,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 535.0,
+   "real_estate_taxes": 10036.85,
+   "interest_deduction": 10777.0,
+   "charitable_deduction": 4820.18,
+   "charitable_deduction_for_non_itemizers": 1000.0,
+   "amt_income": 7762.58,
+   "net_investment_income": 187.71,
+   "eitc_relevant_investment_income": 187.71,
+   "employee_payroll_tax": 1421.14,
+   "state_sales_tax": 535.0,
+   "age": {
+    "total": 56.0,
+    "persons": [
+     56.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_blind": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "irs_employment_income": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1151.78,
+    "persons": [
+     1151.777587890625
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 269.37,
+    "persons": [
+     269.3673400878906
+    ]
+   },
+   "tip_income": {
+    "total": 9600.0,
+    "persons": [
+     9600.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "board:payroll_tax": 1421.14,
+   "adjusted_gross_income": 24034.76,
+   "irs_gross_income": 24034.76,
+   "taxable_income_deductions": 26181.16,
+   "standard_deduction": 18150.0,
+   "basic_standard_deduction": 16100.0,
+   "additional_standard_deduction": 2050.0,
+   "tax_unit_itemizes": 1.0,
+   "itemized_taxable_income_deductions": 26181.16,
+   "salt_deduction": 10583.98,
+   "salt": 10583.98,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 547.12,
+   "real_estate_taxes": 10036.85,
+   "interest_deduction": 10777.0,
+   "charitable_deduction": 4820.18,
+   "charitable_deduction_for_non_itemizers": 1000.0,
+   "amt_income": 7762.58,
+   "net_investment_income": 187.71,
+   "eitc_relevant_investment_income": 187.71,
+   "employee_payroll_tax": 1421.14,
+   "state_sales_tax": 547.12,
+   "age": {
+    "total": 56.0,
+    "persons": [
+     56.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_blind": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "irs_employment_income": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 18577.06,
+    "persons": [
+     18577.05859375
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1151.78,
+    "persons": [
+     1151.777587890625
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 269.37,
+    "persons": [
+     269.3673400878906
+    ]
+   },
+   "tip_income": {
+    "total": 9600.0,
+    "persons": [
+     9600.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_088",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 56.0,
+   "in_blind_head": 1.0,
+   "in_e00200p": 18577.06,
+   "in_e00200": 18577.06,
+   "in_e00300": 139.71,
+   "in_e00600": 48.0,
+   "in_e00650": 48.0,
+   "in_e00700": 675.0,
+   "in_e01500": 2100.0,
+   "in_e01700": 1862.0,
+   "in_e02300": 2733.0,
+   "in_e17500": 205.0,
+   "in_e18400": 642.0,
+   "in_e18500": 10036.85,
+   "in_e19200": 10777.0,
+   "in_e19800": 2268.0,
+   "in_e20100": 2672.35,
+   "in_RECID": 72.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 22851.62,
+   "out_benefit_cost_total": 2733.0,
+   "out_benefit_value_total": 2733.0,
+   "out_c00100": 24034.76,
+   "out_c04470": 26276.03,
+   "out_c18300": 10678.85,
+   "out_c19200": 10777.0,
+   "out_c19700": 4820.18,
+   "out_c21060": 26276.03,
+   "out_c62100": 7762.59,
+   "out_combined": 2842.29,
+   "out_credit_claim_urn": 0.72,
+   "out_dwks10": 48.0,
+   "out_dwks13": 48.0,
+   "out_earned": 18577.06,
+   "out_earned_p": 18577.06,
+   "out_exact": 1.0,
+   "out_expanded_income": 25693.91,
+   "out_num": 1.0,
+   "out_payrolltax": 2842.29,
+   "out_ptax_er_p": 1421.14,
+   "out_ptax_oasdi": 2303.56,
+   "out_ptax_was": 2842.29,
+   "out_ymod": 24034.76,
+   "out_ymod1": 24034.76,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 1421.14,
+   "unexpressed": [
+    "income_tax: reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable.",
+    "income_tax: reading: Stated tip income is not qualified tips (26 U.S.C. 224): the occupation is not stated, and an unstated status is false. The tips stay inside the stated wages; Tax-Calculator's tip_income is 0.",
+    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
+    "income_tax: reading: head (age 56) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated.",
+    "income_tax: reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
+   ]
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_088",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 56.0,
+   "in_blind_head": 1.0,
+   "in_e00200p": 18577.06,
+   "in_e00200": 18577.06,
+   "in_e00300": 139.71,
+   "in_e00600": 48.0,
+   "in_e00650": 48.0,
+   "in_e00700": 675.0,
+   "in_e01500": 2100.0,
+   "in_e01700": 1862.0,
+   "in_e02300": 2733.0,
+   "in_e17500": 205.0,
+   "in_e18400": 642.0,
+   "in_e18500": 10036.85,
+   "in_e19200": 10777.0,
+   "in_e19800": 2268.0,
+   "in_e20100": 2672.35,
+   "in_RECID": 72.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 22851.62,
+   "out_benefit_cost_total": 2733.0,
+   "out_benefit_value_total": 2733.0,
+   "out_c00100": 24034.76,
+   "out_c04470": 26396.21,
+   "out_c18300": 10678.85,
+   "out_c19200": 10777.0,
+   "out_c19700": 4940.35,
+   "out_c21060": 26396.21,
+   "out_c62100": 7642.41,
+   "out_combined": 2842.29,
+   "out_credit_claim_urn": 0.72,
+   "out_dwks10": 48.0,
+   "out_dwks13": 48.0,
+   "out_earned": 18577.06,
+   "out_earned_p": 18577.06,
+   "out_exact": 1.0,
+   "out_expanded_income": 25693.91,
+   "out_num": 1.0,
+   "out_payrolltax": 2842.29,
+   "out_ptax_er_p": 1421.14,
+   "out_ptax_oasdi": 2303.56,
+   "out_ptax_was": 2842.29,
+   "out_ymod": 24034.76,
+   "out_ymod1": 24034.76,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 1421.14,
+   "unexpressed": [
+    "income_tax: reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable.",
+    "income_tax: reading: Stated tip income is not qualified tips (26 U.S.C. 224): the occupation is not stated, and an unstated status is false. The tips stay inside the stated wages; Tax-Calculator's tip_income is 0.",
+    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
+    "income_tax: reading: head (age 56) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated.",
+    "income_tax: reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
+   ]
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_088",
+   "in_year": 2026.0,
+   "in_mstat": 1.0,
+   "in_page": 56.0,
+   "in_pwages": 18577.06,
+   "in_dividends": 48.0,
+   "in_intrec": 139.71,
+   "in_pensions": 2537.0,
+   "in_pui": 2733.0,
+   "in_proptax": 10678.85,
+   "in_mortgage": 15597.18,
+   "out_taxsimid": 72.0,
+   "out_year": 2026.0,
+   "out_fica": 2842.29,
+   "out_tfica": 1421.15,
+   "out_v10": 24034.77,
+   "out_v11": 2733.0,
+   "out_v13": 16100.0,
+   "out_v17": 26276.03,
+   "out_v26": 8437.59,
+   "out_v29": 2842.29,
+   "out_v30": 24034.77,
+   "out_tfica_no_self_employment": 1421.15,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 1421.15,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable.",
+    "income_tax: reading: Stated tip income is not qualified tips (26 U.S.C. 224): the occupation is not stated, and an unstated status is false. The tips stay inside the stated wages; Tax-Calculator's tip_income is 0.",
+    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
+    "income_tax: reading: head (age 56) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated.",
+    "income_tax: TAXSIM has no input for blindness (additional standard deduction, 26 U.S.C. 63(f)(2))",
+    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund, a taxable scholarship) is entered as `pensions`: `nonprop` would count as EITC earned income",
+    "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)",
+    "income_tax: reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+   ],
+   "map_computed": [
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
+    "income_tax: charitable gifts limited by the 26 U.S.C. 170(b)(1) ceilings (60% cash, 50% other gifts less the cash) and, from 2026, the 0.5% floor of 170(b)(1)(I) (unit.READINGS['charity']), entered in `mortgage`"
+   ]
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_088",
+   "in_year": 2025.0,
+   "in_mstat": 1.0,
+   "in_page": 56.0,
+   "in_pwages": 18577.06,
+   "in_dividends": 48.0,
+   "in_intrec": 139.71,
+   "in_pensions": 2537.0,
+   "in_pui": 2733.0,
+   "in_proptax": 10678.85,
+   "in_mortgage": 15717.35,
+   "out_taxsimid": 72.0,
+   "out_year": 2025.0,
+   "out_fica": 2842.29,
+   "out_tfica": 1421.15,
+   "out_v10": 24034.77,
+   "out_v11": 2733.0,
+   "out_v13": 15750.0,
+   "out_v17": 26396.2,
+   "out_v26": 8317.42,
+   "out_v29": 2842.29,
+   "out_v30": 24034.77,
+   "out_tfica_no_self_employment": 1421.15,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 1421.15,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable.",
+    "income_tax: reading: Stated tip income is not qualified tips (26 U.S.C. 224): the occupation is not stated, and an unstated status is false. The tips stay inside the stated wages; Tax-Calculator's tip_income is 0.",
+    "income_tax: reading: Stated auto loan interest is not qualified passenger vehicle loan interest: the loan's date and the vehicle's qualification are not stated.",
+    "income_tax: reading: head (age 56) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated.",
+    "income_tax: TAXSIM has no input for blindness (additional standard deduction, 26 U.S.C. 63(f)(2))",
+    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)",
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund, a taxable scholarship) is entered as `pensions`: `nonprop` would count as EITC earned income",
+    "income_tax: reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+   ],
+   "map_computed": [
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
+    "income_tax: charitable gifts limited by the 26 U.S.C. 170(b)(1) ceilings (60% cash, 50% other gifts less the cash) and, from 2026, the 0.5% floor of 170(b)(1)(I) (unit.READINGS['charity']), entered in `mortgage`"
+   ]
+  }
+ }
+}

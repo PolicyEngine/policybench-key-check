@@ -1,0 +1,663 @@
+{
+ "case_id": "scenario_080",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 41,
+    "employment_income": 0.0,
+    "inputs": {
+     "bank_account_assets": 19827.646484375,
+     "financial_assistance": 3600.0,
+     "is_disabled": true,
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "long_term_capital_gains": 924.0,
+     "other_medical_expenses": 12.0,
+     "over_the_counter_health_expenses": 100.0,
+     "qualified_dividend_income": 16.0
+    },
+    "name": "head"
+   }
+  ],
+  "children": [],
+  "country": "us",
+  "filing_status": "single",
+  "household_inputs": {
+   "household_vehicles_value": 3570.0
+  },
+  "id": "scenario_080",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 9787,
+   "tax_unit_id": 11743
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {
+   "spm_unit_energy_subsidy": 2000.0
+  },
+  "state": "PA",
+  "tax_unit_inputs": {
+   "first_home_mortgage_balance": 93000.0
+  },
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_080",
+   "year": 2026,
+   "state": "PA",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 41,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 0.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 16.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 924.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 12.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 93000.0,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  },
+  "2025": {
+   "case_id": "scenario_080",
+   "year": 2025,
+   "state": "PA",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 41,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 0.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 16.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 924.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 12.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 93000.0,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 0.0,
+  "federal_refundable_credits": 0.0,
+  "payroll_tax": 0.0,
+  "self_employment_tax": 0.0,
+  "state_income_tax_before_refundable_credits": 0.0
+ },
+ "board_exclusion_records": [
+  {
+   "scenario_id": "scenario_080",
+   "variable": "snap",
+   "reason_code": "reference_engine_defect",
+   "root_cause": "r30_snap_heat_and_eat_sua",
+   "alternative_reading": "A LIHEAP payment makes a household eligible for the standard utility allowance only if the household has an elderly or disabled member; other households take the allowance only if they incur heating or cooling costs.",
+   "frozen_value": 3596.039794921875,
+   "alternative_value": 3240.0,
+   "engine_version": "policyengine-us 1.755.4",
+   "decided_on": "2026-09-22",
+   "decided_by": "developer",
+   "defect": "PolicyEngine grants the heat-and-eat standard utility allowance to households without an elderly or disabled member, which P.L. 119-21 sec. 10103 ended",
+   "law": "7 U.S.C. 2014(e)(6)(C)(iv)(I), as amended by P.L. 119-21 sec. 10103(a) (approved 2025-07-04)",
+   "upstream": "to be filed",
+   "note": "Corrected value applies r30_snap_heat_and_eat_sua with every publication convention and upstream fix. The prompt says the head is disabled but states none of the routes 7 U.S.C. 2012(j) lists for a disabled member, such as receipt of SSI or Social Security disability benefits, so the engine and this record treat the household as having no elderly or disabled member (verification/v9_axiom_us-2014-sua.md). Read the other way, the LIHEAP payment would still confer the standard utility allowance, and the value the publication conventions and upstream SNAP fixes give, 3,576.00 (the reference it would carry if scored), would stand; the output is excluded either way."
+  }
+ ],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "adjusted_gross_income": 940.0,
+   "irs_gross_income": 940.0,
+   "taxable_income_deductions": 16100.0,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 421.2,
+   "salt_deduction": 421.2,
+   "salt": 421.2,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 421.2,
+   "amt_income": 940.0,
+   "net_investment_income": 940.0,
+   "eitc_relevant_investment_income": 940.0,
+   "state_withheld_income_tax": 28.86,
+   "state_sales_tax": 351.0,
+   "age": {
+    "total": 41.0,
+    "persons": [
+     41.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "adjusted_gross_income": 940.0,
+   "irs_gross_income": 940.0,
+   "taxable_income_deductions": 15750.0,
+   "standard_deduction": 15750.0,
+   "basic_standard_deduction": 15750.0,
+   "itemized_taxable_income_deductions": 421.2,
+   "salt_deduction": 421.2,
+   "salt": 421.2,
+   "salt_cap": 40000.0,
+   "state_and_local_sales_or_income_tax": 421.2,
+   "amt_income": 940.0,
+   "net_investment_income": 940.0,
+   "eitc_relevant_investment_income": 940.0,
+   "state_withheld_income_tax": 28.86,
+   "state_sales_tax": 351.0,
+   "age": {
+    "total": 41.0,
+    "persons": [
+     41.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "adjusted_gross_income": 940.0,
+   "irs_gross_income": 940.0,
+   "taxable_income_deductions": 16100.0,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 351.0,
+   "salt_deduction": 351.0,
+   "salt": 351.0,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 351.0,
+   "amt_income": 940.0,
+   "net_investment_income": 940.0,
+   "eitc_relevant_investment_income": 940.0,
+   "state_withheld_income_tax": 28.86,
+   "state_sales_tax": 351.0,
+   "age": {
+    "total": 41.0,
+    "persons": [
+     41.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "adjusted_gross_income": 940.0,
+   "irs_gross_income": 940.0,
+   "taxable_income_deductions": 16100.0,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 358.95,
+   "salt_deduction": 358.95,
+   "salt": 358.95,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 358.95,
+   "amt_income": 940.0,
+   "net_investment_income": 940.0,
+   "eitc_relevant_investment_income": 940.0,
+   "state_withheld_income_tax": 28.86,
+   "state_sales_tax": 358.95,
+   "age": {
+    "total": 41.0,
+    "persons": [
+     41.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_080",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 41.0,
+   "in_e00600": 16.0,
+   "in_e00650": 16.0,
+   "in_p23250": 924.0,
+   "in_e17500": 12.0,
+   "in_e18400": 421.2,
+   "in_RECID": 65.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 940.0,
+   "out_c00100": 940.0,
+   "out_c01000": 924.0,
+   "out_c23650": 924.0,
+   "out_c62100": 940.0,
+   "out_credit_claim_urn": 0.56,
+   "out_dwks10": 940.0,
+   "out_dwks13": 940.0,
+   "out_exact": 1.0,
+   "out_expanded_income": 940.0,
+   "out_num": 1.0,
+   "out_standard": 16100.0,
+   "out_ymod": 940.0,
+   "out_ymod1": 940.0,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "unexpressed": [
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
+   ]
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_080",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 41.0,
+   "in_e00600": 16.0,
+   "in_e00650": 16.0,
+   "in_p23250": 924.0,
+   "in_e17500": 12.0,
+   "in_e18400": 421.2,
+   "in_RECID": 65.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 940.0,
+   "out_c00100": 940.0,
+   "out_c01000": 924.0,
+   "out_c23650": 924.0,
+   "out_c62100": 940.0,
+   "out_credit_claim_urn": 0.56,
+   "out_dwks10": 940.0,
+   "out_dwks13": 940.0,
+   "out_exact": 1.0,
+   "out_expanded_income": 940.0,
+   "out_num": 1.0,
+   "out_standard": 15750.0,
+   "out_ymod": 940.0,
+   "out_ymod1": 940.0,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "unexpressed": [
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
+   ]
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_080",
+   "in_year": 2026.0,
+   "in_mstat": 1.0,
+   "in_page": 41.0,
+   "in_dividends": 16.0,
+   "in_ltcg": 924.0,
+   "in_proptax": 421.2,
+   "out_taxsimid": 65.0,
+   "out_year": 2026.0,
+   "out_v10": 940.0,
+   "out_v13": 16100.0,
+   "out_v26": 940.0,
+   "out_v30": 940.0,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
+   ],
+   "map_computed": [
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ]
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_080",
+   "in_year": 2025.0,
+   "in_mstat": 1.0,
+   "in_page": 41.0,
+   "in_dividends": 16.0,
+   "in_ltcg": 924.0,
+   "in_proptax": 421.2,
+   "out_taxsimid": 65.0,
+   "out_year": 2025.0,
+   "out_v10": 940.0,
+   "out_v13": 15750.0,
+   "out_v26": 940.0,
+   "out_v30": 940.0,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: Stated financial assistance from friends or relatives outside the household is a gift, not gross income (26 U.S.C. 102(a))."
+   ],
+   "map_computed": [
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ]
+  }
+ }
+}

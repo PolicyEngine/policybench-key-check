@@ -1,0 +1,12 @@
+{
+ "taxsim_build": "cd2026110117",
+ "binary": "taxsimtest-osx.exe",
+ "year": 2026,
+ "dependents_path": "counts (depx, dep13, dep17, dep18); a second record for the EITC where its children differ from the children under 17",
+ "records_b": 2,
+ "input_map": "keycheck/map_taxsim.py",
+ "input_map_version": "2026-11-11.1",
+ "unit_version": "2026-11-11.1",
+ "shared": "results/shared/board100_salt_from_pe2.60.0_2026.csv",
+ "rejected_records": 0
+}

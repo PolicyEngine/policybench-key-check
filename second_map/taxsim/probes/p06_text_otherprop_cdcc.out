@@ -1,0 +1,110 @@
+ NBER TAXSIM @(#) $Version of: 2026110117 With TCJA and BBB.
+ State law coded through 2025.
+ Later state laws extrapolated from that year.
+ Marginal tax rate wrt taxpayer earnings.
+
+ Input Data:                   
+     1. Record ID:                        1.
+     2. Tax Year:                  2026.00
+         3. State not specified
+     4. Marital Status:               1.00 HoH     
+     5. Age (Txpyr/Spouse):          40.00       0.00
+     6. Dependent Exemptions:         1.00
+     7. Dependent Ages         
+        Birth years            
+     8. #deps for CCC/CTC/EIC:          0    0    0
+     9. Wages (Txpyr/Spouse):     40000.00       0.00
+    10.Self-employment income:        0.00       0.00
+    11. Dividend Income:              0.00
+    12. Interest Received:            0.00
+    13. Short Term Gains:             0.00
+    14. Long Term Gains:              0.00
+    15. Other Property:            5000.00
+    16. Other Non-Property:           0.00
+    17. Taxable Pensions:             0.00
+    18. Gross Social Security:        0.00
+    19. Txpy/Spouse UI:               0.00       0.00
+    20. Non-taxable Transfers:        0.00
+    21. Rent Paid:                    0.00
+    22. Property Taxes Paid:          0.00
+    23. Other Itemized Deds:          0.00
+    24. Child Care Expenses:       3000.00
+    25. Mortgage Interest:            0.00
+    26. S-Corp profits:               0.00
+    27. Txpy/Spouse QBI w/o PO:       0.00       0.00
+    28. Txpy/Spouse SSTB w PO:        0.00       0.00
+ Basic Output:               
+      1. Record ID:                1.                            
+      2. Year:                           2026
+               State not specified
+      4. Federal IIT Liability:       -3675.00
+      5. State IIT Liability:             0.00
+      6. SS Payroll Tax Liability:     6120.00
+ Marginal Rates wrt  Earner
+      7. Federal Marginal Rate:           0.00
+      8. State Marginal Rate:             0.00
+      9. Taxpayer SS Rate:                0.00
+                                  
+ Federal Tax Calculation:              Base         +$1
+     10. Federal AGI                  40000.00     40000.00
+     11. UI in AGI 1979+                  0.00         0.00
+     12. Social Security in AGI 84        0.00         0.00
+     13. Zero Bracket Amount          24150.00     24150.00
+     14. Personal Exemptions              0.00         0.00
+     15. Exemption Phaseout 1991+         0.00         0.00
+     16. Deduction Phaseout 1991+         0.00         0.00
+     17. Itemized Deductions              0.00         0.00
+         QBI deduction                    0.00         0.00
+     18. Federal Taxable Income       15850.00     15850.00
+     19. Federal Regular Tax           1585.00      1585.00
+     20. Exemption Surtax 1988-96         0.00         0.00
+     21. General Tax Credit 1975-8        0.00         0.00
+     22. Child Tax Credit 1998+        1585.00      1585.00
+         Additional CTC                 615.00       615.00
+     23  Refundable Part                615.00       615.00
+     24. Child Care Credit 1976+          0.00         0.00
+     25. Earned Income Credit 1975     3060.00      3060.00
+     26. Alternative Min Income:      40000.00     40000.00
+     27. AMT                              0.00         0.00
+     28. Income Tax Before Credits     1585.00      1585.00
+         Total Credits                 1585.00      1585.00
+         Net Investment Income Tax        0.00         0.00
+     29. FICA                          6120.00      6120.00
+         Taxpayer share of FICA        3060.00      3060.00
+  
+ TCJA 2018+
+     42. QBI Deduction                    0.00         0.00
+  
+ Additional Medicare Taxes 2013+
+     43. Net Investment Income Tax        0.00         0.00
+     44. Medicare Tax on Earnings         0.00         0.00
+  
+
+ Decomposition of Federal Marginal Rate
+    (taxpayer earned income)
+
+ Regular Income Tax
+     Bracket rate from X,Y or Z          10.00
+     Deduction Phaseout:                  0.00
+     Exemption Phaseout:                  0.00
+     Social Security Phasein:             0.00
+     Child Tax Credit:                    0.00
+     Child Care Credit:                   0.00
+     Refundable Part of CTC:             10.00
+     Earned Income Credit:                7.65
+     Surtax on 15% bracket:               0.00
+     Exemption Surtax:                    0.00
+     Unemployment Insurance:              0.00
+     Elderly Credit:                      0.00
+     Dependent Care Credit:               0.00
+     Percentage Std Deduction:            0.00
+     Medicare tax on Unearned Inco        0.00
+     Cares Recovery Rebates:              0.00
+
+ Alternative Minimum Income Tax  
+        AMT Bracket Rate                 26.00
+            AMT Phaseout                -26.00
+
+ Only Regular Tax Relevant
+        Total Marginal Rate:             17.65
+        FICA w Medicare (t,s):            0.00         0.00

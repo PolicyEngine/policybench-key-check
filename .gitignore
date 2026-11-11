@@ -6,3 +6,12 @@ data/draw/
 __pycache__/
 *.pyc
 .DS_Store
+# Wide per-household files for the larger draw (inputs and parts): rebuilt by the run scripts
+results/pe/draw*
+results/taxcalc/draw*
+results/taxsim/draw*
+logs/
+results/shared/draw*
+results/answers_draw*
+results/agreement/draw*
+results/dossiers_draw/

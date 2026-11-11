@@ -1,0 +1,15 @@
+(a) IRC 219(g) reduced limit vs Pub 590-A Worksheet 1-2
+  Example 2 (spouse covered, 2025 range 236,000-246,000, MAGI 238,500): map 5250.00; printed line 4 = 5,250 -> MATCH
+  Example 1 (covered, MFJ, 2025 range 126,000-146,000, MAGI 126,500): map 6830.00; worksheet rule (19,500 x 35% = 6,825, "not a multiple of $10" -> round up) 6830.00; printed example line 4 = 6,825 (the illustration does not apply its own rounding rule; statute 219(g)(2)(C): reduction 175 rounded down to 170 -> 6,830)
+  2026 grid, statute form vs worksheet form: 0 disagreements
+(b) Schedule SE: map.se_tax_own vs engine setax
+  SE profit  15,525.00 wages          0: engine setax    2193.61  map    2193.61  MATCH
+  SE profit     433.00 wages          0: engine setax       0.00  map       0.00  MATCH
+  SE profit     432.00 wages          0: engine setax       0.00  map       0.00  MATCH
+  SE profit   4,198.00 wages          0: engine setax     593.16  map     593.16  MATCH
+  SE profit 200,000.00 wages          0: engine setax   28234.30  map   28234.30  MATCH
+  SE profit  50,000.00 wages    150,000: engine setax    5617.07  map    5617.07  MATCH
+  038 IRC 162(l)(2)(A) limit: 15,525 - half SE tax = 14428.19; premiums 100 -> deduction 100
+(c) Pub 936 Table 1 (p936.txt:899-952)
+  049: line 11 750,000; line 12 (average balance) 1,000,000; line 13 = 0.750; line 14 (interest) 2,743.00; line 15 deductible = 2,057.25
+  120: line 11 750,000; line 12 (average balance) 999,999; line 13 = 0.750; line 14 (interest) 3,744.00; line 15 deductible = 2,808.00

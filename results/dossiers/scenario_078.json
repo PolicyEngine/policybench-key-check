@@ -1,0 +1,880 @@
+{
+ "case_id": "scenario_078",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 19,
+    "employment_income": 198505.0,
+    "inputs": {
+     "bank_account_assets": 51459.41015625,
+     "home_mortgage_interest": 28210.0,
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "other_medical_expenses": 1600.0,
+     "over_the_counter_health_expenses": 50.0,
+     "pre_subsidy_rent": 38400.0,
+     "real_estate_taxes": 26460.0,
+     "salt_refund_income": 1631.9117431640625,
+     "unreimbursed_business_employee_expenses": 2605.5
+    },
+    "name": "head"
+   }
+  ],
+  "children": [],
+  "country": "us",
+  "filing_status": "single",
+  "household_inputs": {},
+  "id": "scenario_078",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 23217,
+   "tax_unit_id": 104507
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {},
+  "state": "MD",
+  "tax_unit_inputs": {
+   "first_home_mortgage_balance": 417925.90625,
+   "first_home_mortgage_interest": 28210.0
+  },
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_078",
+   "year": 2026,
+   "state": "MD",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 19,
+    "blind": false,
+    "wages": 198505.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 0.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 1631.9117431640625,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 1600.0,
+    "real_estate_taxes": 26460.0,
+    "mortgage_interest": 28210.0,
+    "mortgage_balances": 417925.90625,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 2605.5,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  },
+  "2025": {
+   "case_id": "scenario_078",
+   "year": 2025,
+   "state": "MD",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 19,
+    "blind": false,
+    "wages": 198505.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 0.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 1631.9117431640625,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 1600.0,
+    "real_estate_taxes": 26460.0,
+    "mortgage_interest": 28210.0,
+    "mortgage_balances": 417925.90625,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 2605.5,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 24164.45703125,
+  "federal_refundable_credits": 0.0,
+  "payroll_tax": 14317.322265625,
+  "self_employment_tax": 0.0,
+  "state_income_tax_before_refundable_credits": 6936.87646484375
+ },
+ "board_exclusion_records": [
+  {
+   "scenario_id": "scenario_078",
+   "variable": "federal_income_tax_before_refundable_credits",
+   "reason_code": "reference_depends_on_unlisted_input",
+   "alternative_reading": "The prompt lists state and local tax refund income without saying whether the refunded tax reduced federal tax when it was deducted in the prior year (it labels already-taxable inputs 'taxable'). policyengine-us 2.15.17 counts the whole refund in gross income (policyengine-us#9422, which fixed issue #9122); under 26 U.S.C. 111(a) none of it is income if the household did not itemize, or took no tax benefit, in the year it paid the tax.",
+   "frozen_value": 24164.457031,
+   "alternative_value": 23772.800781,
+   "engine_version": "policyengine-us 2.15.17",
+   "decided_on": "2026-09-29",
+   "decided_by": "developer",
+   "unlisted_input": "whether the prior-year deduction of the refunded state and local tax reduced federal tax (prior-year itemization, the income-versus-sales-tax election, SALT-cap headroom)",
+   "note": "Found in the 2026-09-29 engine upgrade (cluster salt_refund_gross_income_9122); investigator and an independent reviewer. Alternative computed on 2.15.17 with the refund left out of gross income (sweep/fixes/latest_alt_salt_refund_no_prior_benefit.py). The frozen value also counts Maryland county income tax, at the rate policyengine-us 2.15.17 assigns an unlisted county, in the federal SALT deduction through the Maryland withholding proxy (c_md_2026); the SALT cap binds at every 2026 county rate. The output also moves under the state income tax withheld reading (unlisted input): the reference's SALT uses the Maryland withholding estimate ($15,791.66); with the engine's own liability ($11,295.39) the 2.15.17 value is $24,799.16, and with no state income tax paid it is $27,290.70. The $40,400 cap that binds in the reference does not bind under the liability, so the liability value depends on the county, which the prompt does not state: $24,705.95 to $25,068.44 across Maryland's 24 county rates (the engine's default, Allegany, gives $24,799.16)."
+  }
+ ],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "two_agree:taxsim",
+    "board_scores_it": "no",
+    "policyengine": 24164.46,
+    "taxcalc": 24164.46,
+    "taxsim": 24260.46
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 14317.32,
+    "taxcalc": 14317.32,
+    "taxsim": 14317.32
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "two_agree:taxsim",
+    "board_scores_it": "no",
+    "policyengine": 24164.46,
+    "taxcalc": 24164.46,
+    "taxsim": 24260.46
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 14317.32,
+    "taxcalc": 14317.32,
+    "taxsim": 14317.32
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "no",
+    "policyengine": 24509.46,
+    "taxcalc": 24509.46,
+    "taxsim": 24509.46
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 13796.52,
+    "taxcalc": 13796.52,
+    "taxsim": 13796.52
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 24164.46,
+   "board:payroll_tax": 14317.32,
+   "board:state_income_tax_before_refundable_credits": 6936.88,
+   "adjusted_gross_income": 200136.91,
+   "irs_gross_income": 200136.91,
+   "taxable_income": 131526.91,
+   "taxable_income_deductions": 68610.0,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "tax_unit_itemizes": 1.0,
+   "itemized_taxable_income_deductions": 68610.0,
+   "salt_deduction": 40400.0,
+   "salt": 42251.66,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 15791.66,
+   "real_estate_taxes": 26460.0,
+   "interest_deduction": 28210.0,
+   "income_tax_main_rates": 24164.46,
+   "amt_income": 171926.91,
+   "income_tax_before_credits": 24164.46,
+   "income_tax_before_refundable_credits": 24164.46,
+   "income_tax": 24164.46,
+   "employee_payroll_tax": 14317.32,
+   "state_withheld_income_tax": 15791.66,
+   "state_sales_tax": 914.0,
+   "age": {
+    "total": 19.0,
+    "persons": [
+     19.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 198505.0,
+    "persons": [
+     198505.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 198505.0,
+    "persons": [
+     198505.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 198505.0,
+    "persons": [
+     198505.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 184500.0,
+    "persons": [
+     184500.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 11439.0,
+    "persons": [
+     11439.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 2878.32,
+    "persons": [
+     2878.322509765625
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "board:federal_income_tax_before_refundable_credits": 24509.46,
+   "board:payroll_tax": 13796.52,
+   "board:state_income_tax_before_refundable_credits": 6936.88,
+   "adjusted_gross_income": 200136.91,
+   "irs_gross_income": 200136.91,
+   "taxable_income": 131926.91,
+   "taxable_income_deductions": 68210.0,
+   "standard_deduction": 15750.0,
+   "basic_standard_deduction": 15750.0,
+   "tax_unit_itemizes": 1.0,
+   "itemized_taxable_income_deductions": 68210.0,
+   "salt_deduction": 40000.0,
+   "salt": 42255.92,
+   "salt_cap": 40000.0,
+   "state_and_local_sales_or_income_tax": 15795.92,
+   "real_estate_taxes": 26460.0,
+   "interest_deduction": 28210.0,
+   "income_tax_main_rates": 24509.46,
+   "amt_income": 171926.91,
+   "income_tax_before_credits": 24509.46,
+   "income_tax_before_refundable_credits": 24509.46,
+   "income_tax": 24509.46,
+   "employee_payroll_tax": 13796.52,
+   "state_withheld_income_tax": 15795.92,
+   "state_sales_tax": 914.0,
+   "age": {
+    "total": 19.0,
+    "persons": [
+     19.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 198505.0,
+    "persons": [
+     198505.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 198505.0,
+    "persons": [
+     198505.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 198505.0,
+    "persons": [
+     198505.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 176100.0,
+    "persons": [
+     176100.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 10918.2,
+    "persons": [
+     10918.2001953125
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 2878.32,
+    "persons": [
+     2878.322509765625
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 24164.46,
+   "board:payroll_tax": 14317.32,
+   "board:state_income_tax_before_refundable_credits": 6936.88,
+   "adjusted_gross_income": 200136.91,
+   "irs_gross_income": 200136.91,
+   "taxable_income": 131526.91,
+   "taxable_income_deductions": 68610.0,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "tax_unit_itemizes": 1.0,
+   "itemized_taxable_income_deductions": 68610.0,
+   "salt_deduction": 40400.0,
+   "salt": 42251.66,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 15791.66,
+   "real_estate_taxes": 26460.0,
+   "interest_deduction": 28210.0,
+   "income_tax_main_rates": 24164.46,
+   "amt_income": 170295.0,
+   "income_tax_before_credits": 24164.46,
+   "income_tax_before_refundable_credits": 24164.46,
+   "income_tax": 24164.46,
+   "employee_payroll_tax": 14317.32,
+   "state_withheld_income_tax": 15791.66,
+   "state_sales_tax": 914.0,
+   "age": {
+    "total": 19.0,
+    "persons": [
+     19.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 198505.0,
+    "persons": [
+     198505.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 198505.0,
+    "persons": [
+     198505.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 198505.0,
+    "persons": [
+     198505.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 184500.0,
+    "persons": [
+     184500.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 11439.0,
+    "persons": [
+     11439.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 2878.32,
+    "persons": [
+     2878.322509765625
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "board:federal_income_tax_before_refundable_credits": 24164.46,
+   "board:payroll_tax": 14317.32,
+   "board:state_income_tax_before_refundable_credits": 6936.88,
+   "adjusted_gross_income": 200136.91,
+   "irs_gross_income": 200136.91,
+   "taxable_income": 131526.91,
+   "taxable_income_deductions": 68610.0,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "tax_unit_itemizes": 1.0,
+   "itemized_taxable_income_deductions": 68610.0,
+   "salt_deduction": 40400.0,
+   "salt": 42302.84,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 15842.84,
+   "real_estate_taxes": 26460.0,
+   "interest_deduction": 28210.0,
+   "income_tax_main_rates": 24164.46,
+   "amt_income": 170295.0,
+   "income_tax_before_credits": 24164.46,
+   "income_tax_before_refundable_credits": 24164.46,
+   "income_tax": 24164.46,
+   "employee_payroll_tax": 14317.32,
+   "state_withheld_income_tax": 15842.84,
+   "state_sales_tax": 934.71,
+   "age": {
+    "total": 19.0,
+    "persons": [
+     19.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 198505.0,
+    "persons": [
+     198505.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 198505.0,
+    "persons": [
+     198505.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 198505.0,
+    "persons": [
+     198505.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 184500.0,
+    "persons": [
+     184500.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 11439.0,
+    "persons": [
+     11439.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 2878.32,
+    "persons": [
+     2878.322509765625
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_078",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 19.0,
+   "in_e00200p": 198505.0,
+   "in_e00200": 198505.0,
+   "in_e00700": 1631.91,
+   "in_e17500": 1600.0,
+   "in_e18400": 15791.66,
+   "in_e18500": 26460.0,
+   "in_e19200": 28210.0,
+   "in_e20400": 2605.5,
+   "in_RECID": 63.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 161655.13,
+   "out_c00100": 200136.91,
+   "out_c04470": 68610.0,
+   "out_c04800": 131526.91,
+   "out_c05200": 24164.46,
+   "out_c05800": 24164.46,
+   "out_c09200": 24164.46,
+   "out_c18300": 40400.0,
+   "out_c19200": 28210.0,
+   "out_c21060": 68610.0,
+   "out_c62100": 170295.0,
+   "out_combined": 52799.1,
+   "out_credit_claim_urn": 0.88,
+   "out_earned": 198505.0,
+   "out_earned_p": 198505.0,
+   "out_exact": 1.0,
+   "out_expanded_income": 214454.23,
+   "out_iitax": 24164.46,
+   "out_num": 1.0,
+   "out_payrolltax": 28634.65,
+   "out_ptax_er_p": 14317.32,
+   "out_ptax_oasdi": 22878.0,
+   "out_ptax_was": 28634.65,
+   "out_taxbc": 24164.46,
+   "out_ymod": 200136.91,
+   "out_ymod1": 200136.91,
+   "q_fed_tax_before_refundable": 24164.46,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 14317.32,
+   "unexpressed": [
+    "income_tax: reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
+   ]
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_078",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 19.0,
+   "in_e00200p": 198505.0,
+   "in_e00200": 198505.0,
+   "in_e00700": 1631.91,
+   "in_e17500": 1600.0,
+   "in_e18400": 15795.92,
+   "in_e18500": 26460.0,
+   "in_e19200": 28210.0,
+   "in_e20400": 2605.5,
+   "in_RECID": 63.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 161830.93,
+   "out_c00100": 200136.91,
+   "out_c04470": 68210.0,
+   "out_c04800": 131926.91,
+   "out_c05200": 24509.46,
+   "out_c05800": 24509.46,
+   "out_c09200": 24509.46,
+   "out_c18300": 40000.0,
+   "out_c19200": 28210.0,
+   "out_c21060": 68210.0,
+   "out_c62100": 170295.0,
+   "out_combined": 52102.5,
+   "out_credit_claim_urn": 0.88,
+   "out_earned": 198505.0,
+   "out_earned_p": 198505.0,
+   "out_exact": 1.0,
+   "out_expanded_income": 213933.43,
+   "out_iitax": 24509.46,
+   "out_num": 1.0,
+   "out_payrolltax": 27593.05,
+   "out_ptax_er_p": 13796.52,
+   "out_ptax_oasdi": 21836.4,
+   "out_ptax_was": 27593.05,
+   "out_taxbc": 24509.46,
+   "out_ymod": 200136.91,
+   "out_ymod1": 200136.91,
+   "q_fed_tax_before_refundable": 24509.46,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 13796.52,
+   "unexpressed": [
+    "income_tax: reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
+   ]
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_078",
+   "in_year": 2026.0,
+   "in_mstat": 1.0,
+   "in_page": 19.0,
+   "in_pwages": 198505.0,
+   "in_pensions": 1631.91,
+   "in_proptax": 42251.66,
+   "in_mortgage": 28210.0,
+   "out_taxsimid": 63.0,
+   "out_year": 2026.0,
+   "out_fiitax": 24260.46,
+   "out_fica": 29502.95,
+   "out_tfica": 14317.32,
+   "out_v10": 200136.91,
+   "out_v13": 16100.0,
+   "out_v17": 68210.0,
+   "out_v18": 131926.91,
+   "out_v19": 24260.46,
+   "out_v26": 171926.91,
+   "out_v28": 24260.46,
+   "out_v29": 29502.95,
+   "out_v30": 200136.91,
+   "out_tfica_no_self_employment": 14317.32,
+   "q_fed_tax_before_refundable": 24260.46,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 14317.32,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable.",
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund, a taxable scholarship) is entered as `pensions`: `nonprop` would count as EITC earned income",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+   ],
+   "map_computed": [
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ]
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_078",
+   "in_year": 2025.0,
+   "in_mstat": 1.0,
+   "in_page": 19.0,
+   "in_pwages": 198505.0,
+   "in_pensions": 1631.91,
+   "in_proptax": 42255.92,
+   "in_mortgage": 28210.0,
+   "out_taxsimid": 63.0,
+   "out_year": 2025.0,
+   "out_fiitax": 24509.46,
+   "out_fica": 28982.15,
+   "out_tfica": 13796.52,
+   "out_v10": 200136.91,
+   "out_v13": 15750.0,
+   "out_v17": 68210.0,
+   "out_v18": 131926.91,
+   "out_v19": 24509.46,
+   "out_v26": 171926.91,
+   "out_v28": 24509.46,
+   "out_v29": 28982.15,
+   "out_v30": 200136.91,
+   "out_tfica_no_self_employment": 13796.52,
+   "q_fed_tax_before_refundable": 24509.46,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 13796.52,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: A stated state or local tax refund is taxable in full: policyengine-us documents salt_refund_income as the taxable refund reported on Schedule 1, line 1 (26 U.S.C. 111). Alternative: the prior-year deduction's tax benefit (111(a)) is not stated, which would make none of it taxable.",
+    "income_tax: other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund, a taxable scholarship) is entered as `pensions`: `nonprop` would count as EITC earned income",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+   ],
+   "map_computed": [
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ]
+  }
+ }
+}

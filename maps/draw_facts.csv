@@ -1,0 +1,115 @@
+entity,fact,households_stating_it,effect_on_the_four_lines_in_the_key,axiom_oracles_concept_id,taxcalc_field,taxsim_field,note
+structure,"person role (head, spouse, dependent, child)",1000,federal,axiom:demographics/person#household_relation,"MARS, XTOT, n24, EIC, f2441 (derived)","mstat, depx and dep13/dep17/dep18 or age1.. (derived)",filing status and dependents are derived in keycheck/unit.py
+structure,age,1000,federal,axiom:demographics/person#age,"age_head, age_spouse; dependents' ages feed the counts","page, sage; dependents' ages feed the counts",
+structure,state,1000,indirect,axiom:location/household#state_code,,state (sent as 0),"reaches federal tax only through the state and local tax deduction, which is shared from the key"
+person,employment_income,1000,federal,axiom:income/person#yearly_earned_income,"e00200p/s net of deferrals, with pencon_p/s",pwages/swages,
+person,alimony_expense,2,federal,,e03500 (no effect in 2025-2026),,the key deducts it: the engine's default divorce year is 2010; the divorce date is not stated
+person,alimony_income,1,federal,,e00800 (no effect in 2025-2026),,"the key taxes it, for the same reason"
+person,attends_eligible_educational_institution_for_american_opportunity_credit,2,none,,,,
+person,bank_account_assets,921,none,,,,nearest concept: assets/household#cash_on_hand
+person,charitable_cash_donations,218,federal,,e19800,mortgage (the map applies the 0.5% floor),TAXSIM has no deduction for a non-itemizer
+person,charitable_non_cash_donations,132,federal,,e20100,mortgage,
+person,child_support_expense,10,none,,,,
+person,child_support_received,18,none,,,,
+person,disability_benefits,15,federal,,e01200 (no dedicated input),pensions (no dedicated input),taxable and not wages in the key; who paid for the coverage is not stated
+person,educational_assistance,52,none,,,,not taxable in the maps: read as a qualified scholarship (keycheck/unit.py READINGS educational_assistance)
+person,educator_expense,20,federal,,e03220 (the map applies the limit),"nonprop, negative",
+person,estate_income,10,federal,,e02000,"intrec, either sign",not qualified business income in the maps or the key
+person,farm_income,1,none,,,,the engine does not read it (READINGS farm_income); one draw member states an amount different from farm_operations_income
+person,farm_operations_income,30,federal,,e02100p/s,psemp/ssemp,
+person,farm_rent_income,6,federal,,e02000 and e27200,scorp,
+person,fsla_overtime_premium,176,federal,,overtime_income,,TAXSIM has no input for the overtime deduction
+person,has_american_opportunity_credit_1098_t_or_exception,2,none,,,,
+person,has_american_opportunity_credit_institution_ein,2,none,,,,
+person,has_champva_health_coverage_at_interview,1,none,,,,
+person,has_esi,519,none,,,,
+person,has_indian_health_service_coverage_at_interview,3,none,,,,
+person,has_other_means_tested_health_coverage_at_interview,1,none,,,,
+person,health_insurance_premiums_without_medicare_part_b,637,federal,,e17500,mortgage (the map applies the 7.5% floor),itemizers only; every listed member's counts (26 U.S.C. 213(a))
+person,home_mortgage_interest,206,federal,axiom:housing/household#mortgage_interest_paid,e19200 (the map applies the debt limit),mortgage,itemizers only
+person,hourly_wage,744,none,,,,
+person,hours_worked_last_week,719,none,,,,
+person,is_blind,41,federal,axiom:demographics/person#blind,"blind_head, blind_spouse",,TAXSIM has no input for blindness
+person,is_disabled,262,none,axiom:demographics/person#disabled,"XTOT, EIC (a dependent's class, derived)","depx, dep18; age 18 on the 2025 ages path (a dependent's class, derived)","the engine's tax rules read other disability inputs, which the board never states; keycheck/unit.py reads it for a member with no earnings as permanent and total disability (READINGS is_disabled)"
+person,is_enrolled_at_least_half_time_for_american_opportunity_credit,2,none,,,,
+person,is_paid_hourly,452,none,,,,
+person,is_pregnant,22,none,axiom:demographics/person#pregnant,,,
+person,is_pursuing_credential_for_american_opportunity_credit,2,none,,,,
+person,is_surviving_spouse,40,federal,,MARS 5 when a qualifying child is claimed,,TAXSIM has no such status (READINGS surviving_spouse)
+person,is_tax_unit_head,1000,federal,axiom:demographics/person#household_relation,MARS and the head's fields,mstat and the primary taxpayer's fields,
+person,is_tax_unit_spouse,1000,federal,axiom:demographics/person#household_relation,MARS 2 and the spouse's fields,mstat 2 and the secondary taxpayer's fields,
+person,long_term_capital_gains,104,federal,axiom:income/person#long_term_capital_gains,p23250,ltcg,
+person,miscellaneous_income,31,federal,,e01200 (no dedicated input),pensions (no dedicated input),
+person,non_qualified_dividend_income,278,federal,axiom:income/person#dividend_income,e00600,intrec,the concept is total dividends; non-qualified is the total less qualified
+person,non_sch_d_capital_gains,25,federal,,"e01100, or p23250 when the unit has Schedule D items",ltcg,capital gain distributions
+person,other_health_insurance_premiums,631,none,,,,not counted again: part of the premiums without Medicare Part B (READINGS other_health_insurance_premiums)
+person,other_medical_expenses,796,federal,,e17500,mortgage (the map applies the 7.5% floor),itemizers only; every listed member's counts (26 U.S.C. 213(a))
+person,over_the_counter_health_expenses,883,none,,,,left out of medical expenses in the maps and the key (READINGS over_the_counter)
+person,pre_subsidy_rent,328,none,axiom:housing/household#rent_paid,,rentpaid (state credits only; not sent),
+person,qualified_bdc_income,11,none,,,,read as part of the stated dividends (READINGS qualified_bdc_income); the engine reads it in no formula
+person,qualified_dividend_income,267,federal,axiom:income/person#qualified_dividend_income,e00650 and e00600,dividends,
+person,qualified_reit_and_ptp_income,91,federal,,,,a component of the qualified business income deduction neither other model has
+person,real_estate_taxes,250,federal,axiom:housing/household#property_tax_paid,e18500,proptax,itemizers only
+person,rental_income,102,federal,axiom:income/person#rental_income,e02000,"intrec, either sign (this build ignores otherprop from 2024)",qualified business income in the key by default; not in the maps (READINGS rental_qbi)
+person,roth_401k_contributions_desired,336,federal,,"e07240 (saver's credit, computed by the map)",,"shares the 402(g) limit with traditional deferrals and, with them, is limited to wages"
+person,roth_ira_contributions_desired,339,federal,,"e07240 (saver's credit, computed by the map)",,
+person,salt_refund_income,100,federal,,e00700,pensions (no dedicated input),taxable in full in the key; the prior-year tax benefit is not stated
+person,self_employment_income,219,federal,axiom:income/person#self_employment_income,e00900p/s,psemp/ssemp,
+person,short_term_capital_gains,104,federal,axiom:income/person#short_term_capital_gains,p22250,stcg,
+person,social_security_dependents,53,federal,axiom:income/person#social_security_benefits,e02400,gssi,one concept for all four benefit types
+person,social_security_disability,82,federal,axiom:income/person#social_security_benefits,e02400,gssi,
+person,social_security_retirement,285,federal,axiom:income/person#social_security_benefits,e02400,gssi,
+person,social_security_survivors,57,federal,axiom:income/person#social_security_benefits,e02400,gssi,
+person,sstb_self_employment_income_before_lsr,38,federal,,e00900p/s with PT_SSTB_income,pprofinc/sprofinc,
+person,sstb_unadjusted_basis_qualified_property,27,federal,,PT_ubia_property (when the unit's business is a specified service trade),,limits the qualified business income deduction above the threshold only
+person,stock_assets,298,none,,,,
+person,student_loan_interest,43,federal,,e03210 (the map applies the cap and phase-out),"nonprop, negative",
+person,tax_exempt_interest_income,64,federal,axiom:income/person#tax_exempt_interest_income,e00400,,TAXSIM has no input for it
+person,tax_exempt_ira_distributions,11,federal,,"e07240 (reduces the saver's credit, computed by the map)",,
+person,tax_exempt_private_pension_income,140,federal,,e01500 above e01700,,reduces the credit for the elderly or disabled
+person,taxable_401k_distributions,31,federal,axiom:income/person#pension_income,e01500 and e01700,pensions,the concept is pension income of any kind
+person,taxable_403b_distributions,2,federal,axiom:income/person#pension_income,e01500 and e01700,pensions,
+person,taxable_interest_income,428,federal,axiom:income/person#interest_income,e00300,intrec,
+person,taxable_ira_distributions,146,federal,axiom:income/person#pension_income,e01400,pensions,
+person,taxable_private_pension_income,215,federal,axiom:income/person#pension_income,e01500 and e01700,pensions,
+person,tip_income,11,none,,tip_income (sent as 0),,the key gives no tip deduction: it needs an occupation code the board cannot state; the maps read stated tips as not qualified (READINGS tips)
+person,traditional_401k_contributions_desired,336,federal,,"pencon_p/s, and out of e00200p/s","nonprop, negative (pwages/swages stay gross)","limited by 402(g) and, with Roth deferrals, to wages"
+person,traditional_ira_contributions_desired,339,federal,,e03150 (the map applies 26 U.S.C. 219),"nonprop, negative",
+person,unadjusted_basis_qualified_property,104,federal,,PT_ubia_property,,limits the qualified business income deduction above the threshold only
+person,unemployment_compensation,34,federal,axiom:income/person#unemployment_insurance,e02300,pui,
+person,unreimbursed_business_employee_expenses,150,none,,e20400 (no effect),,the deduction is suspended
+person,veterans_benefits,35,indirect,,,,"enters the income that picks the sales tax table amount, for itemizers"
+person,weeks_unemployed,48,none,,,,
+person,workers_compensation,8,indirect,,,,"enters the income that picks the sales tax table amount, for itemizers"
+household,auto_loan_balance,299,none,,,,
+household,auto_loan_interest,283,none,,auto_loan_interest (sent as 0),,the key gives no deduction: the loan is not stated to qualify
+household,household_vehicles_value,885,none,,,,
+spm_unit,receives_housing_assistance,21,none,,,,
+spm_unit,spm_unit_energy_subsidy,49,none,,,,
+spm_unit,spm_unit_pre_subsidy_childcare_expenses,66,federal,axiom:tax/household#childcare_expenses,e32800 with f2441,childcare,
+tax_unit,domestic_production_ald,2,none,,e03240 (no effect),,the deduction is repealed
+tax_unit,first_home_mortgage_balance,206,federal,,limits e19200 (computed by the map),limits mortgage (computed by the map),"above $750,000 of debt"
+tax_unit,health_savings_account_ald,25,federal,,e03290,"nonprop, negative",
+household,qualified_passenger_vehicle_loan_interest,283,federal,,auto_loan_interest (Tax-Calculator applies the cap and phase-out),,"26 U.S.C. 163(h)(4) from 2025; TAXSIM has no input, and its note gives the statute's size at TAXSIM's AGI"
+person,bond_assets,28,none,,,,
+person,health_insurance_premiums,28,federal,,"e17500, or e03270 for the 162(l) part of a self-employed filer's","mortgage (the map applies the 7.5% floor), or nonprop, negative, for the 162(l) part","one amount with the premiums without Medicare Part B (READINGS health_insurance_premiums, se_health_insurance)"
+person,investment_income_elected_form_4952,2,federal,,e58990 (limited to qualified dividends and net capital gain),"moves net capital gain, then qualified dividends, from ltcg and dividends to intrec",raises the 163(d) limit and leaves the rate preference (26 U.S.C. 163(d)(4)(B)); Tax-Calculator takes it from qualified dividends only
+person,investment_interest_expense,206,federal,,"e19200, with mortgage interest (the map applies 163(d))",mortgage (the map applies 163(d)),itemizers only; the key deducts it in full (READINGS investment_interest)
+person,is_incapable_of_self_care,48,federal,,"f2441 (care individuals, derived)",childcare; TAXSIM counts children under 13 only,"the care credit only, and only with care expenses (READINGS incapable)"
+person,is_military,5,none,,,,
+person,is_related_to_head_or_spouse,2,federal,,"MARS (head of household, derived)",,head of household only: an unrelated qualifying relative is not a qualifying person (READINGS unrelated_member)
+person,is_self_employed,249,federal,,e03270 with health_insurance_premiums (derived),"nonprop, negative, with health_insurance_premiums (derived)",only through health_insurance_premiums (the 162(l) deduction)
+person,is_separated,12,federal,,MARS 3 or 4 (derived),"mstat 6, or 1 with a qualifying child (derived)","married filing separately, or head of household with a qualifying child (READINGS separated)"
+person,is_snap_abawd_discretionary_exempt,96,none,,,,
+person,long_term_capital_gains_on_collectibles,2,federal,,e24518,,a 28% rate gain inside long-term gains; TAXSIM has no input for it
+person,meets_ssi_disability_criteria,102,none,,,,SSI and other programs only; nearest concept: demographics/person#disabled
+person,partnership_income,90,federal,,e02000 and e26270,scorp,policyengine-us 2.60.0's name for the board's partnership_s_corp_income
+person,partnership_self_employment_net_earnings,23,federal,,k1bx14p/s,"psemp/ssemp, taken out of scorp",policyengine-us 2.60.0's name for the board's partnership_se_income; a loss there does not offset pprofinc in TAXSIM (probe D4)
+person,pre_subsidy_care_expenses,4,federal,axiom:tax/household#childcare_expenses,"e32800 with f2441, for a qualifying individual",childcare,care of the person who states them; the concept is household-level
+person,schedule_d_capital_gain_distributions,104,none,,,,a memo item already inside long-term gains (MEMO_INPUTS)
+person,self_employed_pension_contributions_desired,37,federal,,e03300 (the map applies 415(c) and the Schedule C limit),"nonprop, negative",also an IRA active-participant trigger and a saver's credit contribution (READINGS se_pension)
+person,sstb_w2_wages_from_qualified_business,2,federal,,PT_binc_w2_wages (the kind of business PT_SSTB_income selects),,limits the qualified business income deduction above the threshold only; TAXSIM applies no such limit
+person,taxable_sep_distributions,28,federal,axiom:income/person#pension_income,"e01400, with IRA distributions",pensions,the concept is pension income of any kind
+person,w2_wages_from_qualified_business,5,federal,,PT_binc_w2_wages (the kind of business PT_SSTB_income selects),,limits the qualified business income deduction above the threshold only; TAXSIM applies no such limit
+tax_unit,selected_marketplace_plan_benchmark_ratio,52,none,,,,"reaches the premium tax credit only, which is not one of the four lines"
+tax_unit,unrecaptured_section_1250_gain,10,federal,,e24515,,a 25% rate gain inside long-term gains; TAXSIM has no input for it

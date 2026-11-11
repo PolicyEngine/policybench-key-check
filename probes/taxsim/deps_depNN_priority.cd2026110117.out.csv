@@ -1,0 +1,3 @@
+ TAXSIM: Do not specify age1... and depNN
+ variables in the same Taxsim input csv
+ file. They are alternatives.

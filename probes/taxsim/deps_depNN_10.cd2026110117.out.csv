@@ -1,0 +1,22 @@
+ TAXSIM: More CTC elegible than EIC elegible   3.0000000000000000        0.0000000000000000     
+ TAXSIM: Compare depx, or dep17, dep18 to age1..age9 variables.
+ TAXSIM: Logical Record Number    :           0
+ TAXSIM: Law Year                 :        2025
+ TAXSIM: State id (SOI/FIPS)      :           0           0
+ TAXSIM: Data record, as converted:
+ TAXSIM taxsimid ****** year       2025 state         0 mstat         1
+ TAXSIM page         40 sage          0 depx          3 dep13         3
+ TAXSIM dep17         3 dep18         0 pwages    25000 swages        0
+ TAXSIM dividends     0 intrec        0 stcg          0 ltcg          0
+ TAXSIM otherprop     0 nonprop       0 pensions      0 gssi          0
+ TAXSIM ui            0 transfers     0 rentpaid      0 proptax       0
+ TAXSIM otheritem     0 childcare  3000 mortgage      0 scorp         0
+ TAXSIM pbusinc       0 pprofinc      0 sbusinc       0 sprofinc      0
+ TAXSIM idtl          2 mtr           0 pui           0 sui           0
+ TAXSIM dep6          0 dep19         3 opt1          0 opt1v         0
+ TAXSIM opt2          0 opt2v         0 age1          0 age2          0
+ TAXSIM age3          0 age4          0 age5          0 age6          0
+ TAXSIM age7          0 age8          0 age9          0 age10         0
+ TAXSIM psemp         0 ssemp         0 statefip      0
+ TAXSIM: Abandoning processing    :           6
+ TAXSIM: Taxsimtest version of    : 2026110117

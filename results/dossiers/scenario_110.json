@@ -1,0 +1,1018 @@
+{
+ "case_id": "scenario_110",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 51,
+    "employment_income": 100000.0,
+    "inputs": {
+     "bank_account_assets": 762650.0,
+     "charitable_cash_donations": 387.4705810546875,
+     "charitable_non_cash_donations": 700.0,
+     "employer_sponsored_insurance_premiums": 6889.27587890625,
+     "estate_income": 6322.94140625,
+     "has_esi": true,
+     "health_insurance_premiums_without_medicare_part_b": 1500.0,
+     "home_mortgage_interest": 7566.0,
+     "hourly_wage": 40.06395721435547,
+     "hours_worked_last_week": 50.0,
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "long_term_capital_gains": 30851.765625,
+     "non_qualified_dividend_income": 5662.11767578125,
+     "other_health_insurance_premiums": 1500.0,
+     "other_medical_expenses": 300.0,
+     "over_the_counter_health_expenses": 500.0,
+     "qualified_dividend_income": 10032.0,
+     "real_estate_taxes": 2262.441162109375,
+     "roth_401k_contributions_desired": 749.0999755859375,
+     "roth_ira_contributions_desired": 307.64801025390625,
+     "short_term_capital_gains": 18.0,
+     "stock_assets": 3285294.0,
+     "tax_exempt_interest_income": 954.0,
+     "taxable_interest_income": 21301.0,
+     "traditional_401k_contributions_desired": 4244.89990234375,
+     "traditional_ira_contributions_desired": 198.3520050048828,
+     "unreimbursed_business_employee_expenses": 8730.1328125
+    },
+    "name": "head"
+   }
+  ],
+  "children": [],
+  "country": "us",
+  "filing_status": "single",
+  "household_inputs": {
+   "household_vehicles_value": 14630.0
+  },
+  "id": "scenario_110",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 10565,
+   "tax_unit_id": 12659
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {},
+  "state": "OH",
+  "tax_unit_inputs": {
+   "first_home_mortgage_balance": 273000.0,
+   "first_home_mortgage_interest": 7566.0
+  },
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_110",
+   "year": 2026,
+   "state": "OH",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 51,
+    "blind": false,
+    "wages": 100000.0,
+    "deferral": 4244.89990234375,
+    "roth_deferral": 749.0999755859375,
+    "ira_traditional_desired": 198.3520050048828,
+    "ira_roth_desired": 307.64801025390625,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 21301.0,
+    "tax_exempt_interest": 954.0,
+    "qualified_dividends": 10032.0,
+    "non_qualified_dividends": 5662.11767578125,
+    "short_term_gains": 18.0,
+    "long_term_gains": 30851.765625,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 6322.94140625,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 1800.0,
+    "real_estate_taxes": 2262.441162109375,
+    "mortgage_interest": 7566.0,
+    "mortgage_balances": 273000.0,
+    "charity_cash": 387.4705810546875,
+    "charity_non_cash": 700.0,
+    "employee_expenses": 8730.1328125,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true)."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  },
+  "2025": {
+   "case_id": "scenario_110",
+   "year": 2025,
+   "state": "OH",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 51,
+    "blind": false,
+    "wages": 100000.0,
+    "deferral": 4244.89990234375,
+    "roth_deferral": 749.0999755859375,
+    "ira_traditional_desired": 198.3520050048828,
+    "ira_roth_desired": 307.64801025390625,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 21301.0,
+    "tax_exempt_interest": 954.0,
+    "qualified_dividends": 10032.0,
+    "non_qualified_dividends": 5662.11767578125,
+    "short_term_gains": 18.0,
+    "long_term_gains": 30851.765625,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 6322.94140625,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 1800.0,
+    "real_estate_taxes": 2262.441162109375,
+    "mortgage_interest": 7566.0,
+    "mortgage_balances": 273000.0,
+    "charity_cash": 387.4705810546875,
+    "charity_non_cash": 700.0,
+    "employee_expenses": 8730.1328125,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true)."
+    ],
+    [
+     "income_tax",
+     "reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 25747.7734375,
+  "federal_refundable_credits": 0.0,
+  "payroll_tax": 7650.0,
+  "self_employment_tax": 0.0,
+  "state_income_tax_before_refundable_credits": 4236.8076171875
+ },
+ "board_exclusion_records": [],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "two_agree:taxsim",
+    "board_scores_it": "yes",
+    "policyengine": 25747.77,
+    "taxcalc": 25747.77,
+    "taxsim": 25840.76
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 7650.0,
+    "taxcalc": 7650.0,
+    "taxsim": 7650.0
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "two_agree:taxsim",
+    "board_scores_it": "yes",
+    "policyengine": 25747.77,
+    "taxcalc": 25747.77,
+    "taxsim": 25840.76
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 7650.0,
+    "taxcalc": 7650.0,
+    "taxsim": 7650.0
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 26173.77,
+    "taxcalc": 26173.76,
+    "taxsim": 26173.76
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 7650.0,
+    "taxcalc": 7650.0,
+    "taxsim": 7650.0
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 25747.77,
+   "board:payroll_tax": 7650.0,
+   "board:state_income_tax_before_refundable_credits": 4236.81,
+   "adjusted_gross_income": 169942.94,
+   "irs_gross_income": 169942.94,
+   "taxable_income": 153455.47,
+   "taxable_income_deductions": 16487.47,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 14303.0,
+   "salt_deduction": 6499.25,
+   "salt": 6499.25,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 4236.81,
+   "real_estate_taxes": 2262.44,
+   "interest_deduction": 7566.0,
+   "charitable_deduction": 237.76,
+   "charitable_deduction_for_non_itemizers": 387.47,
+   "income_tax_main_rates": 19615.21,
+   "capital_gains_tax": 6132.56,
+   "amt_income": 169555.47,
+   "income_tax_before_credits": 25747.77,
+   "net_investment_income": 74187.83,
+   "eitc_relevant_investment_income": 68818.88,
+   "income_tax_before_refundable_credits": 25747.77,
+   "income_tax": 25747.77,
+   "employee_payroll_tax": 7650.0,
+   "state_withheld_income_tax": 4236.81,
+   "state_sales_tax": 1054.0,
+   "age": {
+    "total": 51.0,
+    "persons": [
+     51.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 100000.0,
+    "persons": [
+     100000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 95755.1,
+    "persons": [
+     95755.1015625
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 100000.0,
+    "persons": [
+     100000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 100000.0,
+    "persons": [
+     100000.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 6200.0,
+    "persons": [
+     6200.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 1450.0,
+    "persons": [
+     1450.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 4244.9,
+    "persons": [
+     4244.89990234375
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 198.35,
+    "persons": [
+     198.3520050048828
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "board:federal_income_tax_before_refundable_credits": 26173.77,
+   "board:payroll_tax": 7650.0,
+   "board:state_income_tax_before_refundable_credits": 4520.66,
+   "adjusted_gross_income": 169942.94,
+   "irs_gross_income": 169942.94,
+   "taxable_income": 154192.94,
+   "taxable_income_deductions": 15750.0,
+   "standard_deduction": 15750.0,
+   "basic_standard_deduction": 15750.0,
+   "itemized_taxable_income_deductions": 15417.88,
+   "salt_deduction": 6764.41,
+   "salt": 6764.41,
+   "salt_cap": 40000.0,
+   "state_and_local_sales_or_income_tax": 4501.97,
+   "real_estate_taxes": 2262.44,
+   "interest_deduction": 7566.0,
+   "charitable_deduction": 1087.47,
+   "income_tax_main_rates": 20041.2,
+   "capital_gains_tax": 6132.56,
+   "amt_income": 169942.94,
+   "income_tax_before_credits": 26173.77,
+   "net_investment_income": 74187.83,
+   "eitc_relevant_investment_income": 68818.88,
+   "income_tax_before_refundable_credits": 26173.77,
+   "income_tax": 26173.77,
+   "employee_payroll_tax": 7650.0,
+   "state_withheld_income_tax": 4501.97,
+   "state_sales_tax": 1054.0,
+   "age": {
+    "total": 51.0,
+    "persons": [
+     51.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 100000.0,
+    "persons": [
+     100000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 95755.1,
+    "persons": [
+     95755.1015625
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 100000.0,
+    "persons": [
+     100000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 100000.0,
+    "persons": [
+     100000.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 6200.0,
+    "persons": [
+     6200.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 1450.0,
+    "persons": [
+     1450.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 4244.9,
+    "persons": [
+     4244.89990234375
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 198.35,
+    "persons": [
+     198.3520050048828
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 25747.77,
+   "board:payroll_tax": 7650.0,
+   "board:state_income_tax_before_refundable_credits": 4236.81,
+   "adjusted_gross_income": 169942.94,
+   "irs_gross_income": 169942.94,
+   "taxable_income": 153455.47,
+   "taxable_income_deductions": 16487.47,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 14303.0,
+   "salt_deduction": 6499.25,
+   "salt": 6499.25,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 4236.81,
+   "real_estate_taxes": 2262.44,
+   "interest_deduction": 7566.0,
+   "charitable_deduction": 237.76,
+   "charitable_deduction_for_non_itemizers": 387.47,
+   "income_tax_main_rates": 19615.21,
+   "capital_gains_tax": 6132.56,
+   "amt_income": 169555.47,
+   "income_tax_before_credits": 25747.77,
+   "net_investment_income": 74187.83,
+   "eitc_relevant_investment_income": 68818.88,
+   "income_tax_before_refundable_credits": 25747.77,
+   "income_tax": 25747.77,
+   "employee_payroll_tax": 7650.0,
+   "state_withheld_income_tax": 4236.81,
+   "state_sales_tax": 1054.0,
+   "age": {
+    "total": 51.0,
+    "persons": [
+     51.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 100000.0,
+    "persons": [
+     100000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 95755.1,
+    "persons": [
+     95755.1015625
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 100000.0,
+    "persons": [
+     100000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 100000.0,
+    "persons": [
+     100000.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 6200.0,
+    "persons": [
+     6200.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 1450.0,
+    "persons": [
+     1450.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 4244.9,
+    "persons": [
+     4244.89990234375
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 198.35,
+    "persons": [
+     198.3520050048828
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "board:federal_income_tax_before_refundable_credits": 25747.77,
+   "board:payroll_tax": 7650.0,
+   "board:state_income_tax_before_refundable_credits": 4236.81,
+   "adjusted_gross_income": 169942.94,
+   "irs_gross_income": 169942.94,
+   "taxable_income": 153455.47,
+   "taxable_income_deductions": 16487.47,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 14303.0,
+   "salt_deduction": 6499.25,
+   "salt": 6499.25,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 4236.81,
+   "real_estate_taxes": 2262.44,
+   "interest_deduction": 7566.0,
+   "charitable_deduction": 237.76,
+   "charitable_deduction_for_non_itemizers": 387.47,
+   "income_tax_main_rates": 19615.21,
+   "capital_gains_tax": 6132.56,
+   "amt_income": 169555.47,
+   "income_tax_before_credits": 25747.77,
+   "net_investment_income": 74187.83,
+   "eitc_relevant_investment_income": 68818.88,
+   "income_tax_before_refundable_credits": 25747.77,
+   "income_tax": 25747.77,
+   "employee_payroll_tax": 7650.0,
+   "state_withheld_income_tax": 4236.81,
+   "state_sales_tax": 1077.89,
+   "age": {
+    "total": 51.0,
+    "persons": [
+     51.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 100000.0,
+    "persons": [
+     100000.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 95755.1,
+    "persons": [
+     95755.1015625
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 100000.0,
+    "persons": [
+     100000.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 100000.0,
+    "persons": [
+     100000.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 6200.0,
+    "persons": [
+     6200.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 1450.0,
+    "persons": [
+     1450.0
+    ]
+   },
+   "traditional_401k_contributions": {
+    "total": 4244.9,
+    "persons": [
+     4244.89990234375
+    ]
+   },
+   "traditional_ira_contributions": {
+    "total": 198.35,
+    "persons": [
+     198.3520050048828
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_110",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 51.0,
+   "in_e00200p": 95755.1,
+   "in_e00200": 95755.1,
+   "in_pencon_p": 4244.9,
+   "in_e00300": 21301.0,
+   "in_e00400": 954.0,
+   "in_e00600": 15694.12,
+   "in_e00650": 10032.0,
+   "in_e02000": 6322.94,
+   "in_p22250": 18.0,
+   "in_p23250": 30851.77,
+   "in_e17500": 1800.0,
+   "in_e18400": 4236.81,
+   "in_e18500": 2262.44,
+   "in_e19200": 7566.0,
+   "in_e19800": 387.47,
+   "in_e20100": 700.0,
+   "in_e20400": 8730.13,
+   "in_RECID": 88.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 141744.05,
+   "out_c00100": 169942.92,
+   "out_c01000": 30869.77,
+   "out_c04800": 153455.45,
+   "out_c05200": 29427.31,
+   "out_c05800": 25747.77,
+   "out_c09200": 25747.77,
+   "out_c23650": 30869.77,
+   "out_c62100": 169942.92,
+   "out_combined": 41047.77,
+   "out_credit_claim_urn": 0.23,
+   "out_dwks10": 40883.77,
+   "out_dwks13": 40883.77,
+   "out_dwks14": 112571.69,
+   "out_dwks21": 112571.69,
+   "out_dwks45": 25747.77,
+   "out_earned": 95755.1,
+   "out_earned_p": 95755.1,
+   "out_exact": 1.0,
+   "out_expanded_income": 182791.82,
+   "out_iitax": 25747.77,
+   "out_num": 1.0,
+   "out_payrolltax": 15300.0,
+   "out_ptax_er_p": 7650.0,
+   "out_ptax_oasdi": 12400.0,
+   "out_ptax_was": 15300.0,
+   "out_standard": 16487.47,
+   "out_taxbc": 25747.77,
+   "out_ymod": 170896.92,
+   "out_ymod1": 169942.92,
+   "q_fed_tax_before_refundable": 25747.77,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 7650.0,
+   "unexpressed": [
+    "income_tax: reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true).",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
+   ]
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_110",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 51.0,
+   "in_e00200p": 95755.1,
+   "in_e00200": 95755.1,
+   "in_pencon_p": 4244.9,
+   "in_e00300": 21301.0,
+   "in_e00400": 954.0,
+   "in_e00600": 15694.12,
+   "in_e00650": 10032.0,
+   "in_e02000": 6322.94,
+   "in_p22250": 18.0,
+   "in_p23250": 30851.77,
+   "in_e17500": 1800.0,
+   "in_e18400": 4501.97,
+   "in_e18500": 2262.44,
+   "in_e19200": 7566.0,
+   "in_e19800": 387.47,
+   "in_e20100": 700.0,
+   "in_e20400": 8730.13,
+   "in_RECID": 88.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 141318.06,
+   "out_c00100": 169942.92,
+   "out_c01000": 30869.77,
+   "out_c04800": 154192.92,
+   "out_c05200": 29853.3,
+   "out_c05800": 26173.76,
+   "out_c09200": 26173.76,
+   "out_c23650": 30869.77,
+   "out_c62100": 169942.92,
+   "out_combined": 41473.76,
+   "out_credit_claim_urn": 0.23,
+   "out_dwks10": 40883.77,
+   "out_dwks13": 40883.77,
+   "out_dwks14": 113309.16,
+   "out_dwks21": 113309.16,
+   "out_dwks45": 26173.76,
+   "out_earned": 95755.1,
+   "out_earned_p": 95755.1,
+   "out_exact": 1.0,
+   "out_expanded_income": 182791.82,
+   "out_iitax": 26173.76,
+   "out_num": 1.0,
+   "out_payrolltax": 15300.0,
+   "out_ptax_er_p": 7650.0,
+   "out_ptax_oasdi": 12400.0,
+   "out_ptax_was": 15300.0,
+   "out_standard": 15750.0,
+   "out_taxbc": 26173.76,
+   "out_ymod": 170896.92,
+   "out_ymod1": 169942.92,
+   "q_fed_tax_before_refundable": 26173.76,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 7650.0,
+   "unexpressed": [
+    "income_tax: reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true).",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g)"
+   ]
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_110",
+   "in_year": 2026.0,
+   "in_mstat": 1.0,
+   "in_page": 51.0,
+   "in_pwages": 100000.0,
+   "in_dividends": 10032.0,
+   "in_intrec": 33286.06,
+   "in_stcg": 18.0,
+   "in_ltcg": 30851.77,
+   "in_nonprop": -4244.9,
+   "in_proptax": 6499.25,
+   "in_mortgage": 7803.76,
+   "out_taxsimid": 88.0,
+   "out_year": 2026.0,
+   "out_fiitax": 25840.76,
+   "out_fica": 15300.0,
+   "out_tfica": 7650.0,
+   "out_v10": 169942.93,
+   "out_v13": 16100.0,
+   "out_v18": 153842.93,
+   "out_v19": 29520.3,
+   "out_v26": 169942.93,
+   "out_v28": 25840.76,
+   "out_v29": 15300.0,
+   "out_v30": 174187.83,
+   "out_tfica_no_self_employment": 7650.0,
+   "q_fed_tax_before_refundable": 25840.76,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 7650.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true).",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: TAXSIM has no input for tax-exempt interest (Social Security provisional income, EITC investment income)",
+    "income_tax: this build ignores `otherprop` from 2024, so estate income and rentals that are not qualified business income are entered as `intrec`",
+    "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
+    "income_tax: charitable gifts limited by the 26 U.S.C. 170(b)(1) ceilings (60% cash, 50% other gifts less the cash) and, from 2026, the 0.5% floor of 170(b)(1)(I) (unit.READINGS['charity']), entered in `mortgage`"
+   ]
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_110",
+   "in_year": 2025.0,
+   "in_mstat": 1.0,
+   "in_page": 51.0,
+   "in_pwages": 100000.0,
+   "in_dividends": 10032.0,
+   "in_intrec": 33286.06,
+   "in_stcg": 18.0,
+   "in_ltcg": 30851.77,
+   "in_nonprop": -4244.9,
+   "in_proptax": 6764.41,
+   "in_mortgage": 8653.47,
+   "out_taxsimid": 88.0,
+   "out_year": 2025.0,
+   "out_fiitax": 26173.76,
+   "out_fica": 15300.0,
+   "out_tfica": 7650.0,
+   "out_v10": 169942.93,
+   "out_v13": 15750.0,
+   "out_v18": 154192.93,
+   "out_v19": 29853.3,
+   "out_v26": 169942.93,
+   "out_v28": 26173.76,
+   "out_v29": 15300.0,
+   "out_v30": 174187.83,
+   "out_tfica_no_self_employment": 7650.0,
+   "q_fed_tax_before_refundable": 26173.76,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 7650.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true).",
+    "income_tax: reading: A filer with a 401(k) deferral (traditional or Roth) is an active participant in an employer plan for the IRA deduction limit (26 U.S.C. 219(g)(5)); a filer with none is not, since no other plan coverage is stated.",
+    "income_tax: TAXSIM has no input for tax-exempt interest (Social Security provisional income, EITC investment income)",
+    "income_tax: this build ignores `otherprop` from 2024, so estate income and rentals that are not qualified business income are entered as `intrec`"
+   ],
+   "map_computed": [
+    "income_tax: traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC earned income (deferrals are not includible in gross income)",
+    "income_tax: IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop`",
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
+    "income_tax: charitable gifts limited by the 26 U.S.C. 170(b)(1) ceilings (60% cash, 50% other gifts less the cash) and, from 2026, the 0.5% floor of 170(b)(1)(I) (unit.READINGS['charity']), entered in `mortgage`"
+   ]
+  }
+ }
+}

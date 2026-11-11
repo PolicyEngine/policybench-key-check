@@ -1,0 +1,764 @@
+{
+ "case_id": "scenario_062",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 85,
+    "employment_income": 0.0,
+    "inputs": {
+     "bank_account_assets": 29100.0,
+     "farm_rent_income": 4792.94140625,
+     "health_insurance_premiums_without_medicare_part_b": 4000.0,
+     "is_disabled": true,
+     "is_surviving_spouse": true,
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "other_health_insurance_premiums": 4000.0,
+     "over_the_counter_health_expenses": 240.0,
+     "social_security_survivors": 21312.0,
+     "survivor_benefits": 28800.0,
+     "taxable_interest_income": 257.0,
+     "taxable_private_pension_income": 11280.0,
+     "unadjusted_basis_qualified_property": 22440.44921875
+    },
+    "name": "head"
+   }
+  ],
+  "children": [],
+  "country": "us",
+  "filing_status": "single",
+  "household_inputs": {},
+  "id": "scenario_062",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 32129,
+   "tax_unit_id": 37837
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {},
+  "state": "FL",
+  "tax_unit_inputs": {
+   "first_home_mortgage_balance": 51382.3515625
+  },
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_062",
+   "year": 2026,
+   "state": "FL",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 85,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 257.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 11280.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 21312.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 4792.94140625,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 4792.94140625,
+    "partnership_stated": 0.0,
+    "rental_qbi": 4792.94140625,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 4000.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 51382.3515625,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 22440.44921875,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 28800.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: Survivor benefits other than Social Security are taxable in full: they are gross income (26 U.S.C. 61(a); 72 for a survivor annuity), the investment in the contract is an unlisted amount (0), and each exclusion (101(a) life insurance, 104(a)(1) workers' compensation, 38 U.S.C. 5301 veterans' benefits) needs a fact the board does not state. They are not earned income, and not a distribution from a qualified plan for the saver's credit or 72(t) (the plan is not stated). Tax-Calculator gets them as taxable pensions (e01500 and e01700), TAXSIM in `pensions`. policyengine-us leaves them out of gross income."
+    ],
+    [
+     "income_tax",
+     "reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true)."
+    ],
+    [
+     "income_tax",
+     "reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit."
+    ],
+    [
+     "income_tax",
+     "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  },
+  "2025": {
+   "case_id": "scenario_062",
+   "year": 2025,
+   "state": "FL",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 85,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 257.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 11280.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 21312.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 4792.94140625,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 4792.94140625,
+    "partnership_stated": 0.0,
+    "rental_qbi": 4792.94140625,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 4000.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 51382.3515625,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 22440.44921875,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 28800.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: Survivor benefits other than Social Security are taxable in full: they are gross income (26 U.S.C. 61(a); 72 for a survivor annuity), the investment in the contract is an unlisted amount (0), and each exclusion (101(a) life insurance, 104(a)(1) workers' compensation, 38 U.S.C. 5301 veterans' benefits) needs a fact the board does not state. They are not earned income, and not a distribution from a qualified plan for the saver's credit or 72(t) (the plan is not stated). Tax-Calculator gets them as taxable pensions (e01500 and e01700), TAXSIM in `pensions`. policyengine-us leaves them out of gross income."
+    ],
+    [
+     "income_tax",
+     "reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true)."
+    ],
+    [
+     "income_tax",
+     "reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit."
+    ],
+    [
+     "income_tax",
+     "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 0.0,
+  "federal_refundable_credits": 0.0,
+  "payroll_tax": 0.0,
+  "self_employment_tax": 0.0,
+  "state_income_tax_before_refundable_credits": 0.0
+ },
+ "board_exclusion_records": [
+  {
+   "scenario_id": "scenario_062",
+   "variable": "federal_income_tax_before_refundable_credits",
+   "reason_code": "reference_depends_on_unlisted_input",
+   "alternative_reading": "The prompt lists survivor benefits other than Social Security without saying whether they are taxable; the reference treats them as nontaxable, while a survivor pension or annuity is taxable under 26 U.S.C. 72.",
+   "frozen_value": 0.0,
+   "alternative_value": 4328.386719,
+   "engine_version": "policyengine-us 1.755.4",
+   "decided_on": "2026-09-22",
+   "decided_by": "developer",
+   "unlisted_input": "taxability of survivor_benefits",
+   "note": "Corrected value applies r16_survivor_benefits_federal_v2 with every publication convention and upstream fix."
+  }
+ ],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "two_agree:policyengine",
+    "board_scores_it": "no",
+    "policyengine": 0.0,
+    "taxcalc": 4328.39,
+    "taxsim": 4328.39
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "two_agree:policyengine",
+    "board_scores_it": "no",
+    "policyengine": 0.0,
+    "taxcalc": 4328.39,
+    "taxsim": 4328.39
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "two_agree:policyengine",
+    "board_scores_it": "no",
+    "policyengine": 0.0,
+    "taxcalc": 4385.89,
+    "taxsim": 4385.89
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "adjusted_gross_income": 17322.91,
+   "irs_gross_income": 17322.91,
+   "tax_unit_taxable_social_security": 992.97,
+   "tax_unit_social_security": 21312.0,
+   "taxable_income_deductions": 24550.0,
+   "standard_deduction": 18150.0,
+   "basic_standard_deduction": 16100.0,
+   "additional_standard_deduction": 2050.0,
+   "itemized_taxable_income_deductions": 5850.78,
+   "salt_deduction": 715.2,
+   "salt": 715.2,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 715.2,
+   "medical_expense_deduction": 5135.58,
+   "qualified_business_income_deduction": 400.0,
+   "additional_senior_deduction": 6000.0,
+   "amt_income": 16922.91,
+   "net_investment_income": 257.0,
+   "eitc_relevant_investment_income": 5049.94,
+   "state_sales_tax": 596.0,
+   "age": {
+    "total": 85.0,
+    "persons": [
+     85.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "adjusted_gross_income": 17322.91,
+   "irs_gross_income": 17322.91,
+   "tax_unit_taxable_social_security": 992.97,
+   "tax_unit_social_security": 21312.0,
+   "taxable_income_deductions": 23750.0,
+   "standard_deduction": 17750.0,
+   "basic_standard_deduction": 15750.0,
+   "additional_standard_deduction": 2000.0,
+   "itemized_taxable_income_deductions": 5635.98,
+   "salt_deduction": 715.2,
+   "salt": 715.2,
+   "salt_cap": 40000.0,
+   "state_and_local_sales_or_income_tax": 715.2,
+   "medical_expense_deduction": 4920.78,
+   "additional_senior_deduction": 6000.0,
+   "amt_income": 17322.91,
+   "net_investment_income": 257.0,
+   "eitc_relevant_investment_income": 5049.94,
+   "state_sales_tax": 596.0,
+   "age": {
+    "total": 85.0,
+    "persons": [
+     85.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "adjusted_gross_income": 17322.91,
+   "irs_gross_income": 17322.91,
+   "tax_unit_taxable_social_security": 992.97,
+   "tax_unit_social_security": 21312.0,
+   "taxable_income_deductions": 24550.0,
+   "standard_deduction": 18150.0,
+   "basic_standard_deduction": 16100.0,
+   "additional_standard_deduction": 2050.0,
+   "itemized_taxable_income_deductions": 5731.58,
+   "salt_deduction": 596.0,
+   "salt": 596.0,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 596.0,
+   "medical_expense_deduction": 5135.58,
+   "qualified_business_income_deduction": 400.0,
+   "additional_senior_deduction": 6000.0,
+   "amt_income": 16922.91,
+   "net_investment_income": 5049.94,
+   "eitc_relevant_investment_income": 5049.94,
+   "state_sales_tax": 596.0,
+   "age": {
+    "total": 85.0,
+    "persons": [
+     85.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "adjusted_gross_income": 17322.91,
+   "irs_gross_income": 17322.91,
+   "tax_unit_taxable_social_security": 992.97,
+   "tax_unit_social_security": 21312.0,
+   "taxable_income_deductions": 24550.0,
+   "standard_deduction": 18150.0,
+   "basic_standard_deduction": 16100.0,
+   "additional_standard_deduction": 2050.0,
+   "itemized_taxable_income_deductions": 5745.09,
+   "salt_deduction": 609.51,
+   "salt": 609.51,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 609.51,
+   "medical_expense_deduction": 5135.58,
+   "qualified_business_income_deduction": 400.0,
+   "additional_senior_deduction": 6000.0,
+   "amt_income": 16922.91,
+   "net_investment_income": 5049.94,
+   "eitc_relevant_investment_income": 5049.94,
+   "state_sales_tax": 609.51,
+   "age": {
+    "total": 85.0,
+    "persons": [
+     85.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_062",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 85.0,
+   "in_e00300": 257.0,
+   "in_e01500": 40080.0,
+   "in_e01700": 40080.0,
+   "in_e02000": 4792.94,
+   "in_e27200": 4792.94,
+   "in_e02400": 21312.0,
+   "in_e17500": 4000.0,
+   "in_e18400": 715.2,
+   "in_PT_ubia_property": 22440.45,
+   "in_RECID": 50.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 62113.56,
+   "out_benefit_cost_total": 21312.0,
+   "out_benefit_value_total": 21312.0,
+   "out_c00100": 63245.14,
+   "out_c02500": 18115.2,
+   "out_c04800": 38136.55,
+   "out_c05200": 4328.39,
+   "out_c05800": 4328.39,
+   "out_c09200": 4328.39,
+   "out_c62100": 62286.55,
+   "out_combined": 4328.39,
+   "out_credit_claim_urn": 0.88,
+   "out_exact": 1.0,
+   "out_expanded_income": 66441.94,
+   "out_iitax": 4328.39,
+   "out_num": 1.0,
+   "out_qbided": 958.59,
+   "out_senior_deduction": 6000.0,
+   "out_standard": 18150.0,
+   "out_taxbc": 4328.39,
+   "out_ymod": 55785.94,
+   "out_ymod1": 45129.94,
+   "q_fed_tax_before_refundable": 4328.39,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "unexpressed": [
+    "income_tax: reading: Survivor benefits other than Social Security are taxable in full: they are gross income (26 U.S.C. 61(a); 72 for a survivor annuity), the investment in the contract is an unlisted amount (0), and each exclusion (101(a) life insurance, 104(a)(1) workers' compensation, 38 U.S.C. 5301 veterans' benefits) needs a fact the board does not state. They are not earned income, and not a distribution from a qualified plan for the saver's credit or 72(t) (the plan is not stated). Tax-Calculator gets them as taxable pensions (e01500 and e01700), TAXSIM in `pensions`. policyengine-us leaves them out of gross income.",
+    "income_tax: reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true).",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
+   ]
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_062",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 85.0,
+   "in_e00300": 257.0,
+   "in_e01500": 40080.0,
+   "in_e01700": 40080.0,
+   "in_e02000": 4792.94,
+   "in_e27200": 4792.94,
+   "in_e02400": 21312.0,
+   "in_e17500": 4000.0,
+   "in_e18400": 715.2,
+   "in_PT_ubia_property": 22440.45,
+   "in_RECID": 50.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 62056.06,
+   "out_benefit_cost_total": 21312.0,
+   "out_benefit_value_total": 21312.0,
+   "out_c00100": 63245.14,
+   "out_c02500": 18115.2,
+   "out_c04800": 38536.55,
+   "out_c05200": 4385.89,
+   "out_c05800": 4385.89,
+   "out_c09200": 4385.89,
+   "out_c62100": 62286.55,
+   "out_combined": 4385.89,
+   "out_credit_claim_urn": 0.88,
+   "out_exact": 1.0,
+   "out_expanded_income": 66441.94,
+   "out_iitax": 4385.89,
+   "out_num": 1.0,
+   "out_qbided": 958.59,
+   "out_senior_deduction": 6000.0,
+   "out_standard": 17750.0,
+   "out_taxbc": 4385.89,
+   "out_ymod": 55785.94,
+   "out_ymod1": 45129.94,
+   "q_fed_tax_before_refundable": 4385.89,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "unexpressed": [
+    "income_tax: reading: Survivor benefits other than Social Security are taxable in full: they are gross income (26 U.S.C. 61(a); 72 for a survivor annuity), the investment in the contract is an unlisted amount (0), and each exclusion (101(a) life insurance, 104(a)(1) workers' compensation, 38 U.S.C. 5301 veterans' benefits) needs a fact the board does not state. They are not earned income, and not a distribution from a qualified plan for the saver's credit or 72(t) (the plan is not stated). Tax-Calculator gets them as taxable pensions (e01500 and e01700), TAXSIM in `pensions`. policyengine-us leaves them out of gross income.",
+    "income_tax: reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true).",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
+   ]
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_062",
+   "in_year": 2026.0,
+   "in_mstat": 1.0,
+   "in_page": 85.0,
+   "in_scorp": 4792.94,
+   "in_intrec": 257.0,
+   "in_pensions": 40080.0,
+   "in_gssi": 21312.0,
+   "in_proptax": 715.2,
+   "out_taxsimid": 50.0,
+   "out_year": 2026.0,
+   "out_fiitax": 4328.39,
+   "out_v10": 63245.14,
+   "out_v12": 18115.2,
+   "out_v13": 18150.0,
+   "out_v18": 38136.55,
+   "out_v19": 4328.39,
+   "out_v26": 62286.55,
+   "out_v28": 4328.39,
+   "out_v30": 66441.94,
+   "out_qbid": 958.59,
+   "q_fed_tax_before_refundable": 4328.39,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: Survivor benefits other than Social Security are taxable in full: they are gross income (26 U.S.C. 61(a); 72 for a survivor annuity), the investment in the contract is an unlisted amount (0), and each exclusion (101(a) life insurance, 104(a)(1) workers' compensation, 38 U.S.C. 5301 veterans' benefits) needs a fact the board does not state. They are not earned income, and not a distribution from a qualified plan for the saver's credit or 72(t) (the plan is not stated). Tax-Calculator gets them as taxable pensions (e01500 and e01700), TAXSIM in `pensions`. policyengine-us leaves them out of gross income.",
+    "income_tax: reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true).",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
+   ],
+   "map_computed": [
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ]
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_062",
+   "in_year": 2025.0,
+   "in_mstat": 1.0,
+   "in_page": 85.0,
+   "in_scorp": 4792.94,
+   "in_intrec": 257.0,
+   "in_pensions": 40080.0,
+   "in_gssi": 21312.0,
+   "in_proptax": 715.2,
+   "out_taxsimid": 50.0,
+   "out_year": 2025.0,
+   "out_fiitax": 4385.89,
+   "out_v10": 63245.14,
+   "out_v12": 18115.2,
+   "out_v13": 17750.0,
+   "out_v18": 38536.55,
+   "out_v19": 4385.89,
+   "out_v26": 62286.55,
+   "out_v28": 4385.89,
+   "out_v30": 66441.94,
+   "out_qbid": 958.59,
+   "q_fed_tax_before_refundable": 4385.89,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: Survivor benefits other than Social Security are taxable in full: they are gross income (26 U.S.C. 61(a); 72 for a survivor annuity), the investment in the contract is an unlisted amount (0), and each exclusion (101(a) life insurance, 104(a)(1) workers' compensation, 38 U.S.C. 5301 veterans' benefits) needs a fact the board does not state. They are not earned income, and not a distribution from a qualified plan for the saver's credit or 72(t) (the plan is not stated). Tax-Calculator gets them as taxable pensions (e01500 and e01700), TAXSIM in `pensions`. policyengine-us leaves them out of gross income.",
+    "income_tax: reading: Rent and farm rent are qualified business income only when the person states the unadjusted basis of qualified property (not the SSTB basis) and no other trade or business (self-employment, farm operations, partnership or S corporation income): qualified property is by definition held by a qualified trade or business (26 U.S.C. 199A(b)(6)(A)), and when the person's only stated activities that could hold it are rentals, the rentals are that business. Otherwise whether a rental is a section 162 trade or business (199A(d)(1); Treas. Reg. 1.199A-1(b)(14); the 250 hours of Rev. Proc. 2019-38) is not stated, so it is not. Estate income is not qualified business income. Tax-Calculator gets a qualified rental in e27200 (with e02000) and any other rental in e02000 only; TAXSIM gets a qualified rental in `scorp` and any other rental and estate income in `intrec`. Alternatives: no rental is qualified (the basis left without effect), or every rental is (policyengine-us's default: rental_income_would_be_qualified and farm_rent_income_would_be_qualified default to true).",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
+   ],
+   "map_computed": [
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ]
+  }
+ }
+}

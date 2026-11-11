@@ -1,0 +1,689 @@
+{
+ "case_id": "scenario_007",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 56,
+    "employment_income": 0.0,
+    "inputs": {
+     "bank_account_assets": 71500.0,
+     "employer_sponsored_insurance_premiums": 6309.27587890625,
+     "has_esi": true,
+     "health_insurance_premiums_without_medicare_part_b": 2080.0,
+     "hours_worked_last_week": 50.0,
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "other_health_insurance_premiums": 2080.0,
+     "other_medical_expenses": 150.0,
+     "pre_subsidy_rent": 18352.94140625,
+     "social_security_disability": 19285.0,
+     "tax_exempt_private_pension_income": 284.1176452636719,
+     "taxable_private_pension_income": 35280.0
+    },
+    "name": "head"
+   }
+  ],
+  "children": [],
+  "country": "us",
+  "filing_status": "single",
+  "household_inputs": {
+   "household_vehicles_value": 2660.0
+  },
+  "id": "scenario_007",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 48744,
+   "tax_unit_id": 134491
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {},
+  "state": "ID",
+  "tax_unit_inputs": {},
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_007",
+   "year": 2026,
+   "state": "ID",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 56,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 0.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 35280.0,
+    "tax_exempt_pensions": 284.1176452636719,
+    "social_security": 19285.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 2230.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 0.0,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: head (age 56) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  },
+  "2025": {
+   "case_id": "scenario_007",
+   "year": 2025,
+   "state": "ID",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 56,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 0.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 35280.0,
+    "tax_exempt_pensions": 284.1176452636719,
+    "social_security": 19285.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 2230.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 0.0,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: head (age 56) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated other health insurance premiums are not counted again: policyengine-us documents them as part of the stated premiums without Medicare Part B (variables/household/expense/health/other_health_insurance_premiums.py), so counting both would double count. Medical expenses take the premiums without Medicare Part B."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 3707.695068359375,
+  "federal_refundable_credits": 0.0,
+  "payroll_tax": 0.0,
+  "self_employment_tax": 0.0,
+  "state_income_tax_before_refundable_credits": 661.3170166015625
+ },
+ "board_exclusion_records": [
+  {
+   "scenario_id": "scenario_007",
+   "variable": "head_medicare_eligible",
+   "reason_code": "reference_depends_on_unlisted_input",
+   "unlisted_input": "months_receiving_social_security_disability",
+   "alternative_reading": "The person's listed Social Security disability income is read as 24 or more months of SSDI receipt (the engine input months_receiving_social_security_disability, integer-typed, never carried by the data and never promptable). Recomputed with policyengine-us 1.755.4.",
+   "frozen_value": 0.0,
+   "alternative_value": 1.0,
+   "engine_version": "policyengine-us 1.755.4",
+   "decided_on": "2026-09-05",
+   "decided_by": "developer",
+   "judge_verdict": "llm_error (age_disability) where any row was judged",
+   "note": "In law the under-65 route needs 24 months of SSDI entitlement; a year-round recipient has at least 12. The facts do not settle it."
+  }
+ ],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 3707.7,
+    "taxcalc": 3707.69,
+    "taxsim": 3707.7
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 3707.7,
+    "taxcalc": 3707.69,
+    "taxsim": 3707.7
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 3759.2,
+    "taxcalc": 3759.19,
+    "taxsim": 3759.2
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 3707.7,
+   "board:state_income_tax_before_refundable_credits": 661.32,
+   "adjusted_gross_income": 49064.12,
+   "irs_gross_income": 49064.12,
+   "tax_unit_taxable_social_security": 13784.12,
+   "tax_unit_social_security": 19285.0,
+   "taxable_income": 32964.12,
+   "taxable_income_deductions": 16100.0,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 1492.12,
+   "salt_deduction": 1492.12,
+   "salt": 1492.12,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 1492.12,
+   "income_tax_main_rates": 3707.7,
+   "amt_income": 49064.12,
+   "income_tax_before_credits": 3707.7,
+   "income_tax_before_refundable_credits": 3707.7,
+   "income_tax": 3707.7,
+   "state_withheld_income_tax": 1492.12,
+   "state_sales_tax": 875.0,
+   "age": {
+    "total": 56.0,
+    "persons": [
+     56.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "board:federal_income_tax_before_refundable_credits": 3759.2,
+   "board:state_income_tax_before_refundable_credits": 679.87,
+   "adjusted_gross_income": 49064.12,
+   "irs_gross_income": 49064.12,
+   "tax_unit_taxable_social_security": 13784.12,
+   "tax_unit_social_security": 19285.0,
+   "taxable_income": 33314.12,
+   "taxable_income_deductions": 15750.0,
+   "standard_deduction": 15750.0,
+   "basic_standard_deduction": 15750.0,
+   "itemized_taxable_income_deductions": 1510.67,
+   "salt_deduction": 1510.67,
+   "salt": 1510.67,
+   "salt_cap": 40000.0,
+   "state_and_local_sales_or_income_tax": 1510.67,
+   "income_tax_main_rates": 3759.2,
+   "amt_income": 49064.12,
+   "income_tax_before_credits": 3759.2,
+   "income_tax_before_refundable_credits": 3759.2,
+   "income_tax": 3759.2,
+   "state_withheld_income_tax": 1510.67,
+   "state_sales_tax": 875.0,
+   "age": {
+    "total": 56.0,
+    "persons": [
+     56.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 3707.7,
+   "board:state_income_tax_before_refundable_credits": 661.32,
+   "adjusted_gross_income": 49064.12,
+   "irs_gross_income": 49064.12,
+   "tax_unit_taxable_social_security": 13784.12,
+   "tax_unit_social_security": 19285.0,
+   "taxable_income": 32964.12,
+   "taxable_income_deductions": 16100.0,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 1492.12,
+   "salt_deduction": 1492.12,
+   "salt": 1492.12,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 1492.12,
+   "income_tax_main_rates": 3707.7,
+   "amt_income": 49064.12,
+   "income_tax_before_credits": 3707.7,
+   "income_tax_before_refundable_credits": 3707.7,
+   "income_tax": 3707.7,
+   "state_withheld_income_tax": 1492.12,
+   "state_sales_tax": 875.0,
+   "age": {
+    "total": 56.0,
+    "persons": [
+     56.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "board:federal_income_tax_before_refundable_credits": 3707.7,
+   "board:state_income_tax_before_refundable_credits": 655.54,
+   "adjusted_gross_income": 49064.12,
+   "irs_gross_income": 49064.12,
+   "tax_unit_taxable_social_security": 13784.12,
+   "tax_unit_social_security": 19285.0,
+   "taxable_income": 32964.12,
+   "taxable_income_deductions": 16100.0,
+   "standard_deduction": 16100.0,
+   "basic_standard_deduction": 16100.0,
+   "itemized_taxable_income_deductions": 1486.34,
+   "salt_deduction": 1486.34,
+   "salt": 1486.34,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 1486.34,
+   "income_tax_main_rates": 3707.7,
+   "amt_income": 49064.12,
+   "income_tax_before_credits": 3707.7,
+   "income_tax_before_refundable_credits": 3707.7,
+   "income_tax": 3707.7,
+   "state_withheld_income_tax": 1486.34,
+   "state_sales_tax": 894.83,
+   "age": {
+    "total": 56.0,
+    "persons": [
+     56.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_007",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 56.0,
+   "in_e01500": 35564.12,
+   "in_e01700": 35280.0,
+   "in_e02400": 19285.0,
+   "in_e17500": 2230.0,
+   "in_e18400": 1492.12,
+   "in_RECID": 7.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 51141.42,
+   "out_benefit_cost_total": 19285.0,
+   "out_benefit_value_total": 19285.0,
+   "out_c00100": 49064.12,
+   "out_c02500": 13784.12,
+   "out_c04800": 32964.12,
+   "out_c05200": 3707.69,
+   "out_c05800": 3707.69,
+   "out_c09200": 3707.69,
+   "out_c62100": 49064.12,
+   "out_combined": 3707.69,
+   "out_credit_claim_urn": 0.62,
+   "out_exact": 1.0,
+   "out_expanded_income": 54849.12,
+   "out_iitax": 3707.69,
+   "out_num": 1.0,
+   "out_standard": 16100.0,
+   "out_taxbc": 3707.69,
+   "out_ymod": 44922.5,
+   "out_ymod1": 35280.0,
+   "q_fed_tax_before_refundable": 3707.69,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "unexpressed": [
+    "income_tax: reading: head (age 56) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated."
+   ]
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_007",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 56.0,
+   "in_e01500": 35564.12,
+   "in_e01700": 35280.0,
+   "in_e02400": 19285.0,
+   "in_e17500": 2230.0,
+   "in_e18400": 1510.67,
+   "in_RECID": 7.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 51089.92,
+   "out_benefit_cost_total": 19285.0,
+   "out_benefit_value_total": 19285.0,
+   "out_c00100": 49064.12,
+   "out_c02500": 13784.12,
+   "out_c04800": 33314.12,
+   "out_c05200": 3759.19,
+   "out_c05800": 3759.19,
+   "out_c09200": 3759.19,
+   "out_c62100": 49064.12,
+   "out_combined": 3759.19,
+   "out_credit_claim_urn": 0.62,
+   "out_exact": 1.0,
+   "out_expanded_income": 54849.12,
+   "out_iitax": 3759.19,
+   "out_num": 1.0,
+   "out_standard": 15750.0,
+   "out_taxbc": 3759.19,
+   "out_ymod": 44922.5,
+   "out_ymod1": 35280.0,
+   "q_fed_tax_before_refundable": 3759.19,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "unexpressed": [
+    "income_tax: reading: head (age 56) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated."
+   ]
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_007",
+   "in_year": 2026.0,
+   "in_mstat": 1.0,
+   "in_page": 56.0,
+   "in_pensions": 35280.0,
+   "in_gssi": 19285.0,
+   "in_proptax": 1492.12,
+   "out_taxsimid": 7.0,
+   "out_year": 2026.0,
+   "out_fiitax": 3707.7,
+   "out_v10": 49064.13,
+   "out_v12": 13784.13,
+   "out_v13": 16100.0,
+   "out_v18": 32964.13,
+   "out_v19": 3707.7,
+   "out_v26": 49064.13,
+   "out_v28": 3707.7,
+   "out_v30": 54565.0,
+   "q_fed_tax_before_refundable": 3707.7,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: head (age 56) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated.",
+    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)"
+   ],
+   "map_computed": [
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ]
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_007",
+   "in_year": 2025.0,
+   "in_mstat": 1.0,
+   "in_page": 56.0,
+   "in_pensions": 35280.0,
+   "in_gssi": 19285.0,
+   "in_proptax": 1510.67,
+   "out_taxsimid": 7.0,
+   "out_year": 2025.0,
+   "out_fiitax": 3759.2,
+   "out_v10": 49064.13,
+   "out_v12": 13784.13,
+   "out_v13": 15750.0,
+   "out_v18": 33314.13,
+   "out_v19": 3759.2,
+   "out_v26": 49064.13,
+   "out_v28": 3759.2,
+   "out_v30": 54565.0,
+   "q_fed_tax_before_refundable": 3759.2,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 0.0,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: head (age 56) takes a private pension, which bears no 72(t) tax. The additional tax on early distributions (26 U.S.C. 72(t)(1)) is 10% of a filer's taxable IRA, SEP, 401(k) and 403(b) distributions (qualified plans by their names, 4974(c)) when the filer is 59 or younger (a stated age of 59 does not state 59 1/2), less the medical exception (72(t)(2)(B): distributions up to medical expenses above 7.5% of AGI), and none for a filer disabled under 72(m)(7) (the is_disabled reading: stated disabled with no earnings of their own). Every other exception (separation from service after 55, equal periodic payments, first home, education, birth or adoption, and so on) needs an unstated fact, so none applies. A private pension is not taxed: whether the plan is a qualified plan (4974(c)) or an annuity contract (72(q)) is not stated. Tax-Calculator takes the tax as e09900; TAXSIM has no input for it. policyengine-us takes it as an input with no formula (qualified_retirement_penalty), so the key holds none; its line income_tax_before_refundable_credits adds it when stated.",
+    "income_tax: TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled)"
+   ],
+   "map_computed": [
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given"
+   ]
+  }
+ }
+}

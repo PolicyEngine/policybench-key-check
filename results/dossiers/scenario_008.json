@@ -1,0 +1,2182 @@
+{
+ "case_id": "scenario_008",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 42,
+    "employment_income": 0.0,
+    "inputs": {
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "over_the_counter_health_expenses": 200.0,
+     "self_employment_income": 4000.0,
+     "taxable_interest_income": 15.0
+    },
+    "name": "head"
+   },
+   {
+    "age": 41,
+    "employment_income": 26800.0,
+    "inputs": {
+     "attends_eligible_educational_institution_for_american_opportunity_credit": true,
+     "bank_account_assets": 69500.0,
+     "has_american_opportunity_credit_1098_t_or_exception": true,
+     "has_american_opportunity_credit_institution_ein": true,
+     "is_blind": true,
+     "is_disabled": true,
+     "is_enrolled_at_least_half_time_for_american_opportunity_credit": true,
+     "is_pursuing_credential_for_american_opportunity_credit": true,
+     "is_tax_unit_head": false,
+     "is_tax_unit_spouse": true,
+     "over_the_counter_health_expenses": 300.0,
+     "pre_subsidy_rent": 6949.41162109375,
+     "taxable_interest_income": 100.0,
+     "weeks_unemployed": 5.0
+    },
+    "name": "spouse"
+   }
+  ],
+  "children": [
+   {
+    "age": 17,
+    "employment_income": 0.0,
+    "inputs": {
+     "is_tax_unit_head": false,
+     "is_tax_unit_spouse": false,
+     "over_the_counter_health_expenses": 50.0
+    },
+    "name": "child1"
+   },
+   {
+    "age": 14,
+    "employment_income": 0.0,
+    "inputs": {
+     "is_tax_unit_head": false,
+     "is_tax_unit_spouse": false,
+     "over_the_counter_health_expenses": 50.0
+    },
+    "name": "child2"
+   },
+   {
+    "age": 12,
+    "employment_income": 0.0,
+    "inputs": {
+     "is_tax_unit_head": false,
+     "is_tax_unit_spouse": false,
+     "over_the_counter_health_expenses": 50.0
+    },
+    "name": "child3"
+   },
+   {
+    "age": 10,
+    "employment_income": 0.0,
+    "inputs": {
+     "is_tax_unit_head": false,
+     "is_tax_unit_spouse": false,
+     "over_the_counter_health_expenses": 50.0
+    },
+    "name": "child4"
+   },
+   {
+    "age": 5,
+    "employment_income": 0.0,
+    "inputs": {
+     "is_tax_unit_head": false,
+     "is_tax_unit_spouse": false,
+     "over_the_counter_health_expenses": 50.0
+    },
+    "name": "child5"
+   },
+   {
+    "age": 1,
+    "employment_income": 0.0,
+    "inputs": {
+     "is_tax_unit_head": false,
+     "is_tax_unit_spouse": false,
+     "over_the_counter_health_expenses": 50.0
+    },
+    "name": "child6"
+   }
+  ],
+  "country": "us",
+  "filing_status": "joint",
+  "household_inputs": {},
+  "id": "scenario_008",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 7962,
+   "tax_unit_id": 9558
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {
+   "receives_housing_assistance": true
+  },
+  "state": "NJ",
+  "tax_unit_inputs": {},
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_008",
+   "year": 2026,
+   "state": "NJ",
+   "status": "joint",
+   "head": {
+    "name": "head",
+    "age": 42,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 4000.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": {
+    "name": "spouse",
+    "age": 41,
+    "blind": true,
+    "wages": 26800.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "dependents": [
+    {
+     "name": "child1",
+     "age": 17,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    },
+    {
+     "name": "child2",
+     "age": 14,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    },
+    {
+     "name": "child3",
+     "age": 12,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    },
+    {
+     "name": "child4",
+     "age": 10,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    },
+    {
+     "name": "child5",
+     "age": 5,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    },
+    {
+     "name": "child6",
+     "age": 1,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    }
+   ],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 115.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 0.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 0.0,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": [
+    {
+     "name": "child3",
+     "age": 12,
+     "why": "under 13"
+    },
+    {
+     "name": "child4",
+     "age": 10,
+     "why": "under 13"
+    },
+    {
+     "name": "child5",
+     "age": 5,
+     "why": "under 13"
+    },
+    {
+     "name": "child6",
+     "age": 1,
+     "why": "under 13"
+    }
+   ]
+  },
+  "2025": {
+   "case_id": "scenario_008",
+   "year": 2025,
+   "state": "NJ",
+   "status": "joint",
+   "head": {
+    "name": "head",
+    "age": 42,
+    "blind": false,
+    "wages": 0.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 4000.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": {
+    "name": "spouse",
+    "age": 41,
+    "blind": true,
+    "wages": 26800.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 0.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "dependents": [
+    {
+     "name": "child1",
+     "age": 17,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    },
+    {
+     "name": "child2",
+     "age": 14,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    },
+    {
+     "name": "child3",
+     "age": 12,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    },
+    {
+     "name": "child4",
+     "age": 10,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    },
+    {
+     "name": "child5",
+     "age": 5,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    },
+    {
+     "name": "child6",
+     "age": 1,
+     "gross_income": 0.0,
+     "disabled": false,
+     "unmarried_partner": false,
+     "related": true,
+     "incapable": false,
+     "kind": "qualifying_child"
+    }
+   ],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 115.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": 0.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 0.0,
+    "taxable_pensions": 0.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 0.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 0.0,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 0.0,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 0.0,
+    "real_estate_taxes": 0.0,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 0.0,
+    "charity_cash": 0.0,
+    "charity_non_cash": 0.0,
+    "employee_expenses": 0.0,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 0.0,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": [
+    {
+     "name": "child3",
+     "age": 12,
+     "why": "under 13"
+    },
+    {
+     "name": "child4",
+     "age": 10,
+     "why": "under 13"
+    },
+    {
+     "name": "child5",
+     "age": 5,
+     "why": "under 13"
+    },
+    {
+     "name": "child6",
+     "age": 1,
+     "why": "under 13"
+    }
+   ]
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 0.0,
+  "federal_refundable_credits": 12433.611328125,
+  "payroll_tax": 2276.659912109375,
+  "self_employment_tax": 565.1820068359375,
+  "state_income_tax_before_refundable_credits": 264.80999755859375
+ },
+ "board_exclusion_records": [],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": -0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 12433.61,
+    "taxcalc": 12433.61,
+    "taxsim": 12433.61
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 565.18,
+    "taxcalc": 565.18,
+    "taxsim": 565.18
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 2050.2,
+    "taxcalc": 2050.2,
+    "taxsim": 2050.2
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": -0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 12433.61,
+    "taxcalc": 12433.61,
+    "taxsim": 12433.61
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 565.18,
+    "taxcalc": 565.18,
+    "taxsim": 565.18
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 2050.2,
+    "taxcalc": 2050.2,
+    "taxsim": 2050.2
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 12214.41,
+    "taxcalc": 12214.41,
+    "taxsim": 12214.41
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 565.18,
+    "taxcalc": 565.18,
+    "taxsim": 565.18
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 2050.2,
+    "taxcalc": 2050.2,
+    "taxsim": 2050.2
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "board:federal_refundable_credits": 12433.61,
+   "board:payroll_tax": 2276.66,
+   "board:self_employment_tax": 565.18,
+   "board:state_income_tax_before_refundable_credits": 264.81,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 30632.41,
+   "irs_gross_income": 30915.0,
+   "above_the_line_deductions": 282.59,
+   "self_employment_tax_ald": 282.59,
+   "taxable_income_deductions": 34250.0,
+   "standard_deduction": 33850.0,
+   "basic_standard_deduction": 32200.0,
+   "additional_standard_deduction": 1650.0,
+   "itemized_taxable_income_deductions": 872.0,
+   "salt_deduction": 872.0,
+   "salt": 872.0,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 872.0,
+   "qualified_business_income_deduction": 400.0,
+   "amt_income": 30232.41,
+   "net_investment_income": 115.0,
+   "income_tax_non_refundable_credits": 7297.39,
+   "non_refundable_ctc": 7297.39,
+   "ctc": 11500.0,
+   "ctc_qualifying_children": 5.0,
+   "income_tax_refundable_credits": 12433.61,
+   "eitc": 8231.0,
+   "eitc_child_count": 6.0,
+   "eitc_relevant_investment_income": 115.0,
+   "refundable_ctc": 4202.61,
+   "income_tax": -12433.61,
+   "employee_payroll_tax": 2276.66,
+   "employee_state_payroll_tax": 226.46,
+   "tax_unit_dependents": 6.0,
+   "state_withheld_income_tax": 421.5,
+   "state_sales_tax": 872.0,
+   "age": {
+    "total": 142.0,
+    "persons": [
+     42.0,
+     41.0,
+     17.0,
+     14.0,
+     12.0,
+     10.0,
+     5.0,
+     1.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_dependent": {
+    "total": 6.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_full_time_student": {
+    "total": 5.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_blind": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employment_income": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1661.6,
+    "persons": [
+     0.0,
+     1661.5999755859375,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 388.6,
+    "persons": [
+     0.0,
+     388.5999755859375,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_income": {
+    "total": 4000.0,
+    "persons": [
+     4000.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "taxable_self_employment_income": {
+    "total": 3694.0,
+    "persons": [
+     3694.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "social_security_taxable_self_employment_income": {
+    "total": 3694.0,
+    "persons": [
+     3694.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_social_security_tax": {
+    "total": 458.06,
+    "persons": [
+     458.0559997558594,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_medicare_tax": {
+    "total": 107.13,
+    "persons": [
+     107.1259994506836,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_tax": {
+    "total": 565.18,
+    "persons": [
+     565.1820068359375,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "ctc_qualifying_child": {
+    "total": 5.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_eitc_qualifying_child": {
+    "total": 6.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_child_dependent": {
+    "total": 6.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse",
+    "child1",
+    "child2",
+    "child3",
+    "child4",
+    "child5",
+    "child6"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "board:federal_refundable_credits": 12214.41,
+   "board:payroll_tax": 2314.18,
+   "board:self_employment_tax": 565.18,
+   "board:state_income_tax_before_refundable_credits": 264.81,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 30632.41,
+   "irs_gross_income": 30915.0,
+   "above_the_line_deductions": 282.59,
+   "self_employment_tax_ald": 282.59,
+   "taxable_income_deductions": 33100.0,
+   "standard_deduction": 33100.0,
+   "basic_standard_deduction": 31500.0,
+   "additional_standard_deduction": 1600.0,
+   "itemized_taxable_income_deductions": 872.0,
+   "salt_deduction": 872.0,
+   "salt": 872.0,
+   "salt_cap": 40000.0,
+   "state_and_local_sales_or_income_tax": 872.0,
+   "amt_income": 30632.41,
+   "net_investment_income": 115.0,
+   "income_tax_non_refundable_credits": 7297.39,
+   "non_refundable_ctc": 7297.39,
+   "ctc": 11500.0,
+   "ctc_qualifying_children": 5.0,
+   "income_tax_refundable_credits": 12214.41,
+   "eitc": 8011.8,
+   "eitc_child_count": 6.0,
+   "eitc_relevant_investment_income": 115.0,
+   "refundable_ctc": 4202.61,
+   "income_tax": -12214.41,
+   "employee_payroll_tax": 2314.18,
+   "employee_state_payroll_tax": 263.98,
+   "tax_unit_dependents": 6.0,
+   "state_withheld_income_tax": 421.5,
+   "state_sales_tax": 872.0,
+   "age": {
+    "total": 142.0,
+    "persons": [
+     42.0,
+     41.0,
+     17.0,
+     14.0,
+     12.0,
+     10.0,
+     5.0,
+     1.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_dependent": {
+    "total": 6.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_full_time_student": {
+    "total": 5.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_blind": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employment_income": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1661.6,
+    "persons": [
+     0.0,
+     1661.5999755859375,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 388.6,
+    "persons": [
+     0.0,
+     388.5999755859375,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_income": {
+    "total": 4000.0,
+    "persons": [
+     4000.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "taxable_self_employment_income": {
+    "total": 3694.0,
+    "persons": [
+     3694.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "social_security_taxable_self_employment_income": {
+    "total": 3694.0,
+    "persons": [
+     3694.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_social_security_tax": {
+    "total": 458.06,
+    "persons": [
+     458.0559997558594,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_medicare_tax": {
+    "total": 107.13,
+    "persons": [
+     107.1259994506836,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_tax": {
+    "total": 565.18,
+    "persons": [
+     565.1820068359375,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "ctc_qualifying_child": {
+    "total": 5.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_eitc_qualifying_child": {
+    "total": 6.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_child_dependent": {
+    "total": 6.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse",
+    "child1",
+    "child2",
+    "child3",
+    "child4",
+    "child5",
+    "child6"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "board:federal_refundable_credits": 12433.61,
+   "board:payroll_tax": 2276.66,
+   "board:self_employment_tax": 565.18,
+   "board:state_income_tax_before_refundable_credits": 264.81,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 30632.41,
+   "irs_gross_income": 30915.0,
+   "above_the_line_deductions": 282.59,
+   "self_employment_tax_ald": 282.59,
+   "taxable_income_deductions": 34250.0,
+   "standard_deduction": 33850.0,
+   "basic_standard_deduction": 32200.0,
+   "additional_standard_deduction": 1650.0,
+   "itemized_taxable_income_deductions": 872.0,
+   "salt_deduction": 872.0,
+   "salt": 872.0,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 872.0,
+   "qualified_business_income_deduction": 400.0,
+   "amt_income": 30232.41,
+   "net_investment_income": 115.0,
+   "income_tax_non_refundable_credits": 7297.39,
+   "non_refundable_ctc": 7297.39,
+   "ctc": 11500.0,
+   "ctc_qualifying_children": 5.0,
+   "income_tax_refundable_credits": 12433.61,
+   "eitc": 8231.0,
+   "eitc_child_count": 6.0,
+   "eitc_relevant_investment_income": 115.0,
+   "refundable_ctc": 4202.61,
+   "income_tax": -12433.61,
+   "employee_payroll_tax": 2276.66,
+   "employee_state_payroll_tax": 226.46,
+   "tax_unit_dependents": 6.0,
+   "state_withheld_income_tax": 421.5,
+   "state_sales_tax": 872.0,
+   "age": {
+    "total": 142.0,
+    "persons": [
+     42.0,
+     41.0,
+     17.0,
+     14.0,
+     12.0,
+     10.0,
+     5.0,
+     1.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_dependent": {
+    "total": 6.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_full_time_student": {
+    "total": 5.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_blind": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employment_income": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1661.6,
+    "persons": [
+     0.0,
+     1661.5999755859375,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 388.6,
+    "persons": [
+     0.0,
+     388.5999755859375,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_income": {
+    "total": 4000.0,
+    "persons": [
+     4000.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "taxable_self_employment_income": {
+    "total": 3694.0,
+    "persons": [
+     3694.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "social_security_taxable_self_employment_income": {
+    "total": 3694.0,
+    "persons": [
+     3694.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_social_security_tax": {
+    "total": 458.06,
+    "persons": [
+     458.0559997558594,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_medicare_tax": {
+    "total": 107.13,
+    "persons": [
+     107.1259994506836,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_tax": {
+    "total": 565.18,
+    "persons": [
+     565.1820068359375,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "ctc_qualifying_child": {
+    "total": 5.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_eitc_qualifying_child": {
+    "total": 6.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_child_dependent": {
+    "total": 6.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse",
+    "child1",
+    "child2",
+    "child3",
+    "child4",
+    "child5",
+    "child6"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "board:federal_refundable_credits": 12433.61,
+   "board:payroll_tax": 2276.66,
+   "board:self_employment_tax": 565.18,
+   "board:state_income_tax_before_refundable_credits": 264.81,
+   "filing_status": 1.0,
+   "tax_unit_is_joint": 1.0,
+   "adjusted_gross_income": 30632.41,
+   "irs_gross_income": 30915.0,
+   "above_the_line_deductions": 282.59,
+   "self_employment_tax_ald": 282.59,
+   "taxable_income_deductions": 34250.0,
+   "standard_deduction": 33850.0,
+   "basic_standard_deduction": 32200.0,
+   "additional_standard_deduction": 1650.0,
+   "itemized_taxable_income_deductions": 891.76,
+   "salt_deduction": 891.76,
+   "salt": 891.76,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 891.76,
+   "qualified_business_income_deduction": 400.0,
+   "amt_income": 30232.41,
+   "net_investment_income": 115.0,
+   "income_tax_non_refundable_credits": 7297.39,
+   "non_refundable_ctc": 7297.39,
+   "ctc": 11500.0,
+   "ctc_qualifying_children": 5.0,
+   "income_tax_refundable_credits": 12433.61,
+   "eitc": 8231.0,
+   "eitc_child_count": 6.0,
+   "eitc_relevant_investment_income": 115.0,
+   "refundable_ctc": 4202.61,
+   "income_tax": -12433.61,
+   "employee_payroll_tax": 2276.66,
+   "employee_state_payroll_tax": 226.46,
+   "tax_unit_dependents": 6.0,
+   "state_withheld_income_tax": 421.5,
+   "state_sales_tax": 891.76,
+   "age": {
+    "total": 142.0,
+    "persons": [
+     42.0,
+     41.0,
+     17.0,
+     14.0,
+     12.0,
+     10.0,
+     5.0,
+     1.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_spouse": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_tax_unit_dependent": {
+    "total": 6.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_full_time_student": {
+    "total": 5.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   },
+   "is_disabled": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "is_blind": {
+    "total": 1.0,
+    "persons": [
+     0.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employment_income": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 26800.0,
+    "persons": [
+     0.0,
+     26800.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1661.6,
+    "persons": [
+     0.0,
+     1661.5999755859375,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 388.6,
+    "persons": [
+     0.0,
+     388.5999755859375,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_income": {
+    "total": 4000.0,
+    "persons": [
+     4000.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "taxable_self_employment_income": {
+    "total": 3694.0,
+    "persons": [
+     3694.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "social_security_taxable_self_employment_income": {
+    "total": 3694.0,
+    "persons": [
+     3694.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_social_security_tax": {
+    "total": 458.06,
+    "persons": [
+     458.0559997558594,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_medicare_tax": {
+    "total": 107.13,
+    "persons": [
+     107.1259994506836,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "self_employment_tax": {
+    "total": 565.18,
+    "persons": [
+     565.1820068359375,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "ctc_qualifying_child": {
+    "total": 5.0,
+    "persons": [
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_eitc_qualifying_child": {
+    "total": 6.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "is_child_dependent": {
+    "total": 6.0,
+    "persons": [
+     0.0,
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "person_names": [
+    "head",
+    "spouse",
+    "child1",
+    "child2",
+    "child3",
+    "child4",
+    "child5",
+    "child6"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_008",
+   "in_MARS": 2.0,
+   "in_XTOT": 8.0,
+   "in_n24": 5.0,
+   "in_EIC": 3.0,
+   "in_nu06": 2.0,
+   "in_nu13": 4.0,
+   "in_nu18": 6.0,
+   "in_f2441": 4.0,
+   "in_age_head": 42.0,
+   "in_age_spouse": 41.0,
+   "in_blind_spouse": 1.0,
+   "in_e00200s": 26800.0,
+   "in_e00200": 26800.0,
+   "in_e00300": 115.0,
+   "in_e00900p": 4000.0,
+   "in_e00900": 4000.0,
+   "in_e18400": 872.0,
+   "in_RECID": 8.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 40733.23,
+   "out_c00100": 30632.41,
+   "out_c02900": 282.59,
+   "out_c03260": 282.59,
+   "out_c09200": 565.18,
+   "out_c11070": 4202.61,
+   "out_c59660": 8231.0,
+   "out_c62100": 30232.41,
+   "out_codtc_limited": 11500.0,
+   "out_combined": -7768.03,
+   "out_credit_claim_urn": 0.13,
+   "out_ctc_refundable": 4202.61,
+   "out_ctc_total": 4202.61,
+   "out_earned": 30517.41,
+   "out_earned_p": 3717.41,
+   "out_earned_s": 26800.0,
+   "out_eitc": 8231.0,
+   "out_exact": 1.0,
+   "out_expanded_income": 32965.2,
+   "out_iitax": -12433.61,
+   "out_num": 2.0,
+   "out_othertaxes": 565.18,
+   "out_payrolltax": 4665.58,
+   "out_ptax_er_s": 2050.2,
+   "out_ptax_oasdi": 3781.26,
+   "out_ptax_was": 4100.4,
+   "out_qbided": 400.0,
+   "out_refund": 12433.61,
+   "out_setax": 565.18,
+   "out_sey": 4000.0,
+   "out_standard": 33850.0,
+   "out_ymod": 30632.41,
+   "out_ymod1": 30915.0,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 12433.61,
+   "q_self_employment_tax": 565.18,
+   "q_fed_employee_payroll_tax": 2050.2
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_008",
+   "in_MARS": 2.0,
+   "in_XTOT": 8.0,
+   "in_n24": 5.0,
+   "in_EIC": 3.0,
+   "in_nu06": 2.0,
+   "in_nu13": 4.0,
+   "in_nu18": 6.0,
+   "in_f2441": 4.0,
+   "in_age_head": 42.0,
+   "in_age_spouse": 41.0,
+   "in_blind_spouse": 1.0,
+   "in_e00200s": 26800.0,
+   "in_e00200": 26800.0,
+   "in_e00300": 115.0,
+   "in_e00900p": 4000.0,
+   "in_e00900": 4000.0,
+   "in_e18400": 872.0,
+   "in_RECID": 8.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 40514.03,
+   "out_c00100": 30632.41,
+   "out_c02900": 282.59,
+   "out_c03260": 282.59,
+   "out_c09200": 565.18,
+   "out_c11070": 4202.61,
+   "out_c59660": 8011.8,
+   "out_c62100": 30632.41,
+   "out_codtc_limited": 11500.0,
+   "out_combined": -7548.83,
+   "out_credit_claim_urn": 0.13,
+   "out_ctc_refundable": 4202.61,
+   "out_ctc_total": 4202.61,
+   "out_earned": 30517.41,
+   "out_earned_p": 3717.41,
+   "out_earned_s": 26800.0,
+   "out_eitc": 8011.8,
+   "out_exact": 1.0,
+   "out_expanded_income": 32965.2,
+   "out_iitax": -12214.41,
+   "out_num": 2.0,
+   "out_othertaxes": 565.18,
+   "out_payrolltax": 4665.58,
+   "out_ptax_er_s": 2050.2,
+   "out_ptax_oasdi": 3781.26,
+   "out_ptax_was": 4100.4,
+   "out_refund": 12214.41,
+   "out_setax": 565.18,
+   "out_sey": 4000.0,
+   "out_standard": 33100.0,
+   "out_ymod": 30632.41,
+   "out_ymod1": 30915.0,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 12214.41,
+   "q_self_employment_tax": 565.18,
+   "q_fed_employee_payroll_tax": 2050.2
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_008",
+   "in_year": 2026.0,
+   "in_mstat": 2.0,
+   "in_page": 42.0,
+   "in_sage": 41.0,
+   "in_swages": 26800.0,
+   "in_psemp": 4000.0,
+   "in_intrec": 115.0,
+   "in_proptax": 872.0,
+   "in_depx": 6.0,
+   "in_dep13": 4.0,
+   "in_dep17": 5.0,
+   "in_dep18": 5.0,
+   "out_taxsimid": 8.0,
+   "out_year": 2026.0,
+   "out_fiitax": -12433.61,
+   "out_fica": 4665.58,
+   "out_tfica": 2615.38,
+   "out_v10": 30632.41,
+   "out_v13": 32200.0,
+   "out_v23": 4202.61,
+   "out_v25": 8231.0,
+   "out_v26": 30632.41,
+   "out_v29": 4665.58,
+   "out_v30": 30915.0,
+   "out_actc": 4202.61,
+   "out_tfica_no_self_employment": 2050.2,
+   "q_fed_tax_before_refundable": -0.0,
+   "q_refundable_credits": 12433.61,
+   "q_self_employment_tax": 565.18,
+   "q_fed_employee_payroll_tax": 2050.2,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: TAXSIM has no input for blindness (additional standard deduction, 26 U.S.C. 63(f)(2))",
+    "income_tax: this build has no 2026 minimum qualified business income deduction (26 U.S.C. 199A(i))"
+   ]
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_008",
+   "in_year": 2025.0,
+   "in_mstat": 2.0,
+   "in_page": 42.0,
+   "in_sage": 41.0,
+   "in_swages": 26800.0,
+   "in_psemp": 4000.0,
+   "in_intrec": 115.0,
+   "in_proptax": 872.0,
+   "in_depx": 6.0,
+   "out_taxsimid": 8.0,
+   "out_year": 2025.0,
+   "out_fiitax": -12214.41,
+   "out_fica": 4665.58,
+   "out_tfica": 2615.38,
+   "out_v10": 30632.41,
+   "out_v13": 31500.0,
+   "out_v23": 4202.61,
+   "out_v25": 8011.8,
+   "out_v26": 30632.41,
+   "out_v29": 4665.58,
+   "out_v30": 30915.0,
+   "out_actc": 4202.61,
+   "out_tfica_no_self_employment": 2050.2,
+   "q_fed_tax_before_refundable": 0.0,
+   "q_refundable_credits": 12214.41,
+   "q_self_employment_tax": 565.18,
+   "q_fed_employee_payroll_tax": 2050.2,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: TAXSIM has no input for blindness (additional standard deduction, 26 U.S.C. 63(f)(2))"
+   ],
+   "in_age1": 1.0,
+   "in_age2": 5.0,
+   "in_age3": 10.0,
+   "in_age4": 12.0,
+   "in_age5": 14.0,
+   "in_age6": 18.0
+  }
+ }
+}

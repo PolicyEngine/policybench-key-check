@@ -1,0 +1,5 @@
+policyengine-us 2.60.0, scenario_120, board conventions, 2026
+change:  ['gov.irs.investment.income.sources=farm_rent_income']
+   net_investment_income: before [4300.0] after [1853.411865234375]
+   net_investment_income_tax: before [163.39999389648438] after [70.42964935302734]
+   income_tax_before_refundable_credits: before [40423.17578125] after [40330.20703125]

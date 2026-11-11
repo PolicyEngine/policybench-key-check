@@ -1,0 +1,1041 @@
+{
+ "case_id": "scenario_114",
+ "stated_facts": {
+  "adults": [
+   {
+    "age": 69,
+    "employment_income": 22700.0,
+    "inputs": {
+     "bank_account_assets": 24179.412109375,
+     "charitable_cash_donations": 10766.0,
+     "charitable_non_cash_donations": 680.6470336914062,
+     "hourly_wage": 36.0,
+     "hours_worked_last_week": 10.0,
+     "is_paid_hourly": true,
+     "is_tax_unit_head": true,
+     "is_tax_unit_spouse": false,
+     "long_term_capital_gains": -22.0,
+     "other_medical_expenses": 10000.0,
+     "over_the_counter_health_expenses": 2000.0,
+     "partnership_s_corp_income": 24361.765625,
+     "real_estate_taxes": 4064.294189453125,
+     "social_security_retirement": 23328.0,
+     "sstb_unadjusted_basis_qualified_property": 35351.48046875,
+     "taxable_interest_income": 104.0,
+     "taxable_ira_distributions": 9600.0,
+     "taxable_private_pension_income": 30000.0,
+     "unreimbursed_business_employee_expenses": 229.5
+    },
+    "name": "head"
+   }
+  ],
+  "children": [],
+  "country": "us",
+  "filing_status": "single",
+  "household_inputs": {
+   "household_vehicles_value": 17644.1171875
+  },
+  "id": "scenario_114",
+  "metadata": {
+   "dataset_year": 2024,
+   "household_id": 25425,
+   "tax_unit_id": 29931
+  },
+  "source_dataset": "enhanced_cps_2024",
+  "spm_unit_inputs": {},
+  "state": "VA",
+  "tax_unit_inputs": {
+   "first_home_mortgage_balance": 95617.6484375
+  },
+  "year": 2026
+ },
+ "return_from_stated_facts": {
+  "2026": {
+   "case_id": "scenario_114",
+   "year": 2026,
+   "state": "VA",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 69,
+    "blind": false,
+    "wages": 22700.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 9600.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 104.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": -22.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 9600.0,
+    "taxable_pensions": 30000.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 23328.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 24361.765625,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 24361.765625,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 10000.0,
+    "real_estate_taxes": 4064.294189453125,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 95617.6484375,
+    "charity_cash": 10766.0,
+    "charity_non_cash": 680.6470336914062,
+    "employee_expenses": 229.5,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 35351.48046875,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true)."
+    ],
+    [
+     "income_tax",
+     "the maps read 24,361.77 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive"
+    ],
+    [
+     "income_tax",
+     "reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit."
+    ],
+    [
+     "income_tax",
+     "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  },
+  "2025": {
+   "case_id": "scenario_114",
+   "year": 2025,
+   "state": "VA",
+   "status": "single",
+   "head": {
+    "name": "head",
+    "age": 69,
+    "blind": false,
+    "wages": 22700.0,
+    "deferral": 0.0,
+    "roth_deferral": 0.0,
+    "ira_traditional_desired": 0.0,
+    "ira_roth_desired": 0.0,
+    "schedule_c": 0.0,
+    "sstb": 0.0,
+    "schedule_f": 0.0,
+    "partnership_se": 0.0,
+    "educator_expense": 0.0,
+    "retirement_distributions": 9600.0,
+    "overtime_premium": 0.0,
+    "tips": 0.0,
+    "se_pension": 0.0,
+    "se_health_premiums": 0.0,
+    "se_health": 0.0,
+    "se_health_key": 0.0,
+    "se_earned_income": 0.0,
+    "incapable": false
+   },
+   "spouse": null,
+   "dependents": [],
+   "left_out": [],
+   "amounts": {
+    "taxable_interest": 104.0,
+    "tax_exempt_interest": 0.0,
+    "qualified_dividends": 0.0,
+    "non_qualified_dividends": 0.0,
+    "short_term_gains": 0.0,
+    "long_term_gains": -22.0,
+    "capital_gain_distributions": 0.0,
+    "taxable_ira_distributions": 9600.0,
+    "taxable_pensions": 30000.0,
+    "tax_exempt_pensions": 0.0,
+    "social_security": 23328.0,
+    "unemployment": 0.0,
+    "salt_refund": 0.0,
+    "alimony_received": 0.0,
+    "alimony_paid": 0.0,
+    "rental": 0.0,
+    "farm_rent": 0.0,
+    "partnership_s_corp": 24361.765625,
+    "rental_stated": 0.0,
+    "farm_rent_stated": 0.0,
+    "partnership_stated": 24361.765625,
+    "rental_qbi": 0,
+    "estate": 0.0,
+    "miscellaneous": 0.0,
+    "educational_assistance": 0.0,
+    "disability_benefits": 0.0,
+    "student_loan_interest": 0.0,
+    "hsa_stated": 0.0,
+    "hsa_deduction": 0.0,
+    "domestic_production": 0.0,
+    "medical": 10000.0,
+    "real_estate_taxes": 4064.294189453125,
+    "mortgage_interest": 0.0,
+    "mortgage_balances": 95617.6484375,
+    "charity_cash": 10766.0,
+    "charity_non_cash": 680.6470336914062,
+    "employee_expenses": 229.5,
+    "child_care": 0.0,
+    "auto_loan_interest": 0.0,
+    "ubia": 0.0,
+    "sstb_ubia": 35351.48046875,
+    "reit_ptp": 0.0,
+    "survivor_benefits": 0.0,
+    "qualified_vehicle_loan_interest": 0.0,
+    "investment_interest": 0.0,
+    "form_4952_election": 0.0,
+    "unrecaptured_1250": 0.0,
+    "collectibles_28": 0.0,
+    "qbi_w2_wages": 0.0,
+    "sstb_qbi_w2_wages": 0.0,
+    "se_health_insurance": 0.0,
+    "se_pension": 0.0,
+    "care_expenses_of_incapable": 0.0,
+    "form_4952_elected": 0.0,
+    "investment_interest_allowed": 0.0,
+    "early_distributions": 0.0
+   },
+   "notes": [
+    [
+     "income_tax",
+     "reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true)."
+    ],
+    [
+     "income_tax",
+     "the maps read 24,361.77 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive"
+    ],
+    [
+     "income_tax",
+     "reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit."
+    ],
+    [
+     "income_tax",
+     "reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated."
+    ]
+   ],
+   "members_with_own_payroll": [],
+   "itemized_notes": [
+    [
+     "income_tax",
+     "reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference."
+    ],
+    [
+     "income_tax",
+     "reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1))."
+    ]
+   ],
+   "disabled_reading": [],
+   "care_individuals": []
+  }
+ },
+ "committed_key": {
+  "federal_income_tax_before_refundable_credits": 10729.6123046875,
+  "federal_refundable_credits": 0.0,
+  "payroll_tax": 1736.550048828125,
+  "self_employment_tax": 0.0,
+  "state_income_tax_before_refundable_credits": 3514.14501953125
+ },
+ "board_exclusion_records": [
+  {
+   "scenario_id": "scenario_114",
+   "variable": "federal_income_tax_before_refundable_credits",
+   "reason_code": "reference_depends_on_unlisted_input",
+   "alternative_reading": "The prompt lists no state income tax withheld or paid during 2026. The reference fills the state income tax part of the federal state and local tax deduction (26 U.S.C. 164(a)(3), (b)(5)) with policyengine-us's formula estimate of Virginia income tax withheld: Virginia's rate schedule applied to the person's whole federal AGI (including $19,828.80 of taxable Social Security, which Virginia exempts) less Virginia's single standard deduction (va_withheld_income_tax), $5,367.30. The same engine computes the household's Virginia income tax before refundable credits as $3,514.15. Read as the household paying its 2026 Virginia income tax during the year, the deduction takes that liability and the output is the alternative value. The prompt's rule that unlisted numeric inputs are 0 gives a third reading, no state income tax paid, under which SALT takes the general sales tax (the note gives that value).",
+   "frozen_value": 10729.6123046875,
+   "alternative_value": 11137.306640625,
+   "engine_version": "policyengine-us 2.15.17",
+   "decided_on": "2026-10-05",
+   "decided_by": "developer",
+   "unlisted_input": "state income tax withheld or paid during 2026, which the federal state and local tax deduction takes as its state income tax part; policyengine-us fills it with state_withheld_income_tax, a formula estimate on federal AGI that the household data never set; also Medicare enrollment and a Medicare Part B premium paid during 2026, which the medical expense deductions count; policyengine-us treats every Medicare-eligible person as enrolled (takes_up_medicare_if_eligible defaults to true, so medicare_enrolled follows is_medicare_eligible) and adds the modeled premium (medicare_part_b_premium) to medical expenses, and the household data never set either",
+   "note": "Found 2026-10-05 by sweeping every reference with the state income tax in SALT read three ways (reference_audit/2026-10-05/scripts/sweep_salt_withholding.py, on policyengine-us 2.15.17 with latest_final; its baseline reproduces all 1,928 scored references, and an independent re-implementation agreed on all 1,984 outputs). SALT is $9,431.59 in the reference and $7,578.44 under the alternative; the household itemizes under both, and the $40,400 cap binds under neither. Under the zero reading SALT takes the general sales tax, $692.40, and the output is $11,758.09; that sales tax includes the engine's local component of $115.40 (20% of the state table amount, an estimate for an unlisted locality), and without it the output is $11,783.48. The reference's medical deduction also includes a modeled Medicare Part B premium of $2,434.80, which the prompt does not list. Without it the output is $11,265.27 under the withholding estimate and $11,642.16 under the liability, and with no withholding, local sales tax or Part B premium it is $11,969.80 (the household then takes the standard deduction)."
+  },
+  {
+   "scenario_id": "scenario_114",
+   "variable": "state_income_tax_before_refundable_credits",
+   "reason_code": "reference_depends_on_unlisted_input",
+   "alternative_reading": "The prompt lists no Medicare enrollment and no Medicare Part B premium, and its rules say to treat any unlisted numeric input as 0 and not to infer unlisted expenses or health coverage. The reference counts a modeled Part B premium as a medical expense: policyengine-us treats the head (age 69, so Medicare-eligible) as enrolled because takes_up_medicare_if_eligible defaults to true, and medical_expense_health_insurance_premiums adds medicare_part_b_premium, the 2026 standard premium of $202.90 a month, $2,434.80, to the listed $10,000 of other medical expenses. The household itemizes, so the federal medical expense deduction (26 U.S.C. 213(a): expenses above 7.5% of AGI) counts it, and Virginia's itemized deductions, which start from the federal itemized deductions (va_itemized_deductions), carry it too. The prompt also says to assume program take-up when required, and a reader who takes a 69-year-old with Social Security retirement income to be enrolled in Part B and paying the standard premium gets the frozen value. But the benchmark sets take-up only for the programs its household data list (Medicaid, SSI, the ACA credit, the DC property tax credit, the EITC, SNAP and tax filing; policybench.scenarios.DEFAULT_TAKEUP_INPUTS), and Medicare is not among them; the Medicare request asks only whether the head is eligible; and the more specific rules against inferring unlisted expenses or health coverage point the other way. Read with no Part B premium paid, the deduction falls by $2,434.80 and the output is the alternative value.",
+   "frozen_value": 3514.14501953125,
+   "alternative_value": 3654.14599609375,
+   "engine_version": "policyengine-us 2.15.17",
+   "decided_on": "2026-10-05",
+   "decided_by": "developer",
+   "unlisted_input": "Medicare enrollment and a Medicare Part B premium paid during 2026, which the medical expense deductions count; policyengine-us treats every Medicare-eligible person as enrolled (takes_up_medicare_if_eligible defaults to true, so medicare_enrolled follows is_medicare_eligible) and adds the modeled premium (medicare_part_b_premium) to medical expenses, and the household data never set either",
+   "note": "Found 2026-10-05 by sweeping every reference with each person's Medicare Part B premium at 0, and again with Medicare enrollment off (reference_audit/2026-10-05-medicare-part-b/scripts/sweep_part_b.py, on policyengine-us 2.15.17 with latest_final; its baseline reproduces all 1,928 scored references). Of 39 Medicare-eligible people in 33 households, the engine charges the premium in 30 (Medicare Savings Program coverage pays it for the 4 eligible people in the other 3); only this household's two tax outputs move, under either reading. The federal medical expense deduction is $4,441.86 in the reference ($12,434.80 of expenses less 7.5% of $106,572.56 AGI) and $2,007.06 without the premium; the household itemizes under both. The output also depends on the state income tax in the federal SALT deduction, which PolicyEngine/policybench#191 proposes to treat as an unlisted input (decision d963), through the federal itemization election, which Virginia follows (va_deductions reads tax_unit_itemizes). Without the premium the output is $3,654.15 under both the withholding estimate and the liability; with no state income tax paid it is $4,127.67, with or without the local sales tax estimate, because the household then takes the federal and Virginia standard deductions. With the premium it is $3,514.15 under all four readings. The premium is the standard premium: the engine reads the income-related adjustment from MAGI two years earlier, which no household sets, and at this household's 2026 MAGI ($106,572.56) none would apply. GPT-6 Astra ($3,654.16) and GPT-6.1 Sol ($3,654.66) answered within $1 of the alternative value, and no model within $1 of the frozen value."
+  }
+ ],
+ "agreement": {
+  "2026, against the committed key": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "two_agree:policyengine",
+    "board_scores_it": "no",
+    "policyengine": 10729.61,
+    "taxcalc": 11265.27,
+    "taxsim": 11265.27
+   },
+   "federal_refundable_credits": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pb-reference-2.60.0",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 1736.55,
+    "taxcalc": 1736.55,
+    "taxsim": 1736.55
+   }
+  },
+  "2026, against the engine rerun": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "two_agree:policyengine",
+    "board_scores_it": "no",
+    "policyengine": 10729.61,
+    "taxcalc": 11265.27,
+    "taxsim": 11265.27
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2026",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 1736.55,
+    "taxcalc": 1736.55,
+    "taxsim": 1736.55
+   }
+  },
+  "2025 law": {
+   "federal_income_tax_before_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "two_agree:policyengine",
+    "board_scores_it": "no",
+    "policyengine": 10861.64,
+    "taxcalc": 11350.04,
+    "taxsim": 11350.04
+   },
+   "federal_refundable_credits": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "self_employment_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 0.0,
+    "taxcalc": 0.0,
+    "taxsim": 0.0
+   },
+   "federal_employee_payroll_tax": {
+    "key_run": "pe-2.60.0-board-2025",
+    "class": "all_agree",
+    "board_scores_it": "yes",
+    "policyengine": 1736.55,
+    "taxcalc": 1736.55,
+    "taxsim": 1736.55
+   }
+  }
+ },
+ "policyengine": {
+  "pe-2.60.0-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 10729.61,
+   "board:payroll_tax": 1736.55,
+   "board:state_income_tax_before_refundable_credits": 3514.15,
+   "adjusted_gross_income": 106572.56,
+   "irs_gross_income": 106594.56,
+   "above_the_line_deductions": 22.0,
+   "tax_unit_taxable_social_security": 19828.8,
+   "tax_unit_social_security": 23328.0,
+   "taxable_income": 72807.33,
+   "taxable_income_deductions": 33765.23,
+   "standard_deduction": 18150.0,
+   "basic_standard_deduction": 16100.0,
+   "additional_standard_deduction": 2050.0,
+   "tax_unit_itemizes": 1.0,
+   "itemized_taxable_income_deductions": 24787.23,
+   "salt_deduction": 9431.59,
+   "salt": 9431.59,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 5367.3,
+   "real_estate_taxes": 4064.29,
+   "medical_expense_deduction": 4441.86,
+   "charitable_deduction": 10913.78,
+   "charitable_deduction_for_non_itemizers": 1000.0,
+   "qualified_business_income_deduction": 4872.35,
+   "additional_senior_deduction": 4105.65,
+   "income_tax_main_rates": 10729.61,
+   "amt_income": 86344.57,
+   "income_tax_before_credits": 10729.61,
+   "net_investment_income": 82.0,
+   "eitc_relevant_investment_income": 104.0,
+   "income_tax_before_refundable_credits": 10729.61,
+   "income_tax": 10729.61,
+   "employee_payroll_tax": 1736.55,
+   "state_withheld_income_tax": 5367.3,
+   "state_sales_tax": 577.0,
+   "age": {
+    "total": 69.0,
+    "persons": [
+     69.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1407.4,
+    "persons": [
+     1407.4000244140625
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 329.15,
+    "persons": [
+     329.1499938964844
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.60.0-board-2025": {
+   "board:federal_income_tax_before_refundable_credits": 10861.64,
+   "board:payroll_tax": 1736.55,
+   "board:state_income_tax_before_refundable_credits": 3495.86,
+   "adjusted_gross_income": 106572.56,
+   "irs_gross_income": 106594.56,
+   "above_the_line_deductions": 22.0,
+   "tax_unit_taxable_social_security": 19828.8,
+   "tax_unit_social_security": 23328.0,
+   "taxable_income": 72489.27,
+   "taxable_income_deductions": 34083.3,
+   "standard_deduction": 17750.0,
+   "basic_standard_deduction": 15750.0,
+   "additional_standard_deduction": 2000.0,
+   "tax_unit_itemizes": 1.0,
+   "itemized_taxable_income_deductions": 25105.3,
+   "salt_deduction": 9431.59,
+   "salt": 9431.59,
+   "salt_cap": 40000.0,
+   "state_and_local_sales_or_income_tax": 5367.3,
+   "real_estate_taxes": 4064.29,
+   "medical_expense_deduction": 4227.06,
+   "charitable_deduction": 11446.65,
+   "qualified_business_income_deduction": 4872.35,
+   "additional_senior_deduction": 4105.65,
+   "income_tax_main_rates": 10861.64,
+   "amt_income": 86026.51,
+   "income_tax_before_credits": 10861.64,
+   "net_investment_income": 82.0,
+   "eitc_relevant_investment_income": 104.0,
+   "income_tax_before_refundable_credits": 10861.64,
+   "income_tax": 10861.64,
+   "employee_payroll_tax": 1736.55,
+   "state_withheld_income_tax": 5367.3,
+   "state_sales_tax": 577.0,
+   "age": {
+    "total": 69.0,
+    "persons": [
+     69.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1407.4,
+    "persons": [
+     1407.4000244140625
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 329.15,
+    "persons": [
+     329.1499938964844
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-board-2026": {
+   "board:federal_income_tax_before_refundable_credits": 10729.61,
+   "board:payroll_tax": 1736.55,
+   "board:state_income_tax_before_refundable_credits": 3514.15,
+   "adjusted_gross_income": 106572.56,
+   "irs_gross_income": 106594.56,
+   "above_the_line_deductions": 22.0,
+   "tax_unit_taxable_social_security": 19828.8,
+   "tax_unit_social_security": 23328.0,
+   "taxable_income": 72807.33,
+   "taxable_income_deductions": 33765.23,
+   "standard_deduction": 18150.0,
+   "basic_standard_deduction": 16100.0,
+   "additional_standard_deduction": 2050.0,
+   "tax_unit_itemizes": 1.0,
+   "itemized_taxable_income_deductions": 24787.23,
+   "salt_deduction": 9431.59,
+   "salt": 9431.59,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 5367.3,
+   "real_estate_taxes": 4064.29,
+   "medical_expense_deduction": 4441.86,
+   "charitable_deduction": 10913.78,
+   "charitable_deduction_for_non_itemizers": 1000.0,
+   "qualified_business_income_deduction": 4872.35,
+   "additional_senior_deduction": 4105.65,
+   "income_tax_main_rates": 10729.61,
+   "amt_income": 86344.57,
+   "income_tax_before_credits": 10729.61,
+   "net_investment_income": 82.0,
+   "eitc_relevant_investment_income": 104.0,
+   "income_tax_before_refundable_credits": 10729.61,
+   "income_tax": 10729.61,
+   "employee_payroll_tax": 1736.55,
+   "state_withheld_income_tax": 5367.3,
+   "state_sales_tax": 577.0,
+   "age": {
+    "total": 69.0,
+    "persons": [
+     69.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1407.4,
+    "persons": [
+     1407.4000244140625
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 329.15,
+    "persons": [
+     329.1499938964844
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  },
+  "pe-2.116.15-none-2026": {
+   "board:federal_income_tax_before_refundable_credits": 10729.61,
+   "board:payroll_tax": 1736.55,
+   "board:state_income_tax_before_refundable_credits": 3514.15,
+   "adjusted_gross_income": 106572.56,
+   "irs_gross_income": 106594.56,
+   "above_the_line_deductions": 22.0,
+   "tax_unit_taxable_social_security": 19828.8,
+   "tax_unit_social_security": 23328.0,
+   "taxable_income": 72807.33,
+   "taxable_income_deductions": 33765.23,
+   "standard_deduction": 18150.0,
+   "basic_standard_deduction": 16100.0,
+   "additional_standard_deduction": 2050.0,
+   "tax_unit_itemizes": 1.0,
+   "itemized_taxable_income_deductions": 24787.23,
+   "salt_deduction": 9431.59,
+   "salt": 9431.59,
+   "salt_cap": 40400.0,
+   "state_and_local_sales_or_income_tax": 5367.3,
+   "real_estate_taxes": 4064.29,
+   "medical_expense_deduction": 4441.86,
+   "charitable_deduction": 10913.78,
+   "charitable_deduction_for_non_itemizers": 1000.0,
+   "qualified_business_income_deduction": 4872.35,
+   "additional_senior_deduction": 4105.65,
+   "income_tax_main_rates": 10729.61,
+   "amt_income": 86344.57,
+   "income_tax_before_credits": 10729.61,
+   "net_investment_income": 82.0,
+   "eitc_relevant_investment_income": 104.0,
+   "income_tax_before_refundable_credits": 10729.61,
+   "income_tax": 10729.61,
+   "employee_payroll_tax": 1736.55,
+   "state_withheld_income_tax": 5367.3,
+   "state_sales_tax": 590.08,
+   "age": {
+    "total": 69.0,
+    "persons": [
+     69.0
+    ]
+   },
+   "is_tax_unit_head": {
+    "total": 1.0,
+    "persons": [
+     1.0
+    ]
+   },
+   "employment_income": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "irs_employment_income": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "payroll_tax_gross_wages": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "taxable_earnings_for_social_security": {
+    "total": 22700.0,
+    "persons": [
+     22700.0
+    ]
+   },
+   "employee_social_security_tax": {
+    "total": 1407.4,
+    "persons": [
+     1407.4000244140625
+    ]
+   },
+   "employee_medicare_tax": {
+    "total": 329.15,
+    "persons": [
+     329.1499938964844
+    ]
+   },
+   "person_names": [
+    "head"
+   ]
+  }
+ },
+ "other_models": {
+  "taxcalc-6.9.0-2026": {
+   "case_id": "scenario_114",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 69.0,
+   "in_e00200p": 22700.0,
+   "in_e00200": 22700.0,
+   "in_e00300": 104.0,
+   "in_e01400": 9600.0,
+   "in_e01500": 30000.0,
+   "in_e01700": 30000.0,
+   "in_e02000": 24361.77,
+   "in_e27200": 24361.77,
+   "in_e02400": 23328.0,
+   "in_p23250": -22.0,
+   "in_e17500": 10000.0,
+   "in_e18400": 5367.3,
+   "in_e18500": 4064.29,
+   "in_e19800": 10766.0,
+   "in_e20100": 680.65,
+   "in_e20400": 229.5,
+   "in_RECID": 91.0,
+   "in_FLPDYR": 2026.0,
+   "out_aftertax_income": 97069.95,
+   "out_benefit_cost_total": 23328.0,
+   "out_benefit_value_total": 23328.0,
+   "out_c00100": 106572.57,
+   "out_c01000": -22.0,
+   "out_c02500": 19828.8,
+   "out_c04470": 22352.43,
+   "out_c04800": 75242.13,
+   "out_c05200": 11265.27,
+   "out_c05800": 11265.27,
+   "out_c09200": 11265.27,
+   "out_c17000": 2007.06,
+   "out_c18300": 9431.59,
+   "out_c19700": 10913.78,
+   "out_c21060": 22352.43,
+   "out_c23650": -22.0,
+   "out_c62100": 88779.37,
+   "out_combined": 14738.37,
+   "out_credit_claim_urn": 0.14,
+   "out_earned": 22700.0,
+   "out_earned_p": 22700.0,
+   "out_exact": 1.0,
+   "out_expanded_income": 111808.32,
+   "out_iitax": 11265.27,
+   "out_num": 1.0,
+   "out_payrolltax": 3473.1,
+   "out_ptax_er_p": 1736.55,
+   "out_ptax_oasdi": 2814.8,
+   "out_ptax_was": 3473.1,
+   "out_qbided": 4872.35,
+   "out_senior_deduction": 4105.65,
+   "out_taxbc": 11265.27,
+   "out_ymod": 98407.77,
+   "out_ymod1": 86743.77,
+   "q_fed_tax_before_refundable": 11265.27,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 1736.55,
+   "unexpressed": [
+    "income_tax: reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true).",
+    "income_tax: the maps read 24,361.77 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)",
+    "income_tax: reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
+   ],
+   "map_computed": [
+    "income_tax: partnership and S corporation income other than partners' self-employment earnings is entered as e27200 (with e02000), so it counts as net investment income and EITC investment income, as passive income does (26 U.S.C. 1411(c)(2)(A), 32(i)(2)(D)); e26270 holds only the self-employment earnings"
+   ]
+  },
+  "taxcalc-6.9.0-2025": {
+   "case_id": "scenario_114",
+   "in_MARS": 1.0,
+   "in_XTOT": 1.0,
+   "in_age_head": 69.0,
+   "in_e00200p": 22700.0,
+   "in_e00200": 22700.0,
+   "in_e00300": 104.0,
+   "in_e01400": 9600.0,
+   "in_e01500": 30000.0,
+   "in_e01700": 30000.0,
+   "in_e02000": 24361.77,
+   "in_e27200": 24361.77,
+   "in_e02400": 23328.0,
+   "in_p23250": -22.0,
+   "in_e17500": 10000.0,
+   "in_e18400": 5367.3,
+   "in_e18500": 4064.29,
+   "in_e19800": 10766.0,
+   "in_e20100": 680.65,
+   "in_e20400": 229.5,
+   "in_RECID": 91.0,
+   "in_FLPDYR": 2025.0,
+   "out_aftertax_income": 96985.18,
+   "out_benefit_cost_total": 23328.0,
+   "out_benefit_value_total": 23328.0,
+   "out_c00100": 106572.57,
+   "out_c01000": -22.0,
+   "out_c02500": 19828.8,
+   "out_c04470": 22885.3,
+   "out_c04800": 74709.27,
+   "out_c05200": 11350.04,
+   "out_c05800": 11350.04,
+   "out_c09200": 11350.04,
+   "out_c17000": 2007.06,
+   "out_c18300": 9431.59,
+   "out_c19700": 11446.65,
+   "out_c21060": 22885.3,
+   "out_c23650": -22.0,
+   "out_c62100": 88246.51,
+   "out_combined": 14823.14,
+   "out_credit_claim_urn": 0.14,
+   "out_earned": 22700.0,
+   "out_earned_p": 22700.0,
+   "out_exact": 1.0,
+   "out_expanded_income": 111808.32,
+   "out_iitax": 11350.04,
+   "out_num": 1.0,
+   "out_payrolltax": 3473.1,
+   "out_ptax_er_p": 1736.55,
+   "out_ptax_oasdi": 2814.8,
+   "out_ptax_was": 3473.1,
+   "out_qbided": 4872.35,
+   "out_senior_deduction": 4105.65,
+   "out_taxbc": 11350.04,
+   "out_ymod": 98407.77,
+   "out_ymod1": 86743.77,
+   "q_fed_tax_before_refundable": 11350.04,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 1736.55,
+   "unexpressed": [
+    "income_tax: reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true).",
+    "income_tax: the maps read 24,361.77 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
+    "income_tax: Tax-Calculator zeroes unreimbursed employee expenses (e20400; ID_Miscellaneous_hc is 1 in 2025 and 2026)",
+    "income_tax: reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is passed as e18400"
+   ],
+   "map_computed": [
+    "income_tax: partnership and S corporation income other than partners' self-employment earnings is entered as e27200 (with e02000), so it counts as net investment income and EITC investment income, as passive income does (26 U.S.C. 1411(c)(2)(A), 32(i)(2)(D)); e26270 holds only the self-employment earnings"
+   ]
+  },
+  "taxsim-cd2026110117-2026": {
+   "case_id": "scenario_114",
+   "in_year": 2026.0,
+   "in_mstat": 1.0,
+   "in_page": 69.0,
+   "in_pwages": 22700.0,
+   "in_scorp": 24361.77,
+   "in_intrec": 104.0,
+   "in_ltcg": -22.0,
+   "in_pensions": 39600.0,
+   "in_gssi": 23328.0,
+   "in_proptax": 9431.59,
+   "in_mortgage": 12920.84,
+   "out_taxsimid": 91.0,
+   "out_year": 2026.0,
+   "out_fiitax": 11265.27,
+   "out_fica": 3473.1,
+   "out_tfica": 1736.55,
+   "out_v10": 106572.57,
+   "out_v12": 19828.8,
+   "out_v13": 18150.0,
+   "out_v17": 22352.43,
+   "out_v18": 75242.14,
+   "out_v19": 11265.27,
+   "out_v26": 88779.38,
+   "out_v28": 11265.27,
+   "out_v29": 3473.1,
+   "out_v30": 110093.77,
+   "out_qbid": 4872.35,
+   "out_tfica_no_self_employment": 1736.55,
+   "q_fed_tax_before_refundable": 11265.27,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 1736.55,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true).",
+    "income_tax: the maps read 24,361.77 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
+    "income_tax: TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026)",
+    "income_tax: reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+   ],
+   "map_computed": [
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
+    "income_tax: charitable gifts limited by the 26 U.S.C. 170(b)(1) ceilings (60% cash, 50% other gifts less the cash) and, from 2026, the 0.5% floor of 170(b)(1)(I) (unit.READINGS['charity']), entered in `mortgage`"
+   ]
+  },
+  "taxsim-cd2026110117-2025": {
+   "case_id": "scenario_114",
+   "in_year": 2025.0,
+   "in_mstat": 1.0,
+   "in_page": 69.0,
+   "in_pwages": 22700.0,
+   "in_scorp": 24361.77,
+   "in_intrec": 104.0,
+   "in_ltcg": -22.0,
+   "in_pensions": 39600.0,
+   "in_gssi": 23328.0,
+   "in_proptax": 9431.59,
+   "in_mortgage": 13453.7,
+   "out_taxsimid": 91.0,
+   "out_year": 2025.0,
+   "out_fiitax": 11350.04,
+   "out_fica": 3473.1,
+   "out_tfica": 1736.55,
+   "out_v10": 106572.57,
+   "out_v12": 19828.8,
+   "out_v13": 17750.0,
+   "out_v17": 22885.29,
+   "out_v18": 74709.28,
+   "out_v19": 11350.04,
+   "out_v26": 88246.52,
+   "out_v28": 11350.04,
+   "out_v29": 3473.1,
+   "out_v30": 110093.77,
+   "out_qbid": 4872.35,
+   "out_tfica_no_self_employment": 1736.55,
+   "q_fed_tax_before_refundable": 11350.04,
+   "q_refundable_credits": 0.0,
+   "q_self_employment_tax": 0.0,
+   "q_fed_employee_payroll_tax": 1736.55,
+   "status": "ok",
+   "unexpressed": [
+    "income_tax: reading: Partnership and S corporation income is qualified business income: the Schedule E line for it carries the entities' business income (Schedule K-1 box 1, ordinary business income), as policyengine-us's default reads it (partnership_s_corp_income_would_be_qualified defaults to true).",
+    "income_tax: the maps read 24,361.77 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i)(2)(D)); policyengine-us counts only passive_partnership_s_corp_income, an input no household states, in both (parameters/gov/irs/investment/income/sources.yaml:13; eitc_relevant_investment_income), so it reads the stated amount as nonpassive",
+    "income_tax: reading: A stated fact says that the person works in an activity only for self-employment income (Schedule C, SSTB included) and farm operations income (Schedule F): income from the person's own work in their own business, which with no other individual's work stated is material participation (26 U.S.C. 469(h)(1); Temp. Reg. 1.469-5T(a)(2)) and makes personal services a material income-producing factor (401(c)(2)(A)(i)). Partnership and S corporation income, rent and farm rent state ownership, not work: those activities are passive (469(c)(1)-(2)), with no real estate professional status (469(c)(7)) and no active participation, so no $25,000 offset (469(i)). Estate income as stated is the nonpassive part (policyengine-us states the passive part separately). Per return, a net passive loss is disallowed and carries forward to the next year (469(a)-(b)); each loss activity keeps a ratable share of the passive income (Temp. Reg. 1.469-1T(f)(2)(i)); a disallowed loss also leaves net earnings from self-employment (1.469-1T(d)(3)). No household states a loss carried in from an earlier year. A partner's self-employment earnings are not earned income under 401(c)(2) (the partner's services are not stated). Passive income other than self-employment earnings is net investment income (1411(c)(2)(A), (c)(6)); the 2026 minimum qualified business income deduction counts only Schedule C and F income (199A(i)(2)(B)). Alternatives: no activity materially participated (Schedule C and F losses suspended too, and no 401(c)(2) earned income from them), or every owner the only participant (only rentals passive). policyengine-us applies no 469 limit.",
+    "income_tax: reading: Medical expenses are the stated amounts; no Medicare Part B premium is added, since none is stated.",
+    "income_tax: reading: Stated charitable gifts go to public charities (170(b)(1)(A) organizations): a private foundation is not stated. Non-cash gifts are ordinary-income property, deductible at the stated amount up to 50% of the contribution base less the cash allowed (170(b)(1)(A), (G)(iii)): no appreciation is stated, so none is capital gain property (170(b)(1)(C)). Cash counts up to 60% (170(b)(1)(G)); from 2026 only the total above 0.5% of the contribution base counts (170(b)(1)(I)). The excess over a ceiling carries forward five years; none is stated as carried in. Tax-Calculator applies its own ceilings (30% for non-cash gifts, 60% in all, after the floor); a note names a difference.",
+    "income_tax: reading: Over-the-counter health expenses are left out of medical expenses: the stated amount is not said to be prescribed medicine or insulin (26 U.S.C. 213(b)) or other medical care (213(d)(1)).",
+    "income_tax: shared assumption: state and local income or sales tax paid is not stated; the amount PolicyEngine's key uses is entered with real estate taxes in `proptax`, and TAXSIM's own state calculation is off (`state` 0)"
+   ],
+   "map_computed": [
+    "income_tax: medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given",
+    "income_tax: charitable gifts limited by the 26 U.S.C. 170(b)(1) ceilings (60% cash, 50% other gifts less the cash) and, from 2026, the 0.5% floor of 170(b)(1)(I) (unit.READINGS['charity']), entered in `mortgage`"
+   ]
+  }
+ }
+}

@@ -1,0 +1,79 @@
+policyengine-us 2.60.0, scenario_093, board conventions, 2026
+change: ['dependent1.is_disabled=false'] 
+   is_tax_unit_dependent: before [False, False, True] after [False, False, True]
+   is_qualifying_relative_dependent: before [False, False, False] after [False, False, False]
+   is_child_dependent: before [False, False, False] after [False, False, False]
+   ctc_adult_individual_maximum: before [0.0, 0.0, 500.0] after [0.0, 0.0, 500.0]
+   ctc: before [500.0] after [500.0]
+   non_refundable_ctc: before [500.0] after [500.0]
+   income_tax_before_refundable_credits: before [8628.990234375] after [8628.990234375]
+
+policyengine-us 2.60.0, scenario_093, board conventions, 2026
+change: ['dependent1.is_permanently_and_totally_disabled=true'] 
+   is_qualifying_relative_dependent: before [False, False, False] after [False, False, False]
+   is_child_dependent: before [False, False, False] after [False, False, True]
+   ctc_adult_individual_maximum: before [0.0, 0.0, 500.0] after [0.0, 0.0, 500.0]
+   ctc: before [500.0] after [500.0]
+   eitc_child_count: before [0] after [1]
+   income_tax_before_refundable_credits: before [8628.990234375] after [8628.990234375]
+
+policyengine-us 2.60.0, scenario_076, board conventions, 2026
+change: ['head.rental_income_would_be_qualified=false'] 
+   qualified_business_income: before [4000.0, 0.0, 0.0] after [0.0, 0.0, 0.0]
+   qualified_business_income_deduction: before [800.0] after [0.0]
+   taxable_income: before [139270.0] after [140070.0]
+   income_tax_before_refundable_credits: before [19611.80078125] after [19803.80078125]
+
+policyengine-us 2.60.0, scenario_114, board conventions, 2026
+change: ['head.takes_up_medicare_if_eligible=false'] 
+   medicare_enrolled: before [True] after [False]
+   medical_expense_health_insurance_premiums: before [2434.800048828125] after [0.0]
+   medical_expense_deduction: before [4441.857421875] after [2007.0576171875]
+   income_tax_before_refundable_credits: before [10729.6123046875] after [11265.267578125]
+
+policyengine-us 2.116.15, scenario_093, board conventions, 2026
+change: ['dependent1.is_disabled=false'] 
+   is_tax_unit_dependent: before [False, False, True] after [False, False, True]
+   is_qualifying_relative_dependent: before [False, False, False] after [False, False, False]
+   is_child_dependent: before [False, False, False] after [False, False, False]
+   ctc_adult_individual_maximum: before [0.0, 0.0, 500.0] after [0.0, 0.0, 500.0]
+   ctc: before [500.0] after [500.0]
+   non_refundable_ctc: before [500.0] after [500.0]
+   income_tax_before_refundable_credits: before [8628.990234375] after [8628.990234375]
+
+policyengine-us 2.116.15, scenario_093, board conventions, 2026
+change: ['dependent1.is_permanently_and_totally_disabled=true'] 
+   is_qualifying_relative_dependent: before [False, False, False] after [False, False, False]
+   is_child_dependent: before [False, False, False] after [False, False, True]
+   ctc_adult_individual_maximum: before [0.0, 0.0, 500.0] after [0.0, 0.0, 500.0]
+   ctc: before [500.0] after [500.0]
+   eitc_child_count: before [0] after [1]
+   income_tax_before_refundable_credits: before [8628.990234375] after [8628.990234375]
+
+policyengine-us 2.116.15, scenario_076, board conventions, 2026
+change: ['head.rental_income_would_be_qualified=false'] 
+   qualified_business_income: before [4000.0, 0.0, 0.0] after [0.0, 0.0, 0.0]
+   qualified_business_income_deduction: before [800.0] after [0.0]
+   taxable_income: before [139270.0] after [140070.0]
+   income_tax_before_refundable_credits: before [19611.80078125] after [19803.80078125]
+
+policyengine-us 2.116.15, scenario_114, board conventions, 2026
+change: ['head.takes_up_medicare_if_eligible=false'] 
+   medicare_enrolled: before [True] after [False]
+   medical_expense_health_insurance_premiums: before [2434.800048828125] after [0.0]
+   medical_expense_deduction: before [4441.857421875] after [2007.0576171875]
+   income_tax_before_refundable_credits: before [10729.6123046875] after [11265.267578125]
+
+policyengine-us 2.60.0, scenario_120, board conventions, 2026
+change:  ['gov.irs.investment.income.sources=farm_rent_income']
+   net_investment_income: before [4300.0] after [-593.17626953125]
+   net_investment_income_tax: before [163.39999389648438] after [0.0]
+   income_tax_before_refundable_credits: before [40423.17578125] after [40259.77734375]
+
+policyengine-us 2.60.0, scenario_091, board conventions, 2026
+change: ['head.is_full_time_college_student=true'] 
+   savers_credit_eligible_person: before [True] after [False]
+   savers_credit: before [120.0] after [0.0]
+   income_tax_non_refundable_credits: before [120.0] after [0.0]
+   income_tax_before_refundable_credits: before [1349.998779296875] after [1469.998779296875]
+
