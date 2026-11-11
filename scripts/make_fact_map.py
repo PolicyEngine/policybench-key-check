@@ -6,7 +6,13 @@ TAXSIM field keycheck's maps send it to, and whether it can reach one of the fou
 federal lines in the key. The script fails if a household states an input that has no
 row, so the file cannot fall behind the board.
 
+With --draw it writes the same map for the 1,000-household draw (maps/draw_facts.csv):
+the board rows the draw states (two restated in DRAW_OVERRIDES) and the rows for the 23
+inputs only the draw states (DRAW_FACTS). It fails if a draw household states an input
+with no row, or if a DRAW_FACTS row has no household stating it.
+
   python3 scripts/make_fact_map.py --scenarios <scenarios.csv> --out maps/board_facts.csv
+  python3 scripts/make_fact_map.py --draw --scenarios data/draw/draw1000_seed20261110.csv --out maps/draw_facts.csv
 """
 
 from __future__ import annotations
@@ -128,33 +134,80 @@ FACTS = {
     ("tax_unit", "second_home_mortgage_interest"): ("", "", "", "none", "the board's builder drops it"),
 }
 
+# Inputs only the 1,000-household draw states . The
+# effect column follows the reader's trace of policyengine-us 2.60.0
+# (evidence/traces/draw-inputs.md F1-F14); the fields are the ones keycheck's maps send.
+DRAW_FACTS = {
+    ("household", "qualified_passenger_vehicle_loan_interest"): ("", "auto_loan_interest (Tax-Calculator applies the cap and phase-out)", "", "federal", "26 U.S.C. 163(h)(4) from 2025; TAXSIM has no input, and its note gives the statute's size at TAXSIM's AGI"),
+    ("person", "bond_assets"): NONE,
+    ("person", "health_insurance_premiums"): ("", "e17500, or e03270 for the 162(l) part of a self-employed filer's", "mortgage (the map applies the 7.5% floor), or nonprop, negative, for the 162(l) part", "federal", "one amount with the premiums without Medicare Part B (READINGS health_insurance_premiums, se_health_insurance)"),
+    ("person", "investment_income_elected_form_4952"): ("", "e58990 (limited to qualified dividends and net capital gain)", "moves net capital gain, then qualified dividends, from ltcg and dividends to intrec", "federal", "raises the 163(d) limit and leaves the rate preference (26 U.S.C. 163(d)(4)(B)); Tax-Calculator takes it from qualified dividends only"),
+    ("person", "investment_interest_expense"): ("", "e19200, with mortgage interest (the map applies 163(d))", "mortgage (the map applies 163(d))", "federal", "itemizers only; the key deducts it in full (READINGS investment_interest)"),
+    ("person", "is_incapable_of_self_care"): ("", "f2441 (care individuals, derived)", "childcare; TAXSIM counts children under 13 only", "federal", "the care credit only, and only with care expenses (READINGS incapable)"),
+    ("person", "is_military"): NONE,
+    ("person", "is_related_to_head_or_spouse"): ("", "MARS (head of household, derived)", "", "federal", "head of household only: an unrelated qualifying relative is not a qualifying person (READINGS unrelated_member)"),
+    ("person", "is_self_employed"): ("", "e03270 with health_insurance_premiums (derived)", "nonprop, negative, with health_insurance_premiums (derived)", "federal", "only through health_insurance_premiums (the 162(l) deduction)"),
+    ("person", "is_separated"): ("", "MARS 3 or 4 (derived)", "mstat 6, or 1 with a qualifying child (derived)", "federal", "married filing separately, or head of household with a qualifying child (READINGS separated)"),
+    ("person", "is_snap_abawd_discretionary_exempt"): NONE,
+    ("person", "long_term_capital_gains_on_collectibles"): ("", "e24518", "", "federal", "a 28% rate gain inside long-term gains; TAXSIM has no input for it"),
+    ("person", "meets_ssi_disability_criteria"): ("", "", "", "none", "SSI and other programs only; nearest concept: demographics/person#disabled"),
+    ("person", "partnership_income"): ("", "e02000 and e26270", "scorp", "federal", "policyengine-us 2.60.0's name for the board's partnership_s_corp_income"),
+    ("person", "partnership_self_employment_net_earnings"): ("", "k1bx14p/s", "psemp/ssemp, taken out of scorp", "federal", "policyengine-us 2.60.0's name for the board's partnership_se_income; a loss there does not offset pprofinc in TAXSIM (probe D4)"),
+    ("person", "pre_subsidy_care_expenses"): (A + "tax/household#childcare_expenses", "e32800 with f2441, for a qualifying individual", "childcare", "federal", "care of the person who states them; the concept is household-level"),
+    ("person", "schedule_d_capital_gain_distributions"): ("", "", "", "none", "a memo item already inside long-term gains (MEMO_INPUTS)"),
+    ("person", "self_employed_pension_contributions_desired"): ("", "e03300 (the map applies 415(c) and the Schedule C limit)", "nonprop, negative", "federal", "also an IRA active-participant trigger and a saver's credit contribution (READINGS se_pension)"),
+    ("person", "sstb_w2_wages_from_qualified_business"): ("", "PT_binc_w2_wages (the kind of business PT_SSTB_income selects)", "", "federal", "limits the qualified business income deduction above the threshold only; TAXSIM applies no such limit"),
+    ("person", "taxable_sep_distributions"): (A + "income/person#pension_income", "e01400, with IRA distributions", "pensions", "federal", "the concept is pension income of any kind"),
+    ("person", "w2_wages_from_qualified_business"): ("", "PT_binc_w2_wages (the kind of business PT_SSTB_income selects)", "", "federal", "limits the qualified business income deduction above the threshold only; TAXSIM applies no such limit"),
+    ("tax_unit", "selected_marketplace_plan_benchmark_ratio"): ("", "", "", "none", "reaches the premium tax credit only, which is not one of the four lines"),
+    ("tax_unit", "unrecaptured_section_1250_gain"): ("", "e24515", "", "federal", "a 25% rate gain inside long-term gains; TAXSIM has no input for it"),
+}
+
+
+# Board rows whose note speaks of the board only, restated for the draw.
+DRAW_OVERRIDES = {
+    ("person", "is_surviving_spouse"): ("", "MARS 5 when a qualifying child is claimed", "", "federal", "TAXSIM has no such status (READINGS surviving_spouse)"),
+    ("person", "farm_income"): ("", "", "", "none", "the engine does not read it (READINGS farm_income); one draw member states an amount different from farm_operations_income"),
+}
+
 
 def main(argv=None) -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--scenarios", required=True, type=Path)
     parser.add_argument("--out", required=True, type=Path)
+    parser.add_argument("--draw", action="store_true",
+                        help="the draw's stated inputs: board rows the draw states, plus DRAW_FACTS")
     args = parser.parse_args(argv)
 
     stated = Counter()
-    for household in H.load(args.scenarios):
+    households = H.load(args.scenarios)
+    for household in households:
         seen = set()
         for person in H.people(household):
             seen.update(("person", key) for key in person["inputs"])
         for entity in ("tax_unit", "spm_unit", "household"):
             seen.update((entity, key) for key in household[f"{entity}_inputs"])
         stated.update(seen)
-    missing = sorted(set(stated) - set(FACTS))
+    always = lambda k: k[0] == "structure" or k == ("person", "employment_income")  # noqa: E731
+    if args.draw:
+        # Board rows the draw does not state drop out; every draw-only row must be stated.
+        facts = {k: DRAW_OVERRIDES.get(k, v) for k, v in FACTS.items() if always(k) or k in stated}
+        facts.update(DRAW_FACTS)
+        check = DRAW_FACTS
+    else:
+        facts = check = FACTS
+    missing = sorted(set(stated) - set(facts))
     if missing:
         raise SystemExit(f"stated inputs with no row: {missing}")
-    unused = sorted(k for k in FACTS if k[0] != "structure" and k != ("person", "employment_income") and k not in stated)
+    unused = sorted(k for k in check if not always(k) and k not in stated)
     if unused:
         raise SystemExit(f"rows for inputs no household states: {unused}")
 
     rows = []
-    for (entity, name), (concept, taxcalc, taxsim, effect, note) in FACTS.items():
+    for (entity, name), (concept, taxcalc, taxsim, effect, note) in facts.items():
         rows.append({
             "entity": entity, "fact": name,
-            "households_stating_it": stated.get((entity, name), 100 if entity == "structure" or name == "employment_income" else 0),
+            "households_stating_it": stated.get((entity, name), len(households) if always((entity, name)) else 0),
             "effect_on_the_four_lines_in_the_key": effect,
             "axiom_oracles_concept_id": concept,
             "taxcalc_field": taxcalc, "taxsim_field": taxsim, "note": note,

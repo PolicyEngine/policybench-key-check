@@ -232,3 +232,139 @@ def test_ira_limit_equals_the_literal_reading_on_a_grid():
                     if got != want:
                         bad.append((year, status, age, magi, got, want))
     assert not bad, bad[:5]
+
+
+# Facts only the larger draw states (run causes-and-draw, unit draw-maps) -------------
+
+
+def test_draw_published_amounts():
+    # 26 U.S.C. 415(c)(1)(A): Notice 2025-67 (2026) and Notice 2024-80 (2025).
+    assert S.AMOUNTS[2026]["annual_additions"] == 72_000
+    assert S.AMOUNTS[2025]["annual_additions"] == 70_000
+    # The OASDI contribution and benefit base (SSA cost-of-living notices).
+    assert S.AMOUNTS[2026]["social_security_wage_base"] == 184_500
+    assert S.AMOUNTS[2025]["social_security_wage_base"] == 176_100
+    assert S.VEHICLE_LOAN_INTEREST_CAP == 10_000
+
+
+def test_vehicle_loan_interest_schedule_1a_examples():
+    # Schedule 1-A lines 24-30: the smaller of the interest or $10,000, less $200 for each
+    # $1,000 (rounded up: "increase 1.5 to 2, and increase 0.05 to 1") of MAGI above
+    # $100,000 ($200,000 if married filing jointly).
+    assert S.vehicle_loan_interest_deduction(S.SINGLE, 12_000, 100_000) == 10_000
+    assert S.vehicle_loan_interest_deduction(S.SINGLE, 12_000, 101_500) == 10_000 - 2 * 200
+    assert S.vehicle_loan_interest_deduction(S.SINGLE, 12_000, 100_050) == 10_000 - 1 * 200
+    assert S.vehicle_loan_interest_deduction(S.JOINT, 5_000, 150_000) == 5_000
+    assert S.vehicle_loan_interest_deduction(S.JOINT, 5_000, 210_000) == 5_000 - 10 * 200
+    # A surviving spouse uses $100,000 (experiment E4: policyengine-us allows 5,000).
+    assert S.vehicle_loan_interest_deduction(S.SURVIVING_SPOUSE, 5_000, 150_000) == 0
+    assert S.vehicle_loan_interest_deduction(S.HEAD_OF_HOUSEHOLD, 0, 50_000) == 0
+
+
+@given(statuses, money, money, money)
+def test_vehicle_loan_interest_bounds_and_monotone(status, interest, magi, more):
+    d = S.vehicle_loan_interest_deduction(status, interest, magi)
+    assert 0 <= d <= min(interest, 10_000)
+    assert S.vehicle_loan_interest_deduction(status, interest, magi + more) <= d   # phase-out
+    assert S.vehicle_loan_interest_deduction(status, interest + more, magi) >= d
+    full = min(interest, 10_000)
+    assert d == 0 or abs((full - d) / 200 - round((full - d) / 200)) < 1e-6   # $200 steps
+    start = 200_000 if status == S.JOINT else 100_000
+    if magi <= start:
+        assert d == full
+    if magi > start + 50_000:   # 50 steps of $200 remove the whole $10,000 cap
+        assert d == 0
+    assert S.vehicle_loan_interest_deduction(S.JOINT, interest, magi) >= S.vehicle_loan_interest_deduction(S.SINGLE, interest, magi)
+
+
+def test_net_capital_gain_and_election_examples():
+    assert S.net_capital_gain(298, 2_197) == 2_197             # a short-term gain is not part of it
+    assert S.net_capital_gain(-3_000, 10_000) == 7_000
+    assert S.net_capital_gain(-12_000, 10_000) == 0
+    # Form 4952 line 4g: at most qualified dividends plus net capital gain.
+    assert S.elected_investment_income(6_000, 10_000, 0, 0) == 6_000
+    assert S.elected_investment_income(31_035, 12_606, 298, 2_197) == 12_606 + 2_197
+    assert S.elected_investment_income(-5, 1_000, 0, 0) == 0
+
+
+def test_investment_interest_examples():
+    # Experiment E1: interest 20,000 against 1,000 of taxable interest: 163(d)(1) allows
+    # 1,000 (policyengine-us 2.60.0 deducts 20,000).
+    assert S.investment_interest_deduction(20_000, 1_000, 0, 0, 0, 0, 0) == 1_000
+    # E1 variant B: 10,000 of qualified dividends, 6,000 elected (163(d)(4)(B)): 7,000.
+    assert S.investment_interest_deduction(20_000, 1_000, 0, 10_000, 0, 0, 6_000) == 7_000
+    # Without an election, qualified dividends and net capital gain are not investment income.
+    assert S.investment_interest_deduction(20_000, 0, 0, 10_000, 0, 50_000, 0) == 0
+    # Non-qualified dividends and a net short-term gain are (163(d)(4)(B)(i)-(ii)).
+    assert S.investment_interest_deduction(20_000, 0, 2_000, 0, 3_000, 0, 0) == 5_000
+    # Interest below the limit is deductible in full.
+    assert S.investment_interest_deduction(500, 1_000, 0, 0, 0, 0, 0) == 500
+
+
+gain = st.floats(min_value=-200_000, max_value=200_000, allow_nan=False)
+
+
+@given(money, money, money, money, gain, gain, money, money)
+def test_investment_interest_bounds_and_monotone(interest, taxable, nqd, qd, short, long, elected, more):
+    d = S.investment_interest_deduction(interest, taxable, nqd, qd, short, long, elected)
+    assert 0 <= d <= interest + 1e-6
+    net_short = max(0.0, max(0.0, short + long) - S.net_capital_gain(short, long))
+    assert d <= taxable + nqd + net_short + min(elected, qd + S.net_capital_gain(short, long)) + 1e-6
+    assert S.investment_interest_deduction(interest + more, taxable, nqd, qd, short, long, elected) >= d - 1e-6
+    assert S.investment_interest_deduction(interest, taxable + more, nqd, qd, short, long, elected) >= d - 1e-6
+    assert S.investment_interest_deduction(interest, taxable, nqd, qd, short, long, elected + more) >= d - 1e-6
+    e = S.elected_investment_income(elected, qd, short, long)
+    assert 0 <= e <= min(elected, qd + S.net_capital_gain(short, long)) + 1e-6
+
+
+def test_self_employment_tax_examples():
+    # Experiment E3: Schedule C 30,000, no wages, 2026: policyengine-us gives a deduction for
+    # half the tax of 2,119.43.
+    assert abs(S.self_employment_tax(2026, 30_000, 0) / 2 - 2_119.43) < 0.01
+    # Above the contribution and benefit base only the 2.9% applies.
+    assert abs(S.self_employment_tax(2026, 300_000, 184_500) - 0.029 * 0.9235 * 300_000) < 1e-6
+    assert abs(S.self_employment_tax(2025, 300_000, 0) - (0.124 * 176_100 + 0.029 * 0.9235 * 300_000)) < 1e-6
+    # 1402(b)(2): no tax when net earnings are under $400.
+    assert S.self_employment_tax(2026, 433, 0) == 0           # 0.9235 * 433 = 399.9
+    assert S.self_employment_tax(2026, 434, 0) > 0
+    assert S.self_employment_tax(2026, -5_000, 0) == 0
+
+
+@given(years, money, money, money)
+def test_self_employment_tax_bounds_and_monotone(year, profit, wages, more):
+    t = S.self_employment_tax(year, profit, wages)
+    assert 0 <= t <= 0.153 * 0.9235 * profit + 1e-6
+    assert S.self_employment_tax(year, profit + more, wages) >= t - 1e-6
+    assert S.self_employment_tax(year, profit, wages + more) <= t + 1e-6
+    assert t >= 0.029 * 0.9235 * profit - 1e-6 or 0.9235 * profit < 400
+
+
+def test_self_employed_pension_examples():
+    assert S.self_employed_pension_contribution(2026, 80_000, 200_000) == 72_000   # 415(c)(1)(A)
+    assert S.self_employed_pension_contribution(2025, 80_000, 200_000) == 70_000
+    assert S.self_employed_pension_contribution(2026, 5_000, 3_000) == 3_000       # Schedule C income
+    assert S.self_employed_pension_contribution(2026, 5_000, -1_000) == 0
+    # A SEP: 20% of (net profit - half the self-employment tax), the 25% plan rate of
+    # 404(h)(1)(C) on compensation net of the contribution itself.
+    half = S.self_employment_tax(2026, 100_000, 0) / 2
+    limit = S.sep_deduction_limit(100_000, half)
+    assert abs(limit - 0.2 * (100_000 - half)) < 1e-9
+    assert abs(limit - 0.25 * (100_000 - half - limit)) < 1e-6
+
+
+@given(years, money, gain, money)
+def test_self_employed_pension_bounds(year, desired, schedule_c, more):
+    c = S.self_employed_pension_contribution(year, desired, schedule_c)
+    assert 0 <= c <= min(desired, S.AMOUNTS[year]["annual_additions"], max(0.0, schedule_c)) + 1e-9
+    assert S.self_employed_pension_contribution(year, desired + more, schedule_c) >= c
+    assert S.self_employed_pension_contribution(year, desired, schedule_c + more) >= c
+
+
+@given(money, gain, money)
+def test_self_employed_health_insurance_bounds(premiums, earned, more):
+    d = S.self_employed_health_insurance_deduction(premiums, earned)
+    assert 0 <= d <= premiums and d <= max(0.0, earned)
+    assert S.self_employed_health_insurance_deduction(premiums, earned + more) >= d
+    assert S.self_employed_health_insurance_deduction(premiums + more, earned) >= d
+    # Experiment E3: premiums 40,000 on Schedule C income 30,000: the key's limit gives 30,000.
+    assert S.self_employed_health_insurance_deduction(40_000, 30_000) == 30_000

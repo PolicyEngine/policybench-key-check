@@ -23,6 +23,10 @@ Notes that bear only on itemized deductions (keycheck.map_taxcalc.itemizer_notes
 shared state and local tax amount and the unit's itemized readings) are kept only for
 units Tax-Calculator itemizes in the final pass (out_c04470 > 0).
 
+Inputs that only the larger draw's facts fill (keycheck/map_taxcalc.py: e03270, e03300,
+e58990, e24515, e24518, PT_binc_w2_wages) enter a row only when non-zero, so a run of the
+board's households keeps its `in_*` columns and a run of the draw has those extra ones.
+
 Output: one row per household. Columns `in_*` are the inputs sent, `out_*` every
 calculated variable, `unexpressed` and `map_computed` the map's notes (joined with
 " || "), and four `q_*`

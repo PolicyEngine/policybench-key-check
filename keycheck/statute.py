@@ -10,7 +10,10 @@ the answers table: it is this file's reading of the law, not the model's.
 
 Published amounts (sources saved by the law-2026 reader of run understand-inputs):
 Rev. Proc. 2025-32 and 2024-40; IRS Notices 2025-67 and 2024-80; 26 U.S.C. 25B, 163(h),
-199A(e)(2), 219, 221, 402(g), 414(v).
+199A(e)(2), 219, 221, 402(g), 414(v). For the facts only the larger draw states (run
+causes-and-draw, unit draw-maps): 26 U.S.C. 162(l), 163(d), 163(h)(4), 401(c)(2), 415(c),
+1401 and 1402, Schedule 1-A (2025), and the Social Security contribution and benefit base
+for 2025 and 2026 (Federal Register notices of the cost-of-living adjustment).
 """
 
 from __future__ import annotations
@@ -48,6 +51,10 @@ AMOUNTS = {
         "mortgage_debt_limit": {SEPARATE: 375_000, "other": 750_000},
         # 26 U.S.C. 199A(e)(2) threshold amount; Rev. Proc. 2025-32 sec. 4.26
         "qbi_threshold": {JOINT: 403_500, SEPARATE: 201_775, "other": 201_750},
+        # 26 U.S.C. 415(c)(1)(A); Notice 2025-67 (sources/irs/n-25-67.txt:28-29)
+        "annual_additions": 72_000,
+        # 42 U.S.C. 430; SSA, 90 FR (2025-19763) (sources/ssa/fr-2025-19763-cola-2026.txt:380-403)
+        "social_security_wage_base": 184_500,
     },
     2025: {
         "deferral_limit": 23_500, "deferral_catch_up_50": 7_500, "deferral_catch_up_60_63": 11_250,
@@ -68,8 +75,25 @@ AMOUNTS = {
         "mortgage_debt_limit": {SEPARATE: 375_000, "other": 750_000},
         # Rev. Proc. 2024-40 sec. 2.27
         "qbi_threshold": {JOINT: 394_600, SEPARATE: 197_300, "other": 197_300},
+        # Notice 2024-80 (sources/irs/n-24-80.txt:28-29)
+        "annual_additions": 70_000,
+        # SSA, 89 FR (2024-24871) (sources/ssa/fr-2024-24871-cola-2025.txt:380-403)
+        "social_security_wage_base": 176_100,
     },
 }
+
+# 26 U.S.C. 163(h)(4)(C), taxable years 2025 through 2028 (sources/uscode/usc26-s163.txt:263,
+# 266; Schedule 1-A lines 24-30, sources/irs/f1040s1a.txt:84-91): interest up to $10,000,
+# reduced by $200 for each $1,000 (or part of $1,000) of MAGI above $100,000 ($200,000 on a
+# joint return). Not indexed.
+VEHICLE_LOAN_INTEREST_CAP = 10_000
+VEHICLE_LOAN_PHASE_OUT_START = {JOINT: 200_000, "other": 100_000}
+
+# 26 U.S.C. 1401(a), (b)(1): 12.4% OASDI and 2.9% HI on self-employment income
+# (sources/uscode/usc26-s1401.txt:32, 35); 1402(a)(12): the deduction that makes net
+# earnings 92.35% of net profit (usc26-s1402.txt:54-56); 1402(b)(1)-(2): OASDI only up to
+# the contribution and benefit base less wages, and none below $400 (usc26-s1402.txt:74-75).
+SE_OASDI_RATE, SE_HI_RATE, SE_NET_EARNINGS_SHARE, SE_FLOOR = 0.124, 0.029, 0.9235, 400.0
 
 
 def elective_deferral_limit(year: int, age: int) -> float:
@@ -210,3 +234,96 @@ def qbi_threshold(year: int, filing_status: str) -> float:
     of 199A(b)(2)(B) phases in."""
     table = AMOUNTS[year]["qbi_threshold"]
     return float(table.get(filing_status, table["other"]))
+
+
+def vehicle_loan_interest_deduction(filing_status: str, interest: float, magi: float) -> float:
+    """26 U.S.C. 163(h)(4)(C), Schedule 1-A lines 24-30: qualified passenger vehicle loan
+    interest up to $10,000, less $200 for each $1,000 or part of $1,000 of modified AGI over
+    $100,000 ($200,000 on a joint return only: a surviving spouse uses $100,000). Sources at
+    VEHICLE_LOAN_INTEREST_CAP. Modified AGI is AGI plus excluded foreign and possession
+    income (163(h)(4)(C)(ii)), none of which the board states."""
+    allowed = min(max(0.0, interest), VEHICLE_LOAN_INTEREST_CAP)
+    start = VEHICLE_LOAN_PHASE_OUT_START[JOINT if filing_status == JOINT else "other"]
+    excess = magi - start
+    if excess <= 0:
+        return allowed
+    steps = math.ceil(excess / 1_000 - 1e-9)
+    return max(0.0, allowed - 200.0 * steps)
+
+
+def net_capital_gain(short_term: float, long_term: float) -> float:
+    """26 U.S.C. 1222(11): net long-term capital gain in excess of net short-term capital loss
+    (1(h) and 163(d)(4)(B) use it; Form 4952 line 4e)."""
+    return max(0.0, long_term - max(0.0, -short_term))
+
+
+def elected_investment_income(elected: float, qualified_dividends: float, short_term: float, long_term: float) -> float:
+    """26 U.S.C. 163(d)(4)(B)(iii) and its last sentence: the qualified dividends and net
+    capital gain a taxpayer elects to treat as investment income (sources/uscode/
+    usc26-s163.txt:70-71), at most the qualified dividends plus the net capital gain (Form
+    4952 line 4g takes them from lines 4b and 4e)."""
+    return min(max(0.0, elected), max(0.0, qualified_dividends) + net_capital_gain(short_term, long_term))
+
+
+def investment_interest_deduction(
+    interest: float, taxable_interest: float, non_qualified_dividends: float,
+    qualified_dividends: float, short_term: float, long_term: float, elected: float,
+) -> float:
+    """26 U.S.C. 163(d)(1): investment interest up to net investment income
+    (sources/uscode/usc26-s163.txt:45; definitions (d)(3)-(4) at :51-75).
+
+    Investment income (163(d)(4)(B)): gross income from property held for investment
+    (here taxable interest and non-qualified dividends), the net gain from dispositions in
+    excess of the net capital gain (the net short-term gain), and the elected qualified
+    dividends and net capital gain. Investment expenses (163(d)(4)(C)) and a carryforward
+    (163(d)(2)) are taken as zero (keycheck.unit.READINGS["investment_interest"]).
+    """
+    net_gain = max(0.0, short_term + long_term)
+    income = (
+        max(0.0, taxable_interest) + max(0.0, non_qualified_dividends)
+        + max(0.0, net_gain - net_capital_gain(short_term, long_term))
+        + elected_investment_income(elected, qualified_dividends, short_term, long_term)
+    )
+    return min(max(0.0, interest), income)
+
+
+def self_employment_tax(year: int, net_profit: float, wages: float) -> float:
+    """26 U.S.C. 1401(a) and (b)(1) on self-employment income (1402(b)): 12.4% of net earnings
+    up to the contribution and benefit base (184,500 for 2026, 176,100 for 2025; AMOUNTS)
+    less wages, and 2.9% of all net earnings, where net earnings are 92.35% of net profit
+    (1402(a)(12)) and nil below $400 (1402(b)(2)); sources at SE_OASDI_RATE. The 0.9% of
+    1401(b)(2) (usc26-s1401.txt:38) is left out: the 164(f) deduction excludes it
+    (usc26-s164.txt:134). Half of this is the 164(f) deduction."""
+    earnings = SE_NET_EARNINGS_SHARE * max(0.0, net_profit)
+    if earnings < SE_FLOOR:
+        return 0.0
+    room = max(0.0, AMOUNTS[year]["social_security_wage_base"] - max(0.0, wages))
+    return SE_OASDI_RATE * min(earnings, room) + SE_HI_RATE * earnings
+
+
+def self_employed_pension_contribution(year: int, desired: float, schedule_c: float) -> float:
+    """The self-employed pension contribution the board's key allows: the lesser of the
+    desired amount, the 415(c)(1)(A) annual additions limit (72,000 for 2026, 70,000 for
+    2025; AMOUNTS, Notices 2025-67 and 2024-80) and Schedule C income (415(c)(1)(B): 100%
+    of compensation, taken as Schedule C income as the key does; policyengine-us
+    self_employed_pension_contribution_limit.py; keycheck.unit.READINGS["se_pension"]: the
+    plan type that sets the 404 limit is not stated)."""
+    return max(0.0, min(desired, AMOUNTS[year]["annual_additions"], max(0.0, schedule_c)))
+
+
+def sep_deduction_limit(net_profit: float, half_se_tax: float) -> float:
+    """26 U.S.C. 404(a)(3)(A), (h)(1)(C) and (a)(8)(D): a SEP contribution for a
+    self-employed person is deductible up to 25% of compensation, where compensation is
+    earned income net of the contribution itself (401(c)(2)(A)(v)) and of the 164(f)
+    deduction: 25% of (net profit - half the self-employment tax - the contribution), or
+    20% of (net profit - half the self-employment tax). Sources: sources/uscode/
+    lii-26-404.txt:105, 150-158, 239; lii-26-401.txt:704-717."""
+    return max(0.0, 0.2 * (net_profit - half_se_tax))
+
+
+def self_employed_health_insurance_deduction(premiums: float, earned_income: float) -> float:
+    """26 U.S.C. 162(l)(1), (2)(A): premiums up to the earned income (401(c)(2)) from the
+    business under which the plan is established (sources/uscode/lii-26-162.txt:205-216;
+    401(c)(2)(A)(v)-(vi): net of the 404 deduction and the 164(f) deduction,
+    lii-26-401.txt:704-717). Called with Schedule C income for the key's looser limit."""
+    return min(max(0.0, premiums), max(0.0, earned_income))

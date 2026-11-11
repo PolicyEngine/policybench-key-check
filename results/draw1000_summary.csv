@@ -1,0 +1,156 @@
+section,line,class,item,count,share
+agreement,federal_income_tax_before_refundable_credits,all_agree,All agree,516,0.5160
+agreement,federal_income_tax_before_refundable_credits,two_agree:policyengine,PolicyEngine apart,47,0.0470
+agreement,federal_income_tax_before_refundable_credits,two_agree:taxcalc,Tax-Calculator apart,0,0.0000
+agreement,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM apart,328,0.3280
+agreement,federal_income_tax_before_refundable_credits,all_differ,All differ,109,0.1090
+agreement,federal_refundable_credits,all_agree,All agree,923,0.9230
+agreement,federal_refundable_credits,two_agree:policyengine,PolicyEngine apart,11,0.0110
+agreement,federal_refundable_credits,two_agree:taxcalc,Tax-Calculator apart,0,0.0000
+agreement,federal_refundable_credits,two_agree:taxsim,TAXSIM apart,64,0.0640
+agreement,federal_refundable_credits,all_differ,All differ,2,0.0020
+agreement,self_employment_tax,all_agree,All agree,989,0.9890
+agreement,self_employment_tax,two_agree:policyengine,PolicyEngine apart,0,0.0000
+agreement,self_employment_tax,two_agree:taxcalc,Tax-Calculator apart,0,0.0000
+agreement,self_employment_tax,two_agree:taxsim,TAXSIM apart,11,0.0110
+agreement,self_employment_tax,all_differ,All differ,0,0.0000
+agreement,federal_employee_payroll_tax,all_agree,All agree,1000,1.0000
+agreement,federal_employee_payroll_tax,two_agree:policyengine,PolicyEngine apart,0,0.0000
+agreement,federal_employee_payroll_tax,two_agree:taxcalc,Tax-Calculator apart,0,0.0000
+agreement,federal_employee_payroll_tax,two_agree:taxsim,TAXSIM apart,0,0.0000
+agreement,federal_employee_payroll_tax,all_differ,All differ,0,0.0000
+attribution,federal_income_tax_before_refundable_credits,two_agree:policyengine,explained,43,0.9149
+attribution,federal_income_tax_before_refundable_credits,two_agree:policyengine,unexplained,4,0.0851
+attribution,federal_income_tax_before_refundable_credits,two_agree:policyengine,unexplained_with_shared_notes,4,0.0851
+attribution,federal_income_tax_before_refundable_credits,two_agree:taxsim,explained,327,0.9970
+attribution,federal_income_tax_before_refundable_credits,two_agree:taxsim,unexplained,1,0.0030
+attribution,federal_income_tax_before_refundable_credits,two_agree:taxsim,unexplained_with_shared_notes,1,0.0030
+attribution,federal_income_tax_before_refundable_credits,all_differ,explained,109,1.0000
+attribution,federal_income_tax_before_refundable_credits,all_differ,unexplained,0,0.0000
+attribution,federal_income_tax_before_refundable_credits,all_differ,unexplained_with_shared_notes,0,0.0000
+attribution,federal_refundable_credits,two_agree:policyengine,explained,11,1.0000
+attribution,federal_refundable_credits,two_agree:policyengine,unexplained,0,0.0000
+attribution,federal_refundable_credits,two_agree:policyengine,unexplained_with_shared_notes,0,0.0000
+attribution,federal_refundable_credits,two_agree:taxsim,explained,64,1.0000
+attribution,federal_refundable_credits,two_agree:taxsim,unexplained,0,0.0000
+attribution,federal_refundable_credits,two_agree:taxsim,unexplained_with_shared_notes,0,0.0000
+attribution,federal_refundable_credits,all_differ,explained,2,1.0000
+attribution,federal_refundable_credits,all_differ,unexplained,0,0.0000
+attribution,federal_refundable_credits,all_differ,unexplained_with_shared_notes,0,0.0000
+attribution,self_employment_tax,two_agree:taxsim,explained,11,1.0000
+attribution,self_employment_tax,two_agree:taxsim,unexplained,0,0.0000
+attribution,self_employment_tax,two_agree:taxsim,unexplained_with_shared_notes,0,0.0000
+attribution,all,all,explained,567,0.9913
+attribution,all,all,unexplained,5,0.0087
+attribution,all,all,any_note_on_apart_model_literal,572,1.0000
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: no charitable deduction for non-itemizers,62,
+families,federal_income_tax_before_refundable_credits,all_differ,PolicyEngine (note names it): reading: rent and estate income not QBI (PE's default counts rent),41,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: partnership and farm rent in scorp,41,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: rent and estate income in intrec,41,
+families,federal_income_tax_before_refundable_credits,all_differ,Tax-Calculator and TAXSIM: no REIT/PTP input,40,
+families,federal_income_tax_before_refundable_credits,all_differ,Tax-Calculator: employee expenses zeroed,40,
+families,federal_income_tax_before_refundable_credits,all_differ,Tax-Calculator: no REIT/PTP input,40,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: no REIT/PTP input,40,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: other taxable income entered as pensions,38,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: adjustments cut EITC earned income,34,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: no tax-exempt interest input,28,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: no overtime input,26,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: no vehicle loan interest input,25,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: no 2026 minimum QBI deduction,21,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: no nontaxable pension input,17,
+families,federal_income_tax_before_refundable_credits,all_differ,PolicyEngine (note names it): 163(d) limit (PE deducts all investment interest),16,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: no 199A wage or property limit,16,
+families,federal_income_tax_before_refundable_credits,all_differ,PolicyEngine (its own run): PolicyEngine claims a disabled member with earnings of their own (is_disabled reading),13,
+families,federal_income_tax_before_refundable_credits,all_differ,Tax-Calculator: miscellaneous income through e01200,11,
+families,federal_income_tax_before_refundable_credits,all_differ,PolicyEngine (its own run): PolicyEngine's medical expense deduction exceeds the stated amounts' at the same AGI (medical readings),10,
+families,federal_income_tax_before_refundable_credits,all_differ,PolicyEngine (its own run): PolicyEngine claims a member who meets neither dependency test on the stated facts (dependents reading),9,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: no 25%/28% rate gain input,9,
+families,federal_income_tax_before_refundable_credits,all_differ,"TAXSIM: SE health and pension deductions in nonprop (EITC, QBI)",8,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: 2026 zero rate on gains runs past Rev. Proc. 2025-32 (D6),8,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: no saver's credit input,7,
+families,federal_income_tax_before_refundable_credits,all_differ,PolicyEngine (note names it): care expenses of a non-qualifying person,6,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: 2026 care credit at pre-2026 rates,5,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: no blindness input,4,
+families,federal_income_tax_before_refundable_credits,all_differ,PolicyEngine (note names it): 162(l) limit (PE limits to Schedule C income),3,
+families,federal_income_tax_before_refundable_credits,all_differ,Tax-Calculator: disability benefits through e01200,2,
+families,federal_income_tax_before_refundable_credits,all_differ,PolicyEngine (note names it): reading: alimony (PE's default makes it pre-2019),2,
+families,federal_income_tax_before_refundable_credits,all_differ,Tax-Calculator: alimony no effect,2,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: alimony left out,2,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: care credit counts children under 13 only,2,
+families,federal_income_tax_before_refundable_credits,all_differ,Tax-Calculator: one SSTB flag per unit,1,
+families,federal_income_tax_before_refundable_credits,all_differ,"TAXSIM: a loss in one self-employment box does not offset the other (P7.4, D4)",1,
+families,federal_income_tax_before_refundable_credits,all_differ,Tax-Calculator and TAXSIM: domestic production deduction,1,
+families,federal_income_tax_before_refundable_credits,all_differ,Tax-Calculator: domestic production deduction zeroed,1,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: domestic production deduction left out,1,
+families,federal_income_tax_before_refundable_credits,all_differ,Tax-Calculator and TAXSIM: no deemed earned income (21(d)(2)),1,
+families,federal_income_tax_before_refundable_credits,all_differ,Tax-Calculator: no deemed earned income (21(d)(2)),1,
+families,federal_income_tax_before_refundable_credits,all_differ,TAXSIM: no deemed earned income (21(d)(2)),1,
+families,federal_income_tax_before_refundable_credits,all_differ,Tax-Calculator: Form 4952 election from dividends only,1,
+families,federal_income_tax_before_refundable_credits,two_agree:policyengine,PolicyEngine (note names it): reading: rent and estate income not QBI (PE's default counts rent),22,
+families,federal_income_tax_before_refundable_credits,two_agree:policyengine,PolicyEngine (note names it): 163(d) limit (PE deducts all investment interest),12,
+families,federal_income_tax_before_refundable_credits,two_agree:policyengine,PolicyEngine (its own run): PolicyEngine's medical expense deduction exceeds the stated amounts' at the same AGI (medical readings),11,
+families,federal_income_tax_before_refundable_credits,two_agree:policyengine,Tax-Calculator and TAXSIM: no REIT/PTP input,7,
+families,federal_income_tax_before_refundable_credits,two_agree:policyengine,PolicyEngine (its own run): PolicyEngine claims a disabled member with earnings of their own (is_disabled reading),6,
+families,federal_income_tax_before_refundable_credits,two_agree:policyengine,PolicyEngine (note names it): care expenses of a non-qualifying person,3,
+families,federal_income_tax_before_refundable_credits,two_agree:policyengine,PolicyEngine (its own run): PolicyEngine claims a member who meets neither dependency test on the stated facts (dependents reading),1,
+families,federal_income_tax_before_refundable_credits,two_agree:policyengine,PolicyEngine (note names it): reading: alimony (PE's default makes it pre-2019),1,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: no vehicle loan interest input,135,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: adjustments cut EITC earned income,115,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: no overtime input,111,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: no charitable deduction for non-itemizers,107,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: no 2026 minimum QBI deduction,77,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: other taxable income entered as pensions,51,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,"TAXSIM: SE health and pension deductions in nonprop (EITC, QBI)",37,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: no saver's credit input,37,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: no nontaxable pension input,33,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: no REIT/PTP input,31,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: partnership and farm rent in scorp,31,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: 2026 care credit at pre-2026 rates,26,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: no tax-exempt interest input,19,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: no blindness input,14,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: rent and estate income in intrec,13,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: 2026 zero rate on gains runs past Rev. Proc. 2025-32 (D6),10,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: no 199A wage or property limit,10,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: care credit counts children under 13 only,2,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,TAXSIM: no 25%/28% rate gain input,2,
+families,federal_income_tax_before_refundable_credits,two_agree:taxsim,"TAXSIM: a loss in one self-employment box does not offset the other (P7.4, D4)",1,
+families,federal_refundable_credits,all_differ,PolicyEngine (note names it): 163(d) limit (PE deducts all investment interest),1,
+families,federal_refundable_credits,all_differ,Tax-Calculator: employee expenses zeroed,1,
+families,federal_refundable_credits,all_differ,TAXSIM: adjustments cut EITC earned income,1,
+families,federal_refundable_credits,all_differ,TAXSIM: no charitable deduction for non-itemizers,1,
+families,federal_refundable_credits,all_differ,TAXSIM: no saver's credit input,1,
+families,federal_refundable_credits,all_differ,PolicyEngine (note names it): reading: rent and estate income not QBI (PE's default counts rent),1,
+families,federal_refundable_credits,all_differ,TAXSIM: no vehicle loan interest input,1,
+families,federal_refundable_credits,all_differ,TAXSIM: rent and estate income in intrec,1,
+families,federal_refundable_credits,two_agree:policyengine,PolicyEngine (its own run): PolicyEngine does not count a disabled adult as an EITC child (is_disabled reading),9,
+families,federal_refundable_credits,two_agree:policyengine,PolicyEngine (note names it): care expenses of a non-qualifying person,5,
+families,federal_refundable_credits,two_agree:policyengine,PolicyEngine (note names it): reading: rent and estate income not QBI (PE's default counts rent),1,
+families,federal_refundable_credits,two_agree:policyengine,PolicyEngine (its own run): PolicyEngine claims a disabled member with earnings of their own (is_disabled reading),1,
+families,federal_refundable_credits,two_agree:policyengine,PolicyEngine (its own run): PolicyEngine claims a member who meets neither dependency test on the stated facts (dependents reading),1,
+families,federal_refundable_credits,two_agree:taxsim,TAXSIM: adjustments cut EITC earned income,28,
+families,federal_refundable_credits,two_agree:taxsim,TAXSIM: no saver's credit input,25,
+families,federal_refundable_credits,two_agree:taxsim,TAXSIM: no vehicle loan interest input,24,
+families,federal_refundable_credits,two_agree:taxsim,TAXSIM: no 2026 minimum QBI deduction,18,
+families,federal_refundable_credits,two_agree:taxsim,TAXSIM: no overtime input,18,
+families,federal_refundable_credits,two_agree:taxsim,TAXSIM: 2026 care credit at pre-2026 rates,15,
+families,federal_refundable_credits,two_agree:taxsim,"TAXSIM: SE health and pension deductions in nonprop (EITC, QBI)",9,
+families,federal_refundable_credits,two_agree:taxsim,TAXSIM: no charitable deduction for non-itemizers,8,
+families,federal_refundable_credits,two_agree:taxsim,TAXSIM: other taxable income entered as pensions,4,
+families,federal_refundable_credits,two_agree:taxsim,TAXSIM: partnership and farm rent in scorp,3,
+families,federal_refundable_credits,two_agree:taxsim,TAXSIM: no nontaxable pension input,2,
+families,federal_refundable_credits,two_agree:taxsim,TAXSIM: no blindness input,1,
+families,federal_refundable_credits,two_agree:taxsim,TAXSIM: rent and estate income in intrec,1,
+families,self_employment_tax,two_agree:taxsim,TAXSIM: no $400 floor on self-employment tax (P10.3),9,
+families,self_employment_tax,two_agree:taxsim,"TAXSIM: a loss in one self-employment box does not offset the other (P7.4, D4)",2,
+largest_unexplained,federal_income_tax_before_refundable_credits,two_agree:policyengine,"rank 1: auto_loan_interest; health_insurance_premiums_without_medicare_part_b; miscellaneous_income; other_health_insurance_premiums; other_medical_expenses; over_the_counter_health_expenses; qualified_passenger_vehicle_loan_interest; taxable_ira_distributions; taxable_private_pension_income | PolicyEngine's AGI exceeds both maps' by 25,150.50, the size of the stated negative miscellaneous income, which both maps subtract (no reading covers a negative amount there)",143.45,
+largest_unexplained,federal_income_tax_before_refundable_credits,two_agree:policyengine,"rank 2: employment_income; other_medical_expenses; over_the_counter_health_expenses; student_loan_interest | PolicyEngine's AGI exceeds both maps' by 1,000.00; the saved run does not show the source",120.00,
+largest_unexplained,federal_income_tax_before_refundable_credits,two_agree:policyengine,"rank 3: employment_income; health_insurance_premiums_without_medicare_part_b; is_self_employed; other_health_insurance_premiums; other_medical_expenses; over_the_counter_health_expenses; roth_401k_contributions_desired; roth_ira_contributions_desired; self_employment_income; tax_exempt_private_pension_income; taxable_interest_income; taxable_private_pension_income; traditional_401k_contributions_desired; traditional_ira_contributions_desired | AGI and taxable income agree; PolicyEngine's run allows a saver's credit of 15.40, where the maps' statute figure is 0 (the household states taxable pension income)",15.39,
+largest_unexplained,federal_income_tax_before_refundable_credits,two_agree:taxsim,rank 4: auto_loan_interest; employment_income; health_insurance_premiums_without_medicare_part_b; long_term_capital_gains; non_qualified_dividend_income; other_health_insurance_premiums; other_medical_expenses; over_the_counter_health_expenses; qualified_dividend_income; qualified_passenger_vehicle_loan_interest; roth_401k_contributions_desired; roth_ira_contributions_desired; short_term_capital_gains; taxable_interest_income; traditional_401k_contributions_desired; traditional_ira_contributions_desired | AGI and taxable income agree across the three; not traced further,2.97,
+largest_unexplained,federal_income_tax_before_refundable_credits,two_agree:policyengine,"rank 5: first_home_mortgage_balance; home_mortgage_interest; investment_interest_expense; is_disabled; miscellaneous_income; other_medical_expenses; over_the_counter_health_expenses; real_estate_taxes; salt_refund_income; tax_exempt_private_pension_income; taxable_interest_income; taxable_private_pension_income | PolicyEngine's AGI exceeds both maps' by 13.56, the size of the stated negative miscellaneous income, which both maps subtract (no reading covers a negative amount there)",1.63,
+composition,,,filing status: single,board 58; draw 199,board 0.5800; draw 0.1990
+composition,,,filing status: joint,board 35; draw 709,board 0.3500; draw 0.7090
+composition,,,filing status: head_of_household,board 7; draw 91,board 0.0700; draw 0.0910
+composition,,,filing status: surviving_spouse,board 0; draw 1,board 0.0000; draw 0.0010
+composition,,,Households with a member under 18,board 18; draw 308,board 0.1800; draw 0.3080
+composition,,,Households with self-employment income,board 13; draw 274,board 0.1300; draw 0.2740
+composition,,,Households Tax-Calculator itemizes,board 8; draw 109,board 0.0800; draw 0.1090

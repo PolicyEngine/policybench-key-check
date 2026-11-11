@@ -15,6 +15,10 @@ bears on the four lines, or zeroes one the map sends, the fact is listed in the 
 where this map computes an amount the model takes as given it is listed in `map_computed`.
 Notes that bear only on itemized deductions (`itemizer_notes`) are added by the runner
 only for units Tax-Calculator itemizes in the final pass.
+
+Inputs only the larger draw's facts fill (e03270, e03300, e58990, e24515, e24518,
+PT_binc_w2_wages) enter a row only when non-zero, so a board row keeps its columns;
+Tax-Calculator reads a missing input as zero.
 """
 
 from __future__ import annotations
@@ -22,7 +26,7 @@ from __future__ import annotations
 from . import statute as S
 from . import unit as U
 
-VERSION = "2026-11-10.2"
+VERSION = "2026-11-10.3"
 
 MARS = {S.SINGLE: 1, S.JOINT: 2, S.SEPARATE: 3, S.HEAD_OF_HOUSEHOLD: 4, S.SURVIVING_SPOUSE: 5}
 
@@ -81,6 +85,9 @@ def row(household: dict, year: int, shared: dict | None = None):
     mortgage = S.deductible_mortgage_interest(year, unit.status, a["mortgage_interest"], a["mortgage_balances"])
     if a["mortgage_interest"] and mortgage != a["mortgage_interest"]:
         computed.append("income_tax: mortgage interest limited by 26 U.S.C. 163(h)(3)(F)")
+    # e19200 holds mortgage and investment interest (Schedule A lines 8 and 9) as given.
+    if a["investment_interest"]:
+        computed.append("income_tax: investment interest limited to net investment income (26 U.S.C. 163(d)(1), (4)(B)) and entered with mortgage interest in e19200")
 
     sstb = sum(f.sstb for f in unit.filers)
     other_qbi = (
@@ -114,6 +121,29 @@ def row(household: dict, year: int, shared: dict | None = None):
     children_ctc = unit.count(lambda d: d["kind"] == "qualifying_child" and d["age"] < 17)
     children_eitc = unit.count(lambda d: d["kind"] == "qualifying_child")
     care_persons = unit.count(lambda d: d["age"] < 13)
+    # f2441: the care credit's qualifying individuals (26 U.S.C. 21(b)(1); unit.care_individuals),
+    # which Tax-Calculator caps at two; on the board, the dependents under 13.
+    for name, stated, deemed in U.deemed_earnings_short(unit):
+        unexpressed.append(f"income_tax: Tax-Calculator has no deemed earned income for a spouse incapable of self-care (26 U.S.C. 21(d)(2)): it limits the care credit by {name}'s stated earnings, {stated:,.0f}, where the statute deems {deemed:,.0f}")
+    if a["se_health_insurance"]:
+        computed.append("income_tax: self-employed health insurance deduction limited by 26 U.S.C. 162(l)(2)(A) to earned income of 401(c)(2) from the business, entered as e03270")
+    if a["se_pension"]:
+        computed.append("income_tax: self-employed pension contributions limited to the 415(c)(1)(A) amount and Schedule C income, as the key does, entered as e03300 (reading: " + U.READINGS["se_pension"] + ")")
+    # The Form 4952 election: Tax-Calculator's Schedule D tax worksheet takes it from
+    # qualified dividends only (line 4, Form 4952 line 4e, is 0: calcfunctions.py GainsTax).
+    elected_gain = max(0.0, a["form_4952_elected"] - a["qualified_dividends"])
+    if elected_gain:
+        unexpressed.append(f"income_tax: Tax-Calculator takes the Form 4952 election from qualified dividends only (its Schedule D tax worksheet sets line 4, Form 4952 line 4e, to 0): {elected_gain:,.0f} of elected net capital gain keeps the preferential rates (26 U.S.C. 1(h)(3), 163(d)(4)(B)(iii))")
+    # 199A(b)(2)(B) wages: Tax-Calculator takes one wage pool for the unit's one kind of
+    # business (PT_SSTB_income); policyengine-us splits a person's total by
+    # sstb_w2_wages_from_qualified_business only when the person has both kinds.
+    if sstb > 0 and other_qbi > 0:
+        sstb_selected = sstb >= other_qbi
+        w2_wages = a["sstb_qbi_w2_wages"] if sstb_selected else max(0.0, a["qbi_w2_wages"] - a["sstb_qbi_w2_wages"])
+        if a["qbi_w2_wages"]:
+            computed.append("income_tax: W-2 wages of the qualified businesses (PT_binc_w2_wages) are those of the kind of business PT_SSTB_income selects")
+    else:
+        w2_wages = a["qbi_w2_wages"]
     out = {
         "MARS": MARS[unit.status],
         "XTOT": len(unit.filers) + len(unit.dependents),
@@ -122,7 +152,7 @@ def row(household: dict, year: int, shared: dict | None = None):
         "nu06": unit.count(lambda d: d["age"] < 6),
         "nu13": care_persons,
         "nu18": unit.count(lambda d: d["age"] < 18),
-        "f2441": care_persons,
+        "f2441": len(unit.care_individuals),
         "DSI": 0,
         "age_head": head.age,
         "age_spouse": spouse.age if spouse else 0,
@@ -161,7 +191,7 @@ def row(household: dict, year: int, shared: dict | None = None):
         "e17500": a["medical"],
         "e18400": float(shared.get("salt_income_or_sales_tax", 0.0)),
         "e18500": a["real_estate_taxes"],
-        "e19200": mortgage,
+        "e19200": mortgage + a["investment_interest_allowed"],
         "e19800": a["charity_cash"],
         "e20100": a["charity_non_cash"],
         "e20400": a["employee_expenses"],
@@ -171,8 +201,21 @@ def row(household: dict, year: int, shared: dict | None = None):
         "overtime_income": sum(f.overtime_premium for f in unit.filers),
         # unit.READINGS["tips"]: stated tips are not qualified tips (occupation unstated).
         "tip_income": 0.0,
-        "auto_loan_interest": 0.0,
+        # Qualified passenger vehicle loan interest (26 U.S.C. 163(h)(4)): Tax-Calculator
+        # applies the cap and phase-out itself (calcfunctions.py:1003-1017). The board's
+        # own auto_loan_interest is not qualified (unit.READINGS["auto_loan_interest"]).
+        "auto_loan_interest": a["qualified_vehicle_loan_interest"],
     }
+    # Sent only when non-zero (module docstring).
+    draw_inputs = {
+        "e03270": a["se_health_insurance"],
+        "e03300": a["se_pension"],
+        "e58990": a["form_4952_elected"],
+        "e24515": a["unrecaptured_1250"],
+        "e24518": a["collectibles_28"],
+        "PT_binc_w2_wages": w2_wages,
+    }
+    out.update({name: value for name, value in draw_inputs.items() if value})
     return out, unit, unexpressed, computed
 
 
@@ -182,7 +225,9 @@ def _compensation(filer: U.Filer) -> float:
     at the amounts where compensation limits a contribution)."""
     net = filer.self_employment
     half_se_tax = 0.5 * 0.153 * 0.9235 * net if net * 0.9235 >= 400 else 0.0
-    return max(0.0, filer.wages - filer.deferral) + max(0.0, net - half_se_tax)
+    # 401(c)(2)(A)(v): earned income is also net of the self-employed pension deduction
+    # (policyengine-us ira_compensation.py subtracts it too).
+    return max(0.0, filer.wages - filer.deferral) + max(0.0, net - half_se_tax - filer.se_pension)
 
 
 def ira_contributions(unit: U.Unit) -> dict[str, tuple[float, float]]:
@@ -234,8 +279,10 @@ def after_pass(pass_number: int, row: dict, unit: U.Unit, agi: float, computed: 
             computed.append("income_tax: student loan interest deduction figured under 26 U.S.C. 221")
     elif pass_number == 3:
         eligible = [f for f in unit.filers if f.age >= 18]
+        # Self-employed pension contributions count as the key counts them
+        # (unit.READINGS["se_pension"]; zero on the board).
         saved = [
-            sum(contributions[f.name]) + f.deferral + f.roth_deferral for f in eligible
+            sum(contributions[f.name]) + f.deferral + f.roth_deferral + f.se_pension for f in eligible
         ]
         distributions = [f.retirement_distributions for f in eligible]
         credit = S.savers_credit(unit.year, unit.status, agi, saved, distributions)

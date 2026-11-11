@@ -10,7 +10,10 @@ Tax-Calculator: TAXSIM takes the IRA deduction, student loan interest and the it
 medical and charitable amounts as given, and each depends on TAXSIM's own adjusted gross
 income (v10).
 
-The final record (A) carries gross wages, with 401(k) deferrals in negative `nonprop`.
+The final record (A) carries gross wages, with 401(k) deferrals in negative `nonprop`
+(and, for the larger draw's households, the self-employed health insurance and pension
+deductions; a Form 4952 election moves the elected amounts to `intrec`; investment
+interest joins `mortgage` in pass 3; `mstat` 6 marks married filing separately).
 For a 2026 household whose EITC children differ in number from its children under 17
 (keycheck.map_taxsim.needs_eitc_record), a second record (B) sends the EITC children in
 `dep18` and gives the EITC alone.
