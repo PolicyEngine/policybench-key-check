@@ -8,6 +8,11 @@ Invariants:
 - one row per household and quantity (500 rows), every status and detail in its closed set,
   every row interim, no field that says "confirmed" or "verified";
 - every contested cell names a cause entry that exists and applies to that cell;
+- a cell is contested exactly where an entry's position on it (results/cause_positions.csv)
+  supports another answer or turns on an unstated fact; the position and its grounds give the
+  reason, never the entry's kind, and an entry that supports the key never contests;
+- key_rests_on_readings names exactly the entries that support the key against a named other
+  answer more than $1 away, and those columns never change a status;
 - every reproduced cell agrees within $1 with each run in reproduced_by, in results/answers.csv,
   and Tax-Calculator plus TAXSIM count as one lineage;
 - the counts by status add up to the agreement table's classes where the mapping is one to one;
@@ -145,6 +150,9 @@ def test_closed_sets(rows):
             assert reasons == [x for x in M.CONTESTED_ORDER if x in reasons]
         else:
             assert r["contested_reasons"] == "" and r["contesting_cause_ids"] == ""
+        rests, others = split(r["key_rests_on_readings"]), split(r["other_reading_answers"])
+        assert len(rests) == len(others) and set(rests) <= set(split(r["cause_ids"]))
+        assert not set(rests) & set(split(r["contesting_cause_ids"]))
 
 
 def test_no_field_or_sentence_says_confirmed_or_verified(built):
@@ -321,61 +329,127 @@ def test_status_counts_add_up_to_the_agreement_classes(rows, key_table):
         both = sum(1 for r in sub if r["reproduction_scope"] == "both_runs_one_lineage")
         both_contested = sum(1 for r in sub if r["status"] == "contested" and len(split(r["agreeing_runs"])) == 2)
         assert both + both_contested == classes["all_agree"]
-        assert sum(1 for r in sub if "three_answers_differ" in split(r["contested_reasons"])) == classes["all_differ"]
 
 
-def test_shared_readings_contest_a_household_only_by_their_position(rows, causes, cause_cells, positions):
-    # A shared reading that lists a household (2026 table) and has no row on the cell disputes the
-    # cell exactly where its position in results/cause_positions.csv supports another answer or
-    # turns on an unstated fact. Where no other rule names the entry, it contests nothing.
-    by_cell = {(r["case_id"], r["quantity"]): r for r in rows}
-    on_cell = {(r["cause_id"], r["case_id"], r["quantity"]) for r in cause_cells if r["table"] == "2026"}
-    disputing = seen = 0
+# The contested reason for each (position, grounds), restated here apart from the script.
+REASON_OF = {
+    ("supports_other_answer", "law"): "key_not_supported_by_law",
+    ("supports_other_answer", "prompt_rule"): "key_not_supported_by_prompt_rule",
+    ("turns_on_unstated_fact", ""): "turns_on_unstated_fact",
+}
+
+
+def entries_on_cell(causes, cause_cells):
+    """{(case, quantity): {cause_id}}: rows on the cell in the 2026 table, and shared readings that
+    list the household for the 2026 table on a line they name."""
+    on = {}
+    for r in cause_cells:
+        if r["table"] == "2026":
+            on.setdefault((r["case_id"], r["quantity"]), set()).add(r["cause_id"])
     for cause in causes.values():
         if cause["kind"] != "shared-reading":
             continue
         for token in split(cause["households_shared"]):
             case, _, table = token.partition("@")
-            if table not in ("", "2026"):
-                continue
-            for quantity in split(cause["quantities"]):
-                if (cause["cause_id"], case, quantity) in on_cell:
-                    continue
-                held = positions[(cause["cause_id"], case, quantity)]["position"]
-                r = by_cell[(case, quantity)]
-                seen += 1
-                if held in M.DISPUTING_POSITIONS:
-                    disputing += 1
-                    assert r["status"] == "contested", (cause["cause_id"], case)
-                    assert "turns_on_unstated_fact" in split(r["contested_reasons"]), (cause["cause_id"], case)
-                    assert cause["cause_id"] in split(r["contesting_cause_ids"]), (cause["cause_id"], case)
-                elif not r["board_record"]:
-                    # with no board record, only the position could name a shared reading with no row
-                    assert cause["cause_id"] not in split(r["contesting_cause_ids"]), (cause["cause_id"], case)
-    assert seen and disputing
+            if table in ("", "2026"):
+                for quantity in split(cause["quantities"]):
+                    on.setdefault((case, quantity), set()).add(cause["cause_id"])
+    return on
+
+
+def key_run_of(key_table):
+    return Counter(r["key_run"] for (_, q), r in key_table.items() if q == M.L1).most_common(1)[0][0]
+
+
+def test_contest_follows_each_entrys_position_never_its_kind(rows, causes, cause_cells, positions):
+    # Read only the positions file: the kind of an entry never enters the expectation.
+    order = {cid: i for i, cid in enumerate(causes)}
+    on = entries_on_cell(causes, cause_cells)
+    reasons_seen, supporting_seen = Counter(), 0
+    for r in rows:
+        cell = (r["case_id"], r["quantity"])
+        ids = sorted(on.get(cell, ()), key=order.get)
+        assert split(r["cause_ids"]) == ids, cell
+        held = {cid: positions[(cid, *cell)] for cid in ids if (cid, *cell) in positions}
+        assert set(held) == {cid for cid in ids if causes[cid]["kind"] != "unexplained"}, cell
+        disputing = [cid for cid in ids if cid in held and (held[cid]["position"], held[cid]["grounds"]) in REASON_OF]
+        assert all(held[c]["position"] in ("supports_key", "no_effect") for c in held if c not in disputing), cell
+        if r["status_detail"] == "no_other_model_has_quantity":
+            assert not disputing, cell
+            continue
+        reasons = {REASON_OF[(held[c]["position"], held[c]["grounds"])] for c in disputing}
+        assert (r["status"] == "contested") == bool(disputing), cell
+        assert split(r["contesting_cause_ids"]) == disputing, cell
+        assert set(split(r["contested_reasons"])) == reasons, cell
+        reasons_seen.update(reasons)
+        supporting_seen += len(held) - len(disputing)
+    assert reasons_seen and supporting_seen
+
+
+def test_every_entry_that_moves_the_key_contests_its_cell(rows, cause_cells, key_table):
+    key_run = key_run_of(key_table)
+    by_cell = {(r["case_id"], r["quantity"]): r for r in rows}
+    moved = Counter()
+    for c in cause_cells:
+        if c["table"] == "2026" and c["run"] == key_run:
+            moved[(c["cause_id"], c["case_id"], c["quantity"])] += float(c["amount"])
+    hits = [k for k, amount in moved.items() if abs(amount) > TOLERANCE]
+    assert hits
+    for cid, case, quantity in hits:
+        r = by_cell[(case, quantity)]
+        assert r["status"] == "contested" and cid in split(r["contesting_cause_ids"]), (cid, case)
+
+
+def test_board_record_alone_contests_nothing(rows, causes, cause_cells, positions):
+    # A cell with a board exclusion record and no disputing entry keeps the status the rules give.
+    on = entries_on_cell(causes, cause_cells)
+    quiet = 0
+    for r in rows:
+        if not r["board_record"]:
+            continue
+        cell = (r["case_id"], r["quantity"])
+        disputing = [cid for cid in on.get(cell, ()) if (cid, *cell) in positions
+                     and positions[(cid, *cell)]["position"] in ("supports_other_answer", "turns_on_unstated_fact")]
+        if not disputing:
+            quiet += 1
+            assert r["status"] != "contested", cell
+    assert quiet
+
+
+def test_readings_the_key_rests_on_follow_the_positions(rows, positions, causes):
+    order = {cid: i for i, cid in enumerate(causes)}
+    by_cell = {}
+    for (cid, case, quantity), p in positions.items():
+        if p["position"] == "supports_key" and p["other_reading_answer"].strip():
+            by_cell.setdefault((case, quantity), []).append((cid, p))
+    seen = 0
+    for r in rows:
+        cell = (r["case_id"], r["quantity"])
+        key = float(r["key_value"])
+        expect = [(cid, p) for cid, p in sorted(by_cell.get(cell, []), key=lambda e: order[e[0]])
+                  if abs(float(p["other_reading_answer"]) - key) > TOLERANCE]
+        assert split(r["key_rests_on_readings"]) == [cid for cid, _ in expect], cell
+        assert [float(x) for x in split(r["other_reading_answers"])] == [
+            float(p["other_reading_answer"]) for _, p in expect], cell
+        for _, p in expect:
+            assert abs(float(p["key_value"]) - key) < 0.005, cell
+        seen += bool(expect)
+        if r["status_detail"] == "other_runs_take_the_other_reading":
+            assert expect and not split(r["agreeing_runs"]), cell
+    assert seen
 
 
 def test_positions_file_takes_the_scripts_values(positions):
     assert {r["position"] for r in positions.values()} <= set(M.POSITIONS)
+    assert {r["grounds"] for r in positions.values()} <= set(M.GROUNDS)
     assert set(M.DISPUTING_POSITIONS) < set(M.POSITIONS)
+    assert set(M.DISPUTING_POSITIONS) | set(M.SUPPORTING_POSITIONS) == set(M.POSITIONS)
+    assert M.POSITION_REASON == REASON_OF
+    assert set(M.POSITION_REASON.values()) == set(M.DETAILS["contested"]) == set(M.CONTESTED_ORDER)
 
 
-def test_a_listed_household_without_a_position_stops_the_script(tmp_path, causes, cause_cells):
-    # Copy the inputs by link, drop one shared reading's position, and expect the script to stop.
-    on_cell = {(r["cause_id"], r["case_id"], r["quantity"]) for r in cause_cells if r["table"] == "2026"}
-    target = None
-    for cause in causes.values():
-        if cause["kind"] != "shared-reading":
-            continue
-        for token in split(cause["households_shared"]):
-            case, _, table = token.partition("@")
-            quantity = split(cause["quantities"])[0]
-            if table in ("", "2026") and (cause["cause_id"], case, quantity) not in on_cell:
-                target = (cause["cause_id"], case, quantity)
-                break
-        if target:
-            break
-    assert target
+def tree_with_positions(tmp_path, edit):
+    """A copy of the repo by link, with results/cause_positions.csv rewritten by `edit`."""
     for child in ROOT.iterdir():
         if child.name not in ("results", ".git"):
             (tmp_path / child.name).symlink_to(child)
@@ -385,14 +459,43 @@ def test_a_listed_household_without_a_position_stops_the_script(tmp_path, causes
             (tmp_path / "results" / child.name).symlink_to(child)
     with open(ROOT / "results/cause_positions.csv", newline="") as handle:
         reader = csv.DictReader(handle)
-        kept = [r for r in reader if (r["cause_id"], r["case_id"], r["quantity"]) != target]
+        kept = edit(list(reader))
         fields = reader.fieldnames
     with open(tmp_path / "results/cause_positions.csv", "w", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fields)
         writer.writeheader()
         writer.writerows(kept)
+    return tmp_path
+
+
+@pytest.mark.parametrize("which", ["shared_listing", "cell_row"])
+def test_an_entry_on_a_cell_without_a_position_stops_the_script(tmp_path, causes, cause_cells, which):
+    on_cell = {(r["cause_id"], r["case_id"], r["quantity"]) for r in cause_cells if r["table"] == "2026"}
+    if which == "cell_row":
+        target = sorted(on_cell)[0]
+    else:
+        target = next((c["cause_id"], case, split(c["quantities"])[0]) for c in causes.values()
+                      if c["kind"] == "shared-reading"
+                      for case, _, table in (t.partition("@") for t in split(c["households_shared"]))
+                      if table in ("", "2026") and (c["cause_id"], case, split(c["quantities"])[0]) not in on_cell)
+    root = tree_with_positions(tmp_path, lambda rs: [r for r in rs if (r["cause_id"], r["case_id"], r["quantity"]) != target])
     with pytest.raises(SystemExit, match="no position"):
-        M.build(tmp_path)
+        M.build(root)
+
+
+def test_an_entry_that_moves_the_key_but_supports_it_stops_the_script(tmp_path, cause_cells, key_table):
+    key_run = key_run_of(key_table)
+    target = next((c["cause_id"], c["case_id"], c["quantity"]) for c in cause_cells
+                  if c["table"] == "2026" and c["run"] == key_run and abs(float(c["amount"])) > TOLERANCE)
+
+    def edit(rs):
+        for r in rs:
+            if (r["cause_id"], r["case_id"], r["quantity"]) == target:
+                r.update(position="supports_key", grounds="law")
+        return rs
+
+    with pytest.raises(SystemExit, match="moves the key's answer"):
+        M.build(tree_with_positions(tmp_path, edit))
 
 
 def test_second_map_columns_follow_its_answers_and_the_comparers_rulings(rows):
@@ -516,7 +619,9 @@ def test_coverage_prose_has_no_be_plus_above_or_below(built):
 
 # ---------------------------------------------------------------- the rules, for every input
 RUNS = ("tc", "ts")
-KINDS = sorted(set(M.KEY_MOVING_REASON) | M.NO_POSITION_KINDS)
+IDS = [f"c{i}" for i in range(6)]
+SUPPORTING_PAIRS = [("supports_key", "law"), ("supports_key", "prompt_rule"), ("no_effect", "")]
+PAIRS = sorted(REASON_OF) + SUPPORTING_PAIRS
 
 
 @st.composite
@@ -527,28 +632,27 @@ def measured(draw):
         state["tc"] = draw(st.sampled_from(("agree", "apart")))
     agreeing = [r for r in RUNS if state[r] == "agree"]
     apart = [r for r in RUNS if state[r] == "apart"]
-    ids = st.sampled_from([f"c{i}" for i in range(6)])
-    key_moving = draw(st.dictionaries(ids, st.sampled_from(sorted(M.KEY_MOVING_REASON)), max_size=2))
-    apart_causes = {r: draw(st.lists(st.tuples(ids, st.sampled_from(KINDS), st.booleans()), max_size=3))
-                    for r in apart}
-    reason = draw(st.sampled_from(("", "key_not_supported_by_law", "turns_on_unstated_fact")))
+    ids = st.sampled_from(IDS)
+    held = draw(st.dictionaries(ids, st.sampled_from(PAIRS), max_size=4))
+    rests_on = [cid for cid in draw(st.lists(ids, max_size=3, unique=True))
+                if held.get(cid, ("",))[0] == "supports_key"]
+    apart_causes = {r: draw(st.lists(st.tuples(ids, st.sampled_from(M.KINDS)), max_size=3)) for r in apart}
     return dict(
         has_other_model=has_other,
         agreeing=agreeing,
         apart=apart,
-        key_moving=key_moving,
-        shared_disputing=draw(st.lists(ids, max_size=2, unique=True)),
-        board_record_reason=reason,
-        shared_board=draw(st.lists(ids, min_size=1, max_size=2, unique=True)) if reason else [],
+        held=held,
+        rests_on=rests_on,
         apart_causes=apart_causes,
-        cell_cause_ids=draw(st.lists(ids, max_size=3, unique=True)),
-        key_differs_from_rerun_unscored=draw(st.booleans()),
-        others_all_differ=len(apart) == 2 and draw(st.booleans()),
         salt_on_every_reproducing_run=bool(agreeing) and draw(st.booleans()),
     )
 
 
-@settings(max_examples=400, deadline=None)
+def disputing_of(facts):
+    return [cid for cid, pair in facts["held"].items() if pair in REASON_OF]
+
+
+@settings(max_examples=500, deadline=None)
 @given(measured())
 def test_classify_properties(facts):
     out = M.classify(facts)
@@ -556,26 +660,50 @@ def test_classify_properties(facts):
     if not facts["has_other_model"]:
         assert (out["status"], out["detail"]) == ("resting_on_one_model", "no_other_model_has_quantity")
         return
+    disputing = disputing_of(facts)
+    # contested exactly where an entry's position disputes the key or leaves it open
+    assert (out["status"] == "contested") == bool(disputing)
+    assert out["contesting"] == (disputing if out["status"] == "contested" else [])
+    expected = {REASON_OF[facts["held"][c]] for c in disputing}
+    assert out["reasons"] == [r for r in M.CONTESTED_ORDER if r in expected]
     if out["status"] == "contested":
-        assert out["contesting"], facts
         assert out["detail"] == out["reasons"][0]
-    if facts["key_moving"] or facts["shared_disputing"] or facts["board_record_reason"]:
-        assert out["status"] == "contested"
     if out["status"] == "reproduced":
         assert facts["agreeing"] and out["scope"] in M.SCOPES
         assert (out["detail"] == "key_salt_amount_itemized") == facts["salt_on_every_reproducing_run"]
-    if out["status"] == "resting_on_one_model":
-        assert not facts["agreeing"]
-    if facts["agreeing"] and not (facts["key_moving"] or facts["shared_disputing"] or facts["board_record_reason"]):
-        assert out["status"] == "reproduced"
+    assert (out["status"] == "reproduced") == (bool(facts["agreeing"]) and not disputing)
+    if out["detail"] == "other_runs_take_the_other_reading":
+        apart_ids = {cid for run in facts["apart"] for cid, _ in facts["apart_causes"][run]}
+        assert apart_ids & set(facts["rests_on"])
 
 
-@settings(max_examples=200, deadline=None)
-@given(measured(), st.sampled_from(sorted(M.KEY_MOVING_REASON)))
-def test_a_key_moving_entry_always_contests(facts, kind):
+@settings(max_examples=300, deadline=None)
+@given(measured(), st.data())
+def test_the_kind_never_decides_a_contest(facts, data):
+    # Replace every kind on the apart runs: status, reasons and contesting entries stay put.
+    out = M.classify(facts)
+    rekinded = {run: [(cid, data.draw(st.sampled_from(M.KINDS))) for cid, _ in causes]
+                for run, causes in facts["apart_causes"].items()}
+    again = M.classify(dict(facts, apart_causes=rekinded))
+    assert (again["status"], again["reasons"], again["contesting"]) == (out["status"], out["reasons"], out["contesting"])
+
+
+@settings(max_examples=300, deadline=None)
+@given(measured(), st.sampled_from(SUPPORTING_PAIRS), st.booleans())
+def test_an_entry_that_supports_the_key_never_contests(facts, pair, named):
+    # Adding an entry that supports the key, with or without a named other answer, changes no status.
+    out = M.classify(facts)
+    extra = dict(facts, held={**facts["held"], "extra": pair},
+                 rests_on=facts["rests_on"] + (["extra"] if named and pair[0] == "supports_key" else []))
+    again = M.classify(extra)
+    assert (again["status"], again["reasons"], again["contesting"]) == (out["status"], out["reasons"], out["contesting"])
+
+
+@settings(max_examples=300, deadline=None)
+@given(measured(), st.sampled_from(sorted(REASON_OF)))
+def test_an_entry_that_disputes_the_key_always_contests(facts, pair):
     if not facts["has_other_model"]:
         return
-    moved = dict(facts, key_moving={**facts["key_moving"], "extra": kind})
-    out = M.classify(moved)
+    out = M.classify(dict(facts, held={**facts["held"], "extra": pair}))
     assert out["status"] == "contested"
-    assert M.KEY_MOVING_REASON[kind] in out["reasons"] and "extra" in out["contesting"]
+    assert REASON_OF[pair] in out["reasons"] and "extra" in out["contesting"]

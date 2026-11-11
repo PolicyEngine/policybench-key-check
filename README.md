@@ -101,18 +101,17 @@ into its federal and state parts) one of three statuses, by rules it applies mec
   answer within $1 and no cause entry disputes it. Two runs share a lineage where they share an
   engine, a convention file, an input map or an input that another run computed. The
   Tax-Calculator and TAXSIM runs share one input map, so their agreement counts once.
-- **Contested.** A cause entry, or the board's own exclusion record, says the law or the board's
-  rule for unstated facts supports a different answer, or that the answer turns on a fact the
-  household does not state.
+- **Contested.** A cause entry says the law or the board's rule for unstated facts supports a
+  different answer, or that the answer turns on a fact the household does not state.
 - **Resting on PolicyEngine alone.** No other model produces the quantity, or none agrees and no
-  entry explains why.
+  entry disputes the key's answer or leaves it open.
 
 <!-- generated:cell-status -->
 | Status | Cells | Of which the board scores | Of which trivial zeros |
 |---|---:|---:|---:|
 | Reproduced by a run of another lineage | 376 | 372 | 123 |
-| Contested | 24 | 8 | 0 |
-| Resting on PolicyEngine alone | 100 | 96 | 36 |
+| Contested | 21 | 8 | 0 |
+| Resting on PolicyEngine alone | 103 | 96 | 36 |
 | Total | 500 | 476 | 159 |
 <!-- /generated -->
 
@@ -122,7 +121,7 @@ self-employment tax of a household with no self-employment income: true, and a w
 <!-- generated:cell-status-by-quantity -->
 | Quantity | Reproduced by a run of another lineage | Contested | Resting on PolicyEngine alone |
 |---|---:|---:|---:|
-| Tax before refundable credits | 76 | 24 | 0 |
+| Tax before refundable credits | 76 | 21 | 3 |
 | Refundable credits | 100 | 0 | 0 |
 | Self-employment tax | 100 | 0 | 0 |
 | Federal employee payroll tax | 100 | 0 | 0 |
@@ -147,6 +146,19 @@ The scored cells where a cause entry disputes the key's answer or leaves it open
 
 "Other answer" gives what would follow under the entry's position or under the other reading. This
 repo proposes nothing more than that: it changes no reference.
+
+A reproduced cell can still rest on a reading. These scored cells stand reproduced, and an entry
+that supports the key's answer names the answer the other reading would give:
+
+<!-- generated:rests-on-readings -->
+| Household | Line | Key's answer | Answer under the other reading | Cause entry |
+|---|---|---:|---:|---|
+| scenario_007 | Tax before refundable credits | 3,707.70 | 7,235.69 | `shared-private-pension-no-early-distribution-tax` |
+| scenario_009 | Tax before refundable credits | 8,348.00 | 10,388.00 | `shared-private-pension-no-early-distribution-tax` |
+| scenario_025 | Tax before refundable credits | 7,031.04 | 10,232.97 | `shared-private-pension-no-early-distribution-tax` |
+| scenario_036 | Tax before refundable credits | 4,926.40 | 10,848.40 | `shared-private-pension-no-early-distribution-tax` |
+| scenario_073 | Tax before refundable credits | 0.00 | 74.11 | `shared-private-pension-no-early-distribution-tax` |
+<!-- /generated -->
 
 `results/cell_status.csv` holds every cell with the runs that reproduce it, what each reproduction
 shares with the key's run, the cause entries that bear on it, and what the second input maps give

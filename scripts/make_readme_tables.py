@@ -180,6 +180,20 @@ def scored_positions() -> str:
     return table(["Household", "Line", "Key's answer", "Other answer", "Position", "Cause entries"], body, "llrrll")
 
 
+def rests_on_readings() -> str:
+    """Scored cells a run of another lineage reproduces while an entry names a rival reading."""
+    names = dict(LINES)
+    rows = [r for r in read("results/cell_status.csv")
+            if r["status"] == "reproduced" and r["board_scores_it"] == "yes" and r["key_rests_on_readings"]]
+    body = [[r["case_id"], names.get(r["quantity"], r["quantity"]), f"{float(r['key_value']):,.2f}",
+             "; ".join(f"{float(v):,.2f}" for v in r["other_reading_answers"].split(";") if v),
+             ", ".join(f"`{c}`" for c in r["key_rests_on_readings"].split(";") if c)]
+            for r in sorted(rows, key=lambda r: (r["case_id"], r["quantity"]))]
+    if not body:
+        return "No scored reproduced cell rests on a reading with a named rival answer."
+    return table(["Household", "Line", "Key's answer", "Answer under the other reading", "Cause entry"], body, "llrrl")
+
+
 def shared_salt() -> str:
     rows = read("results/bindings.csv")
     body = []
@@ -204,6 +218,7 @@ BLOCKS = {
     "causes": causes,
     "contested-scored": contested_scored,
     "scored-positions": scored_positions,
+    "rests-on-readings": rests_on_readings,
     "shared-inputs": shared_salt,
 }
 # A block may be empty. [^<]* keeps one block from running into the next: no table holds a "<".

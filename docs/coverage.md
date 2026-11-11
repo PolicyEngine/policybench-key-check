@@ -15,8 +15,9 @@ This file says what Tax-Calculator and NBER TAXSIM can and cannot reproduce of P
 
 `scripts/make_cell_status.py` assigns every status by the rules below; nobody edits its output by
 hand. It reads `results/answers.csv`, `results/runs.csv`, `results/models.csv`,
-`results/bindings.csv`, `results/causes.csv`, `results/cause_cells.csv`, the agreement tables in
-`results/agreement/`, the dossiers' stated facts and board exclusion records
+`results/bindings.csv`, `results/causes.csv`, `results/cause_cells.csv`,
+`results/cause_positions.csv`, the agreement tables in `results/agreement/`, the dossiers' stated
+facts and board exclusion records
 (`results/dossiers/`), `maps/board_facts.csv`, the `READINGS` of `keycheck/unit.py` and, where
 they exist, the second map's answers (`second_map/<engine>/answers_2026.csv`).
 
@@ -42,45 +43,65 @@ board's exact-match rule (`agreeing_runs`; `apart_runs` lists the runs that answ
 
 1. `resting_on_one_model` with detail `no_other_model_has_quantity`: no run of another lineage
    answers for the quantity (state payroll taxes).
-2. `contested`, when any of these holds, whether or not a run agrees. `contested_reasons` lists
-   every reason that holds, `status_detail` the first in this order, and `contesting_cause_ids`
-   the entries behind them.
-   - `key_not_supported_by_law`: an entry in `results/cause_cells.csv` moves the key's own answer
-     by more than $1, and its kind is `model-law-departure`, `model-no-provision` or
-     `key-decided-value`; or a `shared-reading` entry lists the household and the board's own
-     exclusion record for the output holds an alternative more than $1 from the key for a reason
-     other than `reference_depends_on_unlisted_input` (such as `reference_engine_defect`). An entry
-     of kind `unexplained` takes no position, so it contests nothing; a kind the script does not
-     know stops the script.
-   - `turns_on_unstated_fact`: an entry of kind `pe-default-unstated-fact`, `shared-reading` or
-     `map-limit` moves the key's answer by more than $1; or a `shared-reading` entry lists the
-     household (`households_shared`) and its position on the cell in
-     `results/cause_positions.csv` is `supports_other_answer` or `turns_on_unstated_fact` (a listed
-     household with no position there stops the script); or a `shared-reading` entry lists the
-     household and the board's own exclusion record for the output, of reason
-     `reference_depends_on_unlisted_input`, holds an alternative more than $1 from the key; or no
-     run of another lineage agrees and an entry that moves a run that stands apart is a
-     `shared-reading`, or a `map-limit` whose `release_or_build` names a `READINGS` key.
-   - `key_decided_value_unscored`: no run of another lineage agrees, an entry has rows on the cell
-     in `results/cause_cells.csv`, the board does not score the output, and the committed key
-     differs from the key engine's rerun by more than $1: the key holds a value the board decided
-     on an earlier release.
-   - `three_answers_differ`: no two of the key, the Tax-Calculator answer and the TAXSIM answer
-     agree, and an entry has rows on the cell.
+2. `contested`, whether or not a run agrees, when an entry's position on the cell disputes the
+   key's answer or leaves it open. The entries on a cell are those with rows on it in
+   `results/cause_cells.csv` (2026 table) and the `shared-reading` entries whose
+   `households_shared` lists the household (for the 2026 table) and whose `quantities` hold the
+   line (`cause_ids` names them). Each takes one position there in `results/cause_positions.csv`,
+   with its grounds; an entry on the cell with no position stops the script, except an entry of
+   kind `unexplained`, which takes none and contests nothing. The position and its grounds give
+   the reason, never the entry's kind:
+   - `key_not_supported_by_law`: `supports_other_answer` on the grounds `law` (the statute decides
+     on the stated facts and gives another answer).
+   - `key_not_supported_by_prompt_rule`: `supports_other_answer` on the grounds `prompt_rule` (the
+     board's rule for unstated facts decides and gives another answer).
+   - `turns_on_unstated_fact`: `turns_on_unstated_fact` (the answer turns on a fact the board does
+     not state, and the entry takes no side).
+
+   `contested_reasons` lists every reason that holds, in that order; `status_detail` reads the
+   first; `contesting_cause_ids` names exactly the entries whose position disputes the key or
+   leaves it open. An entry whose position is `supports_key` or `no_effect` contests nothing,
+   whatever its kind; one that moves the key's own answer by more than $1 with such a position
+   stops the script, since the two cannot both hold. The board's exclusion record does not contest
+   a cell by itself. Where an entry on the cell traces the record's doubt (an unlisted input, an
+   engine defect) to a cause, that entry's position decides; where no entry does, the record
+   points a reader at a question this repo has not traced. `board_record` and the note keep the
+   record on every cell that has one, and the counts below list the cells where it stands without
+   a contesting entry.
 3. `reproduced`: a run of another lineage gives the key's answer within $1 and rule 2 does not
    apply. `status_detail` reads `key_salt_amount_itemized` when every reproducing run itemizes on
    PolicyEngine's state and local tax amount (`results/bindings.csv`
    `input_from_other_run_bears_on_answer`, which the script checks against the answers table's
    note on that input), so a count can leave those cells out; otherwise `no_input_from_key_run`.
 4. `resting_on_one_model` otherwise: no run of another lineage agrees and no entry disputes the
-   key. The detail reads `no_other_run_takes_a_fact` when every entry that moves the runs that
-   stand apart has kind `model-no-provision` or `map-limit`; `other_runs_depart_from_law` when
-   some has kind `model-law-departure` and the rest have those kinds; `unexplained` otherwise (no
-   entry covers a run that stands apart, or an entry of another kind does).
+   key or leaves it open. The detail reads `no_other_run_takes_a_fact` when every entry that moves
+   the runs that stand apart has kind `model-no-provision` or `map-limit`;
+   `other_runs_depart_from_law` when some has kind `model-law-departure` and the rest have those
+   kinds; `other_runs_take_the_other_reading` when every entry that moves those runs supports the
+   key's answer on the cell and at least one names the other reading's answer
+   (`key_rests_on_readings`, below), so the runs give the answer of a reading the entry rejects;
+   `unexplained` otherwise (no entry covers a run that stands apart, or the entries that do fit
+   none of these).
 
-Every contested cell therefore names at least one entry, and the entry applies to the cell: a row
-in `results/cause_cells.csv` for the cell, or a `shared-reading` entry whose `households_shared`
-lists the household (for the 2026 table) and whose `quantities` hold the line.
+Every contested cell therefore names at least one entry, and each entry it names applies to the
+cell.
+
+**Readings the key rests on** (`key_rests_on_readings`, `other_reading_answers`). On every cell,
+whatever its status, these columns name the entries whose position there is `supports_key` and
+that give the answer another reading yields (`other_reading_answer` in
+`results/cause_positions.csv`) more than $1 from the key, with those answers in the same order.
+The key's answer holds on the entry's reading of the law or of the board's rule for unstated
+facts, and the entry names the answer the other reading gives (`how_computed` says where that
+answer comes from). The columns leave the status as the rules give it: the entry supports the
+key, so it cannot contest the cell, and a count can still leave such cells out. The line falls at
+a named rival answer that moves the cell by more than $1. An entry that supports the key and
+names no other answer stays out: it either describes a model that lacks a provision or departs
+from the law, or a limit of this repo's map, where the other answer is that model's departure and
+not a rival reading of the facts, or it names no answer for the other reading. Nor does every
+named reading of `keycheck/unit.py`
+`READINGS` count: `shared_readings` lists those wherever the map applies one to a stated fact,
+whether or not it moves the answer, and a rule built on them would sweep in every reading the maps
+take.
 
 **Within `reproduced`.** `reproduction_scope` reads `both_runs_one_lineage` when both runs give
 the key. When one run gives it and the other stands apart, it names why the other stands apart:
@@ -114,19 +135,25 @@ reproducing model's 2025 run also agrees with the key engine's 2025 run (`pe-2.6
 2025 runs that agree with that run. The 2025 table tests the engines on these households, not the
 2026 key.
 
-**The second map.** A second pair of input maps, written without sight of the first, leaves its
-answers in `second_map/<engine>/answers_2026.csv` (`case_id`, `quantity`, `value`). Where that file
-exists the script compares each answer with the key itself and fills `second_map_taxcalc` and
-`second_map_taxsim`: `agrees` or `differs` (within $1); `second_map_error` where the comparison
+**The second map.** A second pair of input maps, which an independent author wrote without sight
+of the first, leaves its answers in `second_map/<engine>/answers_2026.csv` (`case_id`, `quantity`,
+`value`). Those files record that author's reading of the board's households as written; they
+are not a run under the current first maps, and a revision of the first maps (`keycheck/`) does
+not touch them. Where an answers file exists the script compares each of its answers with the
+committed key and fills `second_map_taxcalc` and `second_map_taxsim`: `agrees` or `differs`
+(within $1); `second_map_error` where the comparison
 (`results/second_map/<engine>_answers_diff.csv`) rules the second map's answer on that line an
 error of the second map (a `class` that holds `second_map_errs`, alone or with a reading);
 `no_answer` (no value for the cell); or `not_covered` (state payroll). Where the answers file does
 not exist the column reads `pending`. A `second_map_error` answer neither reproduces nor contests
 anything on its cell. `second_map_taxcalc_class` and `second_map_taxsim_class` copy the
-comparison's `class`; the script reads nothing else from the comparison files, whose first-map
-columns describe the first map at the commit they name. A second-map run that reproduces the key
-differs in lineage from the first map's run of the same engine only in its input map: the two
-share the board's stated facts, the state and local tax file and the engine. The second-map
+comparison's `class`; the script reads nothing else from the comparison files, which set the
+second maps against the first map at the commit they name (`docs/second-map-<engine>.md` says
+which), not against the first maps as they stand. Since neither the second maps' answers nor the
+committed key moves when the first maps change, the agreement columns do not either; only the
+copied `class` reports a comparison with the earlier first map. A second-map run that reproduces
+the key differs in lineage from the first map's run of the same engine only in its input map: the
+two share the board's stated facts, the state and local tax file and the engine. The second-map
 columns stay outside the status rules; they show whether a cell's agreement survives a change of
 input map.
 
@@ -136,12 +163,12 @@ All cells:
 
 | Quantity | Reproduced | Contested | Resting on PolicyEngine alone | Cells |
 |---|---:|---:|---:|---:|
-| `federal_income_tax_before_refundable_credits` | 76 | 24 | 0 | 100 |
+| `federal_income_tax_before_refundable_credits` | 76 | 21 | 3 | 100 |
 | `federal_refundable_credits` | 100 | 0 | 0 | 100 |
 | `self_employment_tax` | 100 | 0 | 0 | 100 |
 | `federal_employee_payroll_tax` | 100 | 0 | 0 | 100 |
 | `state_employee_payroll_tax` | 0 | 0 | 100 | 100 |
-| All quantities | 376 | 24 | 100 | 500 |
+| All quantities | 376 | 21 | 103 | 500 |
 
 Cells the board scores:
 
@@ -160,23 +187,22 @@ By status detail:
 |---|---|---:|---:|
 | `reproduced` | `no_input_from_key_run` | 366 | 362 |
 | `reproduced` | `key_salt_amount_itemized` | 10 | 10 |
-| `contested` | `key_not_supported_by_law` | 8 | 3 |
-| `contested` | `turns_on_unstated_fact` | 16 | 5 |
-| `contested` | `key_decided_value_unscored` | 0 | 0 |
-| `contested` | `three_answers_differ` | 0 | 0 |
+| `contested` | `key_not_supported_by_law` | 6 | 1 |
+| `contested` | `key_not_supported_by_prompt_rule` | 10 | 3 |
+| `contested` | `turns_on_unstated_fact` | 5 | 4 |
 | `resting_on_one_model` | `no_other_model_has_quantity` | 100 | 96 |
 | `resting_on_one_model` | `no_other_run_takes_a_fact` | 0 | 0 |
 | `resting_on_one_model` | `other_runs_depart_from_law` | 0 | 0 |
+| `resting_on_one_model` | `other_runs_take_the_other_reading` | 3 | 0 |
 | `resting_on_one_model` | `unexplained` | 0 | 0 |
 
 Contested cells by reason (a cell counts under every reason that holds):
 
 | Reason | All cells | Scored cells |
 |---|---:|---:|
-| `key_not_supported_by_law` | 8 | 3 |
-| `turns_on_unstated_fact` | 21 | 5 |
-| `key_decided_value_unscored` | 7 | 0 |
-| `three_answers_differ` | 3 | 1 |
+| `key_not_supported_by_law` | 6 | 1 |
+| `key_not_supported_by_prompt_rule` | 12 | 3 |
+| `turns_on_unstated_fact` | 11 | 4 |
 
 Reproduced cells by what the reproduction shares with the key's run:
 
@@ -201,14 +227,37 @@ Reproduced cells by how many runs give the key:
 
 159 cells read `trivial` (123 reproduced, 36 resting on PolicyEngine alone). 108 reproduced cells (104 scored) are not trivial and share nothing with the key's run but the household's stated facts.
 
-4 cells resting on PolicyEngine alone carry a board exclusion record (032 state payroll, 043 state payroll, 081 state payroll, 082 state payroll). No other model computes the quantity, so no cause entry covers them and the rules leave them resting on PolicyEngine alone; `board_record` gives the record.
+24 cells carry a board exclusion record (`board_record`); on 13 of them an entry's position contests the key. The record stands without a contesting entry on 11: `reproduced` 032 federal payroll, 043 federal payroll, 081 federal payroll, 082 federal payroll; `resting_on_one_model` 002 income tax, 107 income tax, 121 income tax, 032 state payroll, 043 state payroll, 081 state payroll, 082 state payroll. On those cells no entry disputes the key or leaves it open, and the record by itself contests nothing (rule 2).
+
+Cells whose key rests on a reading an entry supports against a named alternative (`key_rests_on_readings`), by status:
+
+| Status | Resting on such a reading | Of which scored | On no such reading | Of which scored |
+|---|---:|---:|---:|---:|
+| `reproduced` | 5 | 5 | 371 | 367 |
+| `contested` | 1 | 0 | 20 | 8 |
+| `resting_on_one_model` | 3 | 0 | 100 | 96 |
+
+Those cells, with the answer the other reading gives:
+
+| Case | Line | Scored | Status | Key | Entries | Other reading gives |
+|---|---|---|---|---:|---|---:|
+| 002 | income tax | no | `resting_on_one_model` | 0.00 | `shared-disability-benefits-taxable` | 1890.30 |
+| 007 | income tax | yes | `reproduced` | 3707.70 | `shared-private-pension-no-early-distribution-tax` | 7235.69 |
+| 009 | income tax | yes | `reproduced` | 8348.00 | `shared-private-pension-no-early-distribution-tax` | 10388.00 |
+| 025 | income tax | yes | `reproduced` | 7031.04 | `shared-private-pension-no-early-distribution-tax` | 10232.97 |
+| 036 | income tax | yes | `reproduced` | 4926.40 | `shared-private-pension-no-early-distribution-tax` | 10848.40 |
+| 073 | income tax | yes | `reproduced` | 0.00 | `shared-private-pension-no-early-distribution-tax` | 74.11 |
+| 107 | income tax | no | `resting_on_one_model` | 0.00 | `shared-disability-benefits-taxable` | 211.23 |
+| 120 | income tax | no | `contested` | 40021.82 | `shared-mortgage-debt-after-2017` | 39797.18 |
+| 121 | income tax | no | `resting_on_one_model` | 0.00 | `shared-disability-benefits-taxable` | 875.34 |
 
 The second map against the key, by status (state payroll cells left out; each engine's columns read agrees / differs / second-map error):
 
 | Status | Cells | Tax-Calculator | NBER TAXSIM | Either agrees | Neither agrees |
 |---|---:|---:|---:|---:|---:|
 | `reproduced` | 376 | 366 / 1 / 9 | 349 / 23 / 4 | 372 | 4 |
-| `contested` | 24 | 7 / 14 / 3 | 3 / 18 / 3 | 8 | 16 |
+| `contested` | 21 | 7 / 12 / 2 | 3 / 16 / 2 | 8 | 13 |
+| `resting_on_one_model` | 3 | 0 / 2 / 1 | 0 / 2 / 1 | 0 | 3 |
 
 Reproduced cells that no second-map run gives (a `second_map_error` answer counts for neither side; where every second-map answer differs, the first map's agreement does not survive the change of map): 067 income tax (Tax-Calculator second_map_error, NBER TAXSIM differs), 099 income tax (Tax-Calculator second_map_error, NBER TAXSIM differs), 026 refundable credits (Tax-Calculator second_map_error, NBER TAXSIM differs), 028 refundable credits (Tax-Calculator second_map_error, NBER TAXSIM differs).
 
@@ -220,29 +269,26 @@ Contested cells:
 
 | Case | Line | Scored | Key | Reasons | Entries | Runs that give the key |
 |---|---|---|---:|---|---|---|
-| 002 | income tax | no | 0.00 | turns_on_unstated_fact, key_decided_value_unscored | `shared-disability-benefits-taxable` | none |
-| 005 | income tax | no | 106505.90 | key_not_supported_by_law, turns_on_unstated_fact, key_decided_value_unscored, three_answers_differ | `key-ira-deducted-without-219g`, `shared-net-investment-income-tax-in-line`, `shared-state-tax-refund-counted-in-full`, `taxsim-no-nonitemizer-charitable-deduction` | none |
-| 020 | income tax | no | 68056.71 | key_not_supported_by_law, turns_on_unstated_fact, key_decided_value_unscored, three_answers_differ | `pe-divorce-year-default`, `key-sales-tax-table-column-shift`, `shared-net-investment-income-tax-in-line`, `taxsim-no-nonitemizer-charitable-deduction` | none |
-| 022 | income tax | no | 11113.57 | turns_on_unstated_fact | `shared-state-income-tax-withholding-estimate`, `shared-rental-with-basis-qualified-business-income` | taxcalc-6.9.0-2026, taxsim-cd2026110117-2026 |
-| 023 | income tax | yes | 643.43 | key_not_supported_by_law | `pe-early-distribution-tax-not-computed` | taxsim-cd2026110117-2026 |
-| 030 | income tax | yes | 0.00 | turns_on_unstated_fact | `pe-scholarship-not-income` | none |
-| 033 | income tax | no | 3818.15 | turns_on_unstated_fact | `shared-state-tax-refund-counted-in-full` | taxcalc-6.9.0-2026, taxsim-cd2026110117-2026 |
+| 005 | income tax | no | 106505.90 | key_not_supported_by_law, turns_on_unstated_fact | `key-ira-deducted-without-219g`, `shared-net-investment-income-tax-in-line` | none |
+| 020 | income tax | no | 68056.71 | key_not_supported_by_law, key_not_supported_by_prompt_rule, turns_on_unstated_fact | `pe-divorce-year-default`, `key-sales-tax-table-column-shift`, `shared-net-investment-income-tax-in-line` | none |
+| 022 | income tax | no | 11113.57 | key_not_supported_by_prompt_rule, turns_on_unstated_fact | `shared-state-income-tax-withholding-estimate`, `shared-rental-with-basis-qualified-business-income` | taxcalc-6.9.0-2026, taxsim-cd2026110117-2026 |
+| 023 | income tax | yes | 643.43 | turns_on_unstated_fact | `taxsim-no-early-distribution-tax-input`, `pe-early-distribution-tax-not-computed` | taxsim-cd2026110117-2026 |
+| 030 | income tax | yes | 0.00 | key_not_supported_by_prompt_rule | `pe-scholarship-not-income` | none |
+| 033 | income tax | no | 3818.15 | key_not_supported_by_prompt_rule | `shared-state-tax-refund-counted-in-full` | taxcalc-6.9.0-2026, taxsim-cd2026110117-2026 |
 | 042 | income tax | yes | 2361.96 | turns_on_unstated_fact | `shared-bdc-income-not-added` | taxcalc-6.9.0-2026, taxsim-cd2026110117-2026 |
-| 052 | income tax | no | 104211.41 | key_not_supported_by_law, turns_on_unstated_fact, key_decided_value_unscored | `key-ira-deducted-without-219g`, `shared-net-investment-income-tax-in-line` | none |
-| 062 | income tax | no | 0.00 | turns_on_unstated_fact | `pe-survivor-benefits-not-income`, `shared-rental-with-basis-qualified-business-income` | none |
-| 064 | income tax | yes | 4441.46 | key_not_supported_by_law, three_answers_differ | `pe-early-distribution-tax-not-computed`, `taxsim-no-overtime-deduction`, `taxsim-no-early-distribution-tax-input` | none |
-| 068 | income tax | yes | 1910.02 | turns_on_unstated_fact | `pe-scholarship-not-income` | none |
-| 074 | income tax | yes | 0.00 | key_not_supported_by_law | `pe-early-distribution-tax-not-computed` | taxsim-cd2026110117-2026 |
+| 052 | income tax | no | 104211.41 | key_not_supported_by_law, turns_on_unstated_fact | `key-ira-deducted-without-219g`, `shared-net-investment-income-tax-in-line` | none |
+| 062 | income tax | no | 0.00 | key_not_supported_by_prompt_rule | `pe-survivor-benefits-not-income` | none |
+| 064 | income tax | yes | 4441.46 | key_not_supported_by_law | `taxsim-no-early-distribution-tax-input`, `pe-early-distribution-tax-not-computed` | none |
+| 068 | income tax | yes | 1910.02 | key_not_supported_by_prompt_rule | `pe-scholarship-not-income` | none |
+| 074 | income tax | yes | 0.00 | turns_on_unstated_fact | `taxsim-no-early-distribution-tax-input`, `pe-early-distribution-tax-not-computed` | taxsim-cd2026110117-2026 |
 | 076 | income tax | yes | 19611.80 | turns_on_unstated_fact | `shared-rental-with-basis-qualified-business-income` | taxcalc-6.9.0-2026, taxsim-cd2026110117-2026 |
-| 078 | income tax | no | 24164.46 | turns_on_unstated_fact | `shared-state-tax-refund-counted-in-full`, `shared-state-income-tax-withholding-estimate` | taxcalc-6.9.0-2026 |
-| 081 | income tax | no | 26932.27 | turns_on_unstated_fact | `shared-state-income-tax-withholding-estimate` | taxcalc-6.9.0-2026, taxsim-cd2026110117-2026 |
-| 082 | income tax | yes | 9579.77 | turns_on_unstated_fact | `shared-state-tax-refund-counted-in-full` | taxcalc-6.9.0-2026 |
+| 078 | income tax | no | 24164.46 | key_not_supported_by_prompt_rule | `shared-state-tax-refund-counted-in-full`, `shared-state-income-tax-withholding-estimate` | taxcalc-6.9.0-2026 |
+| 081 | income tax | no | 26932.27 | key_not_supported_by_prompt_rule | `shared-state-income-tax-withholding-estimate` | taxcalc-6.9.0-2026, taxsim-cd2026110117-2026 |
+| 082 | income tax | yes | 9579.77 | key_not_supported_by_prompt_rule | `shared-state-tax-refund-counted-in-full` | taxcalc-6.9.0-2026 |
 | 093 | income tax | no | 8628.99 | key_not_supported_by_law, turns_on_unstated_fact | `pe-other-dependent-credit-without-dependency-tests`, `shared-head-return-only` | none |
-| 107 | income tax | no | 0.00 | turns_on_unstated_fact, key_decided_value_unscored | `shared-disability-benefits-taxable` | none |
-| 114 | income tax | no | 10729.61 | turns_on_unstated_fact | `pe-medicare-part-b-premium-default`, `shared-state-income-tax-withholding-estimate`, `shared-over-the-counter-not-medical` | none |
-| 117 | income tax | no | 24961.34 | turns_on_unstated_fact | `shared-state-tax-refund-counted-in-full` | taxcalc-6.9.0-2026 |
-| 120 | income tax | no | 40021.82 | key_not_supported_by_law, turns_on_unstated_fact, key_decided_value_unscored | `pe-net-investment-income-leaves-out-farm-rent`, `pe-no-passive-activity-loss-limit`, `key-ira-deducted-without-219g`, `shared-net-investment-income-tax-in-line`, `shared-state-income-tax-withholding-estimate`, `shared-state-paid-leave-contributions-not-in-salt`, `shared-mortgage-debt-after-2017`, `shared-state-tax-refund-counted-in-full` | none |
-| 121 | income tax | no | 0.00 | turns_on_unstated_fact, key_decided_value_unscored | `shared-over-the-counter-not-medical`, `shared-disability-benefits-taxable` | none |
+| 114 | income tax | no | 10729.61 | key_not_supported_by_prompt_rule | `pe-medicare-part-b-premium-default`, `shared-state-income-tax-withholding-estimate` | none |
+| 117 | income tax | no | 24961.34 | key_not_supported_by_prompt_rule | `shared-state-tax-refund-counted-in-full` | taxcalc-6.9.0-2026 |
+| 120 | income tax | no | 40021.82 | key_not_supported_by_law, key_not_supported_by_prompt_rule, turns_on_unstated_fact | `pe-net-investment-income-leaves-out-farm-rent`, `pe-no-passive-activity-loss-limit`, `key-ira-deducted-without-219g`, `shared-net-investment-income-tax-in-line`, `shared-state-income-tax-withholding-estimate`, `shared-state-paid-leave-contributions-not-in-salt` | none |
 | 123 | income tax | no | 5200.24 | turns_on_unstated_fact | `shared-head-return-only` | taxcalc-6.9.0-2026 |
 
 ## Tax-Calculator (6.9.0)

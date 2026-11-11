@@ -10,7 +10,7 @@ tax and self-employment lines, the federal part of payroll tax and the state par
 one of three statuses, assigned here by fixed rules (docs/coverage.md states them):
 
   reproduced            reproduced by a run of another lineage
-  contested             a cause entry, or the board's own record, puts the key's answer in dispute
+  contested             a cause entry's position on the cell disputes the key's answer or leaves it open
   resting_on_one_model  resting on PolicyEngine alone
 
 Every status is interim until the input maps have had an independent read.
@@ -81,14 +81,14 @@ DETAILS = {
     "reproduced": ("no_input_from_key_run", "key_salt_amount_itemized"),
     "contested": (
         "key_not_supported_by_law",
+        "key_not_supported_by_prompt_rule",
         "turns_on_unstated_fact",
-        "key_decided_value_unscored",
-        "three_answers_differ",
     ),
     "resting_on_one_model": (
         "no_other_model_has_quantity",
         "no_other_run_takes_a_fact",
         "other_runs_depart_from_law",
+        "other_runs_take_the_other_reading",
         "unexplained",
     ),
 }
@@ -109,21 +109,19 @@ SECOND_MAP_ERROR = "second_map_errs"
 CLASS_TOKENS = re.compile(r"\s*[+;]\s*")
 AGREES_2025 = ("yes", "partly", "no", "not_applicable")
 
-# Cause kinds (docs/causes.md) and the contested reason each gives when the entry moves the key.
-KEY_MOVING_REASON = {
-    "model-law-departure": "key_not_supported_by_law",
-    "model-no-provision": "key_not_supported_by_law",
-    "key-decided-value": "key_not_supported_by_law",
-    "pe-default-unstated-fact": "turns_on_unstated_fact",
-    "shared-reading": "turns_on_unstated_fact",
-    "map-limit": "turns_on_unstated_fact",
-}
+# Cause kinds (docs/causes.md). A kind the script does not know stops it. The kind decides only how
+# the script describes a run that stands apart; the entry's position decides whether it contests.
+KINDS = (
+    "model-law-departure",
+    "model-no-provision",
+    "key-decided-value",
+    "pe-default-unstated-fact",
+    "shared-reading",
+    "map-limit",
+    "unexplained",
+)
 NO_POSITION_KINDS = {"unexplained"}  # an entry of this kind takes no position on who is right
 MODEL_GAP_KINDS = {"model-no-provision", "model-law-departure"}
-# The board's own exclusion record: an unlisted input makes the answer turn on an unstated fact;
-# any other reason (an engine defect, law published after the freeze) says the law supports another answer.
-BOARD_RECORD_REASON = {"reference_depends_on_unlisted_input": "turns_on_unstated_fact"}
-BOARD_RECORD_OTHER = "key_not_supported_by_law"
 
 # map_computed notes in results/answers.csv, by their opening words.
 MAP_COMPUTED_TAGS = (
@@ -139,12 +137,19 @@ MAP_COMPUTED_TAGS = (
 )
 SALT_NOTE = "shared assumption: state and local income or sales tax paid"
 
-# results/cause_positions.csv: each entry's position on the key's answer for one household and line
-# (scripts/causes/build_causes.py writes it). A shared reading that lists a household disputes its
-# cell where its position there is one of these.
+# results/cause_positions.csv: each entry's position on the key's answer for one household and line,
+# with its grounds (scripts/causes/build_causes.py writes it). An entry contests a cell exactly where
+# its position there disputes the key (supports another answer) or leaves it open (turns on an
+# unstated fact); the position and its grounds give the reason. supports_key and no_effect contest nothing.
 POSITIONS = ("supports_key", "supports_other_answer", "turns_on_unstated_fact", "no_effect")
+GROUNDS = ("law", "prompt_rule", "")
+POSITION_REASON = {
+    ("supports_other_answer", "law"): "key_not_supported_by_law",
+    ("supports_other_answer", "prompt_rule"): "key_not_supported_by_prompt_rule",
+    ("turns_on_unstated_fact", ""): "turns_on_unstated_fact",
+}
 DISPUTING_POSITIONS = ("supports_other_answer", "turns_on_unstated_fact")
-READINGS_REF = re.compile(r"READINGS (\w+)")
+SUPPORTING_POSITIONS = ("supports_key", "no_effect")
 PY_PATH = re.compile(r"[\w./-]+\.py")
 
 
@@ -280,9 +285,16 @@ class Data:
         self.cause_cells = read_csv(root / "results/cause_cells.csv")
         self.positions = {}
         for row in read_csv(root / "results/cause_positions.csv"):
-            if row["position"] not in POSITIONS:
-                raise SystemExit(f"cause_positions.csv: position {row['position']!r} is not in {POSITIONS}")
-            self.positions[(row["cause_id"], row["case_id"], row["quantity"])] = row["position"]
+            pair = (row["position"], row["grounds"])
+            if row["position"] not in POSITIONS or row["grounds"] not in GROUNDS:
+                raise SystemExit(f"cause_positions.csv: position {pair!r} is not in {POSITIONS} x {GROUNDS}")
+            if row["position"] in DISPUTING_POSITIONS and pair not in POSITION_REASON:
+                raise SystemExit(f"cause_positions.csv: {row['cause_id']} on {row['case_id']} disputes the key on "
+                                 f"grounds {row['grounds']!r}, which give no contested reason")
+            other = row["other_reading_answer"].strip()
+            self.positions[(row["cause_id"], row["case_id"], row["quantity"])] = dict(
+                position=row["position"], grounds=row["grounds"],
+                other=float(other) if other else None)
         self.key_table = read_csv(root / "results/agreement/board100_2026_key.csv")
         self.table_2025 = read_csv(root / "results/agreement/board100_2025.csv")
         self.board_facts = read_csv(root / "maps/board_facts.csv")
@@ -427,74 +439,50 @@ def classify(facts: dict) -> dict:
     has_other_model      some run of another lineage gives an answer for the quantity
     agreeing             runs of another lineage within $1 of the key
     apart                runs of another lineage with an answer more than $1 from the key
-    key_moving           {cause_id: kind} for entries that move the key's answer by more than $1
-    shared_disputing     cause ids of shared readings that list the household and whose position on the
-                         cell (results/cause_positions.csv) supports another answer or turns on an unstated fact
-    board_record_reason  the board's exclusion record for the output, where a shared reading lists the
-                         household and the record's alternative differs from the key by more than $1
-    shared_board         cause ids of the shared readings behind board_record_reason
-    apart_causes         {run: [(cause_id, kind, names_reading)]} for entries that move each apart run
-    cell_cause_ids       cause ids with a row on this cell in results/cause_cells.csv (2026 table)
-    key_differs_from_rerun_unscored  the board does not score the output and the key differs from its engine's rerun
-    others_all_differ    two or more other runs answer and no two of key and other runs agree
+    held                 {cause_id: (position, grounds)}, in results/causes.csv order, for every entry on
+                         the cell that takes a position there (results/cause_positions.csv): entries with
+                         rows on the cell in the 2026 table, and shared readings that list the household
+    rests_on             cause ids whose position supports the key and names another reading's answer
+                         more than $1 from it (key_rests_on_readings)
+    apart_causes         {run: [(cause_id, kind)]} for entries with rows that move each apart run
     salt_on_every_reproducing_run    every agreeing run itemizes on the key's state and local tax amount
+
+    The entry's kind never decides whether it contests; only its position on the cell does.
     """
-    reasons, contesting = [], []
-
-    def add(reason, ids):
-        if reason not in reasons:
-            reasons.append(reason)
-        for cid in ids:
-            if cid not in contesting:
-                contesting.append(cid)
-
     if not facts["has_other_model"]:
         return dict(status="resting_on_one_model", detail="no_other_model_has_quantity", reasons=[],
                     contesting=[], scope="")
-    for cid, kind in facts["key_moving"].items():
-        add(KEY_MOVING_REASON[kind], [cid])
-    if facts["shared_disputing"]:
-        add("turns_on_unstated_fact", facts["shared_disputing"])
-    if facts["board_record_reason"]:
-        add(facts["board_record_reason"], facts["shared_board"])
-    if not facts["agreeing"]:
-        reading_causes = [cid for run in facts["apart"] for cid, kind, names in facts["apart_causes"].get(run, [])
-                          if kind == "shared-reading" or (kind == "map-limit" and names)]
-        if reading_causes:
-            add("turns_on_unstated_fact", reading_causes)
-        # These two contest the key only where an entry with rows on the cell explains the difference.
-        cell_ids = facts["cell_cause_ids"]
-        if facts["key_differs_from_rerun_unscored"] and cell_ids:
-            add("key_decided_value_unscored", cell_ids)
-        if facts["others_all_differ"] and cell_ids:
-            add("three_answers_differ", cell_ids)
+    contesting = [cid for cid, (pos, _) in facts["held"].items() if pos in DISPUTING_POSITIONS]
+    found = {POSITION_REASON[facts["held"][cid]] for cid in contesting}
+    reasons = [r for r in CONTESTED_ORDER if r in found]
     if reasons:
-        reasons = [r for r in CONTESTED_ORDER if r in reasons]
         return dict(status="contested", detail=reasons[0], reasons=reasons, contesting=contesting, scope="")
+    kinds = {kind for run in facts["apart"] for _, kind in facts["apart_causes"].get(run, [])}
     if facts["agreeing"]:
         if not facts["apart"]:
             scope = "both_runs_one_lineage" if len(facts["agreeing"]) > 1 else "one_run"
+        elif not kinds:
+            scope = "one_run_other_unexplained"
+        elif kinds <= MODEL_GAP_KINDS:
+            scope = "one_run_other_model_gap"
+        elif kinds <= {"map-limit"}:
+            scope = "one_run_other_map_limit"
+        elif kinds <= MODEL_GAP_KINDS | {"map-limit"}:
+            scope = "one_run_other_gap_and_map_limit"
         else:
-            kinds = {kind for run in facts["apart"] for _, kind, _ in facts["apart_causes"].get(run, [])}
-            if not kinds:
-                scope = "one_run_other_unexplained"
-            elif kinds <= MODEL_GAP_KINDS:
-                scope = "one_run_other_model_gap"
-            elif kinds <= {"map-limit"}:
-                scope = "one_run_other_map_limit"
-            elif kinds <= MODEL_GAP_KINDS | {"map-limit"}:
-                scope = "one_run_other_gap_and_map_limit"
-            else:
-                scope = "one_run_other_unexplained"
+            scope = "one_run_other_unexplained"
         detail = "key_salt_amount_itemized" if facts["salt_on_every_reproducing_run"] else "no_input_from_key_run"
         return dict(status="reproduced", detail=detail, reasons=[], contesting=[], scope=scope)
-    kinds = {kind for run in facts["apart"] for _, kind, _ in facts["apart_causes"].get(run, [])}
-    if not kinds or not facts["apart"] or any(not facts["apart_causes"].get(run) for run in facts["apart"]):
+    apart_ids = [cid for run in facts["apart"] for cid, _ in facts["apart_causes"].get(run, [])]
+    if not facts["apart"] or any(not facts["apart_causes"].get(run) for run in facts["apart"]):
         detail = "unexplained"
     elif kinds <= {"model-no-provision", "map-limit"}:
         detail = "no_other_run_takes_a_fact"
     elif kinds <= MODEL_GAP_KINDS | {"map-limit"}:
         detail = "other_runs_depart_from_law"
+    elif (all(facts["held"].get(cid, ("", ""))[0] == "supports_key" for cid in apart_ids)
+          and any(cid in facts["rests_on"] for cid in apart_ids)):
+        detail = "other_runs_take_the_other_reading"
     else:
         detail = "unexplained"
     return dict(status="resting_on_one_model", detail=detail, reasons=[], contesting=[], scope="")
@@ -527,58 +515,44 @@ def cell(data: Data, case: str, quantity: str) -> dict:
     shared_ids = [c["cause_id"] for c in data.causes
                   if c["kind"] == "shared-reading" and case in household_tokens(c["households_shared"])
                   and quantity in c["quantities"].split(";") and c["cause_id"] not in row_ids]
-    cause_ids = row_ids + shared_ids
-    key_moving = {}
-    for cid in row_ids:
+    cause_ids = sorted(row_ids + shared_ids, key=data.cause_order.get)
+    # Each entry's position on the cell. Every entry on the cell must take one, except an entry of
+    # kind `unexplained`, which takes none and contests nothing.
+    held, rests_on, other_answers = {}, [], []
+    for cid in cause_ids:
         kind = data.cause_by_id[cid]["kind"]
-        if kind not in KEY_MOVING_REASON and kind not in NO_POSITION_KINDS:
+        if kind not in KINDS:
             raise SystemExit(f"cause kind {kind!r} ({cid}) has no status rule; add one to make_cell_status.py")
-        amount = sum(float(r["amount"]) for r in rows if r["cause_id"] == cid and r["run"] == data.key_run)
-        if abs(amount) > TOLERANCE and kind in KEY_MOVING_REASON:
-            key_moving[cid] = kind
+        position = data.positions.get((cid, case, quantity))
+        if position is None:
+            if kind in NO_POSITION_KINDS:
+                continue
+            raise SystemExit(f"cause_positions.csv has no position for {cid} on {case} {quantity}; "
+                             "rerun scripts/causes/build_causes.py")
+        held[cid] = (position["position"], position["grounds"])
+        moved = sum(float(r["amount"]) for r in rows if r["cause_id"] == cid and r["run"] == data.key_run)
+        if abs(moved) > TOLERANCE and position["position"] in SUPPORTING_POSITIONS:
+            raise SystemExit(f"{cid} moves the key's answer on {case} {quantity} by {moved:.2f} but its position "
+                             f"there is {position['position']}; rerun scripts/causes/build_causes.py")
+        other = position["other"]
+        if position["position"] == "supports_key" and other is not None and key is not None \
+                and not agree(other, key):
+            rests_on.append(cid)
+            other_answers.append(fmt_money(other))
     apart_causes = {}
     for run in apart:
         model = data.runs[run]["model"]
-        entries = []
-        for cid in row_ids:
-            if any(r["cause_id"] == cid and r["answerer"] == model for r in rows):
-                cause = data.cause_by_id[cid]
-                names = any(k in data.readings for k in READINGS_REF.findall(cause["release_or_build"]))
-                entries.append((cid, cause["kind"], names))
-        apart_causes[run] = entries
-    shared_disputing = []
-    for cid in shared_ids:
-        held = data.positions.get((cid, case, quantity))
-        if held is None:
-            raise SystemExit(f"cause_positions.csv has no position for {cid} on {case} {quantity}; "
-                             "rerun scripts/causes/build_causes.py")
-        if held in DISPUTING_POSITIONS:
-            shared_disputing.append(cid)
-    record_reason, shared_board = "", []
-    if record is not None and shared_ids and record.get("alternative_value") is not None:
-        output = BOARD_OUTPUT.get(quantity, quantity)
-        committed = data.value(data.key_run, case, output)
-        if committed is not None and abs(float(record["alternative_value"]) - committed) > TOLERANCE:
-            record_reason = BOARD_RECORD_REASON.get(record["reason_code"], BOARD_RECORD_OTHER)
-            shared_board = shared_ids
-    others_answering = [v for v in answers.values() if v is not None]
-    values = [key] + others_answering
-    others_all_differ = len(others_answering) >= 2 and all(
-        not agree(a, b) for i, a in enumerate(values) for b in values[i + 1:])
+        apart_causes[run] = [(cid, data.cause_by_id[cid]["kind"]) for cid in row_ids
+                             if any(r["cause_id"] == cid and r["answerer"] == model for r in rows)]
 
     shares_by_run = {run: run_shares(data, case, quantity, run) for run in agreeing}
     facts = dict(
         has_other_model=has_other,
         agreeing=agreeing,
         apart=apart,
-        key_moving=key_moving,
-        shared_disputing=shared_disputing,
-        board_record_reason=record_reason,
-        shared_board=shared_board,
+        held=held,
+        rests_on=rests_on,
         apart_causes=apart_causes,
-        cell_cause_ids=row_ids,
-        key_differs_from_rerun_unscored=(scored == "no" and not agree(key, rerun)),
-        others_all_differ=others_all_differ,
         salt_on_every_reproducing_run=bool(agreeing) and all(
             "key_salt_amount" in shares_by_run[r][0] for r in agreeing),
     )
@@ -647,6 +621,8 @@ def cell(data: Data, case: str, quantity: str) -> dict:
         status_detail=verdict["detail"],
         contested_reasons=";".join(verdict["reasons"]),
         contesting_cause_ids=";".join(verdict["contesting"]),
+        key_rests_on_readings=";".join(rests_on),
+        other_reading_answers=";".join(other_answers),
         trivial="true" if trivial else "false",
         agreeing_runs=";".join(agreeing),
         apart_runs=";".join(apart),
@@ -684,7 +660,7 @@ def note(data: Data, row: dict, apart: list[str], apart_causes: dict) -> str:
         if len(runs) > 1:
             parts.append("The two runs share one input map, so they count as one lineage.")
         for run in apart:
-            ids = [cid for cid, _, _ in apart_causes.get(run, [])]
+            ids = [cid for cid, _ in apart_causes.get(run, [])]
             parts.append(f"{DISPLAY[data.runs[run]['model']]} stands apart" + (": " + ", ".join(ids) + "." if ids else "."))
         if row["status_detail"] == "key_salt_amount_itemized":
             parts.append("The reproducing run itemizes on PolicyEngine's state and local tax amount.")
@@ -703,6 +679,10 @@ def note(data: Data, row: dict, apart: list[str], apart_causes: dict) -> str:
             parts.append("Resting on PolicyEngine alone (" + row["status_detail"] + ").")
         if row["trivial"] == "true":
             parts.append("A zero with no wages stated on any member.")
+    if row["key_rests_on_readings"]:
+        pairs = zip(row["key_rests_on_readings"].split(";"), row["other_reading_answers"].split(";"))
+        parts.append("The key's answer rests on a reading an entry supports against a named alternative: "
+                     + ", ".join(f"{cid} (the other reading gives {amount})" for cid, amount in pairs) + ".")
     if row["board_record"]:
         parts.append("The board's exclusion record for " + row["board_record"] + ".")
     return " ".join(parts)
@@ -716,7 +696,8 @@ def build_rows(data: Data) -> list[dict]:
 FIELDS = [
     "case_id", "quantity", "board_output", "key_value", "key_source", "key_equals_engine_rerun",
     "board_scores_it", "board_record", "status", "status_detail", "contested_reasons",
-    "contesting_cause_ids", "trivial", "agreeing_runs", "apart_runs", "reproduced_by",
+    "contesting_cause_ids", "key_rests_on_readings", "other_reading_answers", "trivial", "agreeing_runs",
+    "apart_runs", "reproduced_by",
     "reproducing_lineages", "reproducing_models", "reproducing_releases", "law_year",
     "input_map_versions", "reproduction_scope", "shares_with_key_run", "shares_measured_on",
     "shared_readings", "shared_map_computed", "facts_no_other_model_takes",
@@ -851,8 +832,9 @@ def one_model_facts(board_facts: list[dict], missing: str, present: str) -> list
 RULES_TEXT = """\
 `scripts/make_cell_status.py` assigns every status by the rules below; nobody edits its output by
 hand. It reads `results/answers.csv`, `results/runs.csv`, `results/models.csv`,
-`results/bindings.csv`, `results/causes.csv`, `results/cause_cells.csv`, the agreement tables in
-`results/agreement/`, the dossiers' stated facts and board exclusion records
+`results/bindings.csv`, `results/causes.csv`, `results/cause_cells.csv`,
+`results/cause_positions.csv`, the agreement tables in `results/agreement/`, the dossiers' stated
+facts and board exclusion records
 (`results/dossiers/`), `maps/board_facts.csv`, the `READINGS` of `keycheck/unit.py` and, where
 they exist, the second map's answers (`second_map/<engine>/answers_2026.csv`).
 
@@ -878,45 +860,65 @@ board's exact-match rule (`agreeing_runs`; `apart_runs` lists the runs that answ
 
 1. `resting_on_one_model` with detail `no_other_model_has_quantity`: no run of another lineage
    answers for the quantity (state payroll taxes).
-2. `contested`, when any of these holds, whether or not a run agrees. `contested_reasons` lists
-   every reason that holds, `status_detail` the first in this order, and `contesting_cause_ids`
-   the entries behind them.
-   - `key_not_supported_by_law`: an entry in `results/cause_cells.csv` moves the key's own answer
-     by more than $1, and its kind is `model-law-departure`, `model-no-provision` or
-     `key-decided-value`; or a `shared-reading` entry lists the household and the board's own
-     exclusion record for the output holds an alternative more than $1 from the key for a reason
-     other than `reference_depends_on_unlisted_input` (such as `reference_engine_defect`). An entry
-     of kind `unexplained` takes no position, so it contests nothing; a kind the script does not
-     know stops the script.
-   - `turns_on_unstated_fact`: an entry of kind `pe-default-unstated-fact`, `shared-reading` or
-     `map-limit` moves the key's answer by more than $1; or a `shared-reading` entry lists the
-     household (`households_shared`) and its position on the cell in
-     `results/cause_positions.csv` is `supports_other_answer` or `turns_on_unstated_fact` (a listed
-     household with no position there stops the script); or a `shared-reading` entry lists the
-     household and the board's own exclusion record for the output, of reason
-     `reference_depends_on_unlisted_input`, holds an alternative more than $1 from the key; or no
-     run of another lineage agrees and an entry that moves a run that stands apart is a
-     `shared-reading`, or a `map-limit` whose `release_or_build` names a `READINGS` key.
-   - `key_decided_value_unscored`: no run of another lineage agrees, an entry has rows on the cell
-     in `results/cause_cells.csv`, the board does not score the output, and the committed key
-     differs from the key engine's rerun by more than $1: the key holds a value the board decided
-     on an earlier release.
-   - `three_answers_differ`: no two of the key, the Tax-Calculator answer and the TAXSIM answer
-     agree, and an entry has rows on the cell.
+2. `contested`, whether or not a run agrees, when an entry's position on the cell disputes the
+   key's answer or leaves it open. The entries on a cell are those with rows on it in
+   `results/cause_cells.csv` (2026 table) and the `shared-reading` entries whose
+   `households_shared` lists the household (for the 2026 table) and whose `quantities` hold the
+   line (`cause_ids` names them). Each takes one position there in `results/cause_positions.csv`,
+   with its grounds; an entry on the cell with no position stops the script, except an entry of
+   kind `unexplained`, which takes none and contests nothing. The position and its grounds give
+   the reason, never the entry's kind:
+   - `key_not_supported_by_law`: `supports_other_answer` on the grounds `law` (the statute decides
+     on the stated facts and gives another answer).
+   - `key_not_supported_by_prompt_rule`: `supports_other_answer` on the grounds `prompt_rule` (the
+     board's rule for unstated facts decides and gives another answer).
+   - `turns_on_unstated_fact`: `turns_on_unstated_fact` (the answer turns on a fact the board does
+     not state, and the entry takes no side).
+
+   `contested_reasons` lists every reason that holds, in that order; `status_detail` reads the
+   first; `contesting_cause_ids` names exactly the entries whose position disputes the key or
+   leaves it open. An entry whose position is `supports_key` or `no_effect` contests nothing,
+   whatever its kind; one that moves the key's own answer by more than $1 with such a position
+   stops the script, since the two cannot both hold. The board's exclusion record does not contest
+   a cell by itself. Where an entry on the cell traces the record's doubt (an unlisted input, an
+   engine defect) to a cause, that entry's position decides; where no entry does, the record
+   points a reader at a question this repo has not traced. `board_record` and the note keep the
+   record on every cell that has one, and the counts below list the cells where it stands without
+   a contesting entry.
 3. `reproduced`: a run of another lineage gives the key's answer within $1 and rule 2 does not
    apply. `status_detail` reads `key_salt_amount_itemized` when every reproducing run itemizes on
    PolicyEngine's state and local tax amount (`results/bindings.csv`
    `input_from_other_run_bears_on_answer`, which the script checks against the answers table's
    note on that input), so a count can leave those cells out; otherwise `no_input_from_key_run`.
 4. `resting_on_one_model` otherwise: no run of another lineage agrees and no entry disputes the
-   key. The detail reads `no_other_run_takes_a_fact` when every entry that moves the runs that
-   stand apart has kind `model-no-provision` or `map-limit`; `other_runs_depart_from_law` when
-   some has kind `model-law-departure` and the rest have those kinds; `unexplained` otherwise (no
-   entry covers a run that stands apart, or an entry of another kind does).
+   key or leaves it open. The detail reads `no_other_run_takes_a_fact` when every entry that moves
+   the runs that stand apart has kind `model-no-provision` or `map-limit`;
+   `other_runs_depart_from_law` when some has kind `model-law-departure` and the rest have those
+   kinds; `other_runs_take_the_other_reading` when every entry that moves those runs supports the
+   key's answer on the cell and at least one names the other reading's answer
+   (`key_rests_on_readings`, below), so the runs give the answer of a reading the entry rejects;
+   `unexplained` otherwise (no entry covers a run that stands apart, or the entries that do fit
+   none of these).
 
-Every contested cell therefore names at least one entry, and the entry applies to the cell: a row
-in `results/cause_cells.csv` for the cell, or a `shared-reading` entry whose `households_shared`
-lists the household (for the 2026 table) and whose `quantities` hold the line.
+Every contested cell therefore names at least one entry, and each entry it names applies to the
+cell.
+
+**Readings the key rests on** (`key_rests_on_readings`, `other_reading_answers`). On every cell,
+whatever its status, these columns name the entries whose position there is `supports_key` and
+that give the answer another reading yields (`other_reading_answer` in
+`results/cause_positions.csv`) more than $1 from the key, with those answers in the same order.
+The key's answer holds on the entry's reading of the law or of the board's rule for unstated
+facts, and the entry names the answer the other reading gives (`how_computed` says where that
+answer comes from). The columns leave the status as the rules give it: the entry supports the
+key, so it cannot contest the cell, and a count can still leave such cells out. The line falls at
+a named rival answer that moves the cell by more than $1. An entry that supports the key and
+names no other answer stays out: it either describes a model that lacks a provision or departs
+from the law, or a limit of this repo's map, where the other answer is that model's departure and
+not a rival reading of the facts, or it names no answer for the other reading. Nor does every
+named reading of `keycheck/unit.py`
+`READINGS` count: `shared_readings` lists those wherever the map applies one to a stated fact,
+whether or not it moves the answer, and a rule built on them would sweep in every reading the maps
+take.
 
 **Within `reproduced`.** `reproduction_scope` reads `both_runs_one_lineage` when both runs give
 the key. When one run gives it and the other stands apart, it names why the other stands apart:
@@ -950,19 +952,25 @@ reproducing model's 2025 run also agrees with the key engine's 2025 run (`{key_r
 2025 runs that agree with that run. The 2025 table tests the engines on these households, not the
 2026 key.
 
-**The second map.** A second pair of input maps, written without sight of the first, leaves its
-answers in `second_map/<engine>/answers_2026.csv` (`case_id`, `quantity`, `value`). Where that file
-exists the script compares each answer with the key itself and fills `second_map_taxcalc` and
-`second_map_taxsim`: `agrees` or `differs` (within $1); `second_map_error` where the comparison
+**The second map.** A second pair of input maps, which an independent author wrote without sight
+of the first, leaves its answers in `second_map/<engine>/answers_2026.csv` (`case_id`, `quantity`,
+`value`). Those files record that author's reading of the board's households as written; they
+are not a run under the current first maps, and a revision of the first maps (`keycheck/`) does
+not touch them. Where an answers file exists the script compares each of its answers with the
+committed key and fills `second_map_taxcalc` and `second_map_taxsim`: `agrees` or `differs`
+(within $1); `second_map_error` where the comparison
 (`results/second_map/<engine>_answers_diff.csv`) rules the second map's answer on that line an
 error of the second map (a `class` that holds `second_map_errs`, alone or with a reading);
 `no_answer` (no value for the cell); or `not_covered` (state payroll). Where the answers file does
 not exist the column reads `pending`. A `second_map_error` answer neither reproduces nor contests
 anything on its cell. `second_map_taxcalc_class` and `second_map_taxsim_class` copy the
-comparison's `class`; the script reads nothing else from the comparison files, whose first-map
-columns describe the first map at the commit they name. A second-map run that reproduces the key
-differs in lineage from the first map's run of the same engine only in its input map: the two
-share the board's stated facts, the state and local tax file and the engine. The second-map
+comparison's `class`; the script reads nothing else from the comparison files, which set the
+second maps against the first map at the commit they name (`docs/second-map-<engine>.md` says
+which), not against the first maps as they stand. Since neither the second maps' answers nor the
+committed key moves when the first maps change, the agreement columns do not either; only the
+copied `class` reports a comparison with the earlier first map. A second-map run that reproduces
+the key differs in lineage from the first map's run of the same engine only in its input map: the
+two share the board's stated facts, the state and local tax file and the engine. The second-map
 columns stay outside the status rules; they show whether a cell's agreement survives a change of
 input map.
 """
@@ -1029,15 +1037,40 @@ def render_coverage(data: Data, rows: list[dict]) -> str:
         f"{len(nothing)} reproduced cells ({sum(1 for r in nothing if r['board_scores_it'] == 'yes')} scored) are "
         "not trivial and share nothing with the key's run but the household's stated facts.",
     ]
-    recorded = [r for r in rows if r["status"] == "resting_on_one_model" and r["board_record"]]
+    def cell_names(cells):
+        return ", ".join(r["case_id"].split("_")[-1] + " " + SHORT[r["quantity"]] for r in cells)
+
+    recorded = [r for r in rows if r["board_record"]]
     if recorded:
+        quiet = [r for r in recorded if r["status"] != "contested"]
         lines += [
             "",
-            f"{len(recorded)} cells resting on PolicyEngine alone carry a board exclusion record "
-            f"({', '.join(r['case_id'].split('_')[-1] + ' ' + SHORT[r['quantity']] for r in recorded)}). "
-            "No other model computes the quantity, so no cause entry covers them and the rules leave them "
-            "resting on PolicyEngine alone; `board_record` gives the record.",
+            f"{len(recorded)} cells carry a board exclusion record (`board_record`); on "
+            f"{len(recorded) - len(quiet)} of them an entry's position contests the key. "
+            + (f"The record stands without a contesting entry on {len(quiet)}: "
+               + "; ".join(f"`{status}` {cell_names([r for r in quiet if r['status'] == status])}"
+                           for status in STATUSES if any(r["status"] == status for r in quiet))
+               + ". On those cells no entry disputes the key or leaves it open, and the record by itself "
+               "contests nothing (rule 2)." if quiet else ""),
         ]
+
+    resting_on = [r for r in rows if r["key_rests_on_readings"]]
+    lines += ["", "Cells whose key rests on a reading an entry supports against a named alternative "
+              "(`key_rests_on_readings`), by status:", ""]
+    body = [[f"`{status}`", sum(1 for r in resting_on if r["status"] == status),
+             sum(1 for r in resting_on if r["status"] == status and r["board_scores_it"] == "yes"),
+             sum(1 for r in rows if r["status"] == status and not r["key_rests_on_readings"]),
+             sum(1 for r in scored if r["status"] == status and not r["key_rests_on_readings"])]
+            for status in STATUSES]
+    lines += table(["Status", "Resting on such a reading", "Of which scored", "On no such reading",
+                    "Of which scored"], body, "|---|---:|---:|---:|---:|")
+    if resting_on:
+        lines += ["", "Those cells, with the answer the other reading gives:", ""]
+        body = [[r["case_id"].split("_")[-1], SHORT[r["quantity"]], r["board_scores_it"], f"`{r['status']}`",
+                 r["key_value"], ", ".join(f"`{c}`" for c in r["key_rests_on_readings"].split(";")),
+                 ", ".join(r["other_reading_answers"].split(";"))] for r in resting_on]
+        lines += table(["Case", "Line", "Scored", "Status", "Key", "Entries", "Other reading gives"], body,
+                       "|---|---|---|---|---:|---|---:|")
 
     if data.second_map:
         lines += ["", "The second map against the key, by status (state payroll cells left out; each engine's "
