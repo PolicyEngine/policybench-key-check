@@ -54,6 +54,20 @@ from taxcalc import Calculator, Policy, Records
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
+
+# The comparison rules on the first map as it stood at this commit; the first map has moved
+# since, so every first-map file comes from the commit, not from the working tree.
+FIRST_MAP_COMMIT = "1336819184eda68c1f6461115f09ccad2e0c885a"
+
+
+def committed(path: str) -> str:
+    """The text of a repo file as committed at FIRST_MAP_COMMIT."""
+    import subprocess as _subprocess
+    return _subprocess.run(
+        ["git", "-C", str(ROOT), "show", f"{FIRST_MAP_COMMIT}:{path}"],
+        check=True, capture_output=True, text=True,
+    ).stdout
+
 YEAR = 2026
 INPUT_TOLERANCE = 0.01
 ANSWER_TOLERANCE = 1.0
@@ -268,7 +282,8 @@ def member_row(member: dict) -> dict:
 
 def load_first():
     rows, answers, facts, members = {}, {}, {}, {}
-    with open(ROOT / "results/taxcalc/board100_tc6.9.0_2026.csv", newline="") as handle:
+    import io
+    with io.StringIO(committed("results/taxcalc/board100_tc6.9.0_2026.csv"), newline="") as handle:
         for record in csv.DictReader(handle):
             case = record["case_id"]
             rows[(case, "main")] = {
@@ -276,7 +291,7 @@ def load_first():
             }
             answers[case] = {line: num(record[col]) for line, col in FIRST_COLUMNS.items()}
             members[case] = (num(record["members_fed_employee_payroll_tax"]), num(record["members_self_employment_tax"]))
-            dossier = json.loads((ROOT / f"results/dossiers/{case}.json").read_text())
+            dossier = json.loads(committed(f"results/dossiers/{case}.json"))
             facts[case] = dossier["stated_facts"]
             for member in dossier["return_from_stated_facts"][str(YEAR)]["members_with_own_payroll"]:
                 rows[(case, "dependent:" + member["name"])] = member_row(member)
@@ -303,7 +318,8 @@ def load_second():
 
 def load_key():
     key, rerun = {}, {}
-    with open(ROOT / "results/answers.csv", newline="") as handle:
+    import io
+    with io.StringIO(committed("results/answers.csv"), newline="") as handle:
         for r in csv.DictReader(handle):
             if r["case_set"] != "board-100" or r["period"] != str(YEAR):
                 continue

@@ -54,9 +54,23 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
-FIRST_CSV = REPO / "results/taxsim/board100_cd2026110117_2026.csv"
-DOSSIERS = REPO / "results/dossiers"
-ANSWERS = REPO / "results/answers.csv"
+
+# The comparison rules on the first map as it stood at this commit; the first map has moved
+# since, so every first-map file comes from the commit, not from the working tree.
+FIRST_MAP_COMMIT = "1336819184eda68c1f6461115f09ccad2e0c885a"
+
+
+def committed(path: str) -> str:
+    """The text of a repo file as committed at FIRST_MAP_COMMIT."""
+    import subprocess as _subprocess
+    return _subprocess.run(
+        ["git", "-C", str(REPO), "show", f"{FIRST_MAP_COMMIT}:{path}"],
+        check=True, capture_output=True, text=True,
+    ).stdout
+
+FIRST_CSV = "results/taxsim/board100_cd2026110117_2026.csv"
+DOSSIERS = "results/dossiers"
+ANSWERS = "results/answers.csv"
 SECOND_INPUTS = HERE / "inputs_2026.csv"
 SECOND_ANSWERS = HERE / "answers_2026.csv"
 OUT = REPO / "results/second_map"
@@ -422,10 +436,10 @@ def num(x) -> float:
 def load_first() -> dict:
     """{case: {record: {aligned variable: value}}} from the committed first-map record."""
     out = {}
-    with open(FIRST_CSV, newline="") as fh:
+    with io.StringIO(committed(FIRST_CSV), newline="") as fh:
         for r in csv.DictReader(fh):
             cid = r["case_id"]
-            u = json.load(open(DOSSIERS / f"{cid}.json"))["return_from_stated_facts"]["2026"]
+            u = json.loads(committed(f"{DOSSIERS}/{cid}.json"))["return_from_stated_facts"]["2026"]
             pdef = u["head"]["deferral"]
             sdef = u["spouse"]["deferral"] if u["spouse"] else 0.0
             rec = {k: num(r.get("in_" + k)) for k in VARS if k not in ("p_deferral", "s_deferral", "dependents_path", "income_tax_return")}
@@ -477,7 +491,7 @@ def load_second() -> dict:
 
 
 def stated(cid: str) -> dict:
-    return json.load(open(DOSSIERS / f"{cid}.json"))["stated_facts"]
+    return json.loads(committed(f"{DOSSIERS}/{cid}.json"))["stated_facts"]
 
 
 def stated_sum(cid: str, keys, filers_only=True) -> dict:
@@ -700,7 +714,7 @@ def main(argv=None) -> None:
         for r in csv.DictReader(fh):
             second_ans.setdefault(r["case_id"], {})[r["quantity"]] = num(r["value"])
     key, rerun, key_status = {}, {}, {}
-    with open(ANSWERS, newline="") as fh:
+    with io.StringIO(committed(ANSWERS), newline="") as fh:
         for r in csv.DictReader(fh):
             if r["case_set"] != "board-100" or r["period"] != "2026" or r["quantity"] not in LINES:
                 continue
