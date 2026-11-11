@@ -136,6 +136,29 @@ def causes() -> str:
     return table(["Kind of cause", "Entries", "Household-line-table cells they move"], body)
 
 
+def contested_scored() -> str:
+    names = dict(LINES)
+    rows = [r for r in read("results/cell_status.csv") if r["status"] == "contested" and r["board_scores_it"] == "yes"]
+    body = [[r["case_id"], names.get(r["quantity"], r["quantity"]), f"{float(r['key_value']):,.2f}",
+             r["contested_reasons"].replace(";", "; "), ", ".join(f"`{c}`" for c in r["contesting_cause_ids"].split(";") if c)]
+            for r in sorted(rows, key=lambda r: (r["case_id"], r["quantity"]))]
+    if not body:
+        return "No scored cell is contested."
+    return table(["Household", "Line", "Key's answer", "Why contested", "Cause entries"], body, "llrll")
+
+
+def shared_salt() -> str:
+    rows = read("results/bindings.csv")
+    body = []
+    for run in sorted({r["run"] for r in rows if r["model"] != "policyengine-us"}):
+        mine = [r for r in rows if r["run"] == run]
+        body.append([f"`{run}`", sum(1 for r in mine if r["model_itemizes"] == "true"),
+                     sum(1 for r in mine if r["map_computed"]), sum(1 for r in mine if r["unexpressed_facts"])])
+    return table(["Run", "Households where the model itemizes on the shared amount",
+                  "Households with an amount this repo computed from statute",
+                  "Households with a fact the model could not take or a named reading"], body)
+
+
 BLOCKS = {
     "board-2026-key": lambda: agreement("results/agreement/board100_2026_key.csv"),
     "board-2026-rerun": lambda: agreement("results/agreement/board100_2026_rerun.csv"),
@@ -146,6 +169,8 @@ BLOCKS = {
     "second-map": second_map,
     "facts": facts,
     "causes": causes,
+    "contested-scored": contested_scored,
+    "shared-inputs": shared_salt,
 }
 PATTERN = re.compile(r"(<!-- generated:([a-z0-9-]+) -->\n)(.*?)(\n<!-- /generated -->)", re.S)
 
