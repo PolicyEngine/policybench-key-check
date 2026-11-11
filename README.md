@@ -1,7 +1,7 @@
 # PolicyBench key check
 
-**Status: draft.** The counts below are first results. Reviewers are still tracing causes and
-checking the input maps; a number here can still move.
+**Status: draft.** Reviewers have traced every disagreement and checked the input maps, and the
+counts below follow their fixes. An independent read of the whole has not happened yet.
 
 PolicyBench scores AI models against an answer key that is PolicyEngine-US's output alone. This
 repo checks the key's four federal tax lines by running the board's 100 published households
@@ -43,15 +43,15 @@ Tax year 2026, against the committed key:
 
 | Line | All three agree | PolicyEngine apart, other two agree | TAXSIM apart, other two agree | All differ |
 |---|---:|---:|---:|---:|
-| Tax before refundable credits | 72 | 10 | 16 | 2 |
+| Tax before refundable credits | 73 | 9 | 16 | 2 |
 | Refundable credits | 96 | 0 | 4 | 0 |
 | Self-employment tax | 100 | 0 | 0 | 0 |
 | Federal employee payroll tax | 100 | 0 | 0 | 0 |
 
 The committed key holds, for an output the board excludes from scoring, the value the board
 decided on, which can differ from what the engine gives today. Against a rerun of the key's engine
-(policyengine-us 2.60.0, the board's conventions), tax before refundable credits reads 76 all
-agree, 6 PolicyEngine apart, 17 TAXSIM apart and 1 all differ; the other three lines are
+(policyengine-us 2.60.0, the board's conventions), tax before refundable credits reads 77 all
+agree, 5 PolicyEngine apart, 17 TAXSIM apart and 1 all differ; the other three lines are
 unchanged. The rerun equals the committed key on every scored output of the four lines.
 
 The same households under 2025 law (PolicyEngine-US 2.60.0, Tax-Calculator 6.9.0 and TAXSIM, each
@@ -59,7 +59,7 @@ at tax year 2025), where NBER's build is more complete:
 
 | Line | All three agree | PolicyEngine apart | TAXSIM apart |
 |---|---:|---:|---:|
-| Tax before refundable credits | 83 | 7 | 10 |
+| Tax before refundable credits | 84 | 6 | 10 |
 | Refundable credits | 96 | 0 | 4 |
 | Self-employment tax | 100 | 0 | 0 |
 | Federal employee payroll tax | 100 | 0 | 0 |
@@ -76,8 +76,8 @@ Everything each model was given and answered, per household: `results/dossiers/`
 1. **State and local tax paid is not a stated fact.** A household states its state, not the
    state income tax it paid. The key fills the federal deduction with PolicyEngine's estimate.
    Tax-Calculator has no state model and TAXSIM's would be a second estimate, so both were given
-   the key's amount (`results/shared/`). For the nine households that itemize, agreement confirms
-   the federal computation given that amount, not the amount.
+   the key's amount (`results/shared/`). Where a model itemizes (8 households in Tax-Calculator and 9 in TAXSIM for 2026), agreement
+   bears on the federal computation given that amount, not on the amount.
 2. **Tax-Calculator and TAXSIM share one derivation of the return.** `keycheck/unit.py` turns a
    household's stated facts into a return (who files, in what status, who is a dependent, each
    line's amount) and both maps start from it. Where the two agree against PolicyEngine, the cause
@@ -102,8 +102,9 @@ Everything each model was given and answered, per household: `results/dossiers/`
 
 ## Causes of each disagreement
 
-In progress. Reviewers are reconciling each household-line where the models differ to the dollar,
-with the statute, form line or instruction that decides it.
+Reviewers reconciled each household and line where the models differ to the dollar, with the
+statute, form line or instruction that decides it: `evidence/traces/`. A table of causes and a
+status for each cell of the key follow in `results/` and `docs/`.
 
 ## The answers table
 
