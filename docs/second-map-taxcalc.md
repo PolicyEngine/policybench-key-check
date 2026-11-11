@@ -1,5 +1,11 @@
 # A second, independent map of the board's households to Tax-Calculator
 
+**Since this comparison.** This page compares the second map with the first map as it stood at
+commit 1336819 (`keycheck` version 2026-11-10.3), and `compare.py` reads the first map's files
+from that commit. A builder has since applied the findings below to the first map (version
+2026-11-11.1, `evidence/traces/builder-2.md`), and the cause entries this page cites carry their
+current ids. The counts here describe the earlier first map.
+
 Every Tax-Calculator answer in `results/` rests on one derivation of each household's return
 (`keycheck/unit.py`) and one translation of it into engine inputs (`keycheck/map_taxcalc.py`).
 To measure how much of the Tax-Calculator check rests on that derivation, an agent that never saw
@@ -167,7 +173,7 @@ Security (108 states $10,392 and owes nothing either way). Gross income includes
 annuity (26 U.S.C. 61(a), 72), and each exclusion needs a fact the board does not state: life
 insurance proceeds (101(a)) or a veterans' benefit (38 U.S.C. 5301). The second map taxes the
 benefits as a pension; the first map leaves them out, following the board's own reference
-reading. `docs/causes.md` (`shared-survivor-benefits-not-taxable`) takes the same position for
+reading. `docs/causes.md` (`pe-survivor-benefits-not-income`) takes the same position for
 the key.
 
 **Early-distribution tax (first map errs).** 064's head is 48 and receives $20,000 of taxable
@@ -187,7 +193,7 @@ loss. A rental is a passive activity (26 U.S.C. 469(c)(2), `usc26_469.txt:24-25`
 allowance of 469(i) falls by half of modified AGI above $100,000 (`usc26_469.txt:164-171`) and
 reaches zero at $150,000, far below 120's modified AGI. The second map suspends the $446.59 net
 loss; the first map deducts it, since its code applies no section 469 limit. `docs/causes.md`
-(`shared-passive-rental-loss-allowed`) takes the same position.
+(`pe-no-passive-activity-loss-limit`) takes the same position.
 
 **Miscellaneous income (engine path).** 022 states $3,300 of miscellaneous income (26 CFR
 1.61-14), which goes on Schedule 1 line 8z. Tax-Calculator has no line 8z input. The first map

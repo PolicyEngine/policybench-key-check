@@ -172,7 +172,7 @@ SCHOLARSHIP = (
     "to the extent it pays qualified tuition and related expenses; the board's rule makes an "
     "unstated fact false, so the whole amount is income. The second map enters it in "
     "`nonprop`; the first map leaves it out (keycheck READINGS['educational_assistance']). The "
-    "repo's cause shared-scholarship-not-income takes the second map's position."
+    "repo's cause pe-scholarship-not-income takes the second map's position."
 )
 SURVIVOR = (
     "The household lists {amount} of survivor benefits other than Social Security. They are "
@@ -181,7 +181,7 @@ SURVIVOR = (
     "veterans' dependency compensation, 38 U.S.C. 5301) needs a fact the household does not "
     "state, which the board's rule makes false. The second map taxes them (`pensions`); the "
     "first map leaves them out (keycheck READINGS['survivor_benefits']). The repo's cause "
-    "shared-survivor-benefits-not-taxable takes the second map's position."
+    "pe-survivor-benefits-not-income takes the second map's position."
 )
 FARM_RENT_QBI = (
     "The household states {amount} of farm rental income and {ubia} of unadjusted basis of "
@@ -341,7 +341,7 @@ RULINGS: dict[str, dict[str, tuple[list[str], str, str]]] = {
             "the 469(i) allowance needs active participation (unstated, so false) and is gone "
             "above 150,000 of AGI in any case. The second map nets the two and suspends the "
             "loss, entering neither; the first map enters the rent in `intrec` and the loss in "
-            "`scorp`. The repo's cause shared-passive-rental-loss-allowed takes the second map's "
+            "`scorp`. The repo's cause pe-no-passive-activity-loss-limit takes the second map's "
             "position."),
         "itemized": (["mortgage"], "first_map_errs",
             "Follows from the passive loss: the first map's AGI is 446.59 lower, which lowers the "

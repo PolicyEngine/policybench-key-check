@@ -91,6 +91,11 @@ def cause_cells():
 
 
 @pytest.fixture(scope="module")
+def positions():
+    return {(r["cause_id"], r["case_id"], r["quantity"]): r for r in read_csv(ROOT / "results/cause_positions.csv")}
+
+
+@pytest.fixture(scope="module")
 def key_table():
     return {(r["case_id"], r["quantity"]): r for r in read_csv(ROOT / "results/agreement/board100_2026_key.csv")}
 
@@ -319,19 +324,75 @@ def test_status_counts_add_up_to_the_agreement_classes(rows, key_table):
         assert sum(1 for r in sub if "three_answers_differ" in split(r["contested_reasons"])) == classes["all_differ"]
 
 
-def test_shared_readings_that_name_a_household_contest_its_cell(rows, causes):
+def test_shared_readings_contest_a_household_only_by_their_position(rows, causes, cause_cells, positions):
+    # A shared reading that lists a household (2026 table) and has no row on the cell disputes the
+    # cell exactly where its position in results/cause_positions.csv supports another answer or
+    # turns on an unstated fact. Where no other rule names the entry, it contests nothing.
     by_cell = {(r["case_id"], r["quantity"]): r for r in rows}
+    on_cell = {(r["cause_id"], r["case_id"], r["quantity"]) for r in cause_cells if r["table"] == "2026"}
+    disputing = seen = 0
     for cause in causes.values():
         if cause["kind"] != "shared-reading":
             continue
-        named = M.named_answers_that_would_change(cause["who_is_right"])
         for token in split(cause["households_shared"]):
             case, _, table = token.partition("@")
-            if table not in ("", "2026") or case.split("_")[-1] not in named:
+            if table not in ("", "2026"):
                 continue
             for quantity in split(cause["quantities"]):
+                if (cause["cause_id"], case, quantity) in on_cell:
+                    continue
+                held = positions[(cause["cause_id"], case, quantity)]["position"]
                 r = by_cell[(case, quantity)]
-                assert r["status"] == "contested" and "turns_on_unstated_fact" in split(r["contested_reasons"])
+                seen += 1
+                if held in M.DISPUTING_POSITIONS:
+                    disputing += 1
+                    assert r["status"] == "contested", (cause["cause_id"], case)
+                    assert "turns_on_unstated_fact" in split(r["contested_reasons"]), (cause["cause_id"], case)
+                    assert cause["cause_id"] in split(r["contesting_cause_ids"]), (cause["cause_id"], case)
+                elif not r["board_record"]:
+                    # with no board record, only the position could name a shared reading with no row
+                    assert cause["cause_id"] not in split(r["contesting_cause_ids"]), (cause["cause_id"], case)
+    assert seen and disputing
+
+
+def test_positions_file_takes_the_scripts_values(positions):
+    assert {r["position"] for r in positions.values()} <= set(M.POSITIONS)
+    assert set(M.DISPUTING_POSITIONS) < set(M.POSITIONS)
+
+
+def test_a_listed_household_without_a_position_stops_the_script(tmp_path, causes, cause_cells):
+    # Copy the inputs by link, drop one shared reading's position, and expect the script to stop.
+    on_cell = {(r["cause_id"], r["case_id"], r["quantity"]) for r in cause_cells if r["table"] == "2026"}
+    target = None
+    for cause in causes.values():
+        if cause["kind"] != "shared-reading":
+            continue
+        for token in split(cause["households_shared"]):
+            case, _, table = token.partition("@")
+            quantity = split(cause["quantities"])[0]
+            if table in ("", "2026") and (cause["cause_id"], case, quantity) not in on_cell:
+                target = (cause["cause_id"], case, quantity)
+                break
+        if target:
+            break
+    assert target
+    for child in ROOT.iterdir():
+        if child.name not in ("results", ".git"):
+            (tmp_path / child.name).symlink_to(child)
+    (tmp_path / "results").mkdir()
+    for child in (ROOT / "results").iterdir():
+        if child.name != "cause_positions.csv":
+            (tmp_path / "results" / child.name).symlink_to(child)
+    with open(ROOT / "results/cause_positions.csv", newline="") as handle:
+        reader = csv.DictReader(handle)
+        kept = [r for r in reader if (r["cause_id"], r["case_id"], r["quantity"]) != target]
+        fields = reader.fieldnames
+    with open(tmp_path / "results/cause_positions.csv", "w", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(kept)
+    with pytest.raises(SystemExit, match="no position"):
+        M.build(tmp_path)
 
 
 def test_second_map_columns_follow_its_answers_and_the_comparers_rulings(rows):
@@ -454,12 +515,6 @@ def test_coverage_prose_has_no_be_plus_above_or_below(built):
 
 
 # ---------------------------------------------------------------- the rules, for every input
-def test_named_answer_pattern():
-    text = ("The reading moves 042's scored answer: it would rise by 412. Household 068 stays; "
-            "Tax-Calculator gives 033's answer. 062's answer would fall to 0.")
-    assert M.named_answers_that_would_change(text) == {"042", "062"}
-
-
 RUNS = ("tc", "ts")
 KINDS = sorted(set(M.KEY_MOVING_REASON) | M.NO_POSITION_KINDS)
 
@@ -482,7 +537,7 @@ def measured(draw):
         agreeing=agreeing,
         apart=apart,
         key_moving=key_moving,
-        shared_named=draw(st.lists(ids, max_size=2, unique=True)),
+        shared_disputing=draw(st.lists(ids, max_size=2, unique=True)),
         board_record_reason=reason,
         shared_board=draw(st.lists(ids, min_size=1, max_size=2, unique=True)) if reason else [],
         apart_causes=apart_causes,
@@ -504,14 +559,14 @@ def test_classify_properties(facts):
     if out["status"] == "contested":
         assert out["contesting"], facts
         assert out["detail"] == out["reasons"][0]
-    if facts["key_moving"] or facts["shared_named"] or facts["board_record_reason"]:
+    if facts["key_moving"] or facts["shared_disputing"] or facts["board_record_reason"]:
         assert out["status"] == "contested"
     if out["status"] == "reproduced":
         assert facts["agreeing"] and out["scope"] in M.SCOPES
         assert (out["detail"] == "key_salt_amount_itemized") == facts["salt_on_every_reproducing_run"]
     if out["status"] == "resting_on_one_model":
         assert not facts["agreeing"]
-    if facts["agreeing"] and not (facts["key_moving"] or facts["shared_named"] or facts["board_record_reason"]):
+    if facts["agreeing"] and not (facts["key_moving"] or facts["shared_disputing"] or facts["board_record_reason"]):
         assert out["status"] == "reproduced"
 
 

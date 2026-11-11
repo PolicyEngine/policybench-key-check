@@ -33,6 +33,7 @@ one, the later file says so; `docs/causes.md` gives the settled account.
 | `traces/draw-inputs.md` | What each of the 23 inputs that only the larger draw states does in each model |
 | `traces/draw-maps.md` | What the builder changed to carry those inputs, each choice it made with the alternative, the proof that the board's 100 households did not move, and the draw's unexplained cells |
 | `traces/builder-2.md` | What a second builder changed after the blind second maps' comparison (map version 2026-11-11.1): each choice with its alternative, and every board answer, input and note that moved |
+| `traces/causes-2.md` | How the cause entries changed with that map version: entries replaced, added and widened, the position each takes per household, and what the agent could not reconcile |
 
 In these files `SCRATCH` is an agent's scratch directory (not kept), and "the lead" is the session
 that ran the comparison.

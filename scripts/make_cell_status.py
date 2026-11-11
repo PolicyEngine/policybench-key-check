@@ -17,7 +17,8 @@ Every status is interim until the input maps have had an independent read.
 
 The script reads files only (standard library; no model runs): results/answers.csv,
 results/runs.csv, results/models.csv, results/bindings.csv, results/causes.csv,
-results/cause_cells.csv, results/agreement/board100_2026_key.csv and board100_2025.csv,
+results/cause_cells.csv, results/cause_positions.csv, results/agreement/board100_2026_key.csv
+and board100_2025.csv,
 results/dossiers/*.json (stated facts, board exclusion records), maps/board_facts.csv,
 keycheck/unit.py (READINGS, parsed with ast, not imported) and, when they exist, the second
 map's answers (second_map/<engine>/answers_2026.csv). It reads every version and run id from
@@ -138,10 +139,11 @@ MAP_COMPUTED_TAGS = (
 )
 SALT_NOTE = "shared assumption: state and local income or sales tax paid"
 
-# A shared-reading entry names a household's answer as one that would change.
-NAMED_ANSWER = re.compile(r"\b(\d{3})'s (?:scored )?answer\b")
-SENTENCE_SPLIT = re.compile(r"(?<=[.;])\s+")
-WOULD = re.compile(r"\bwould\b")
+# results/cause_positions.csv: each entry's position on the key's answer for one household and line
+# (scripts/causes/build_causes.py writes it). A shared reading that lists a household disputes its
+# cell where its position there is one of these.
+POSITIONS = ("supports_key", "supports_other_answer", "turns_on_unstated_fact", "no_effect")
+DISPUTING_POSITIONS = ("supports_other_answer", "turns_on_unstated_fact")
 READINGS_REF = re.compile(r"READINGS (\w+)")
 PY_PATH = re.compile(r"[\w./-]+\.py")
 
@@ -185,15 +187,6 @@ def map_computed_tags(text: str) -> list[str]:
         else:
             tags.append("other:" + "_".join(re.findall(r"[a-z0-9]+", note.lower())[:5]))
     return sorted(set(tags))
-
-
-def named_answers_that_would_change(text: str) -> set[str]:
-    """Three-digit household ids whose answer a sentence names and says what it would be."""
-    found = set()
-    for sentence in SENTENCE_SPLIT.split(text):
-        if WOULD.search(sentence):
-            found.update(NAMED_ANSWER.findall(sentence))
-    return found
 
 
 def household_tokens(field: str) -> set[str]:
@@ -285,6 +278,11 @@ class Data:
         self.cause_by_id = {c["cause_id"]: c for c in self.causes}
         self.cause_order = {c["cause_id"]: i for i, c in enumerate(self.causes)}
         self.cause_cells = read_csv(root / "results/cause_cells.csv")
+        self.positions = {}
+        for row in read_csv(root / "results/cause_positions.csv"):
+            if row["position"] not in POSITIONS:
+                raise SystemExit(f"cause_positions.csv: position {row['position']!r} is not in {POSITIONS}")
+            self.positions[(row["cause_id"], row["case_id"], row["quantity"])] = row["position"]
         self.key_table = read_csv(root / "results/agreement/board100_2026_key.csv")
         self.table_2025 = read_csv(root / "results/agreement/board100_2025.csv")
         self.board_facts = read_csv(root / "maps/board_facts.csv")
@@ -430,7 +428,8 @@ def classify(facts: dict) -> dict:
     agreeing             runs of another lineage within $1 of the key
     apart                runs of another lineage with an answer more than $1 from the key
     key_moving           {cause_id: kind} for entries that move the key's answer by more than $1
-    shared_named         cause ids of shared readings that name this household's answer as one that would change
+    shared_disputing     cause ids of shared readings that list the household and whose position on the
+                         cell (results/cause_positions.csv) supports another answer or turns on an unstated fact
     board_record_reason  the board's exclusion record for the output, where a shared reading lists the
                          household and the record's alternative differs from the key by more than $1
     shared_board         cause ids of the shared readings behind board_record_reason
@@ -454,8 +453,8 @@ def classify(facts: dict) -> dict:
                     contesting=[], scope="")
     for cid, kind in facts["key_moving"].items():
         add(KEY_MOVING_REASON[kind], [cid])
-    if facts["shared_named"]:
-        add("turns_on_unstated_fact", facts["shared_named"])
+    if facts["shared_disputing"]:
+        add("turns_on_unstated_fact", facts["shared_disputing"])
     if facts["board_record_reason"]:
         add(facts["board_record_reason"], facts["shared_board"])
     if not facts["agreeing"]:
@@ -547,8 +546,14 @@ def cell(data: Data, case: str, quantity: str) -> dict:
                 names = any(k in data.readings for k in READINGS_REF.findall(cause["release_or_build"]))
                 entries.append((cid, cause["kind"], names))
         apart_causes[run] = entries
-    shared_named = [cid for cid in shared_ids
-                    if case.split("_")[-1] in named_answers_that_would_change(data.cause_by_id[cid]["who_is_right"])]
+    shared_disputing = []
+    for cid in shared_ids:
+        held = data.positions.get((cid, case, quantity))
+        if held is None:
+            raise SystemExit(f"cause_positions.csv has no position for {cid} on {case} {quantity}; "
+                             "rerun scripts/causes/build_causes.py")
+        if held in DISPUTING_POSITIONS:
+            shared_disputing.append(cid)
     record_reason, shared_board = "", []
     if record is not None and shared_ids and record.get("alternative_value") is not None:
         output = BOARD_OUTPUT.get(quantity, quantity)
@@ -567,7 +572,7 @@ def cell(data: Data, case: str, quantity: str) -> dict:
         agreeing=agreeing,
         apart=apart,
         key_moving=key_moving,
-        shared_named=shared_named,
+        shared_disputing=shared_disputing,
         board_record_reason=record_reason,
         shared_board=shared_board,
         apart_causes=apart_causes,
@@ -885,9 +890,9 @@ board's exact-match rule (`agreeing_runs`; `apart_runs` lists the runs that answ
      know stops the script.
    - `turns_on_unstated_fact`: an entry of kind `pe-default-unstated-fact`, `shared-reading` or
      `map-limit` moves the key's answer by more than $1; or a `shared-reading` entry lists the
-     household (`households_shared`) and its position (`who_is_right`) names the household's
-     answer in a sentence that says what the answer would be (the pattern `NNN's answer` or
-     `NNN's scored answer` in a sentence with "would"); or a `shared-reading` entry lists the
+     household (`households_shared`) and its position on the cell in
+     `results/cause_positions.csv` is `supports_other_answer` or `turns_on_unstated_fact` (a listed
+     household with no position there stops the script); or a `shared-reading` entry lists the
      household and the board's own exclusion record for the output, of reason
      `reference_depends_on_unlisted_input`, holds an alternative more than $1 from the key; or no
      run of another lineage agrees and an entry that moves a run that stands apart is a
@@ -1146,13 +1151,15 @@ What it can reproduce, and what it cannot (each claim cites `evidence/taxcalc.md
   care credit rates (D16).
 - It takes as given the IRA deduction, the student loan interest deduction, the educator expense
   limit, mortgage interest under the debt limit and the saver's credit (B2, B12, D22;
-  `evidence/law-2026.md` Part G), so `keycheck/statute.py` computes them; agreement on such a cell
+  `evidence/law-2026.md` Part G), and the additional tax on early distributions (`e09900`,
+  `keycheck/map_taxcalc.py`), so `keycheck/statute.py` computes them; agreement on such a cell
   tests this repo's reading of the statute as much as the model (`shared_map_computed`).
 - It has no input for qualified REIT dividends and PTP income (D9), no disability path for the
   credit for the elderly or disabled (D21), and no input for a divorce instrument dated before 2019
   (B3). Rent outside `e26270` and `e27200` does not count as qualified business income (D9), so
-  the map's reading `rental_qbi` decides two households
-  (`map-rental-not-qualified-business-income`).
+  the map's reading `rental_qbi` decides where rent goes; at map version 2026-11-11.1 rent with a
+  stated basis goes to `e27200`, a reading this repo leaves open
+  (`shared-rental-with-basis-qualified-business-income`).
 - It has no state model, so it takes PolicyEngine's state and local tax amount
   (`results/runs.csv`); where it itemizes, agreement tests the federal computation given that
   amount.
@@ -1181,7 +1188,8 @@ What it can reproduce, and what it cannot (each claim cites `evidence/taxsim.md`
   amount (P8.3), the senior deduction (L7, P8.4) and the $2,200 child credit with its phase-out
   (L5, P5.4) as the law has them.
 - It has no input for overtime, tips, car-loan interest (P1.2, B2), blindness (P1.2, P8.3),
-  tax-exempt interest (P15.5) or pre-tax contributions (P1.2), and no saver's credit
+  tax-exempt interest (P15.5), pre-tax contributions (P1.2) or the additional tax on early
+  distributions (`taxsim-no-early-distribution-tax-input`), and no saver's credit
   (`taxsim-no-savers-credit`). For 2026 it has no charitable deduction for non-itemizers (P9.5)
   and no 2/37 limit (P9.6); it caps state and local taxes at 2025's $40,000 (P9.1), pays the child
   care credit at the pre-2026 rates (P5.2), gives no $400 minimum qualified business income
@@ -1190,7 +1198,8 @@ What it can reproduce, and what it cannot (each claim cites `evidence/taxsim.md`
 - The map enters deductible medical expenses and charitable gifts in `mortgage`, which the build
   deducts uncapped (D6, P9.3), so `keycheck/statute.py` applies the floors first
   (`shared_map_computed`). Adjustments to income enter as negative `nonprop`, which also lowers
-  earned income for the EITC (P7.1; `map-ira-deduction-in-nonprop-cuts-eitc`). Like
+  earned income for the EITC and the refundable child credit (P7.1;
+  `map-ira-deduction-in-nonprop-cuts-eitc`). Like
   Tax-Calculator it takes PolicyEngine's state and local tax amount (`results/runs.csv`).
 - **Refundable credits** (`v25 + actc`, `scripts/run_taxsim.py`). The 2026 EITC with children
   matches the law on the dependent-count path the map uses and misses it on the age path (P3.4,

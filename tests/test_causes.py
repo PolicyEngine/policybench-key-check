@@ -4,6 +4,11 @@ Invariant: for every household, line and table, and every pair of answerers, the
 difference between their answers in results/answers.csv equals the difference
 between the sums of their amounts in results/cause_cells.csv, within $1.
 docs/causes.md defines the kinds and the sign convention.
+
+results/cause_positions.csv holds each entry's position on the key's 2026 answer for one
+household and line: every row's cause and cell exist, every cell row with a non-zero amount on
+the key's run has a position, every household a shared reading lists has one, and the answer a
+row supports agrees with the key and the entry's amounts.
 """
 
 import csv
@@ -58,6 +63,13 @@ CAUSE_FIELDS = [
     "households_shared", "opened_by", "entry_status",
 ]
 CELL_FIELDS = ["cause_id", "case_id", "quantity", "table", "answerer", "run", "amount", "basis"]
+POSITION_FIELDS = [
+    "cause_id", "case_id", "quantity", "position", "grounds", "key_value", "supported_answer",
+    "other_reading_answer", "how_computed", "note",
+]
+POSITIONS = {"supports_key", "supports_other_answer", "turns_on_unstated_fact", "no_effect"}
+GROUNDS = {"law", "prompt_rule", ""}
+KEY_RUN = RUN[("2026", "policybench-key")]
 
 
 def read(path):
@@ -68,6 +80,7 @@ def read(path):
 ANSWER_ROWS = [r for r in read("results/answers.csv") if r["case_set"] == CASE_SET]
 CAUSES = read("results/causes.csv")
 CELLS = read("results/cause_cells.csv")
+POSITION_ROWS = read("results/cause_positions.csv")
 RUNS_CSV = {r["run"] for r in read("results/runs.csv")}
 
 
@@ -114,6 +127,7 @@ RESIDUALS = residuals(VALUES, cell_sums(CELLS))
 def test_files_have_the_documented_columns():
     assert list(CAUSES[0]) == CAUSE_FIELDS
     assert list(CELLS[0]) == CELL_FIELDS
+    assert list(POSITION_ROWS[0]) == POSITION_FIELDS
 
 
 def test_the_invariant_covers_every_household_line_and_table():
@@ -214,12 +228,126 @@ def test_cells_agree_with_their_cause():
         assert set(causes[cause_id]["households"].split(";")) == cases, cause_id
 
 
+# The positions on the key's answers.
+
+
+def key_answer(case, quantity):
+    value = VALUES.get((case, quantity), {}).get(KEY_RUN)
+    if value is None:
+        value = VALUES.get((case, quantity), {}).get(KEY_FALLBACK[KEY_RUN])
+    return value
+
+
+def key_amounts():
+    out = defaultdict(float)
+    for row in CELLS:
+        if row["run"] == KEY_RUN:
+            out[(row["cause_id"], row["case_id"], row["quantity"])] += float(row["amount"])
+    return out
+
+
+def test_positions_name_causes_and_cells_that_exist():
+    causes = {c["cause_id"]: c for c in CAUSES}
+    seen = set()
+    for row in POSITION_ROWS:
+        key = (row["cause_id"], row["case_id"], row["quantity"])
+        assert key not in seen, key
+        seen.add(key)
+        assert row["cause_id"] in causes, row
+        assert row["quantity"] in causes[row["cause_id"]]["quantities"].split(";"), row
+        assert key_answer(row["case_id"], row["quantity"]) is not None, row
+        assert abs(float(row["key_value"]) - key_answer(row["case_id"], row["quantity"])) < 0.005, row
+
+
+def test_positions_take_only_defined_values():
+    for row in POSITION_ROWS:
+        assert row["position"] in POSITIONS, row
+        assert row["grounds"] in GROUNDS, row
+        if row["position"] in ("supports_key", "supports_other_answer"):
+            assert row["grounds"] in ("law", "prompt_rule"), row
+        else:
+            assert row["grounds"] == "", row
+
+
+def test_every_key_run_amount_has_a_position():
+    held = {(r["cause_id"], r["case_id"], r["quantity"]) for r in POSITION_ROWS}
+    missing = [k for k, amount in key_amounts().items() if amount != 0 and k not in held]
+    assert not missing, missing
+
+
+def test_every_cell_row_and_listed_household_in_2026_has_a_position():
+    held = {(r["cause_id"], r["case_id"], r["quantity"]) for r in POSITION_ROWS}
+    wanted = {(r["cause_id"], r["case_id"], r["quantity"]) for r in CELLS if r["table"] == "2026"}
+    for cause in CAUSES:
+        for token in filter(None, cause["households_shared"].split(";")):
+            case, _, table = token.partition("@")
+            if table in ("", "2026"):
+                for quantity in cause["quantities"].split(";"):
+                    wanted.add((cause["cause_id"], case, quantity))
+    assert not wanted - held, sorted(wanted - held)
+
+
+def test_a_position_on_a_cell_without_rows_names_the_household_in_its_entry():
+    causes = {c["cause_id"]: c for c in CAUSES}
+    on_cell = {(r["cause_id"], r["case_id"]) for r in CELLS}
+    for row in POSITION_ROWS:
+        cause = causes[row["cause_id"]]
+        listed = row["case_id"] in cause["households_shared"] or (row["cause_id"], row["case_id"]) in on_cell
+        assert listed or row["case_id"][-3:] in cause["summary"], row
+
+
+def position_errors(rows, moved):
+    """Rows whose supported answer does not follow from the key and the entry's amount on the key's run."""
+    bad = []
+    for row in rows:
+        key = float(row["key_value"])
+        amount = moved.get((row["cause_id"], row["case_id"], row["quantity"]), 0.0)
+        if row["position"] in ("supports_key", "no_effect"):
+            ok = abs(amount) <= TOLERANCE and row["supported_answer"] != "" and abs(float(row["supported_answer"]) - key) < 0.005
+        elif row["position"] == "supports_other_answer":
+            supported = float(row["supported_answer"])
+            ok = abs(supported - key) > TOLERANCE and (
+                abs(supported - (key - amount)) <= TOLERANCE if abs(amount) > TOLERANCE else bool(row["how_computed"].strip()))
+        else:
+            ok = row["supported_answer"] == ""
+        if row["other_reading_answer"]:
+            ok = ok and row["position"] in ("supports_key", "turns_on_unstated_fact") and bool(row["how_computed"].strip())
+        if not ok:
+            bad.append(row)
+    return bad
+
+
+def test_the_answer_a_position_supports_follows_from_the_key_and_the_amounts():
+    assert not position_errors(POSITION_ROWS, key_amounts())
+
+
+def test_positions_use_the_cell_status_vocabulary():
+    for row in POSITION_ROWS:
+        text = " ".join(row.values())
+        for word in ("confirmed", "verified", "settled", "closed"):
+            assert not re.search(rf"\b{word}\b", text, re.IGNORECASE), (word, row)
+
+
 # Properties of the check itself, so a pass means something.
 
 cell_index = st.integers(min_value=0, max_value=len(CELLS) - 1)
 big_delta = st.floats(min_value=1.5, max_value=1e5, allow_nan=False).flatmap(
     lambda x: st.sampled_from([x, -x])
 )
+
+
+DETERMINED = [i for i, r in enumerate(POSITION_ROWS)
+              if r["position"] in ("supports_key", "no_effect")
+              or (r["position"] == "supports_other_answer"
+                  and abs(key_amounts().get((r["cause_id"], r["case_id"], r["quantity"]), 0.0)) > TOLERANCE)]
+
+
+@settings(max_examples=60, deadline=None)
+@given(st.sampled_from(DETERMINED), big_delta)
+def test_a_wrong_supported_answer_breaks_the_position_check(index, delta):
+    rows = [dict(r) for r in POSITION_ROWS]
+    rows[index]["supported_answer"] = f"{float(rows[index]['supported_answer']) + delta:.2f}"
+    assert position_errors(rows, key_amounts())
 
 
 @settings(max_examples=60, deadline=None)

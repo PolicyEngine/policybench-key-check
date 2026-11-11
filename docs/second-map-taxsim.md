@@ -1,5 +1,11 @@
 # A second TAXSIM map, compared with the first
 
+**Since this comparison.** This page compares the second map with the first map as it stood at
+commit 1336819 (`keycheck` version 2026-11-10.3), and `compare.py` reads the first map's files
+from that commit. A builder has since applied the findings below to the first map (version
+2026-11-11.1, `evidence/traces/builder-2.md`), and the cause entries this page cites carry their
+current ids. The counts here describe the earlier first map.
+
 The TAXSIM answers in this repo rest on one input map: `keycheck/` turns each household's stated facts into TAXSIM's inputs. A map can hide errors and silent choices, so a second agent wrote a second map for the same 100 households without seeing the first. It worked from NBER's documentation for the test build, its own runs of the binary, the board's households as the board states them, and the law. This page compares the two maps input by input and answer by answer, and rules on every difference.
 
 - The second map: `second_map/taxsim/` (`map.py`, `inputs_2026.csv`, `answers_2026.csv`, `notes.csv`, `README.md`, `PROGRESS.md`, `probes/`, `runs/`, `sources/`). Its progress file ends `STATUS: complete`: the map covers all 100 households, as 103 engine records. The folder holds the map as its author left it. Private paths in it now read `INPUT/` (the input folder the author worked from: the board's households as the board states them, which a script drew from PolicyEngine/policybench@c7ede86c, a glossary of the stated facts, the four outputs' definitions, NBER's pages and binary, and a state and local tax file byte-identical to `results/shared/board100_salt_from_pe2.60.0_2026.csv`), `SECOND_MAP/` (the folder itself), `SCRATCH/`, `TRANSCRIPT.jsonl` and `PE_CHECKOUTS/`.
@@ -120,7 +126,7 @@ The probes P1 to P4 come from `python3 second_map/taxsim/compare.py --probes`:
 
 In the first map (`keycheck` at 9507519), each with the fix the lead can apply:
 
-1. Educational assistance stays out of income (`READINGS["educational_assistance"]`). Fix: count it as income, in TAXSIM's `pensions` so that it does not reach EITC earned income. Moves 030 by +190.00 and 068 by +12,818.36. `docs/causes.md` (shared-scholarship-not-income) takes the same position but says 030 owes 0 either way; TAXSIM gives 190.00 (AGI 18,000 less the 16,100 standard deduction, at 10%).
+1. Educational assistance stays out of income (`READINGS["educational_assistance"]`). Fix: count it as income, in TAXSIM's `pensions` so that it does not reach EITC earned income. Moves 030 by +190.00 and 068 by +12,818.36. `docs/causes.md` (`pe-scholarship-not-income`) takes the same position; at the time of this comparison the entry said 030 owed 0 either way, and it now gives the 190.00 TAXSIM shows (AGI 18,000 less the 16,100 standard deduction, at 10%).
 2. Survivor benefits other than Social Security stay out of income (`READINGS["survivor_benefits"]`). Fix: add them to `pensions`. Moves 062 by +4,443.42 on the second map's other inputs; with the first map's farm-rent entry it gives 4,328.39, the board's own alternative.
 3. Passive rental and farm-rental losses reduce income. Fix: net a return's rent and farm rent and suspend a net loss under 469(a), since no household states active participation. Moves 120 by +124.15; 098 does not move. The same reading would suspend 004's partnership loss of 135, which both maps deduct.
 4. Cash and non-cash gifts carry no 170(b)(1) percentage ceiling. Fix: apply the ceilings before the 0.5% floor. No line moves on the board (056, 074).

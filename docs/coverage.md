@@ -54,9 +54,9 @@ board's exact-match rule (`agreeing_runs`; `apart_runs` lists the runs that answ
      know stops the script.
    - `turns_on_unstated_fact`: an entry of kind `pe-default-unstated-fact`, `shared-reading` or
      `map-limit` moves the key's answer by more than $1; or a `shared-reading` entry lists the
-     household (`households_shared`) and its position (`who_is_right`) names the household's
-     answer in a sentence that says what the answer would be (the pattern `NNN's answer` or
-     `NNN's scored answer` in a sentence with "would"); or a `shared-reading` entry lists the
+     household (`households_shared`) and its position on the cell in
+     `results/cause_positions.csv` is `supports_other_answer` or `turns_on_unstated_fact` (a listed
+     household with no position there stops the script); or a `shared-reading` entry lists the
      household and the board's own exclusion record for the output, of reason
      `reference_depends_on_unlisted_input`, holds an alternative more than $1 from the key; or no
      run of another lineage agrees and an entry that moves a run that stands apart is a
@@ -136,32 +136,32 @@ All cells:
 
 | Quantity | Reproduced | Contested | Resting on PolicyEngine alone | Cells |
 |---|---:|---:|---:|---:|
-| `federal_income_tax_before_refundable_credits` | 80 | 20 | 0 | 100 |
+| `federal_income_tax_before_refundable_credits` | 76 | 24 | 0 | 100 |
 | `federal_refundable_credits` | 100 | 0 | 0 | 100 |
 | `self_employment_tax` | 100 | 0 | 0 | 100 |
 | `federal_employee_payroll_tax` | 100 | 0 | 0 | 100 |
 | `state_employee_payroll_tax` | 0 | 0 | 100 | 100 |
-| All quantities | 380 | 20 | 100 | 500 |
+| All quantities | 376 | 24 | 100 | 500 |
 
 Cells the board scores:
 
 | Quantity | Reproduced | Contested | Resting on PolicyEngine alone | Cells |
 |---|---:|---:|---:|---:|
-| `federal_income_tax_before_refundable_credits` | 80 | 4 | 0 | 84 |
+| `federal_income_tax_before_refundable_credits` | 76 | 8 | 0 | 84 |
 | `federal_refundable_credits` | 100 | 0 | 0 | 100 |
 | `self_employment_tax` | 100 | 0 | 0 | 100 |
 | `federal_employee_payroll_tax` | 96 | 0 | 0 | 96 |
 | `state_employee_payroll_tax` | 0 | 0 | 96 | 96 |
-| All quantities | 376 | 4 | 96 | 476 |
+| All quantities | 372 | 8 | 96 | 476 |
 
 By status detail:
 
 | Status | Detail | All cells | Scored cells |
 |---|---|---:|---:|
-| `reproduced` | `no_input_from_key_run` | 370 | 366 |
+| `reproduced` | `no_input_from_key_run` | 366 | 362 |
 | `reproduced` | `key_salt_amount_itemized` | 10 | 10 |
-| `contested` | `key_not_supported_by_law` | 5 | 0 |
-| `contested` | `turns_on_unstated_fact` | 15 | 4 |
+| `contested` | `key_not_supported_by_law` | 8 | 3 |
+| `contested` | `turns_on_unstated_fact` | 16 | 5 |
 | `contested` | `key_decided_value_unscored` | 0 | 0 |
 | `contested` | `three_answers_differ` | 0 | 0 |
 | `resting_on_one_model` | `no_other_model_has_quantity` | 100 | 96 |
@@ -173,29 +173,29 @@ Contested cells by reason (a cell counts under every reason that holds):
 
 | Reason | All cells | Scored cells |
 |---|---:|---:|
-| `key_not_supported_by_law` | 5 | 0 |
-| `turns_on_unstated_fact` | 19 | 4 |
+| `key_not_supported_by_law` | 8 | 3 |
+| `turns_on_unstated_fact` | 21 | 5 |
 | `key_decided_value_unscored` | 7 | 0 |
-| `three_answers_differ` | 2 | 0 |
+| `three_answers_differ` | 3 | 1 |
 
 Reproduced cells by what the reproduction shares with the key's run:
 
 | Shares with the key's run | Cells | Scored cells |
 |---|---:|---:|
 | `nothing` | 231 | 227 |
-| `key_salt_amount;map_computed_amount;reading` | 3 | 3 |
-| `key_salt_amount;reading` | 7 | 7 |
-| `map_computed_amount;reading` | 38 | 38 |
-| `reading` | 101 | 101 |
+| `key_salt_amount;map_computed_amount;reading` | 4 | 4 |
+| `key_salt_amount;reading` | 6 | 6 |
+| `map_computed_amount;reading` | 45 | 45 |
+| `reading` | 90 | 90 |
 
 Reproduced cells by how many runs give the key:
 
 | Reproduction scope | Cells | Scored cells |
 |---|---:|---:|
-| `both_runs_one_lineage` | 364 | 360 |
+| `both_runs_one_lineage` | 360 | 356 |
 | `one_run` | 0 | 0 |
-| `one_run_other_model_gap` | 15 | 15 |
-| `one_run_other_map_limit` | 1 | 1 |
+| `one_run_other_model_gap` | 14 | 14 |
+| `one_run_other_map_limit` | 2 | 2 |
 | `one_run_other_gap_and_map_limit` | 0 | 0 |
 | `one_run_other_unexplained` | 0 | 0 |
 
@@ -207,12 +207,12 @@ The second map against the key, by status (state payroll cells left out; each en
 
 | Status | Cells | Tax-Calculator | NBER TAXSIM | Either agrees | Neither agrees |
 |---|---:|---:|---:|---:|---:|
-| `reproduced` | 380 | 369 / 2 / 9 | 351 / 25 / 4 | 375 | 5 |
-| `contested` | 20 | 4 / 13 / 3 | 1 / 16 / 3 | 5 | 15 |
+| `reproduced` | 376 | 366 / 1 / 9 | 349 / 23 / 4 | 372 | 4 |
+| `contested` | 24 | 7 / 14 / 3 | 3 / 18 / 3 | 8 | 16 |
 
-Reproduced cells that no second-map run gives (a `second_map_error` answer counts for neither side; where every second-map answer differs, the first map's agreement does not survive the change of map): 064 income tax (Tax-Calculator differs, NBER TAXSIM differs), 067 income tax (Tax-Calculator second_map_error, NBER TAXSIM differs), 099 income tax (Tax-Calculator second_map_error, NBER TAXSIM differs), 026 refundable credits (Tax-Calculator second_map_error, NBER TAXSIM differs), 028 refundable credits (Tax-Calculator second_map_error, NBER TAXSIM differs).
+Reproduced cells that no second-map run gives (a `second_map_error` answer counts for neither side; where every second-map answer differs, the first map's agreement does not survive the change of map): 067 income tax (Tax-Calculator second_map_error, NBER TAXSIM differs), 099 income tax (Tax-Calculator second_map_error, NBER TAXSIM differs), 026 refundable credits (Tax-Calculator second_map_error, NBER TAXSIM differs), 028 refundable credits (Tax-Calculator second_map_error, NBER TAXSIM differs).
 
-Cells the rules leave contested or resting on PolicyEngine alone where a second-map run gives the key: 033 income tax (Tax-Calculator second_map_error, NBER TAXSIM agrees), 068 income tax (Tax-Calculator agrees, NBER TAXSIM differs), 078 income tax (Tax-Calculator agrees, NBER TAXSIM differs), 082 income tax (Tax-Calculator agrees, NBER TAXSIM differs), 117 income tax (Tax-Calculator agrees, NBER TAXSIM differs).
+Cells the rules leave contested or resting on PolicyEngine alone where a second-map run gives the key: 023 income tax (Tax-Calculator agrees, NBER TAXSIM agrees), 030 income tax (Tax-Calculator agrees, NBER TAXSIM differs), 033 income tax (Tax-Calculator second_map_error, NBER TAXSIM agrees), 068 income tax (Tax-Calculator agrees, NBER TAXSIM differs), 074 income tax (Tax-Calculator agrees, NBER TAXSIM agrees), 078 income tax (Tax-Calculator agrees, NBER TAXSIM differs), 082 income tax (Tax-Calculator agrees, NBER TAXSIM differs), 117 income tax (Tax-Calculator agrees, NBER TAXSIM differs).
 
 The columns read the second map's answers files as they stand when the script runs. Its comparison documents: `docs/second-map-taxcalc.md`, `docs/second-map-taxsim.md`.
 
@@ -223,13 +223,17 @@ Contested cells:
 | 002 | income tax | no | 0.00 | turns_on_unstated_fact, key_decided_value_unscored | `shared-disability-benefits-taxable` | none |
 | 005 | income tax | no | 106505.90 | key_not_supported_by_law, turns_on_unstated_fact, key_decided_value_unscored, three_answers_differ | `key-ira-deducted-without-219g`, `shared-net-investment-income-tax-in-line`, `shared-state-tax-refund-counted-in-full`, `taxsim-no-nonitemizer-charitable-deduction` | none |
 | 020 | income tax | no | 68056.71 | key_not_supported_by_law, turns_on_unstated_fact, key_decided_value_unscored, three_answers_differ | `pe-divorce-year-default`, `key-sales-tax-table-column-shift`, `shared-net-investment-income-tax-in-line`, `taxsim-no-nonitemizer-charitable-deduction` | none |
-| 022 | income tax | no | 11113.57 | turns_on_unstated_fact | `shared-state-income-tax-withholding-estimate`, `map-rental-not-qualified-business-income` | none |
+| 022 | income tax | no | 11113.57 | turns_on_unstated_fact | `shared-state-income-tax-withholding-estimate`, `shared-rental-with-basis-qualified-business-income` | taxcalc-6.9.0-2026, taxsim-cd2026110117-2026 |
+| 023 | income tax | yes | 643.43 | key_not_supported_by_law | `pe-early-distribution-tax-not-computed` | taxsim-cd2026110117-2026 |
+| 030 | income tax | yes | 0.00 | turns_on_unstated_fact | `pe-scholarship-not-income` | none |
 | 033 | income tax | no | 3818.15 | turns_on_unstated_fact | `shared-state-tax-refund-counted-in-full` | taxcalc-6.9.0-2026, taxsim-cd2026110117-2026 |
 | 042 | income tax | yes | 2361.96 | turns_on_unstated_fact | `shared-bdc-income-not-added` | taxcalc-6.9.0-2026, taxsim-cd2026110117-2026 |
-| 052 | income tax | no | 104211.41 | key_not_supported_by_law, key_decided_value_unscored | `key-ira-deducted-without-219g`, `shared-net-investment-income-tax-in-line` | none |
-| 062 | income tax | no | 0.00 | turns_on_unstated_fact | `shared-survivor-benefits-not-taxable` | taxcalc-6.9.0-2026, taxsim-cd2026110117-2026 |
-| 068 | income tax | yes | 1910.02 | turns_on_unstated_fact | `shared-scholarship-not-income` | taxcalc-6.9.0-2026, taxsim-cd2026110117-2026 |
-| 076 | income tax | yes | 19611.80 | turns_on_unstated_fact | `map-rental-not-qualified-business-income` | none |
+| 052 | income tax | no | 104211.41 | key_not_supported_by_law, turns_on_unstated_fact, key_decided_value_unscored | `key-ira-deducted-without-219g`, `shared-net-investment-income-tax-in-line` | none |
+| 062 | income tax | no | 0.00 | turns_on_unstated_fact | `pe-survivor-benefits-not-income`, `shared-rental-with-basis-qualified-business-income` | none |
+| 064 | income tax | yes | 4441.46 | key_not_supported_by_law, three_answers_differ | `pe-early-distribution-tax-not-computed`, `taxsim-no-overtime-deduction`, `taxsim-no-early-distribution-tax-input` | none |
+| 068 | income tax | yes | 1910.02 | turns_on_unstated_fact | `pe-scholarship-not-income` | none |
+| 074 | income tax | yes | 0.00 | key_not_supported_by_law | `pe-early-distribution-tax-not-computed` | taxsim-cd2026110117-2026 |
+| 076 | income tax | yes | 19611.80 | turns_on_unstated_fact | `shared-rental-with-basis-qualified-business-income` | taxcalc-6.9.0-2026, taxsim-cd2026110117-2026 |
 | 078 | income tax | no | 24164.46 | turns_on_unstated_fact | `shared-state-tax-refund-counted-in-full`, `shared-state-income-tax-withholding-estimate` | taxcalc-6.9.0-2026 |
 | 081 | income tax | no | 26932.27 | turns_on_unstated_fact | `shared-state-income-tax-withholding-estimate` | taxcalc-6.9.0-2026, taxsim-cd2026110117-2026 |
 | 082 | income tax | yes | 9579.77 | turns_on_unstated_fact | `shared-state-tax-refund-counted-in-full` | taxcalc-6.9.0-2026 |
@@ -237,7 +241,7 @@ Contested cells:
 | 107 | income tax | no | 0.00 | turns_on_unstated_fact, key_decided_value_unscored | `shared-disability-benefits-taxable` | none |
 | 114 | income tax | no | 10729.61 | turns_on_unstated_fact | `pe-medicare-part-b-premium-default`, `shared-state-income-tax-withholding-estimate`, `shared-over-the-counter-not-medical` | none |
 | 117 | income tax | no | 24961.34 | turns_on_unstated_fact | `shared-state-tax-refund-counted-in-full` | taxcalc-6.9.0-2026 |
-| 120 | income tax | no | 40021.82 | key_not_supported_by_law, turns_on_unstated_fact, key_decided_value_unscored | `pe-net-investment-income-leaves-out-farm-rent`, `key-ira-deducted-without-219g`, `shared-net-investment-income-tax-in-line`, `shared-state-income-tax-withholding-estimate`, `shared-state-paid-leave-contributions-not-in-salt`, `shared-passive-rental-loss-allowed`, `shared-mortgage-debt-after-2017`, `shared-state-tax-refund-counted-in-full` | none |
+| 120 | income tax | no | 40021.82 | key_not_supported_by_law, turns_on_unstated_fact, key_decided_value_unscored | `pe-net-investment-income-leaves-out-farm-rent`, `pe-no-passive-activity-loss-limit`, `key-ira-deducted-without-219g`, `shared-net-investment-income-tax-in-line`, `shared-state-income-tax-withholding-estimate`, `shared-state-paid-leave-contributions-not-in-salt`, `shared-mortgage-debt-after-2017`, `shared-state-tax-refund-counted-in-full` | none |
 | 121 | income tax | no | 0.00 | turns_on_unstated_fact, key_decided_value_unscored | `shared-over-the-counter-not-medical`, `shared-disability-benefits-taxable` | none |
 | 123 | income tax | no | 5200.24 | turns_on_unstated_fact | `shared-head-return-only` | taxcalc-6.9.0-2026 |
 
@@ -245,7 +249,7 @@ Contested cells:
 
 ### Tax year 2026
 
-- Federal income tax before refundable credits: gives the key's answer within $1 on 89 of 100 households (83 of the 84 the board scores). Entries that move its answer, with households: `map-rental-not-qualified-business-income` (2); `shared-state-tax-refund-counted-in-full` (2); `shared-disability-benefits-taxable` (3).
+- Federal income tax before refundable credits: gives the key's answer within $1 on 85 of 100 households (79 of the 84 the board scores). Entries that move its answer, with households: `shared-state-tax-refund-counted-in-full` (2); `shared-disability-benefits-taxable` (3).
 - Federal refundable credits: gives the key's answer within $1 on 100 of 100 households (100 of the 100 the board scores).
 - Self-employment tax: gives the key's answer within $1 on 100 of 100 households (100 of the 100 the board scores).
 - Federal employee payroll tax: gives the key's answer within $1 on 100 of 100 households (96 of the 96 the board scores).
@@ -263,13 +267,15 @@ What it can reproduce, and what it cannot (each claim cites `evidence/taxcalc.md
   care credit rates (D16).
 - It takes as given the IRA deduction, the student loan interest deduction, the educator expense
   limit, mortgage interest under the debt limit and the saver's credit (B2, B12, D22;
-  `evidence/law-2026.md` Part G), so `keycheck/statute.py` computes them; agreement on such a cell
+  `evidence/law-2026.md` Part G), and the additional tax on early distributions (`e09900`,
+  `keycheck/map_taxcalc.py`), so `keycheck/statute.py` computes them; agreement on such a cell
   tests this repo's reading of the statute as much as the model (`shared_map_computed`).
 - It has no input for qualified REIT dividends and PTP income (D9), no disability path for the
   credit for the elderly or disabled (D21), and no input for a divorce instrument dated before 2019
   (B3). Rent outside `e26270` and `e27200` does not count as qualified business income (D9), so
-  the map's reading `rental_qbi` decides two households
-  (`map-rental-not-qualified-business-income`).
+  the map's reading `rental_qbi` decides where rent goes; at map version 2026-11-11.1 rent with a
+  stated basis goes to `e27200`, a reading this repo leaves open
+  (`shared-rental-with-basis-qualified-business-income`).
 - It has no state model, so it takes PolicyEngine's state and local tax amount
   (`results/runs.csv`); where it itemizes, agreement tests the federal computation given that
   amount.
@@ -294,11 +300,22 @@ Notes the map leaves on `taxcalc-6.9.0-2026`'s answers, other than named reading
 | Tax-Calculator gives alimony no effect in 2025 or 2026 (every instrument treated as post-2018) | income tax, refundable credits | 3 |
 | a member has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line; their income tax return is outside the board's output | federal payroll | 2 |
 | a member has income of their own (employment_income), which is not income of the head's return | income tax, refundable credits | 2 |
+| no Tax-Calculator input for a taxable scholarship or grant; entered through e01200, which enters AGI only (not earned income) | income tax, refundable credits | 2 |
+| 26 U.S.C. 469: a net passive activity loss of 11,100.00 is disallowed this year and carries forward (469(b)); head's farm rent -11,100.00 allowed -0.00. policyengine-us applies no 469 limit | income tax, refundable credits | 1 |
+| 26 U.S.C. 469: a net passive activity loss of 135.00 is disallowed this year and carries forward (469(b)); head's partnership -135.00 allowed -0.00. policyengine-us applies no 469 limit | income tax, refundable credits | 1 |
+| 26 U.S.C. 469: a net passive activity loss of 446.59 is disallowed this year and carries forward (469(b)); head's farm rent -2,446.59 allowed -2,000.00. policyengine-us applies no 469 limit | income tax, refundable credits | 1 |
+| Tax-Calculator raises the qualified business income deduction to its 2026 minimum of $400 because all qualified business income reaches $1,000 (1,920 here); 26 U.S.C. 199A(i) counts only active trades, in which the taxpa ... | income tax, refundable credits | 1 |
 | Tax-Calculator zeroes the domestic production activities deduction (repealed for years after 2017) | income tax, refundable credits | 1 |
 | a member has income of their own (disability_benefits), which is not income of the head's return | income tax, refundable credits | 1 |
 | a member meets neither dependency test of 26 U.S.C. 152 on the stated facts and is not claimed | income tax, refundable credits | 1 |
+| head: the self-employed health insurance deduction is 100 under 26 U.S.C. 162(l) (earned income of 401(c)(2) from the business, 14,428); policyengine-us allows 0 (it deducts only health_insurance_premiums of a filer stat ... | income tax, refundable credits | 1 |
 | no Tax-Calculator input for miscellaneous income; entered through e01200, which enters AGI only | income tax, refundable credits | 1 |
 | no Tax-Calculator input for qualified REIT dividends and PTP income (26 U.S.C. 199A(b)(1)(B)) | income tax, refundable credits | 1 |
+| spouse: Schedule C or F earnings and person-paid premiums, but a stated has_esi of the filer or spouse is eligibility for an employer's subsidized plan, which bars the 26 U.S.C. 162(l) deduction (162(l)(2)(B)); the premi ... | income tax, refundable credits | 1 |
+| the maps read 19,650.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32( ... | income tax, refundable credits | 1 |
+| the maps read 24,361.77 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32( ... | income tax, refundable credits | 1 |
+| the maps read 5,350.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i ... | income tax, refundable credits | 1 |
+| the stated health savings account deduction of 9,915.44 exceeds the 26 U.S.C. 223(b) limit; 4,400 is allowed (policyengine-us takes the stated amount) | income tax, refundable credits | 1 |
 
 Amounts this repo computes for `taxcalc-6.9.0-2026` because the model takes them as given, or enters another way (`results/answers.csv` `map_computed`):
 
@@ -306,14 +323,19 @@ Amounts this repo computes for `taxcalc-6.9.0-2026` because the model takes them
 |---|---|---:|
 | IRA deduction figured under 26 U.S.C. 219(b), (c) and (g) | income tax, refundable credits | 20 |
 | traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages | income tax, refundable credits | 20 |
-| saver's credit figured under 26 U.S.C. 25B before the limit to tax (reading: The saver's credit testing period is the tax year only: distributions in the two prior years and in the next year before the return's due date ... | income tax, refundable credits | 4 |
+| saver's credit figured under 26 U.S.C. 25B before the limit to tax (reading: The saver's credit testing period is the tax year only: distributions in the two prior years and in the next year before the return's due date ... | income tax, refundable credits | 5 |
 | student loan interest deduction figured under 26 U.S.C. 221 | income tax, refundable credits | 4 |
+| additional tax on early distributions figured under 26 U.S.C. 72(t), entered as e09900; policyengine-us takes it as an input with no formula and the board states none | income tax, refundable credits | 3 |
+| partnership and S corporation income other than partners' self-employment earnings is entered as e27200 (with e02000), so it counts as net investment income and EITC investment income, as passive income does (26 U.S.C. 1 ... | income tax, refundable credits | 3 |
+| passive activity losses limited by 26 U.S.C. 469(a) (allowed amounts in e02000, e26270, e27200 and k1bx14) | income tax, refundable credits | 3 |
 | educator expenses limited by 26 U.S.C. 62(a)(2)(D) | income tax, refundable credits | 2 |
 | mortgage interest limited by 26 U.S.C. 163(h)(3)(F) | income tax, refundable credits | 2 |
+| health savings account deduction limited by 26 U.S.C. 223(b) (keycheck.unit.READINGS['hsa']), entered as e03290 | income tax, refundable credits | 1 |
+| self-employed health insurance deduction limited by 26 U.S.C. 162(l)(2)(A) to earned income of 401(c)(2) from the business, entered as e03270 | income tax, refundable credits | 1 |
 
 ### Tax year 2025, where it differs
 
-- Federal income tax before refundable credits: `taxcalc-6.9.0-2025` agrees with `pe-2.60.0-board-2025` on 94 of 100 households (the 2026 run agrees with the 2026 key on 89). Entries that move its 2025 answer, with households: `map-rental-not-qualified-business-income` (2).
+- Federal income tax before refundable credits: `taxcalc-6.9.0-2025` agrees with `pe-2.60.0-board-2025` on 90 of 100 households (the 2026 run agrees with the 2026 key on 85).
 - Federal refundable credits: `taxcalc-6.9.0-2025` agrees with `pe-2.60.0-board-2025` on 100 of 100 households (the 2026 run agrees with the 2026 key on 100).
 - Self-employment tax: `taxcalc-6.9.0-2025` agrees with `pe-2.60.0-board-2025` on 100 of 100 households (the 2026 run agrees with the 2026 key on 100).
 - Federal employee payroll tax: `taxcalc-6.9.0-2025` agrees with `pe-2.60.0-board-2025` on 100 of 100 households (the 2026 run agrees with the 2026 key on 100).
@@ -327,8 +349,8 @@ deduction and the pre-2026 child care credit rates, as the law has them for 2025
 
 ### Tax year 2026
 
-- Federal income tax before refundable credits: gives the key's answer within $1 on 73 of 100 households (70 of the 84 the board scores). Entries that move its answer, with households: `taxsim-no-overtime-deduction` (7); `taxsim-no-nonitemizer-charitable-deduction` (10); `taxsim-no-tax-exempt-interest-input` (2); `taxsim-no-blindness-input` (1); `taxsim-no-savers-credit` (2); `taxsim-2026-child-care-credit-old-rates` (1); `taxsim-2026-salt-cap-40000` (1); `map-rental-not-qualified-business-income` (2); `shared-state-tax-refund-counted-in-full` (2); `shared-disability-benefits-taxable` (3).
-- Federal refundable credits: gives the key's answer within $1 on 96 of 100 households (96 of the 100 the board scores). Entries that move its answer, with households: `taxsim-no-overtime-deduction` (1); `taxsim-no-savers-credit` (1); `taxsim-2026-child-care-credit-old-rates` (1); `taxsim-refundable-child-credit-ignores-child-care-credit` (1); `taxsim-three-child-refundable-credit-alternative` (1); `map-ira-deduction-in-nonprop-cuts-eitc` (1).
+- Federal income tax before refundable credits: gives the key's answer within $1 on 72 of 100 households (69 of the 84 the board scores). Entries that move its answer, with households: `taxsim-no-overtime-deduction` (7); `taxsim-no-nonitemizer-charitable-deduction` (10); `taxsim-no-tax-exempt-interest-input` (2); `taxsim-no-blindness-input` (1); `taxsim-no-savers-credit` (2); `taxsim-2026-child-care-credit-old-rates` (1); `taxsim-2026-salt-cap-40000` (1); `taxsim-no-early-distribution-tax-input` (3); `shared-state-tax-refund-counted-in-full` (2); `shared-disability-benefits-taxable` (3).
+- Federal refundable credits: gives the key's answer within $1 on 95 of 100 households (95 of the 100 the board scores). Entries that move its answer, with households: `taxsim-no-overtime-deduction` (1); `taxsim-no-savers-credit` (1); `taxsim-2026-child-care-credit-old-rates` (1); `taxsim-refundable-child-credit-ignores-child-care-credit` (1); `taxsim-three-child-refundable-credit-alternative` (1); `map-ira-deduction-in-nonprop-cuts-eitc` (2).
 - Self-employment tax: gives the key's answer within $1 on 100 of 100 households (100 of the 100 the board scores).
 - Federal employee payroll tax: gives the key's answer within $1 on 100 of 100 households (96 of the 96 the board scores).
 - State employee payroll tax: no answer on any household (`results/answers.csv` status `not_covered`).
@@ -340,7 +362,8 @@ What it can reproduce, and what it cannot (each claim cites `evidence/taxsim.md`
   amount (P8.3), the senior deduction (L7, P8.4) and the $2,200 child credit with its phase-out
   (L5, P5.4) as the law has them.
 - It has no input for overtime, tips, car-loan interest (P1.2, B2), blindness (P1.2, P8.3),
-  tax-exempt interest (P15.5) or pre-tax contributions (P1.2), and no saver's credit
+  tax-exempt interest (P15.5), pre-tax contributions (P1.2) or the additional tax on early
+  distributions (`taxsim-no-early-distribution-tax-input`), and no saver's credit
   (`taxsim-no-savers-credit`). For 2026 it has no charitable deduction for non-itemizers (P9.5)
   and no 2/37 limit (P9.6); it caps state and local taxes at 2025's $40,000 (P9.1), pays the child
   care credit at the pre-2026 rates (P5.2), gives no $400 minimum qualified business income
@@ -349,7 +372,8 @@ What it can reproduce, and what it cannot (each claim cites `evidence/taxsim.md`
 - The map enters deductible medical expenses and charitable gifts in `mortgage`, which the build
   deducts uncapped (D6, P9.3), so `keycheck/statute.py` applies the floors first
   (`shared_map_computed`). Adjustments to income enter as negative `nonprop`, which also lowers
-  earned income for the EITC (P7.1; `map-ira-deduction-in-nonprop-cuts-eitc`). Like
+  earned income for the EITC and the refundable child credit (P7.1;
+  `map-ira-deduction-in-nonprop-cuts-eitc`). Like
   Tax-Calculator it takes PolicyEngine's state and local tax amount (`results/runs.csv`).
 - **Refundable credits** (`v25 + actc`, `scripts/run_taxsim.py`). The 2026 EITC with children
   matches the law on the dependent-count path the map uses and misses it on the age path (P3.4,
@@ -372,25 +396,36 @@ Notes the map leaves on `taxsim-cd2026110117-2026`'s answers, other than named r
 | Note | Lines | Households |
 |---|---|---:|
 | the model has no state payroll taxes | state payroll | 100 |
-| adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from EITC earned income (probe P7.1); the law's earned income (26 U.S.C. 32(c) ... | income tax, refundable credits | 19 |
+| adjustments to income (IRA, student loan interest, educator expenses, HSA) are entered as negative `nonprop`, which this build also subtracts from the earned income of the EITC (probe P7.1) and of the refundable child cr ... | income tax, refundable credits | 19 |
 | TAXSIM has no charitable deduction for non-itemizers (26 U.S.C. 170(p), from 2026) | income tax, refundable credits | 17 |
-| other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund) is entered as `pensions`: `nonprop` would count as EITC earned income | income tax, refundable credits | 14 |
+| other taxable income (miscellaneous income, taxable disability benefits, a taxable state refund, a taxable scholarship) is entered as `pensions`: `nonprop` would count as EITC earned income | income tax, refundable credits | 16 |
 | TAXSIM has no input for nontaxable pensions (credit for the elderly or disabled) | income tax, refundable credits | 13 |
 | TAXSIM has no input for qualified overtime compensation (26 U.S.C. 225) | income tax, refundable credits | 11 |
 | TAXSIM has no input for blindness (additional standard deduction, 26 U.S.C. 63(f)(2)) | income tax, refundable credits | 9 |
 | this build has no 2026 minimum qualified business income deduction (26 U.S.C. 199A(i)) | income tax, refundable credits | 8 |
 | TAXSIM has no input for tax-exempt interest (Social Security provisional income, EITC investment income) | income tax, refundable credits | 7 |
-| this build ignores `otherprop` from 2024, so rent and estate income are entered as `intrec` | income tax, refundable credits | 6 |
-| partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income | income tax, refundable credits | 5 |
 | this build computes the 2026 child care credit at the pre-2026 rates (probe P5) | income tax, refundable credits | 5 |
 | alimony is left out (treated as a post-2018 instrument) | income tax, refundable credits | 3 |
-| partnership, S corporation and farm rent income are entered as `scorp`, which this build counts as net investment income and EITC investment income; a loss there also offsets other investment income in the EITC test and ... | income tax, refundable credits | 3 |
+| this build ignores `otherprop` from 2024, so estate income and rentals that are not qualified business income are entered as `intrec` | income tax, refundable credits | 3 |
 | a member has earnings of their own: their Social Security and Medicare tax counts in the household's payroll line; their income tax return is outside the board's output | federal payroll | 2 |
 | a member has income of their own (employment_income), which is not income of the head's return | income tax, refundable credits | 2 |
+| 26 U.S.C. 469: a net passive activity loss of 11,100.00 is disallowed this year and carries forward (469(b)); head's farm rent -11,100.00 allowed -0.00. policyengine-us applies no 469 limit | income tax, refundable credits | 1 |
+| 26 U.S.C. 469: a net passive activity loss of 135.00 is disallowed this year and carries forward (469(b)); head's partnership -135.00 allowed -0.00. policyengine-us applies no 469 limit | income tax, refundable credits | 1 |
+| 26 U.S.C. 469: a net passive activity loss of 446.59 is disallowed this year and carries forward (469(b)); head's farm rent -2,446.59 allowed -2,000.00. policyengine-us applies no 469 limit | income tax, refundable credits | 1 |
 | TAXSIM has no input for qualified REIT dividends and PTP income | income tax, refundable credits | 1 |
+| TAXSIM has no input for the additional tax on early distributions (26 U.S.C. 72(t)), which the statute puts at 2,000.00 at TAXSIM's AGI (unit.READINGS['retirement_penalty']); policyengine-us takes it as an input with no ... | income tax, refundable credits | 1 |
+| TAXSIM has no input for the additional tax on early distributions (26 U.S.C. 72(t)), which the statute puts at 38.40 at TAXSIM's AGI (unit.READINGS['retirement_penalty']); policyengine-us takes it as an input with no for ... | income tax, refundable credits | 1 |
+| TAXSIM has no input for the additional tax on early distributions (26 U.S.C. 72(t)), which the statute puts at 800.00 at TAXSIM's AGI (unit.READINGS['retirement_penalty']); policyengine-us takes it as an input with no fo ... | income tax, refundable credits | 1 |
 | a member has income of their own (disability_benefits), which is not income of the head's return | income tax, refundable credits | 1 |
 | a member meets neither dependency test of 26 U.S.C. 152 on the stated facts and is not claimed | income tax, refundable credits | 1 |
+| head: the self-employed health insurance deduction is 100 under 26 U.S.C. 162(l) (earned income of 401(c)(2) from the business, 14,428); policyengine-us allows 0 (it deducts only health_insurance_premiums of a filer stat ... | income tax, refundable credits | 1 |
+| spouse: Schedule C or F earnings and person-paid premiums, but a stated has_esi of the filer or spouse is eligibility for an employer's subsidized plan, which bars the 26 U.S.C. 162(l) deduction (162(l)(2)(B)); the premi ... | income tax, refundable credits | 1 |
 | the domestic production activities deduction is left out (repealed for years after 2017) | income tax, refundable credits | 1 |
+| the maps read 19,650.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32( ... | income tax, refundable credits | 1 |
+| the maps read 24,361.77 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32( ... | income tax, refundable credits | 1 |
+| the maps read 5,350.00 of partnership and S corporation income (beyond partners' self-employment earnings) as passive, so as net investment income (26 U.S.C. 1411(c)(1)(A)(ii), (c)(2)(A)) and EITC investment income (32(i ... | income tax, refundable credits | 1 |
+| the self-employed health insurance and pension deductions are entered as negative `nonprop`; this build also subtracts them from the earned income of the EITC (probes P7.1, D1b) and of the refundable child credit (board ... | income tax, refundable credits | 1 |
+| the stated health savings account deduction of 9,915.44 exceeds the 26 U.S.C. 223(b) limit; 4,400 is allowed (policyengine-us takes the stated amount) | income tax, refundable credits | 1 |
 
 Amounts this repo computes for `taxsim-cd2026110117-2026` because the model takes them as given, or enters another way (`results/answers.csv` `map_computed`):
 
@@ -399,16 +434,18 @@ Amounts this repo computes for `taxsim-cd2026110117-2026` because the model take
 | medical expenses above 7.5% of AGI (26 U.S.C. 213(a)) entered in `mortgage`, which TAXSIM deducts as given | income tax, refundable credits | 84 |
 | IRA deduction figured under 26 U.S.C. 219(b), (c) and (g), entered as negative `nonprop` | income tax, refundable credits | 20 |
 | traditional 401(k) deferrals limited by 26 U.S.C. 402(g) and, with Roth deferrals, to wages; TAXSIM has no input for them, so wages are entered gross and the deferrals as negative `nonprop`, which lowers AGI and EITC ear ... | income tax, refundable credits | 20 |
-| charitable gifts (above 0.5% of AGI from 2026, 26 U.S.C. 170(b)(1)(I)) entered in `mortgage`; percentage ceilings not applied | income tax, refundable credits | 17 |
+| charitable gifts limited by the 26 U.S.C. 170(b)(1) ceilings (60% cash, 50% other gifts less the cash) and, from 2026, the 0.5% floor of 170(b)(1)(I) (unit.READINGS['charity']), entered in `mortgage` | income tax, refundable credits | 17 |
 | student loan interest deduction figured under 26 U.S.C. 221, entered as negative `nonprop` | income tax, refundable credits | 4 |
+| passive activity losses limited by 26 U.S.C. 469(a) (allowed amounts in `scorp`, `intrec` and the self-employment boxes) | income tax, refundable credits | 3 |
 | educator expenses limited by 26 U.S.C. 62(a)(2)(D) | income tax, refundable credits | 2 |
 | mortgage interest limited by 26 U.S.C. 163(h)(3)(F) | income tax, refundable credits | 2 |
 | the EITC comes from a second TAXSIM record with `dep18` = the EITC children (at most three); the tax before refundable credits and the refundable child credit come from the first, with `dep18` = the children under 17 (th ... | income tax, refundable credits | 2 |
+| health savings account deduction limited by 26 U.S.C. 223(b) (unit.READINGS['hsa']), entered as negative `nonprop` | income tax, refundable credits | 1 |
 
 ### Tax year 2025, where it differs
 
-- Federal income tax before refundable credits: `taxsim-cd2026110117-2025` agrees with `pe-2.60.0-board-2025` on 84 of 100 households (the 2026 run agrees with the 2026 key on 73). Entries that move its 2025 answer, with households: `taxsim-no-overtime-deduction` (7); `taxsim-no-tax-exempt-interest-input` (2); `taxsim-no-blindness-input` (1); `taxsim-no-savers-credit` (2); `map-rental-not-qualified-business-income` (2).
-- Federal refundable credits: `taxsim-cd2026110117-2025` agrees with `pe-2.60.0-board-2025` on 96 of 100 households (the 2026 run agrees with the 2026 key on 96). Entries that move its 2025 answer, with households: `taxsim-no-overtime-deduction` (1); `taxsim-no-savers-credit` (1); `taxsim-refundable-child-credit-ignores-child-care-credit` (1); `taxsim-three-child-refundable-credit-alternative` (1); `map-ira-deduction-in-nonprop-cuts-eitc` (1).
+- Federal income tax before refundable credits: `taxsim-cd2026110117-2025` agrees with `pe-2.60.0-board-2025` on 83 of 100 households (the 2026 run agrees with the 2026 key on 72). Entries that move its 2025 answer, with households: `taxsim-no-overtime-deduction` (7); `taxsim-no-tax-exempt-interest-input` (2); `taxsim-no-blindness-input` (1); `taxsim-no-savers-credit` (2); `taxsim-no-early-distribution-tax-input` (3).
+- Federal refundable credits: `taxsim-cd2026110117-2025` agrees with `pe-2.60.0-board-2025` on 95 of 100 households (the 2026 run agrees with the 2026 key on 95). Entries that move its 2025 answer, with households: `taxsim-no-overtime-deduction` (1); `taxsim-no-savers-credit` (1); `taxsim-refundable-child-credit-ignores-child-care-credit` (1); `taxsim-three-child-refundable-credit-alternative` (1); `map-ira-deduction-in-nonprop-cuts-eitc` (2).
 - Self-employment tax: `taxsim-cd2026110117-2025` agrees with `pe-2.60.0-board-2025` on 100 of 100 households (the 2026 run agrees with the 2026 key on 100).
 - Federal employee payroll tax: `taxsim-cd2026110117-2025` agrees with `pe-2.60.0-board-2025` on 100 of 100 households (the 2026 run agrees with the 2026 key on 100).
 
